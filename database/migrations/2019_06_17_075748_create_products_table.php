@@ -14,18 +14,19 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
             $table->float('unit_cost');
-            $table->string('brand_id');
+            $table->bigInteger('brand_id')->unsigned();
             $table->string('short_description');
             $table->string('long_description')->nullable();
             $table->string('featured_image_url');
             $table->boolean('status');
-            $table->integer('seller_id');
+            $table->integer('seller_id')->unsigned();
 
             $table->timestamps();
         });
+
     }
 
     /**

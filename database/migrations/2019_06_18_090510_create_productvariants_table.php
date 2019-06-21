@@ -15,8 +15,10 @@ class CreateProductvariantsTable extends Migration
     {
         Schema::create('productvariants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('product_id');
-            $table->integer('variant_id')->nullable();
+            $table->integer('products_id')->unsigned();
+            $table->foreign('products_id')->references('id')->on('products');
+            $table->biginteger('variants_id')->unsigned()->nullable();
+            $table->foreign('variants_id')->references('id')->on('variants');
             $table->timestamps();
         });
     }

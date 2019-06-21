@@ -15,8 +15,7 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('checkout_id');
-            $table->foreign('checkout_id')->references('id')->on('checkouts');
+            $table->biginteger('checkout_id')->unsigned();
             $table->string('payment_method');
             $table->float('amount');
             $table->string('reference_code');

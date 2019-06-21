@@ -2,46 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c518d904-da14-4426-bbca-8c17507efce7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Address.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DeactiveSellers.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Detail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Discount.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Featured.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoggingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoggingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/SellerLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/SellerLoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ProductSeller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Sales.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Setting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_075748_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_075748_create_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_081858_create_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_081858_create_admins_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_083616_create_details_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_084232_create_detail_product_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_094714_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_094714_create_images_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_095708_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_095708_create_brands_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_100720_create_rates_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_101041_create_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_101041_create_reviews_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_113023_create_orders_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_113613_create_order_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_17_113613_create_order_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_17_115504_create_addresses_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_063459_create_regions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_063459_create_regions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_063732_create_discounts_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_070233_create_orderdeliverlies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_070233_create_orderdeliverlies_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_070935_create_offers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_070935_create_offers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_075451_create_featureds_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_082959_create_settings_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_083142_create_inventories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_083142_create_inventories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_084356_create_deactive_sellers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_085353_create_variants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_085353_create_variants_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_090628_create_product_sellers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_091454_create_sales_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/seller/seller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/seller/seller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_090137_create_variantoptions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_090137_create_variantoptions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_090510_create_productvariants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_18_090510_create_productvariants_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_18_091909_create_seller_orders_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_20_175410_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_20_175410_create_payments_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,35 +36,71 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_090510_create_productvariants_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="255">
+              <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_091909_create_seller_orders_table.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_090137_create_variantoptions_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="225">
+              <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_20_175410_create_payments_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_094714_create_images_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_20_175410_create_payments_table.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_074507_create_wish__tables.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="255">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_073841_create_sellers__tables.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -116,24 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_102857_create_buyer_reset_passwords_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_103017_create_seller_reset_passwords_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_112412_create_admin_reset_passwords_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_115504_create_addresses_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_063732_create_discounts_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_072104_create_featured_couresels_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_082959_create_settings_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_084356_create_deactive_sellers_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_090137_create_variantoptions_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_090510_create_productvariants_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_090628_create_product_sellers_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_091909_create_seller_orders_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_084232_create_detail_product_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_113023_create_orders_table.php" />
-        <option value="$PROJECT_DIR$/config/auth.php" />
-        <option value="$PROJECT_DIR$/app/Admin.php" />
-        <option value="$PROJECT_DIR$/app/Seller.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
@@ -153,20 +147,38 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/SellerLoginController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoggingController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_075748_create_products_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_17_081858_create_admins_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_095708_create_brands_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_101041_create_reviews_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_18_063459_create_regions_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_113613_create_order_products_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_070233_create_orderdeliverlies_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_070935_create_offers_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_083142_create_inventories_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_18_085353_create_variants_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_091909_create_seller_orders_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_071416_create_modify_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_081218_create_modify_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_20_175411_create_modify_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_075748_create_products_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_095708_create_brands_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_073641_create_category__tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_073841_create_sellers__tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_074135_create_image__tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_101041_create_reviews_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_074507_create_wish__tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_074338_create_reviews__tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_113613_create_order_products_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_075520_create_ordersp_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_070233_create_orderdeliverlies_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_075856_create_checkout_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_080234_create_deliver_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_070935_create_offers_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_080458_create_offer_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_083142_create_inventories_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_21_080646_create_inventory_tables.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_090137_create_variantoptions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_18_090510_create_productvariants_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_20_175410_create_payments_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_094714_create_images_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php" />
       </list>
     </option>
   </component>
@@ -400,12 +412,12 @@
       <workItem from="1561009241300" duration="2892000" />
       <workItem from="1561048338904" duration="5462000" />
       <workItem from="1561096819081" duration="165000" />
-      <workItem from="1561097066043" duration="1330000" />
+      <workItem from="1561097066043" duration="6716000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60711000" />
+    <option name="totallyTimeSpent" value="66097000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -418,7 +430,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="26" width="1366" height="742" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2968278" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -435,7 +446,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286385" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151056" side_tool="true" weight="0.3286385" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.209375" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.1971831" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -446,81 +457,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="44" column="107" selection-start-line="44" selection-start-column="107" selection-end-line="44" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="1" selection-start-line="3" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/admin.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/Seller/seller.blade.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SellerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/admin/admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/admin-login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="76" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/seller-login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -574,26 +510,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_075748_create_products_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_083616_create_details_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_084232_create_detail_product_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_100720_create_rates_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_113023_create_orders_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_115504_create_addresses_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_082959_create_settings_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_084356_create_deactive_sellers_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_090628_create_product_sellers_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_091454_create_sales_table.php" />
+    <entry file="file://$PROJECT_DIR$/app/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="90">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_081858_create_admins_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+        <state relative-caret-position="240">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -604,6 +540,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_081858_create_admins_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_095708_create_brands_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_101041_create_reviews_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -611,47 +568,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_100720_create_rates_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_095708_create_brands_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_073641_create_category__tables.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        <state relative-caret-position="210">
+          <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_094714_create_images_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_101041_create_reviews_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_113023_create_orders_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_113613_create_order_products_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="59" lean-forward="true" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_115504_create_addresses_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_063459_create_regions_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -660,28 +583,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_070233_create_orderdeliverlies_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_074338_create_reviews__tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_074135_create_image__tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_075856_create_checkout_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_070233_create_orderdeliverlies_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_080234_create_deliver_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_070935_create_offers_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        <state relative-caret-position="240">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_082959_create_settings_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_084356_create_deactive_sellers_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_090628_create_product_sellers_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_091454_create_sales_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_083142_create_inventories_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_080458_create_offer_tables.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        <state relative-caret-position="375">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -692,6 +646,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_113613_create_order_products_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_075520_create_ordersp_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_075748_create_products_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_083142_create_inventories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_085353_create_variants_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -699,38 +681,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_091909_create_seller_orders_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_080646_create_inventory_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_20_175411_create_modify_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="61" lean-forward="true" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_090137_create_variantoptions_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="225">
+          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_090510_create_productvariants_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="255">
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_091909_create_seller_orders_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_073841_create_sellers__tables.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="195">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_18_064248_create_checkouts_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_081217_create_sellers_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        <state relative-caret-position="180">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_20_175410_create_payments_table.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_094714_create_images_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_21_074507_create_wish__tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_17_101249_create_wish_lists_table.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
         </state>
       </provider>
     </entry>

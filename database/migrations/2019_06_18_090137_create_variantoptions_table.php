@@ -15,7 +15,8 @@ class CreateVariantoptionsTable extends Migration
     {
         Schema::create('variantoptions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('variant_id');
+            $table->biginteger('variants_id')->unsigned();
+            $table->foreign('variants_id')->references('id')->on('variants');
             $table->string('name');
             $table->timestamps();
         });
