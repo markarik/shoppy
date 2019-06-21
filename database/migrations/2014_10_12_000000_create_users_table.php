@@ -12,13 +12,20 @@ class CreateUsersTable extends Migration
      * @return void
      */
     public function up()
-//        Represents the buyers in the system
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///
+///
+///        Represents the buyers in the system
+///
+///
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('username')->unique();
-            $table->integer('phonenumber')->unique();
+            $table->string('f_name');
+            $table->string('l_name');
+            $table->integer('phone_number')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

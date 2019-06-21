@@ -15,10 +15,13 @@ class CreateSellersTable extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('f_name');
+            $table->string('l_name');
             $table->string('phone_number');
             $table->string('password');
             $table->string('email')->unique();
+            $table->string('business_no')->unique();
+            $table->string('logo_url')->nullable();
             $table->string('store_name')->unique();
             $table->string('status')->default('pending');
             $table->string('county');

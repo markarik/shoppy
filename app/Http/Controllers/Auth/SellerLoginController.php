@@ -11,7 +11,7 @@ class SellerLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:seller');
+        $this->middleware('auth:seller');
     }
 
     public  function loginform()

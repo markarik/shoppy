@@ -16,7 +16,8 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('offer');
-            $table->integer('seller_product_id');
+            $table->integer('product_id');
+            $table->string('discount')->nullable();
             $table->integer('duration');
             $table->timestamps();
         });

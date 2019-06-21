@@ -10,8 +10,10 @@ class AdminLoggingController extends Controller
 {
     public  function __construct()
     {
-        $this->middleware('guest:admin');
+        $this->middleware('auth:admin');
     }
+
+
 
 
     public function loginform(){
@@ -28,18 +30,18 @@ class AdminLoggingController extends Controller
 
         //attempts to logging the user
 
-//        $credentials = $request->only('email','password');
-//        $remember = $request->has('remember_me') ? true : false;
+        /*$credentials = $request->only('email','password');
+        $remember = $request->has('remember_me') ? true : false;*/
 
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
 
 
-//            if they are authenticated
+        //if they are authenticated
             return redirect()->intended(route('admin.dashboard'));
 
         }
 
-//        if not authenticated
+        // if not authenticated
 
         return redirect()->back()->withInput($request->only('email','remember'));
     }
