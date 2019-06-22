@@ -17,17 +17,30 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('seller')->group(function(){
-    Route::get('/login','Auth\SellerLoginController@loginform')->name('seller.login');
-    Route::post('/login','Auth\SellerLoginController@login')->name('seller.login.submit');
-    Route::get('/','SellerController@index')->name('seller.dashboard');
+/*Route::prefix('sellera')->group(function(){
+    Route::get('/login','Auth\SellerLoginController@loginform')->name('sellera.login');
+    Route::post('/login','Auth\SellerLoginController@login')->name('sellera.login.submit');
+    Route::get('/','SellerController@index')->name('sellera.dashboard');
 });
 
 
-Route::prefix('admin')->group(function (){
+Route::prefix('seller')->group(function (){
 
-    Route::get('/login','Auth\AdminLoggingController@loginform')->name('admin.login');
-    Route::post('/login','Auth\AdminLoggingController@login')->name('admin.login.submit');
-    Route::get('/','AdminController@index')->name('admin.dashboard');
+    Route::get('/login','Auth\AdminLoggingController@loginform')->name('seller.login');
+    Route::post('/login','Auth\AdminLoggingController@login')->name('seller.login.submit');
+    Route::get('/','AdminController@index')->name('seller.dashboard');
 
-});
+});*/
+
+///////////////////////////////////////////////////////////////
+///
+///   TEst routes
+///
+///
+/// //////////////////////////////////////////////////////////
+
+Route::get('/seller','SellerController@index');
+
+
+Route::resource('/product','ProductController');
+Route::resource('/category','CategoryController');

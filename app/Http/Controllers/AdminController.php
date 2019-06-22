@@ -9,7 +9,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:seller');
     }
 
     /**
@@ -19,7 +19,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.admin');
+        return view('pages.seller.seller');
     }
 
     /**

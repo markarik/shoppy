@@ -10,14 +10,14 @@ class AdminLoggingController extends Controller
 {
     public  function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:seller');
     }
 
 
 
 
     public function loginform(){
-        return view('auth.admin-login');
+        return view('auth.seller-login');
     }
 
 
@@ -33,11 +33,11 @@ class AdminLoggingController extends Controller
         /*$credentials = $request->only('email','password');
         $remember = $request->has('remember_me') ? true : false;*/
 
-        if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
+        if(Auth::guard('seller')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
 
 
         //if they are authenticated
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended(route('seller.dashboard'));
 
         }
 

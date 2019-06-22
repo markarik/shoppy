@@ -40,14 +40,14 @@ return [
             'provider' => 'users',
         ],
 
-        'admin' => [
+        'seller' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
 
-        'seller' => [
+        'sellera' => [
             'driver' => 'session',
-            'provider' => 'sellers',
+            'provider' => 'seller',
         ],
 
         'api' => [
@@ -85,7 +85,7 @@ return [
             'model' => App\Admin::class,
         ],
 
-        'sellers' => [
+        'seller' => [
             'driver' => 'eloquent',
             'model' => App\Seller::class,
         ],
@@ -122,8 +122,8 @@ return [
             'table' => 'password_resets',
             'expire' => 15,
 
-        ], 'sellers' => [
-            'provider' => 'sellers',
+        ], 'seller' => [
+            'provider' => 'seller',
             'table' => 'password_resets',
             'expire' => 30,
         ],

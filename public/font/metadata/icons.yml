@@ -8872,7 +8872,7 @@ hammer:
   label: Hammer
   search:
     terms:
-      - admin
+      - seller
       - fix
       - repair
       - settings
@@ -11074,7 +11074,7 @@ lock:
   label: lock
   search:
     terms:
-      - admin
+      - seller
       - lock
       - open
       - password
@@ -11093,7 +11093,7 @@ lock-open:
   label: Lock Open
   search:
     terms:
-      - admin
+      - seller
       - lock
       - open
       - password
@@ -14962,7 +14962,7 @@ screwdriver:
   label: Screwdriver
   search:
     terms:
-      - admin
+      - seller
       - fix
       - mechanic
       - repair
@@ -17986,7 +17986,7 @@ toolbox:
   label: Toolbox
   search:
     terms:
-      - admin
+      - seller
       - container
       - fix
       - repair
@@ -18002,7 +18002,7 @@ tools:
   label: Tools
   search:
     terms:
-      - admin
+      - seller
       - fix
       - repair
       - screwdriver
@@ -18650,7 +18650,7 @@ unlock:
   label: unlock
   search:
     terms:
-      - admin
+      - seller
       - lock
       - password
       - private
@@ -18666,7 +18666,7 @@ unlock-alt:
   label: Alternate Unlock
   search:
     terms:
-      - admin
+      - seller
       - lock
       - password
       - private
@@ -18851,7 +18851,7 @@ user-cog:
   label: User Cog
   search:
     terms:
-      - admin
+      - seller
       - cog
       - person
       - settings
@@ -18930,7 +18930,7 @@ user-lock:
   label: User Lock
   search:
     terms:
-      - admin
+      - seller
       - lock
       - person
       - private
@@ -19048,7 +19048,7 @@ user-shield:
   label: User Shield
   search:
     terms:
-      - admin
+      - seller
       - person
       - private
       - protect
@@ -19144,7 +19144,7 @@ users-cog:
   label: Users Cog
   search:
     terms:
-      - admin
+      - seller
       - cog
       - group
       - person
@@ -19316,8 +19316,8 @@ vial:
       - lab
       - sample
       - science
-      - test
-      - test tube
+      - Test
+      - Test tube
   styles:
     - solid
   unicode: f492
@@ -19332,8 +19332,8 @@ vials:
       - lab
       - sample
       - science
-      - test
-      - test tube
+      - Test
+      - Test tube
   styles:
     - solid
   unicode: f493
