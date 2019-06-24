@@ -1,4 +1,4 @@
-@extends('layout.app2')
+@extends('layouts.master')
 @section('content')
 
 <h1>Add Product</h1>
@@ -7,11 +7,9 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-        <h1>hey</h1>
-               {{-- --}}{{-- {{ Form::open(['action'=>'ProductsController@store','enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
 
-                {{method_field('POST')}} --}}{{--
-                {{ Form::open(['action'=>'ProductsController@store','enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
+
+                {{ Form::open(['enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
                 {!! csrf_field() !!}
                 <div class="form-group">
                     {{form::label('name','Name')}}
@@ -30,11 +28,14 @@
                 <div class="form-group">
                                 {{form::label('price','Price')}}
                                 {{form::text('price',null,array('class' =>'form-control'))}}
+                        </div> <div class="form-group">
+                                {{form::label('category_id','Category')}}
+                                {{form::text('category_id',null,array('class' =>'form-control','placeholder'=>'Select Category'))}}
                         </div>
-                <div class="form-group">
+                {{--<div class="form-group">
                         {{form::label('category_id','Category')}}
-                        {{form::select('category_id',$categories,null,array('class' =>'form-control','placeholder'=>'Select Category'))}}
-                </div>
+                        {{form::select('category_id',null,array('class' =>'form-control','placeholder'=>'Select Category'))}}
+                </div>--}}
     
                  <div class="form-group">
                         {{form::label('image','Image')}}
@@ -44,7 +45,7 @@
                 {{form::submit('create',array('class' =>'btn btn-default'))}}
                
                 
-        {{ Form::close() }}  
+        {{ Form::close() }}
        --}}
     </div>
 </div>

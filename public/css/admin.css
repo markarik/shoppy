@@ -340,7 +340,7 @@ footer .copy {
 }
 
 .sidebar .nav a .caret {
-    /*float: right;*/
+    float: right;
     width: 0;
     height: 0;
     display: inline-block;
@@ -677,8 +677,4 @@ body {
         box-shadow: 0px 0px 1px #0fa6bc;
         border-radius: 10px;
     }
-}
-/*button*/
-.buton_class{
-    color: red !important;
 }
