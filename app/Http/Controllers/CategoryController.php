@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.seller.category.categories');
+        //return view('pages.seller.category.categories');
     }
 
     /**
@@ -23,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('pages.seller.category.categoryform');
+       // return view('pages.seller.category.categoryform');
     }
 
     /**

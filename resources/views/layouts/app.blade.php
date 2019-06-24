@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @yield('title')
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <a href="#"> <img src="{{asset('shoppy.png')}}" width="80" height="50" alt=""></a>
@@ -88,9 +88,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
+
             @yield('content')
-        </main>
+
     </div>
 </body>
 </html>

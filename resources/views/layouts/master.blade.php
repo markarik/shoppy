@@ -18,6 +18,10 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.min.css')}}"/>
 
+
+
+    <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}"/>
+
 </head>
 <body>
 @include('pages.seller.layout.includes.header')
@@ -49,6 +53,7 @@
 
 {{-- datatables--}}
 <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('bootstrap/js/bootsrap.min.js')}}"></script>
 
 <script src="{{asset('assets/js/jquery.js')}}"></script>
 <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
