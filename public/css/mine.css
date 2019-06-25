@@ -1,0 +1,24 @@
+body{
+ background-color: #f9fab1 !important;
+}
+/*header*/
+.head_bar{
+    background-color: #cbe432 !important;
+}
+
+/*side-nav*/
+.side_bar{
+    background-color: #cbe432 !important;
+    border-radius: 5px;
+}
+
+.side_bars{
+    background-color: #cbe432 !important;
+    border: none;
+}
+
+/*login pages*/
+
+.login_page{
+    background-color: blue !important;
+}
