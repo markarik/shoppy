@@ -3,7 +3,7 @@
     <div class="sidebar content-box side_bars" style="display: block;">
         <ul class="nav">
             <!-- Main menu -->
-            <li class="current"><a href="#"><i class="glyphicon glyphicon-home"></i>Dashboard</a></li>
+            <li class="current currents"><a href="#"><i class="glyphicon glyphicon-home"></i>Dashboard</a></li>
             {{--products--}}
             <li class="submenu">
                 <a href="#">

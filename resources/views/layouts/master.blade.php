@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
 
 
-    <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
+   {{-- <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">--}}
 
     <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
 
@@ -57,8 +57,8 @@
 <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('bootstrap/js/bootsrap.min.js')}}"></script>
 
-<script src="{{asset('assets/js/jquery.js')}}"></script>
-<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+{{--<script src="{{asset('assets/js/jquery.js')}}"></script>--}}
+{{--<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>--}}
 <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
