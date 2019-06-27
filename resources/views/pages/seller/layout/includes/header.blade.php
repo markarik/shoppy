@@ -5,7 +5,7 @@
             <div class="col-md-5">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="#"> <img src="{{asset('shoppy.ico')}}" width="80" height="40" alt=""></a>
+                    <a href="#"> <img src="{{asset('shoppy.png')}}" width="80" height="40" alt=""></a>
                 </div>
             </div>
 

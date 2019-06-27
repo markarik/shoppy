@@ -13,7 +13,7 @@ class CreateSellersTable extends Migration
      */
     public function up()
     {
-        Schema::create('seller', function (Blueprint $table) {
+        Schema::create('sellers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('f_name');
             $table->string('l_name');

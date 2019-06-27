@@ -40,14 +40,14 @@ return [
             'provider' => 'users',
         ],
 
-        'seller' => [
+        'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
 
-        'sellera' => [
+        'seller' => [
             'driver' => 'session',
-            'provider' => 'seller',
+            'provider' => 'sellers',
         ],
 
         'api' => [
@@ -85,7 +85,7 @@ return [
             'model' => App\Admin::class,
         ],
 
-        'seller' => [
+        'sellers' => [
             'driver' => 'eloquent',
             'model' => App\Seller::class,
         ],

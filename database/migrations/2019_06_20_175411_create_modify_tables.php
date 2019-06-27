@@ -15,7 +15,7 @@ class CreateModifyTables extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
           $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('seller_id')->references('id')->on('seller');
+            $table->foreign('seller_id')->references('id')->on('sellers');
         });
     }
 

@@ -1,20 +1,27 @@
 body{
- background-color: #F2F2F2 !important;
+ /* background-color: #F2F2F2 !important; */
+ 
 }
 /*header*/
 .head_bar{
-    background-color: #3769F1 !important;
-    color: #000;
+    /*background-color: #3769F1 !important;*/
+
+
+    background-color:#F3F7FC!important;
+
+    /* color: #000; */
 }
 
 /*side-nav*/
 .side_bar{
-    background-color: #3769F1 !important;
+    /*background-color: #3769F1 !important;*/
+    background-color: #FD9046 !important;
     border-radius: 5px;
 }
 
 .side_bars{
-    background-color: #3769F1 !important;
+    background-color: #FD9046 !important;
+    /*background-color: #3769F1 !important;*/
     border: none;
 }
 

@@ -12,10 +12,10 @@
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{route('product.index')}}">View Product</a></li>
+                    <li><a href="{{--{{route('product.index')}}--}}">View Product</a></li>
                 </ul>
                 <ul>
-                    <li><a href="{{route('product.create')}}">Add Product</a></li>
+                    <li><a href="{{--{{route('product.create')}}--}}">Add Product</a></li>
                 </ul>
             </li>
             {{--categories--}}
@@ -26,7 +26,7 @@
                 </a>
                             <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{route('category.index')}}">Categories</a></li>
+                    <li><a href="{{--{{route('category.index')}}--}}">Categories</a></li>
                 </ul>
             </li>
             {{--sales--}}
@@ -37,7 +37,7 @@
                 </a>
                             <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{route('category.index')}}">Categories</a></li>
+                    <li><a href="{{--{{route('category.index')}}--}}">Categories</a></li>
                 </ul>
             </li>
             {{--Orders--}}
