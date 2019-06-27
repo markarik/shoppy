@@ -122,8 +122,8 @@ return [
             'table' => 'password_resets',
             'expire' => 15,
 
-        ], 'seller' => [
-            'provider' => 'seller',
+        ], 'sellers' => [
+            'provider' => 'sellers',
             'table' => 'password_resets',
             'expire' => 30,
         ],

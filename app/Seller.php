@@ -10,7 +10,7 @@ class Seller extends Authenticatable
 {
     use Notifiable;
 
-    protected  $guard = 'sellera';
+    protected  $guard = 'seller';
 
     /**
      * The attributes that are mass assignable.

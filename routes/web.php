@@ -16,11 +16,12 @@ Route::get('/','WelcomeController@landingpage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::prefix('seller')->group(function(){
     Route::get('/login','Auth\SellerLoginController@loginform')->name('seller.login');
     Route::post('/login','Auth\SellerLoginController@login')->name('seller.login.submit');
     Route::get('/','SellerController@index')->name('seller.dashboard');
-});
+})->middleware('seller');
 
 
 Route::prefix('admin')->group(function (){
@@ -29,7 +30,7 @@ Route::prefix('admin')->group(function (){
     Route::post('/login','Auth\AdminLoggingController@login')->name('admin.login.submit');
     Route::get('/','AdminController@index')->name('admin.dashboard');
 
-});
+})->middleware('admin');
 
 ///////////////////////////////////////////////////////////////
 ///

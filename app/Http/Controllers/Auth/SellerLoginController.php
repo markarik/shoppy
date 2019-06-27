@@ -16,7 +16,7 @@ class SellerLoginController extends Controller
 
     public  function loginform()
     {
-        return view('auth.sellera-login');
+        return view('auth.seller-login');
     }
 
 
@@ -32,12 +32,12 @@ class SellerLoginController extends Controller
 //        attempting to log in the sellera
 
 
-        if(Auth::guard('sellera')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
+        if(Auth::guard('seller')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
 
 
 //            if they are authenticate
 
-            return redirect()->intended(route('sellera.dashboard'));
+            return redirect()->intended(route('seller.dashboard'));
 
         }
         return redirect()->back()->withInput($request->only('email','remember'));

@@ -17,7 +17,7 @@ class AdminLoggingController extends Controller
 
 
     public function loginform(){
-        return view('auth.seller-login');
+        return view('auth.admin-login');
     }
 
 
@@ -33,11 +33,9 @@ class AdminLoggingController extends Controller
         /*$credentials = $request->only('email','password');
         $remember = $request->has('remember_me') ? true : false;*/
 
-        if(Auth::guard('seller')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
-
-
+        if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
         //if they are authenticated
-            return redirect()->intended(route('seller.dashboard'));
+            return redirect()->intended(route('admin.dashboard'));
 
         }
 
