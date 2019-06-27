@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCheckoutTables extends Migration
+class CreateModifyOfferTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCheckoutTables extends Migration
      */
     public function up()
     {
-        Schema::table('checkouts', function (Blueprint $table) {
-
-            $table->foreign('users_id')->references('id')->on('users');
-
-            $table->foreign('regions_id')->references('id')->on('regions');
+        Schema::table('offers', function (Blueprint $table) {
+            $table->foreign('products_id')->references('id')->on('products');
         });
     }
 
@@ -28,6 +25,6 @@ class CreateCheckoutTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('checkout_tables');
+        //Schema::dropIfExists('offer_tables');
     }
 }

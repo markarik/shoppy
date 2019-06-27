@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImageTables extends Migration
+class CreateModifyCheckoutTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateImageTables extends Migration
      */
     public function up()
     {
-        Schema::table('images', function (Blueprint $table) {
+        Schema::table('checkouts', function (Blueprint $table) {
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('users_id')->references('id')->on('users');
+
+            $table->foreign('regions_id')->references('id')->on('regions');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateImageTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('image__tables');
+        //Schema::dropIfExists('checkout_tables');
     }
 }

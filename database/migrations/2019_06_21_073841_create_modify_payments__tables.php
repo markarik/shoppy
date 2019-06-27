@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReviewsTables extends Migration
+class CreateModifyPaymentsTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateReviewsTables extends Migration
      */
     public function up()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-
-            $table->foreign('users_id')->references('id')->on('users');
+        Schema::table('payments', function (Blueprint $table) {
+            $table->foreign('checkout_id')->references('id')->on('checkouts');
         });
     }
 
@@ -26,6 +25,6 @@ class CreateReviewsTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('reviews__tables');
+        //Schema::dropIfExists('sellers__tables');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOfferTables extends Migration
+class CreateModifyImageTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateOfferTables extends Migration
      */
     public function up()
     {
-        Schema::table('offers', function (Blueprint $table) {
-            $table->foreign('products_id')->references('id')->on('products');
+        Schema::table('images', function (Blueprint $table) {
+
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
@@ -25,6 +26,6 @@ class CreateOfferTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('offer_tables');
+        //Schema::dropIfExists('image__tables');
     }
 }

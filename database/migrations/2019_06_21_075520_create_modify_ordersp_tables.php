@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryTables extends Migration
+class CreateModifyOrderspTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCategoryTables extends Migration
      */
     public function up()
     {
-        Schema::table('brands', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories');
+        Schema::table('order_products', function (Blueprint $table) {
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('checkout_id')->references('id')->on('checkouts');
         });
     }
 
@@ -25,6 +26,6 @@ class CreateCategoryTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('category__tables');
+        //Schema::dropIfExists('ordersp_tables');
     }
 }

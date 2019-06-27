@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSellersTables extends Migration
+class CreateModifyWishTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateSellersTables extends Migration
      */
     public function up()
     {
-        Schema::table('payments', function (Blueprint $table) {
-            $table->foreign('checkout_id')->references('id')->on('checkouts');
+        Schema::table('wish_lists', function (Blueprint $table) {
+
+
+            $table->foreign('product_id')->references('id')->on('products');
+
+
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
@@ -25,6 +30,6 @@ class CreateSellersTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('sellers__tables');
+        //Schema::dropIfExists('wish__tables');
     }
 }

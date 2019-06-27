@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInventoryTables extends Migration
+class CreateModifyCategoryTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateInventoryTables extends Migration
      */
     public function up()
     {
-        Schema::table('inventories', function (Blueprint $table) {
-            $table->foreign('products_id')->references('id')->on('products');
+        Schema::table('brands', function (Blueprint $table) {
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
@@ -25,6 +25,6 @@ class CreateInventoryTables extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('inventory_tables');
+        //Schema::dropIfExists('category__tables');
     }
 }
