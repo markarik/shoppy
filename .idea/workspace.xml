@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c518d904-da14-4426-bbca-8c17507efce7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoggingController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/SellerLoginController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AuthAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/admin/admin-login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/seller-login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/seller/seller-login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="c518d904-da14-4426-bbca-8c17507efce7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,12 +400,12 @@
       <workItem from="1561569021128" duration="1321000" />
       <workItem from="1561615623169" duration="6165000" />
       <workItem from="1561965370425" duration="11898000" />
-      <workItem from="1561986655781" duration="271000" />
+      <workItem from="1561986655781" duration="819000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141200000" />
+    <option name="totallyTimeSpent" value="141748000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
