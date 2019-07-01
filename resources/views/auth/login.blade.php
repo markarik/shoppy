@@ -6,7 +6,8 @@
         <div class="col-md-8 login_page">
             <div class="card">
                 <div class="card-header">
-                    <a href="#"> <img src="{{asset('shoppy.png')}}" width="80" height="40" alt=""></a>
+{{--                    <a href="#"> <img src="{{asset('shoppy.png')}}" width="80" height="40" alt=""></a>--}}
+                    User login
                 </div>
 
                 <div class="card-body">

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\SellerAuth;
 
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class SellerLoginController extends Controller
+class SellerLoggingController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:seller');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth:seller');
+//    }
 
     public  function loginform()
     {
-        return view('auth.seller-login');
+        return view('pages.seller.seller-login');
     }
 
 
@@ -29,7 +29,7 @@ class SellerLoginController extends Controller
         ]);
 
 
-//        attempting to log in the sellera
+//        attempting to log in the seller
 
 
         if(Auth::guard('seller')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
@@ -41,5 +41,10 @@ class SellerLoginController extends Controller
 
         }
         return redirect()->back()->withInput($request->only('email','remember'));
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('seller');
     }
 }

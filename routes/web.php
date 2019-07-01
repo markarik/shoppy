@@ -13,24 +13,30 @@
 
 Route::get('/','WelcomeController@landingpage');
 
-Auth::routes();
+
+
+Route::prefix('user')->group(function (){
+
+    Auth::routes();
+
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('seller')->group(function(){
-    Route::get('/login','Auth\SellerLoginController@loginform')->name('seller.login');
-    Route::post('/login','Auth\SellerLoginController@login')->name('seller.login.submit');
+    Route::get('/login','SellerAuth\SellerLoggingController@loginform')->name('seller.login');
+    Route::post('/login','SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
     Route::get('/','SellerController@index')->name('seller.dashboard');
-})->middleware('seller');
+});
 
 
 Route::prefix('admin')->group(function (){
 
-    Route::get('/login','Auth\AdminLoggingController@loginform')->name('admin.login');
-    Route::post('/login','Auth\AdminLoggingController@login')->name('admin.login.submit');
+    Route::get('/login','AdminAuth\AdminLoggingController@loginform')->name('admin.login');
+    Route::post('/login','AdminAuth\AdminLoggingController@login')->name('admin.login.submit');
     Route::get('/','AdminController@index')->name('admin.dashboard');
 
-})->middleware('admin');
+});
 
 ///////////////////////////////////////////////////////////////
 ///

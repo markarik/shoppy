@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AuthAdmin
 {
@@ -15,6 +16,11 @@ class AuthAdmin
      */
     public function handle($request, Closure $next)
     {
+
+        if(Auth::check())
+        {
+            return redirect('');
+        }
 
         return $next($request);
     }
