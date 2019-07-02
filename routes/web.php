@@ -47,7 +47,7 @@ Route::prefix('admin')->group(function (){
 
 //    admin reset password
 
-    Route::get('password-reset','');
+    /*Route::get('password-reset','');*/
 
 });
 
