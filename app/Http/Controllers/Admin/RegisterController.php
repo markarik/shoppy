@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Admin;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -40,9 +42,21 @@ class RegisterController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'email'=>'required',
-            'password'=>'required|min:6|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'
+            'password'=>'required|min:6|confirmed'
 
         ]);
+        $admin = new admin();
+
+        $admin -> f_name = $request->input('first_name');
+        $admin -> l_name = $request->input('last_name');
+        $admin -> email = $request->input('email');
+
+        $admin -> password = Hash::make($request->input('password'));
+
+        $admin -> save();
+
+
+        return redirect('index');
     }
 
     /**

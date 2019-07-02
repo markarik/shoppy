@@ -66,9 +66,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <p id="passwordHelpBlock" class="form-text text-muted">
-                                Your password must be more than 6 characters long, should contain at-least 1 Uppercase, 1 Lowercase, 1 Numeric and 1 special character.
-                            </p>
+
 
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
