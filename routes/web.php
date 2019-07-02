@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/','WelcomeController@landingpage');
 
 
@@ -27,6 +29,9 @@ Route::prefix('seller')->group(function(){
     Route::get('/login','SellerAuth\SellerLoggingController@loginform')->name('seller.login');
     Route::post('/login','SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
     Route::get('/','SellerController@index')->name('seller.dashboard');
+    Route::get('register','Seller\RegisterController@index')->name('seller.register');
+    Route::post('register','Seller\RegisterController@store')->name('seller.store');
+
 });
 
 
@@ -36,7 +41,17 @@ Route::prefix('admin')->group(function (){
     Route::post('/login','AdminAuth\AdminLoggingController@login')->name('admin.login.submit');
     Route::get('/','AdminController@index')->name('admin.dashboard');
 
+    Route::get('register','Admin\RegisterController@index')->name('admin.register');
+    Route::post('register','Admin\RegisterController@store')->name('admin.store');
+
 });
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////////////////////
 ///
