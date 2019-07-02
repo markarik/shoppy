@@ -44,6 +44,11 @@ Route::prefix('admin')->group(function (){
     Route::get('register','Admin\RegisterController@index')->name('admin.register');
     Route::post('register','Admin\RegisterController@store')->name('admin.store');
 
+
+//    admin reset password
+
+    Route::get('password-reset','');
+
 });
 
 
