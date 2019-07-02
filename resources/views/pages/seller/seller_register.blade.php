@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ url('register') }}">
+                        <form method="POST" action="{{ route('seller.register') }}">
                             @csrf
 
                             <div class="form-group row">
