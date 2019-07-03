@@ -45,11 +45,12 @@ Route::prefix('admin')->group(function (){
     Route::post('register','Admin\RegisterController@store')->name('admin.store');
 
 
-//    admin reset password
+//admin reset password
 
     Route::get('password/reset','Admin\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.reset');
-    Route::get('password/reset{token}','Admin\AdminResetPasswordController@showResetForm')->name('admin.password.update');
     Route::post('password/email','Admin\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+
+    Route::get('password/reset{token}','Admin\AdminResetPasswordController@showResetForm')->name('admin.password.update');
     Route::post('password/reset','Admin\AdminResetPasswordController@reset')->name('admin.password.update');
 
 });

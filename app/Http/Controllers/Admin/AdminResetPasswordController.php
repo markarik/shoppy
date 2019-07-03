@@ -44,4 +44,12 @@ class AdminResetPasswordController extends Controller
     {
         return Password::broker('admins');
     }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('pages.admin.admin_passwords.admin_reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+
 }

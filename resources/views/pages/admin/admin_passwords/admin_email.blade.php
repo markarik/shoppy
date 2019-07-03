@@ -1,4 +1,4 @@
-@extends('layouts.app_seller')
+@extends('layouts.app_admin')
 
 @section('content')
 <div class="container">
@@ -16,7 +16,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('admin.password.email') }}">
                         @csrf
 
                         <div class="form-group row">
