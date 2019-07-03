@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use Password;
+use Illuminate\Support\Facades\Password;
+//use Password;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
