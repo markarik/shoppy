@@ -44,7 +44,7 @@ class AdminResetPasswordNotification extends Notification
     {
         return (new MailMessage)
                     ->line('You are receiving this email because we received a password reset request for your account.')
-                    ->action('Notification Action', route('admin.password.update',$this->token))
+                    ->action('Notification Action', route('admin.password.reset',$this->token))
                     ->line('Thank you for using our application!');
     }
 

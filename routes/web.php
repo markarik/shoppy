@@ -32,6 +32,17 @@ Route::prefix('seller')->group(function(){
     Route::get('register','Seller\RegisterController@index')->name('seller.register');
     Route::post('register','Seller\RegisterController@store')->name('seller.store');
 
+
+    //seller reset password
+    Route::post('password/email','Seller\SellerForgotPasswordController@sendResetLinkEmail')->name('seller.password.email');
+    Route::get('password/reset','Seller\SellerForgotPasswordController@showLinkRequestForm')->name('seller.password.request');
+
+
+    Route::post('password/reset','Seller\SellerResetPasswordController@reset');
+    Route::get('password/reset{token}','Seller\SellerResetPasswordController@showResetForm')->name('seller.password.reset');
+
+
+
 });
 
 
@@ -46,16 +57,22 @@ Route::prefix('admin')->group(function (){
 
 
 //admin reset password
-
-    Route::get('password/reset','Admin\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.reset');
     Route::post('password/email','Admin\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('password/reset','Admin\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
 
-    Route::get('password/reset{token}','Admin\AdminResetPasswordController@showResetForm')->name('admin.password.update');
-    Route::post('password/reset','Admin\AdminResetPasswordController@reset')->name('admin.password.update');
+
+    Route::post('password/reset','Admin\AdminResetPasswordController@reset');
+    Route::get('password/reset{token}','Admin\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+
 
 });
 
+/*Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
+.*/
 
 
 
