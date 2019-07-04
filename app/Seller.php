@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Notifications\SellerResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Seller extends Authenticatable
 {
     use Notifiable;
+
+
 
     protected  $guard = 'seller';
 
@@ -38,4 +40,9 @@ class Seller extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new SellerResetPasswordNotification($token));
+    }
 }

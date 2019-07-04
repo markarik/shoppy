@@ -48,6 +48,6 @@ class SellerForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        return view('pages.admin.admin_passwords.admin_email');
+        return view('pages.seller.seller_passwords.seller_email');
     }
 }
