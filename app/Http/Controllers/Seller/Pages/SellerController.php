@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Seller\Pages;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SellerController extends Controller
 {
+
 
     /*public  function __construct()
     {
         $this->middleware('auth:sellera');
     }*/
-
     /**
      * Display a listing of the resource.
      *

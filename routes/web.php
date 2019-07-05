@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('seller')->group(function(){
     Route::get('/login','SellerAuth\SellerLoggingController@loginform')->name('seller.login');
     Route::post('/login','SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
-    Route::get('/','SellerController@index')->name('seller.dashboard');
+    Route::get('/','Seller\Pages\SellerController@index')->name('seller.dashboard');
     Route::get('register','Seller\RegisterController@index')->name('seller.register');
     Route::post('register','Seller\RegisterController@store')->name('seller.store');
 

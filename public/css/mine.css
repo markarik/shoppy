@@ -1,35 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+
+:root{
+    --bluishwhitetheme:#F3F7FC;
+    --orangetheme:#FD9046;
+    --darkorangetheme: #994d33;
+    --blacktexttheme:black;
+    --greytheme: #898989;
+    --whitetexttheme: #ffffff;
+    --whiteicontheme:#F3F7FC;
+    --secnaviconsize:32px;
+    --secnaviconfontsize:15px;
+    --secnavusernamefontsize:24px;
+    --box-shadow: 6px 6px 12px #858585;
+    --box-shadowA: 8px 8px 15px #727272;
+    --superfont: 'Oswald',sans-serif;
+    --categoryfontweight7:700;
+    --categoryfontweight6:600;
+    --textfontsize:15px;
+    --textfontsize1:18px;
+    --feauredproductpillcolor:red;
+    --producttitlefont:'Oswald',sans-serif;
+    --productborderradius:10px;
+    --cardtextfontfamily: 'Montserrat', sans-serif;
+    --footerfontfamily: 'Oswald',sans-serif;
+    --blackbackgroundtheme:black;
+}
+
+
+
+
 body{
- /* background-color: #F2F2F2 !important; */
- 
-}
-/*header*/
-.head_bar{
-    /*background-color: #3769F1 !important;*/
-
-
-    background-color:#F3F7FC!important;
-
-    /* color: #000; */
+    background-color: var(--whitetexttheme) !important;
 }
 
-/*side-nav*/
-.side_bar{
-    /*background-color: #3769F1 !important;*/
-    background-color: #FD9046 !important;
-    border-radius: 5px;
+.navbar_modify{
+    background-color:var(--whiteicontheme);
 }
 
-.side_bars{
-    background-color: #FD9046 !important;
-    /*background-color: #3769F1 !important;*/
-    border: none;
+.navbar_modify ul li{
+    padding-right: 90px;
+
 }
 
-/*login pages*/
+.navbar_modify ul li a {
+    color: var(--blackbackgroundtheme) !important;
+    font-size: var(--textfontsize) !important;
+}
 
-.login_page{
-    background-color: blue !important;
+
+nav ul li a{
+
+    margin:10px;
+
+    float: right !important;
 }
-.currents a{
-    color: red !important;
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+   background-color: var(--orangetheme)!important;
+    top: 0;
+    left: 1px;
+
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 82px;
 }
+
+.sidenav li{
+    padding: 6px 8px 6px 1px;
+    text-decoration: none;
+    font-size:var(--textfontsize);
+    display: block;
+    color: var(--blackbackgroundtheme);
+}
+
+.sidenav li a{
+
+    color: var(--whitetexttheme);
+}
+
+HR{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    background-color:#666;
+    opcaity: 0.5;
+}
+
+
