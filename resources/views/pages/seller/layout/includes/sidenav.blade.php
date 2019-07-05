@@ -2,27 +2,53 @@
 <div class="sidenav">
     <h3>DASHBOARD</h3>
 
-    <HR>
-    <ul class="">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-        </li>
-        <HR>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <HR>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+<HR>
+    <ul class="p-0 accordion">
+        <li class="nav-item submenu">
+            <a class="nav-link" href="#">Active</a>
+            <ul class="panel">
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+            </ul>
         </li>
 
-        <HR>
-        <li class="nav-item">
+        <li class="nav-item submenu">
+            <a class="nav-link" href="#">Active</a>
+            <ul class="panel">
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+            </ul>
+        </li>
+
+        <li class="nav-item submenu">
+            <a class="nav-link" href="#">Active</a>
+            <ul class="panel">
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+            </ul>
+        </li>
+
+        <li class="nav-item submenu">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+
+
+        <li class="nav-item submenu">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+
+
+        <li class="nav-item submenuz">
             <a class="nav-link" href="#">Disabled</a>
         </li>
 
-        <HR>
+
     </ul>
 
 </div>
