@@ -14,7 +14,7 @@
             <a class="nav-link" href="#">Link 2</a>
         </li>--}}
         <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 MARK
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

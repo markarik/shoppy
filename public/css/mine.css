@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
-
 :root{
     --bluishwhitetheme:#F3F7FC;
     --orangetheme:#FD9046;
@@ -26,51 +25,35 @@
     --footerfontfamily: 'Oswald',sans-serif;
     --blackbackgroundtheme:black;
 }
-
-
-
-
 body{
     background-color: var(--whitetexttheme) !important;
 }
-
 /*Header start*/
-
 .navbar_modify{
     background-color:var(--whiteicontheme);
 }
-
 .navbar_modify ul li{
     padding-right: 90px;
-
 }
-
 .navbar_modify ul li a {
     color: var(--blackbackgroundtheme) !important;
     font-size: var(--textfontsize) !important;
 }
-
-
 nav ul li a{
-
     margin:10px;
-
     float: right !important;
 }    /*Header End*/
-
 /*SideNav start*/
-
 .sidenav {
     height: 100%;
     width: 200px;
     position: fixed;
-   background-color: var(--orangetheme)!important;
+    background-color: var(--orangetheme)!important;
     top: 0;
     left: 1px;
-
     overflow-x: hidden;
     padding-top: 20px;
-    margin-top: 82px;
+    margin-top: 65px;
 }
 
 .sidenav li{
@@ -79,50 +62,70 @@ nav ul li a{
     font-size:var(--textfontsize);
     display: block;
     color: var(--blackbackgroundtheme);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+
     height: 35px;
-
 }
-
 .sidenav li a{
-    padding-left: 50px;
-    color: var(--whitetexttheme);
+    padding-left: 40px;
+    color: var(--blackbackgroundtheme);
     margin-bottom: 10px;
+}
+.sidenav li a:hover{
+    color: var(--whitetexttheme);
+    text-underline: none !important;
+    transition: background-color 0.1s linear;
 }
 .sidenav h3{
     text-align: center;
     font-weight: bold;
 }
-
 HR {
-
     border: 1px solid rgba(0,0,0,1) !important;
 }
 
-
-.accordion {
-
-
-    cursor: pointer;
-
-
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 1s;
-}
-
-.active, .accordion:hover {
-
-}
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    text-align:right;
+button.accordion{
+    width: 100%;
     background-color: var(--orangetheme);
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    outline: none;
+    text-align: left;
+    padding: 5px 10px 5px 25px;
+    transition: 0.2s;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--whitetexttheme);
+}
+
+button.accordion i{
+
+    color: var(--blackbackgroundtheme);
+    padding-left: 5px;
+}
+
+.panel{
+    border-bottom: none;
     overflow: hidden;
-}/*SideNav end*/
+    transition: ease-in 5s;
+    display: none;
+    background-color: var(--orangetheme);
+
+}
+button.accordion:hover{
+   border: none;
+    outline: none;
+}
+/*SideNav end*/
+
+
+.card{
+    width: 200px !important;
+    height: 150px;
+    border-radius: 15px !important;
+    box-shadow: 8px 8px rgba(0,0,0,.1) !important;
+
+
+}
 
 

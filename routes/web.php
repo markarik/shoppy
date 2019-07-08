@@ -32,6 +32,9 @@ Route::prefix('seller')->group(function(){
     Route::get('register','Seller\RegisterController@index')->name('seller.register');
     Route::post('register','Seller\RegisterController@store')->name('seller.store');
 
+    /*Dashboard*/
+    Route::get('products','ProductController@index')->name('seller.product.view');
+
 
     //seller reset password
     Route::post('password/email','Seller\SellerForgotPasswordController@sendResetLinkEmail')->name('seller.password.email');
