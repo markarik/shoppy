@@ -1,7 +1,14 @@
 @extends('layouts.master')
 @section('content')
 
-<h2>Products</h2>
+@section('css')
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+@endsection
+<div class="table_formats">
+
+<h2 class="table_format">Products</h2>
 <table id="users-table" class="table table-hover table-condensed" style="width:80%">  
         <thead>  
             <tr>  
@@ -46,12 +53,16 @@
         
 @endsection
 
+</div>
+
 @section('js')
 
-      <script>
-              $(document).ready( function () {
-               $('#users-table').DataTable();
-              } );
-      </script>
-  
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#users-table').DataTable();
+        });
+    </script>
+
 @endsection

@@ -24,6 +24,7 @@
     --cardtextfontfamily: 'Montserrat', sans-serif;
     --footerfontfamily: 'Oswald',sans-serif;
     --blackbackgroundtheme:black;
+    --buttonbackground:#006600;
 }
 body{
     background-color: var(--whitetexttheme) !important;
@@ -46,7 +47,7 @@ nav ul li a{
 /*SideNav start*/
 .sidenav {
     height: 100%;
-    width: 200px;
+    width: 210px;
     position: fixed;
     background-color: var(--orangetheme)!important;
     top: 0;
@@ -153,5 +154,32 @@ button.accordion:hover{
 .card_four{
     background-color: #88D5A3 !important;
 }
+
+.table_formats{
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+    padding: 6px;
+    margin-top: 50px;
+}
+
+.table_format{
+    text-align: center;
+}
+
+.button_edit{
+    border: 1px solid;
+    background-color:var(--buttonbackground);
+    margin-top: 1px !important;
+    color: var(--whitetexttheme);
+    font-family: var(--cardtextfontfamily);
+    border-radius: 10px;
+}
+
+.button_add{
+    border-radius: 30px !important;
+    margin: 5px 0 0 10px !important;
+    box-shadow:var(--box-shadow);
+}
+
 
 

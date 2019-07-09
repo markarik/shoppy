@@ -1,5 +1,6 @@
-   <h2>Products</h2>
-    <table id="users-table" class="table table-hover table-condensed" style="width:80%">
+<div class="table_formats">
+    <h2 class="table_format">Products</h2>
+    <table id="users-table" class="table table-hover table-condensed" style="width:100%">
         <thead>
         <tr>
             <th>Id</th>
@@ -23,12 +24,5 @@
         </tbody>
 
     </table>
-@section('js')
 
-    <script>
-        $(document).ready( function () {
-            $('#users-table').DataTable();
-        } );
-    </script>
-
-@endsection
+</div>
