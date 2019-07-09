@@ -35,7 +35,9 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+           'name'=>'required'
+        ]);
     }
 
     /**

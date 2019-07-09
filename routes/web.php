@@ -33,8 +33,8 @@ Route::prefix('seller')->group(function(){
     Route::post('register','Seller\RegisterController@store')->name('seller.store');
 
     /*Dashboard*/
-    Route::get('products','ProductController@index')->name('seller.product.view');
-    Route::get('products/create','ProductController@create')->name('seller.product.create');
+    Route::get('products','Seller\Pages\ProductController@index')->name('seller.product.view');
+    Route::get('products/create','Seller\Pages\ProductController@create')->name('seller.product.create');
     Route::get('brands','Seller\Pages\BrandController@index')->name('seller.brand.view');
 
 

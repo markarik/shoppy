@@ -22,12 +22,14 @@
         </thead>
         <tbody>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Name</td>
+            <td>Name</td>
+            <td>Name</td>
+            <td>Name</td>
+            <td>Name</td>
+            <td>
+                <input type="button" class="button_delete" data-toggle="modal" data-target="#exampleModal" value="Delete"/>
+            </td>
         </tr>
            {{-- @if(count($products)>1)
   

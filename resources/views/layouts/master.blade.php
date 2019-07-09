@@ -26,7 +26,7 @@
         <div class="col-sm-2 col-lg-2">
             @include('pages.seller.layout.includes.sidenav')
         </div>
-        <div class="col-sm-5 col-lg-9 col-md-offset-2.5">
+        <div class="col-sm-5 col-lg-9 col-md-offset-5">
             @yield('content')
         </div>
     </div>
@@ -60,13 +60,15 @@
     </div>
 </div>--}}
 
+
 </body>
+
 {{--<script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>--}}
 <script src="{{asset('js/mine.js')}}"></script>
 
-<script src="{{asset('js/jquery.js')}}"></script>
+{{--<script src="{{asset('js/jquery.js')}}"></script>--}}
 
-{{--<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>--}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
 {{--<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>--}}

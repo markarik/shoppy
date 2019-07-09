@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Seller\Pages;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('pages.seller.product.view');
+        return view('pages.seller.product.view_product');
     }
 
     /**
@@ -23,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.seller.product.create');
+        return view('pages.seller.product.create_product');
     }
 
     /**

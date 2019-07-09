@@ -111,6 +111,7 @@ button.accordion i{
     transition: ease-in 5s;
     display: none;
     background-color: var(--orangetheme);
+    outline: none;
 
 }
 button.accordion:hover{
@@ -173,12 +174,33 @@ button.accordion:hover{
     color: var(--whitetexttheme);
     font-family: var(--cardtextfontfamily);
     border-radius: 10px;
+    outline: none;
 }
+
+.button_delete{
+    border: 1px solid;
+    background-color:var(--feauredproductpillcolor);
+    margin-top: 1px !important;
+    color: var(--whitetexttheme);
+    font-family: var(--cardtextfontfamily);
+    border-radius: 10px;
+    outline: none;
+}
+
 
 .button_add{
     border-radius: 30px !important;
     margin: 5px 0 0 10px !important;
     box-shadow:var(--box-shadow);
+}
+
+.create_product{
+    margin:20px 0 0 150px !important;
+    border:2px solid  rgb(0,0,0,.1) !important;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px var(--box-shadow);
+
 }
 
 

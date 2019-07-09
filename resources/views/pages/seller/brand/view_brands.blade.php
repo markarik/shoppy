@@ -17,7 +17,7 @@
             <tr>  
                 <th>Id</th>
                 <th>Name</th>
-                <th>Category</th>
+
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Action</th>  
@@ -26,7 +26,7 @@
         <tbody>
         <tr>
             <td>Name</td>
-            <td>Name</td>
+
             <td>Name</td>
             <td>Name</td>
             <td>Name</td>
