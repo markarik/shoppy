@@ -34,7 +34,9 @@ Route::prefix('seller')->group(function(){
 
     /*Dashboard*/
     Route::get('products','ProductController@index')->name('seller.product.view');
+    Route::get('products/create','ProductController@create')->name('seller.product.create');
     Route::get('brands','Seller\Pages\BrandController@index')->name('seller.brand.view');
+
 
 
     //seller reset password

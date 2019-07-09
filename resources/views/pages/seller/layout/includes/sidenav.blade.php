@@ -10,7 +10,7 @@
        <div class="panel">
            <ul>
                <li>
-                   <a class="nav-link" href="#">Add Products </a>
+                   <a class="nav-link" href="{{route('seller.product.create')}}">Add Products </a>
                </li>
                <li>
                    <a class="nav-link" href="{{route('seller.product.view')}}">View Products </a>

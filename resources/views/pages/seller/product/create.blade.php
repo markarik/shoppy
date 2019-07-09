@@ -9,7 +9,7 @@
                 {{ Form::open(['enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
                 {!! csrf_field() !!}
         <div class="row">
-        <div class="col-md-4 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-4">
             <div class="form-group">
                 {{form::label('name','Name')}}
                 {{form::text('name',null,array('class' =>'form-control'))}}
@@ -36,33 +36,7 @@
                     {{form::select('category_id',null,array('class' =>'form-control','placeholder'=>'Select Category'))}}
             </div>--}}
 
-            <div class="form-group">
-                {{form::label('image','Image')}}
-                {{form::file('image',null,array('class' =>'form-control'))}}
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-2">
-            <div class="form-group">
-                {{form::label('name','Name')}}
-                {{form::text('name',null,array('class' =>'form-control'))}}
-            </div>
 
-            <div class="form-group">
-                {{form::label('description','Description')}}
-                {{form::text('description',null,array('class' =>'form-control'))}}
-            </div>
-
-            <div class="form-group">
-                {{form::label('size','Size')}}
-                {{form::select('size',['small'=>'Small','medium'=>'Medium','large'=>'Large'],null,array('class' =>'form-control'))}}
-            </div>
-            <div class="form-group">
-                {{form::label('price','Price')}}
-                {{form::text('price',null,array('class' =>'form-control'))}}
-            </div> <div class="form-group">
-                {{form::label('category_id','Category')}}
-                {{form::text('category_id',null,array('class' =>'form-control','placeholder'=>'Select Category'))}}
-            </div>
             {{--<div class="form-group">
                     {{form::label('category_id','Category')}}
                     {{form::select('category_id',null,array('class' =>'form-control','placeholder'=>'Select Category'))}}
