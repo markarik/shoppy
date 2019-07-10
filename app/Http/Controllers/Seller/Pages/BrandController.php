@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Seller\Pages;
+use App\Brand;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,6 +39,11 @@ class BrandController extends Controller
         $this->validate($request,[
            'name'=>'required'
         ]);
+
+        $brand = new brand;
+        $brand ->name=$request->input('name');
+
+        $brand->save();
     }
 
     /**
