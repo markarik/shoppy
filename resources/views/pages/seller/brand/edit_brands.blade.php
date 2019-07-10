@@ -1,7 +1,6 @@
 
 
-
-{{ Form::open(['action'=>'Seller\Pages\BrandController@store','enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
+{{ Form::open(['action'=>'Seller\Pages\BrandController@update','enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
                 {!! csrf_field() !!}
 
                             <div class="col-md-offset-2">

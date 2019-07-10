@@ -18,7 +18,7 @@
 
                             <div class="form-group">
                                 {{form::label('long-description','Long Description')}}
-                                {{form::textarea('long-description',null,array('id'=>'article-ckeditor','class' =>'form-control'))}}
+                                {{form::textarea('long-description',null,array('class' =>'form-control','name'=>'editor1'))}}
                             </div>
 
                             <div class="form-group">
@@ -55,14 +55,15 @@
 
     </div>
 </div>
+
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
     
 @endsection
 
 @section('js')
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
+
 @endsection
 
 

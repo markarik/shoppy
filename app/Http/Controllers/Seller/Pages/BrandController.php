@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Seller\Pages;
 use App\Brand;
+use App\Category;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,10 +14,24 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('pages.seller.brand.view_brands');
+    public function index()    {
+
+       $categories = Category::pluck('name', 'id');
+        $brands = Brand::all();
+
+        $data = [
+            'categories'=>$categories,
+            'brands'=>$brands
+        ];
+
+        return view('pages.seller.brand.view_brands',$data);
     }
+//    public function ()
+/*
+    {
+        $brands = Brand::all();
+        return view('pages.seller.brand.view_brands')->with('brands',$brands);
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +40,9 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+
+
+
     }
 
     /**
@@ -36,14 +53,22 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+
+//        dd($request->all());
+
         $this->validate($request,[
            'name'=>'required'
         ]);
 
-        $brand = new brand;
-        $brand ->name=$request->input('name');
+//        dd($request->all());
 
+        $brand = new Brand();
+        $brand ->name=$request->input('name');
+        $brand->category_id=$request->input('category');
         $brand->save();
+
+
+        return redirect()->route('seller.brand.view')->with('success','Brand Created');
     }
 
     /**
@@ -54,7 +79,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -65,7 +90,9 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand=Brand::find(id);
+
+        return view('pages.seller.brand.edit_brands')->with('brand',$brand);
     }
 
     /**

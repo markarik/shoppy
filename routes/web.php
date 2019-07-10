@@ -36,6 +36,7 @@ Route::prefix('seller')->group(function(){
     Route::get('products','Seller\Pages\ProductController@index')->name('seller.product.view');
     Route::get('products/create','Seller\Pages\ProductController@create')->name('seller.product.create');
     Route::get('brands','Seller\Pages\BrandController@index')->name('seller.brand.view');
+    Route::get('brands/{id}/edit','Seller\Pages\BrandController@edit')->name('seller.brand.edit');
     Route::post('brands','Seller\Pages\BrandController@store')->name('seller.brand.store');
 
 
