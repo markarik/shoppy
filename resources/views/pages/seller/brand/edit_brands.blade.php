@@ -1,12 +1,12 @@
 
 
-{{ Form::open(['action'=>'Seller\Pages\BrandController@update','enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
+{{ Form::open(['action'=>['Seller\Pages\BrandController@update','id'=>$brand->id],'enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
                 {!! csrf_field() !!}
 
                             <div class="col-md-offset-2">
                                 <div class="form-group">
                                     {{form::label('name','Name')}}
-                                    {{form::text('name',null,array('class' =>'form-control'))}}
+                                    {{form::text('name',$brand->name,null,array('class' =>'form-control'))}}
                                 </div>
 
                                 <div class="form-group">
@@ -17,7 +17,7 @@
 
                             </div>
 
-                         {{form::submit('create',array('class' =>'btn btn-success'))}}
+                         {{form::submit('edit',array('class' =>'btn btn-success'))}}
             {{ Form::close() }}
 
 

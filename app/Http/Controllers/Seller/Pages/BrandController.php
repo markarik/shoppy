@@ -90,7 +90,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand=Brand::find(id);
+        $brand=Brand::findOrFail($id);
 
         return view('pages.seller.brand.edit_brands')->with('brand',$brand);
     }
@@ -104,7 +104,23 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+//        dd($request->all());
+
+        $brand = Brand::findOrFail($id);
+
+//        dd($brand);
+
+        $brand ->name=$request->input('name');
+        $brand->category_id=$request->input('category');
+        $brand->save();
+
+
+        return redirect()->route('seller.brand.view')->with('success','Brand Created');
     }
 
     /**

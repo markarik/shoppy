@@ -17,7 +17,7 @@
 <table id="users-table" class="table table-hover table-condensed" style="width:80%">  
         <thead>  
             <tr>  
-{{--                <th>Id</th>--}}
+               <th>Id</th>
                 <th>Name</th>
                 <th>Created</th>
                 <th>Updated</th>
@@ -27,16 +27,13 @@
         <tbody>
              @foreach ($brands as $brand)
                  <tr>
-{{--                     <td>{{$brand->id}}</td>--}}
+                  <td>{{$brand->id}}</td>
                      <td>{{$brand->name}}</td>
                      <td>{{$brand->created_at}}</td>
                      <td>{{$brand->updated_at}}</td>
                      <td>
 
-{{--                          <button type="button" class="btn btn-success button_edit" data-toggle="modal" data-target="#exampleModal">--}}
-{{--                              Edit--}}
-{{--                          </button>--}}
-                         <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal" value="Edit"/>
+                         <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$brand->id}}" value="Edit"/>
                      </td>
                  </tr>
              @endforeach
@@ -59,7 +56,8 @@
 @endsection
 
 <!-- Edit Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach($brands as $brand)
+<div class="modal fade" id="exampleModal{{$brand->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -79,7 +77,7 @@
         </div>
     </div>
 </div>
-
+@endforeach
 
 
 
