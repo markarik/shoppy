@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Seller\Pages;
 use App\Brand;
 use App\Category;
 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

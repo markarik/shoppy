@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Seller\Pages;
 
+use App\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,7 +25,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.seller.product.create_product');
+        //$brands = Brand::all();
+       $brands = Brand::pluck('name','id');
+
+//        dd($brands[0]->name);
+
+        $data = [
+            'brands'=>$brands
+        ];
+
+        return view('pages.seller.product.create_product',$data);
     }
 
     /**

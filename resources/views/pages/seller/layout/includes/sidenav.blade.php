@@ -6,7 +6,7 @@
 <HR>
    <div>
        <button class="accordion">
-           <i class="fas fa-industry"></i>   Products</button>
+             Products</button>
        <div class="panel">
            <ul>
                <li>
@@ -21,7 +21,7 @@
    </div>
    <div>
        <button class="accordion">
-           <i class="fas fa-industry"></i>   Brands</button>
+              Brands</button>
        <div class="panel">
            <ul>
                <li>
