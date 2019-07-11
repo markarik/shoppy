@@ -44,7 +44,22 @@
                             </div>--}}
 
                             <div class="form-group">
-                                {{form::label('image','Image')}}
+                                {{form::label('image','Featured Image')}}
+                                {{form::file('image',null,array('class' =>'form-control'))}}
+                            </div>
+
+                            <div class="form-group">
+                                {{form::label('image','Image 2')}}
+                                {{form::file('image',null,array('class' =>'form-control'))}}
+                            </div>
+
+
+                            <div class="form-group">
+                                {{form::label('image','Image 3')}}
+                                {{form::file('image',null,array('class' =>'form-control'))}}
+                            </div>
+                            <div class="form-group">
+                                {{form::label('image','Image $')}}
                                 {{form::file('image',null,array('class' =>'form-control'))}}
                             </div>
     

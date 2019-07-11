@@ -20,7 +20,8 @@
        </div>
    </div>
    <div>
-       <button class="accordion">Brands</button>
+       <button class="accordion">
+           <i class="fas fa-industry"></i>   Brands</button>
        <div class="panel">
            <ul>
                <li>

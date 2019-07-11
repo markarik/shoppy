@@ -24,6 +24,11 @@
 @include('pages.seller.layout.includes.header')
 <div class="container-fluid">
     <div class="row">
+        @if(Session::has('message'))
+            <div class="alert alert-info">
+                <p>{{ Session::get('message') }}</p>
+            </div>
+        @endif
         <div class="col-sm-2 col-lg-2">
             @include('pages.seller.layout.includes.sidenav')
         </div>
