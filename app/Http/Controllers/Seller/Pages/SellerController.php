@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Seller\Pages;
 
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,7 +21,9 @@ class SellerController extends Controller
      */
     public function index()
     {
-        return view('pages.seller.seller');
+
+        $products = Product::all();
+        return view('pages.seller.seller')->with('products',$products);
     }
 
     /**

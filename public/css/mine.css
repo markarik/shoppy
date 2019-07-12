@@ -76,7 +76,8 @@ nav ul li a{
     text-underline: none !important;
     transition: background-color 0.1s linear;
 }
-.sidenav h3{
+.sidenav a h3{
+    color: var(--blackbackgroundtheme);
     text-align: center;
     font-weight: bold;
 }
@@ -203,5 +204,9 @@ button.accordion:hover{
 
 }
 
+
+#users-table_length label{
+    color: var(--orangetheme) !important;
+}
 
 

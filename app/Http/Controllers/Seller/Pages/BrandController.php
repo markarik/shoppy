@@ -17,7 +17,7 @@ class BrandController extends Controller
      */
     public function index()    {
 
-       $categories = Category::pluck('name', 'id');
+       $categories = Category::all();
         $brands = Brand::all();
 
         $data = [
