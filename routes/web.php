@@ -40,6 +40,7 @@ Route::prefix('seller')->group(function(){
     Route::post('brands/{id}','Seller\Pages\BrandController@update')->name('seller.brand.update');
     Route::post('brands','Seller\Pages\BrandController@store')->name('seller.brand.store');
     Route::post('brands','Seller\Pages\ProductController@store')->name('seller.product.store');
+    Route::get('orders','Seller\Pages\OrderProductController@index')->name('seller.order.view');
 
 
 

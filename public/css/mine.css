@@ -67,7 +67,7 @@ nav ul li a{
     height: 35px;
 }
 .sidenav li a{
-    padding-left: 40px;
+    padding-left: 20px;
     color: var(--blackbackgroundtheme);
     margin-bottom: 10px;
 }
@@ -206,6 +206,22 @@ button.accordion:hover{
 
 
 #users-table_length label{
+    color: var(--orangetheme) !important;
+}
+#users-table_filter label{
+    color: var(--orangetheme) !important;
+}
+#users-table_info label{
+    color: var(--orangetheme) !important;
+}
+#users-table_info {
+    color: var(--orangetheme) !important;
+}
+#users-table_previous {
+    color: var(--orangetheme) !important;
+}
+
+#users-table_next {
     color: var(--orangetheme) !important;
 }
 

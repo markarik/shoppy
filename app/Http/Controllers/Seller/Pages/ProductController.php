@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Seller\Pages;
 
 use App\Brand;
 use App\Image;
+use App\Inventory;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,10 +61,12 @@ class ProductController extends Controller
             ])->validate();*/
 
       $this->validate($request,[
-          'price'=>'required',
+          'unit_cost'=>'required',
           'short_description'=>'required',
           'featured_image'=>'required|image|mimes:jpeg,png,jpg,gif|max:1000',
           'name'=>'required',
+          'quantity'=>'required'
+
       ]);
 
 
@@ -83,7 +86,7 @@ class ProductController extends Controller
             $product ->name=$request->input('name');
             $product ->short_description=$request->input('short_description');
             $product ->long_description=$request->input('long_description');
-            $product ->unit_cost=$request->input('price');
+            $product ->unit_cost=$request->input('unit_cost');
             $product ->brand_id=$request->input('brand_id');
             $product ->featured_image_url = $final_name;
             $product ->status = 1;
@@ -133,6 +136,12 @@ class ProductController extends Controller
                 $image4->save();
 
             }
+
+
+            $inventory = new Inventory();
+            $inventory->products_id = $product->id;
+            $inventory -> quantity = $request->input('quantity');
+            $inventory->save();
 
         }
 

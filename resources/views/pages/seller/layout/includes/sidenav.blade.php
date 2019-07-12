@@ -30,8 +30,10 @@
 
            </ul>
        </div>
-   </div>  <div>
-       <button class="accordion">Active3</button>
+   </div>
+
+    <div>
+       <button class="accordion">Sales</button>
        <div class="panel">
            <ul>
                <li>item 1</li>
@@ -39,11 +41,61 @@
                <li>item 1</li>
            </ul>
        </div>
-   </div>  <div>
-       <button class="accordion">Active3</button>
+   </div>
+
+    <div>
+        <button class="accordion">Orders</button>
+        <div class="panel">
+            <ul>
+                <li>
+                    <a class="nav-link" href="{{route('seller.order.view')}}">View Orders</a>
+                </li>
+                <li>item 1</li>
+                <li>item 1</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <button class="accordion">Messages</button>
+        <div class="panel">
+            <ul>
+                <li>item 1</li>
+                <li>item 1</li>
+                <li>item 1</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <button class="accordion">Reports</button>
+        <div class="panel">
+            <ul>
+                <li>item 1</li>
+                <li>item 1</li>
+                <li>item 1</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <button class="accordion">Payments</button>
+        <div class="panel">
+            <ul>
+                <li>item 1</li>
+                <li>item 1</li>
+                <li>item 1</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+       <button class="accordion">Settings</button>
        <div class="panel">
            <ul>
-               <li>item 1</li>
+               <li>
+                   <a class="nav-link" href="#">Inventory</a>
+               </li>
                <li>item 1</li>
                <li>item 1</li>
            </ul>

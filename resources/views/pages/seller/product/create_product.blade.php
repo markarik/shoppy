@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 {{form::label('long_description','Long Description')}}
-                {{form::textarea('long_description',null,array('class' =>'form-control'/*,'name'=>'editor1'*/))}}
+                {{form::textarea('long_description',null,array('class' =>'form-control','id'=>'editor1'))}}
             </div>
 
            {{-- <div class="form-group">
@@ -26,8 +26,13 @@
                 {{form::select('size',['small'=>'Small','medium'=>'Medium','large'=>'Large'],null,array('class' =>'form-control'))}}
             </div>--}}
             <div class="form-group">
-                {{form::label('price','Price')}}
-                {{form::text('price',null,array('class' =>'form-control'))}}
+                {{form::label('unit_cost','Price')}}
+                {{form::text('unit_cost',null,array('class' =>'form-control'))}}
+            </div>
+
+            <div class="form-group">
+                {{form::label('quantity','Number of Items')}}
+                {{form::Number('quantity',null,array('class' =>'form-control'))}}
             </div>
 
 
