@@ -66,6 +66,7 @@ class BrandController extends Controller
         $brand = new Brand();
         $brand ->name=$request->input('name');
         $brand->category_id=$request->input('category');
+
         $brand->save();
 
 
@@ -118,6 +119,7 @@ class BrandController extends Controller
 
         $brand ->name=$request->input('name');
         $brand->category_id=$request->input('category');
+//        dd($brand);
         $brand->save();
 
 
@@ -132,6 +134,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::findorFail($id);
+        $brand->delete();
+        return redirect()->route('seller.brand.view')->with('success','Brand Edited');
     }
 }

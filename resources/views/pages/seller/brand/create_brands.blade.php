@@ -1,48 +1,24 @@
-
-
-
-{{--{{ Form::open(['action'=>'Seller\Pages\BrandController@store','enctype'=>'multipart/form-data','method'=>'POST','files'=>true]) }}
-                {!! csrf_field() !!}
-
-                            <div class="col-md-offset-2">
-                                <div class="form-group">
-                                    {{form::label('name','Name')}}
-                                    {{form::text('name',null,array('class' =>'form-control'))}}
-                                </div>
-
-                                <div class="form-group">
-                                    {{form::label('category','Category')}}
-                                    {{form::select('category',$categories,null,array('class' =>'form-control','placeholder'=>'select category'))}}
-                                </div>
-
-
-                            </div>
-
-                         {{form::submit('create',array('class' =>'btn btn-success'))}}
-            {{ Form::close() }}--}}
-
-
-
-<form action="{{route('seller.product.store')}}" method="POST" enctype="multipart/form-data" files="true">
+<form action="{{url('seller/brands  ')}}" method="POST" enctype="multipart/form-data" files="true">
     {!! csrf_field() !!}
     <div class="col-md-offset-2">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control" required>
         </div>
 
         <div class="form-group">
-            <select>
-                <option>
+            <label for="category_id">Category</label>
+            <select class="form-control" name="category_id">
+
                     @foreach($categories as $category)
-                    {{$category->name}}
+                    <option value="{{$category->id}}">{{$category->name}}
+                    </option>
                     @endforeach
-                </option>
+
             </select>
         </div>
-
-
     </div>
+    <input type="submit" class="btn btn-success" value="Create">
 </form>
 
 

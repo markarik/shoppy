@@ -2,7 +2,10 @@
 
 @section('css')
 
+
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{asset('font.css.all.css')}}">
 
 @endsection
 
@@ -22,7 +25,8 @@
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Action</th>  
-              </tr>  
+                <th>Action</th>
+              </tr>
         </thead>
         <tbody>
              @foreach ($brands as $brand)
@@ -35,6 +39,7 @@
 
                          <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$brand->id}}" value="Edit"/>
                      </td>
+                     <td><a href="/seller/brand/{{$brand->id}}">Delete</a></td>
                  </tr>
              @endforeach
         </tbody>
@@ -46,6 +51,7 @@
 @section('js')
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="{{asset('font/js/all.js')}}"></script>
 
     <script>
         $(document).ready(function () {

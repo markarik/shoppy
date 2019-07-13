@@ -71,9 +71,14 @@
         <button class="accordion">Reports</button>
         <div class="panel">
             <ul>
-                <li>item 1</li>
-                <li>item 1</li>
-                <li>item 1</li>
+                <li>
+                    <a href="{{route('seller.report.view')}}" class="nav-link">View Reports</a>
+                </li>
+
+                <li>
+                    <a href="#" class="nav-link">Download Reports</a>
+                </li>
+
             </ul>
         </div>
     </div>

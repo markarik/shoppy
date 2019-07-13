@@ -33,10 +33,10 @@
             <td>{{$product->unit_cost}}</td>
             <td>{{$product->created_at}}</td>
             <td>{{$product->updated_at}}</td>
-            <td><a href="/admin/product/{{$product->id}}">Delete</a></td>
+            <td><a href="/seller/product/{{$product->id}}">Delete</a></td>
         </tr>
                     @endforeach
-           @else--}}
+           @else
              <p>No Category Found</p>
            @endif
         </tbody>

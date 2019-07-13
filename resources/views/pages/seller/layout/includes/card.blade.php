@@ -5,7 +5,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>
-                    <div class="col-sm-2"><h3>10000</h3></div>
+                    <div class="col-sm-2"><h3>
+                            {{\App\User::count()}}
+                        </h3></div>
                 </div>
             </div>
         </div>
@@ -16,7 +18,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>
-                    <div class="col-sm-2"><h3>10000</h3></div>
+                    <div class="col-sm-2"><h3>
+                            {{\App\OrderProduct::count()}}
+                        </h3></div>
                 </div>
             </div>
         </div>
@@ -42,8 +46,6 @@
                 <div class="row">
                     <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>
                     <div class="col-sm-2"><h3>
-
-                            
                             {{\App\Product::count()}}
                         </h3></div>
                 </div>

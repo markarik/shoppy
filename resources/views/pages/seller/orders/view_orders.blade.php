@@ -2,6 +2,12 @@
 
 @section('content')
 
+@section('css')
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+@endsection
+
     <div class="table_formats">
         <h2 class="table_format">ORDERS</h2>
         <table id="users-table" class="table table-hover table-condensed" style="width:80%">
@@ -14,31 +20,36 @@
                 <th>Quantity</th>
                 <th>Created</th>
                 <th>Updated</th>
-
             </thead>
             <tbody>
-            @if(count($orders)>1)
-
                 @foreach ($orders as $order)
                     <tr>
-
                         <td>{{$order->id}}</td>
-                        <td>{{$order->Product_name}}</td>
-                        <td>{{$order->Users_id}}</td>
+                        <td>{{$order->product_name}}</td>
+                        <td>{{$order->users_id}}</td>
                         <td>{{$order->checkout_id}}</td>
                         <td>{{$order->quantity}}</td>
                         <td>{{$order->created_at}}</td>
                         <td>{{$order->updated_at}}</td>
-
                     </tr>
                 @endforeach
-                @else
-                <p>No Orders Found</p>
-            @endif
             </tbody>
 
         </table>
 
     </div>
+
+@endsection
+
+
+@section('js')
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#users-table').DataTable();
+        });
+    </script>
 
 @endsection

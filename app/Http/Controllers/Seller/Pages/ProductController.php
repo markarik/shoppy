@@ -31,9 +31,9 @@ class ProductController extends Controller
     public function create()
     {
         //$brands = Brand::all();
-       $brands = Brand::pluck('name','id');
+       $brands = Brand::all();
 
-//        dd($brands[0]->name);
+//    dd($brands);
 
         $data = [
             'brands'=>$brands
@@ -145,7 +145,7 @@ class ProductController extends Controller
 
         }
 
-        return redirect()->route('seller.product.view')->with('success','Brand Created');
+        return redirect()->route('seller.product.view')->with('success','Product Created');
 
 
     }
@@ -192,6 +192,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('seller.product.view')->with('success','Product Edited');
     }
 }

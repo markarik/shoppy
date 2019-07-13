@@ -35,12 +35,15 @@ Route::prefix('seller')->group(function(){
     /*Dashboard*/
     Route::get('products','Seller\Pages\ProductController@index')->name('seller.product.view');
     Route::get('products/create','Seller\Pages\ProductController@create')->name('seller.product.create');
+    Route::post('products','Seller\Pages\ProductController@store')->name('seller.product.store');
     Route::get('brands','Seller\Pages\BrandController@index')->name('seller.brand.view');
     Route::get('brand/{id}/edit','Seller\Pages\BrandController@edit')->name('seller.brand.edit');
     Route::post('brands/{id}','Seller\Pages\BrandController@update')->name('seller.brand.update');
     Route::post('brands','Seller\Pages\BrandController@store')->name('seller.brand.store');
-    Route::post('brands','Seller\Pages\ProductController@store')->name('seller.product.store');
     Route::get('orders','Seller\Pages\OrderProductController@index')->name('seller.order.view');
+    Route::get('reports','Seller\Pages\ReportController@index')->name('seller.report.view');
+    Route::get('product/{id}','Seller\Pages\ProductController@destroy');
+    Route::get('brand/{id}','Seller\Pages\BrandController@destroy');
 
 
 
