@@ -26,7 +26,7 @@
 
                 </tr>
             @endforeach
-            @else--}}
+            @else
             <p>No Category Found</p>
         @endif
         </tbody>

@@ -25,6 +25,7 @@
     --footerfontfamily: 'Oswald',sans-serif;
     --blackbackgroundtheme:black;
     --buttonbackground:#006600;
+    --itemopacity:rgba(0,0,0,0.1);
 }
 body{
     background-color: var(--whitetexttheme) !important;
@@ -161,11 +162,14 @@ button.accordion:hover{
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 5px;
     padding: 6px;
-    margin-top: 50px;
+    margin-top: 20px;
+
 }
 
 .table_format{
-    text-align: center;
+    /*text-align: center;*/
+    margin-left:20rem;
+    color: var(--orangetheme);
 }
 
 .button_edit{
@@ -197,7 +201,7 @@ button.accordion:hover{
 
 .create_product{
     margin:20px 0 0 150px !important;
-    border:2px solid  rgb(0,0,0,.1) !important;
+    border:2px solid  rgba(0,0,0,0.1) !important;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px var(--box-shadow);
@@ -211,8 +215,12 @@ button.accordion:hover{
 #users-table_filter label{
     color: var(--orangetheme) !important;
 }
-#users-table_info label{
+
+#users-table_filter{
     color: var(--orangetheme) !important;
+}
+#users-table_info label{
+    border-color: var(--orangetheme) !important;
 }
 #users-table_info {
     color: var(--orangetheme) !important;
@@ -224,5 +232,15 @@ button.accordion:hover{
 #users-table_next {
     color: var(--orangetheme) !important;
 }
+#users-table thead {
+    color: var(--orangetheme)!important;
+}
 
+.graphs p{
+    margin: 2px;
+    padding: 10px;
+    /*border: 1px solid var(--orangetheme)!important;*/
+    border-radius: 20px;
+    /*box-shadow: 10px 10px var(--itemopacity);*/
 
+}

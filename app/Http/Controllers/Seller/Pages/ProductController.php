@@ -193,7 +193,13 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $product->delete();
+
+        if ($product->delivery_status = 1){
+            $product->delete();
+        }else{
+            return redirect()->back()->with("failure","");
+        }
+
         return redirect()->route('seller.product.view')->with('success','Product Edited');
     }
 }

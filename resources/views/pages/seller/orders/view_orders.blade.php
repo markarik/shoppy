@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{$order->id}}</td>
                         <td>{{$order->product_name}}</td>
-                        <td>{{$order->users_id}}</td>
+                        <td>{{$order->user_name}}</td>
                         <td>{{$order->checkout_id}}</td>
                         <td>{{$order->quantity}}</td>
                         <td>{{$order->created_at}}</td>

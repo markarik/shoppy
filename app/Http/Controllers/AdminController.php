@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +11,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('guest:admin');
     }
 
     /**
@@ -20,7 +21,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.seller.seller');
+        $stores = Seller::all();
+        return view('pages.admin.admin')->with('stores',$stores);
     }
 
     /**

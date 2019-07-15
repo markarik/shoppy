@@ -64,6 +64,8 @@ Route::prefix('seller')->group(function(){
 
 Route::prefix('admin')->group(function (){
 
+ 
+
     Route::get('/login','AdminAuth\AdminLoggingController@loginform')->name('admin.login');
     Route::post('/login','AdminAuth\AdminLoggingController@login')->name('admin.login.submit');
     Route::get('/','AdminController@index')->name('admin.dashboard');
@@ -105,3 +107,8 @@ Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showRes
 //
 //Route::resource('/product','ProductController');
 //Route::resource('/category','CategoryController');
+
+
+Route::get('/restore',function (){
+    \App\Product::withTrashed()->where('status',1)->restore();
+});
