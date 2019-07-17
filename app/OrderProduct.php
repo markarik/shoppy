@@ -10,6 +10,9 @@ class OrderProduct extends Model
         'quantity'
         ];
 
+    public function getProductAttribute() {
+        return Product::find($this->product_id);
+    }
     public function getProductNameAttribute(){
 
         $product = Product::where('id',$this->product_id )->first();

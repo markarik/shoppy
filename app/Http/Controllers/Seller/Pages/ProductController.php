@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Seller\Pages;
 
 use App\Brand;
+use App\Checkout;
 use App\Image;
 use App\Inventory;
+use App\OrderDelivery;
+use App\Payment;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -192,14 +195,47 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::find($id);
+//        $product = Product::get()->filter(function ($status){
+//            if ($status->delivery_status = 1){
+//
+//
+//             dd($status);
+//                return true;
+//
+//            }else{
+//                return redirect()->back()->with("failure","");
+//            }
+//        });
+//
+//        $product->delete();
+//
+//        return redirect()->route('seller.product.view')->with('success','Product Edited');
 
-        if ($product->delivery_status = 1){
-            $product->delete();
-        }else{
-            return redirect()->back()->with("failure","");
-        }
+        $status = Product::get()->filter(function($deliver) {
 
-        return redirect()->route('seller.product.view')->with('success','Product Edited');
+
+
+            if(count($deliver->undelivered_orders) != 0){
+//                dd($deliver);
+
+                $deliver->delete();
+
+                return true;
+
+            }
+            else{
+
+//                dd($deliver);
+
+                $deliver->delete();
+
+                return false;
+            }
+        });
+
+//        $status->delete();
     }
+
+
+
 }

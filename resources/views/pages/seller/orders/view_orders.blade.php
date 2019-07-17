@@ -15,7 +15,7 @@
             <tr>
                 <th>Id</th>
                 <th>Product</th>
-                <th>User_Id</th>
+                <th>Buyer</th>
                 <th>CheckOut</th>
                 <th>Quantity</th>
                 <th>Created</th>

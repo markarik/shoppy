@@ -40,4 +40,45 @@ class Product extends Model
         return $brand->name;
 
     }
+
+
+    public function getUndeliveredOrdersAttribute()
+    {
+
+        $order_products = OrderProduct::where('product_id',$this->id)->get();
+
+        $payments=[];
+        if (count($order_products) != 0){
+            foreach ($order_products as $order_product){
+                array_push($payments,Payment::where('checkout_id',$order_product->checkout_id)->get());
+            }
+        }
+
+//        dd(count($payments));
+
+        $order_deliveries =[];
+
+        if (count($payments) != 0){
+            foreach ($payments as $payment){
+                array_push($order_deliveries, OrderDelivery::where('payments_id',$payment->get('id'))->first());
+            }
+
+        }
+
+        $undelivered_orders = [];
+
+            foreach ($order_deliveries as $order_delivery){
+
+                if ($order_delivery != null){
+
+                    if ($order_delivery->status == 2){
+                        array_push($undelivered_orders, $order_delivery);
+                    }
+
+                }
+            }
+
+        return $undelivered_orders;
+
+    }
 }

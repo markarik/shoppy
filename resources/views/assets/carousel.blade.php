@@ -1,13 +1,12 @@
-
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div class="carousel-container">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
         </ol>
-        <div class="carousel-inner carousel_size">
+        <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{asset('images/L1.jpg')}}" class="d-block w-100" alt="...">
             </div>
@@ -30,3 +29,6 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+</div>
+

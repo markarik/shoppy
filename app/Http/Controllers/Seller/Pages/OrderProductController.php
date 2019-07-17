@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Seller\Pages;
 
 use App\OrderProduct;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +16,17 @@ class OrderProductController extends Controller
      */
     public function index()
     {
+        $count = 0;
+        $orders = OrderProduct::get()->filter(function ($order) use (&$count) {
+           if ($order->product == null) {
+               return false;
+           }
+           $count +=1;
+           return true;
+        });
 
-        $orders = OrderProduct::all();
+
+//        $orders = OrderProduct::all();
         return view('pages.seller.orders.view_orders')->with('orders',$orders);
     }
 
