@@ -33,7 +33,12 @@
             <td>{{$product->unit_cost}}</td>
             <td>{{$product->created_at}}</td>
             <td>{{$product->updated_at}}</td>
-            <td><a href="/seller/product/{{$product->id}}">Delete</a></td>
+            <td>
+            <form action="{{route('seller.delete.product',['id'=>$product->id])}}" method="POST">
+                @csrf
+                <input type="submit" value="Delete">
+            </form>
+            </td>
         </tr>
                     @endforeach
            @else

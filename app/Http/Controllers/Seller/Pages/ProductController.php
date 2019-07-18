@@ -195,45 +195,23 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-//        $product = Product::get()->filter(function ($status){
-//            if ($status->delivery_status = 1){
-//
-//
-//             dd($status);
-//                return true;
-//
-//            }else{
-//                return redirect()->back()->with("failure","");
-//            }
-//        });
-//
-//        $product->delete();
-//
-//        return redirect()->route('seller.product.view')->with('success','Product Edited');
 
-        $status = Product::get()->filter(function($deliver) {
+        $product = Product::findOrFail($id);
 
+        if (count($product->undelivered_orders) != 0){
 
+            $product->delete();
 
-            if(count($deliver->undelivered_orders) != 0){
-//                dd($deliver);
+            return redirect()->back()->with("success","Product Deleted Successfully");
 
-                $deliver->delete();
+        }else{
 
-                return true;
+            $product->delete();
 
-            }
-            else{
+            return redirect()->back()->with("error","Product With an Active Order Cannot Be Deleted");
 
-//                dd($deliver);
+        }
 
-                $deliver->delete();
-
-                return false;
-            }
-        });
-
-//        $status->delete();
     }
 
 

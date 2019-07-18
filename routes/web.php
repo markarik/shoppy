@@ -42,7 +42,7 @@ Route::prefix('seller')->group(function(){
     Route::post('brands','Seller\Pages\BrandController@store')->name('seller.brand.store');
     Route::get('orders','Seller\Pages\OrderProductController@index')->name('seller.order.view');
     Route::get('reports','Seller\Pages\ReportController@index')->name('seller.report.view');
-    Route::get('product/{id}','Seller\Pages\ProductController@destroy');
+    Route::post('product/delete/{id}','Seller\Pages\ProductController@destroy')->name('seller.delete.product');
     Route::get('brand/{id}','Seller\Pages\BrandController@destroy');
 
 
