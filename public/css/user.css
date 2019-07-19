@@ -1,0 +1,152 @@
+.login_card{
+    width: 500px !important;
+    height: 365px!important;
+    margin:30px 0 0 123px;
+    padding: 10px;
+}
+
+.form-group label{
+    text-align: left !important;
+    font-weight: bold;
+    font-size: 15px;
+}
+.card_inputs_custom{
+    padding-left: 56px!important;
+}
+
+.card_inputs_custom input{
+    width: 19rem;
+    border-radius: 10px !important;
+    border-color: orange;
+    box-shadow: 10px 10px rgba(0,0,0,0.1);
+}
+.card_body_custom{
+    align-items: center!important;
+}
+
+.card_header_custom{
+    background-color: var(--orangetheme) !important;
+    border-radius: 14px !important;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login_button_custom{
+    background-color: var(--orangetheme)!important;
+    border-radius: 20px !important;
+    border-color: grey!important;
+}
+.register_link{
+    margin:0 0 50px 30px !important;
+    font-size: 13px;
+}
+
+.register_card{
+    border: 1px solid grey;
+    border-radius: 15px;
+    margin-top: 10px!important;
+    padding: 27px;
+    box-shadow: 10px 10px rgba(128, 128, 128, 0.52);
+}
+.register_card_header{
+    background-color: var(--orangetheme);
+    border-radius: 15px;
+    color: var(--whitetexttheme);
+    text-align: center;
+}
+
+.register_card_body{
+    padding-top: 20px;
+}
+
+.register_form_group{
+    margin-left: 80px !important;
+}
+
+.register_form_group label{
+   font-weight: bold;
+    font-size: 15px;
+}
+
+
+.register_form_group input{
+   width: 30rem;
+    border-color: orange;
+    box-shadow: 10px 10px rgba(0,0,0,0.1);
+}
+
+.register_button{
+    background-color: var(--orangetheme)!important;
+    border-radius: 20px !important;
+    border-color: grey!important;
+}
+.details_custom{
+    border: 1px solid black ;
+    margin: 40px 20px 0 45px;
+    border-radius: 15px;
+    box-shadow: 10px 10px rgba(0,0,0,.1);
+    height: 415px;
+}
+
+.details_other_images{
+    height: 120px;
+    width: 130px;
+    border: 1px solid;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding-right: 20px!important;
+
+}
+.details_image_custom img{
+   /* width:340px;
+    height: 421px;
+
+    padding: 30px 30px 30px 10px !important;
+    background-size: cover!important;*/
+    /*text-align:center!important;*/
+    width: 100%;
+    background-size: cover!important;
+}
+.details_image_custom{
+
+}
+.details_row{
+    margin-left: 14px !important;
+}
+.other_images_column{
+    margin-top: 57px !important;
+}
+
+.details_accordions{
+    margin-top: 30px!important;
+    margin-left: 200px!important;
+}
+button.details_accordion{
+    width: 100%;
+   padding: 10px 0 15px 30px!important;
+    background-color: var(--orangetheme);
+    border-radius: 15px!important;
+    outline: none!important;
+    text-align: left!important;
+    font-size: 20px!important;
+    color: var(--whitetexttheme)!important;
+    cursor: cell !important;
+    transition: background-color 0.3s linear!important;
+}
+
+button.details_accordion:hover{
+
+    background-color: orangered;
+
+}
+.details_accordion_content{
+    padding: 2px 20px!important;
+    border-right: 1px solid grey!important;
+    border-left: 1px solid grey!important;
+    border-radius: 15px!important;
+
+
+}
+

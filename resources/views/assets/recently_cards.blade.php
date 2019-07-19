@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="ml-auto btn_buy_now_div">
-                  <a class="btn btn-success btn_buy_now" href="#">Buy Now</a>
+                  <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@
 
             </div>
             <div class="ml-auto btn_buy_now_div">
-                <a class="btn btn-success btn_buy_now" href="#">Buy Now</a>
+                <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
             </div>
         </div>
     </div>
@@ -179,7 +179,7 @@
 
             </div>
             <div class="ml-auto btn_buy_now_div">
-                <a class="btn btn-success btn_buy_now" href="#">Buy Now</a>
+                <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
             </div>
         </div>
     </div>
@@ -240,7 +240,7 @@
 
             </div>
             <div class="ml-auto btn_buy_now_div">
-                <a class="btn btn-success btn_buy_now" href="#">Buy Now</a>
+                <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
             </div>
         </div>
     </div>

@@ -36,24 +36,20 @@
         <div class="navbar nav_display ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart fa-2x header_icons"></i>
                 </a>
+                <div class="wishlist_sup_heart">1</div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-cart-plus"></i>
+                    <i class="fas fa-cart-plus fa-2x header_icons cart_custom"></i>
                 </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Login</a>
-                    <a class="dropdown-item" href="#">Logout</a>
-                    <a class="dropdown-item" href="#">Sign Up</a>
-                </div>
+                <div class="wishlist_sup">1</div>
             </li>
         </div>
-
+    <div class="header_username">
+        <h5>Mark</h5>
+    </div>
 
 </nav>
 

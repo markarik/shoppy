@@ -11,4 +11,11 @@ class WelcomeController extends Controller
         return view('index');
 
     }
+
+
+    public function detailspage (){
+
+        return view('assets.details.details');
+
+    }
 }

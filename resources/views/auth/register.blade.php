@@ -4,16 +4,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+            <div class="register_card">
+                <div class="register_card_header">
                     <h1>User Registration</h1>
                 </div>
 
-                <div class="card-body">
+                <div class="register_card_body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group register_form_group">
                             <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
@@ -26,7 +26,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group register_form_group">
                             <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group register_form_group">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('PhoneNumber') }}</label>
 
                             <div class="col-md-6">
@@ -54,7 +54,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group register_form_group">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group register_form_group">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group register_form_group">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
@@ -90,14 +90,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mb-0 ">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary register_button">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <div class="register_link">
+                        <p><a href="{{url('user/login')}}">Click here</a> if you have already have an account</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -291,7 +291,7 @@ button.accordion:hover{
 }
 
 .search{
-    padding-left: 25rem;
+    padding-left: 14rem;
     position: relative;
     color: #aaa;
     font-size: 16px;
@@ -316,6 +316,7 @@ button.accordion:hover{
     margin: 0 !important;
     padding-top: 0!important;
     list-style-type: none;
+    margin-right: 152px!important;
 
 }
 
@@ -390,6 +391,28 @@ button.accordion:hover{
     z-index: 1;
     /*display: none;*/
 }
+.header_icons{
+    color: var(--blackbackgroundtheme);
+    margin-right: 50px!important;
+    position: relative;
+
+}
+.wishlist_sup{
+    position: absolute;
+    top: 0px;
+    right: 63px;
+    color: white;
+    font-size: 20px;
+}
+
+.wishlist_sup_heart{
+    position: absolute;
+    top: 0px;
+    right: 180px;
+    color: white;
+    font-size: 20px;
+}
+
 
 .side-nav_dropdown{
     position: absolute;
@@ -493,7 +516,20 @@ button.accordion:hover{
    padding-right: 20px;
 
 }
+.img-container{
+    /*position: relative;*/
+    overflow: hidden;
+}
+.card-img-top{
+    transition: all 1s linear;
+}
 
+
+.img-container:hover .card_buttons{
+    transform: translate(0,0);
+    display: block;
+    transition: all 1s linear;
+}
 
 .img-container img{
     overflow: hidden;
@@ -506,13 +542,16 @@ button.accordion:hover{
     background-color: red;
 }
 .card_buttons{
-    /*display: none;*/
+    display: none;
     bottom: 201px;
     position: absolute;
     width: 248px;
     height: 30px;
     background-color: var(--orangetheme);
     border-radius: 15px!important;
+    font-size: 1.4rem;
+    transform: translate(40%,100%);
+
 
 }
 .cart_btn{
@@ -589,8 +628,11 @@ margin: 20px !important;
     border-radius: 50%;
     background-color: blue;
     padding: 3px;
-    color: white;
     border-color: black!important;
+}
+
+.footer-social-icon a {
+    color: var(--whitetexttheme)!important;
 }
 
 .gp{
@@ -605,6 +647,15 @@ margin: 20px !important;
 }
 .tw{
     background-color:#3b5998 !important;
+}
+
+
+.header_username{
+    margin-right: 30px;
+}
+
+.scrollable-element {
+    scrollbar-color: red yellow !important;
 }
 
 

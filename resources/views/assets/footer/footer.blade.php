@@ -22,28 +22,35 @@
             <div class="col-md-3 mb-md-0 mb-3">
                 <h5 class="text-uppercase">SOCIAL</h5>
                 <div class="d-flex footer_social">
-                    <div class="footer-social-icon fb"><i class="fab fa-facebook-f"></i></div>
-                    <div class="footer-social-icon ins"><i class="fab fa-twitter"></i></div>
-                    <div class="footer-social-icon tw"><i class="fab fa-instagram"></i></div>
-                    <div class="footer-social-icon gp"><i class="fab fa-google-plus-g"></i></div>
+                    <div class="footer-social-icon fb"><a href=""><i class="fab fa-facebook-f"></i></a></div>
+                    <div class="footer-social-icon ins"><a href=""><i class="fab fa-twitter"></i></a></div>
+                    <div class="footer-social-icon tw"><a href=""><i class="fab fa-instagram"></i></a></div>
+                    <div class="footer-social-icon gp"><a href=""><i class="fab fa-google-plus-g"></i></a></div>
                 </div>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
-               {{-- <h5 class="text-uppercase">Links</h5>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>--}}
+                <div class="col-md-3">
+                    <div class="card">
+
+{{--                        <div class="card-body">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card ">
+
+{{--                        <div class="card-body">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

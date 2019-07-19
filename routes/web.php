@@ -20,6 +20,7 @@ Route::get('/','WelcomeController@landingpage');
 Route::prefix('user')->group(function (){
 
     Auth::routes();
+    Route::get('details','WelcomeController@detailspage');
 
 });
 
