@@ -100,12 +100,6 @@
 
 }
 .details_image_custom img{
-   /* width:340px;
-    height: 421px;
-
-    padding: 30px 30px 30px 10px !important;
-    background-size: cover!important;*/
-    /*text-align:center!important;*/
     width: 100%;
     background-size: cover!important;
 }
@@ -121,10 +115,10 @@
 
 .details_accordions{
     margin-top: 30px!important;
-    margin-left: 200px!important;
+    margin-left: 150px!important;
 }
 button.details_accordion{
-    width: 100%;
+    width: 110%;
    padding: 10px 0 15px 30px!important;
     background-color: var(--orangetheme);
     border-radius: 15px!important;
@@ -132,7 +126,7 @@ button.details_accordion{
     text-align: left!important;
     font-size: 20px!important;
     color: var(--whitetexttheme)!important;
-    cursor: cell !important;
+    cursor: pointer!important;
     transition: background-color 0.3s linear!important;
 }
 
@@ -142,10 +136,10 @@ button.details_accordion:hover{
 
 }
 .details_accordion_content{
-    padding: 2px 20px!important;
-    border-right: 1px solid grey!important;
-    border-left: 1px solid grey!important;
-    border-radius: 15px!important;
+    padding: 20px 20px!important;
+    padding-left: 20px!important;
+    /*margin-left: 80px;*/
+
 
 
 }
