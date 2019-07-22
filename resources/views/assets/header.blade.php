@@ -67,7 +67,7 @@
 </nav>
 --}}
 
-<nav class="navbar navbar-light bg-light top-nav">
+<nav class="navbar  bg-light top-nav">
     <a class="navbar-brand" href="#">
 
         <img src="{{asset('images/shoppy.png')}}"  class="d-inline-block align-top logo" alt="">

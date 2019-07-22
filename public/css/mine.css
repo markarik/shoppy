@@ -130,7 +130,7 @@ button.accordion:hover{
 
 
 .card{
-    width: 200px !important;
+    /*width: 200px !important;*/
     height: 150px;
     border-radius: 15px !important;
     box-shadow: 8px 8px rgba(0,0,0,.1) !important;
@@ -290,8 +290,12 @@ button.accordion:hover{
     color: #DD6F1E;
 }
 
+.new_store_custom{
+    margin-left: 30px;
+}
+
 .search{
-    padding-left: 14rem;
+    margin-left: 14rem;
     position: relative;
     color: #aaa;
     font-size: 16px;
@@ -326,7 +330,7 @@ button.accordion:hover{
 }
 
 .navbar-light{
-    background-color: var(--orangetheme);
+    background-color: var(--orangetheme) !important;
     box-shadow:0px 2px 8px 1px rgba(0,0,0,.1)!important;
 }
 
@@ -373,112 +377,7 @@ button.accordion:hover{
     background-color: var(--feauredproductpillcolor)!important;
     /*transition: 1s;*/
 }
-.category_bar{
-    /* padding-left: 10px; */
-    cursor: pointer !important;
-    position: relative;
-}
 
-.arrow_up{
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid #F0F8FF;
-    left: 55px;
-    top: 45px;
-    z-index: 1;
-    /*display: none;*/
-}
-.header_icons{
-    color: var(--blackbackgroundtheme);
-    margin-right: 50px!important;
-    position: relative;
-
-}
-.wishlist_sup{
-    position: absolute;
-    top: 0px;
-    right: 63px;
-    color: white;
-    font-size: 20px;
-}
-
-.wishlist_sup_heart{
-    position: absolute;
-    top: 0px;
-    right: 180px;
-    color: white;
-    font-size: 20px;
-}
-
-
-.side-nav_dropdown{
-    position: absolute;
-    height: auto;
-    width: 300px;
-    background-color:#F0F8FF;
-    top: 30px;
-    left: -1px;
-    z-index: 20;
-    display: none;
-    overflow: hidden;
-    border-bottom: 2px solid;
-
-}
-.side-nav_dropdown a{
-    display: block;
-    padding-top: 5px;
-    padding-left: 10px;
-    color: var(--blackbackgroundtheme);
-    text-decoration: none!important;
-}
-
-.disabled_dopdown{
-    text-align: center;
-    padding-top: 10px;
-    background-color: var(--orangetheme);
-    font-family: "Nunito", sans-serif;
-    font-size: 20px;
-    text-decoration: none!important;
-}
-
-.disabled_dopdown:hover{
-    background-color: var(--orangetheme);
-}
-.disable_hover {
-    padding-top: 20px;
-}
-
-.disable_hover a{
-   padding: 5px;
-    border: 1px black;
-}
-.disable_hover a:hover{
-    background-color:rgba(0,0,0,.1);
-}
-.navbar-nav{
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-
-    transition: 0.2s 1s;
-}
-
-/*.navbar-nav:hover{*/
-/*    background-color: red;*/
-/*}*/
-
-.navbar-nav:hover>.side-nav_dropdown{
-   display: block;
-    transition: ease-in 2s;
-    transition-delay: 0s;
-}
-
-.navbar-nav:hover>.arrow_up{
-    display: block !important;
-}
 
 .featured_custom{
     margin: 20px;
@@ -516,10 +415,10 @@ button.accordion:hover{
    padding-right: 20px;
 
 }
-.img-container{
-    /*position: relative;*/
-    overflow: hidden;
-}
+/*.img-container{*/
+/*    !*position: relative;*!*/
+/*    overflow: hidden;*/
+/*}*/
 .card-img-top{
     transition: all 1s linear;
 }
@@ -567,9 +466,7 @@ button.accordion:hover{
 
 
 }
-.nav{
-    overflow: hidden;
-}
+
 
 
 .btn_buy_now{

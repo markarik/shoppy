@@ -20,7 +20,9 @@ Route::get('/','WelcomeController@landingpage');
 Route::prefix('user')->group(function (){
 
     Auth::routes();
-    Route::get('details','WelcomeController@detailspage');
+    Route::get('details','WelcomeController@detailspage')->name('user.product.details');
+    Route::get('cart','WelcomeController@showCart')->name('user.cart');
+    Route::get('checkout','WelcomeController@showCheckOut')->name('user.checkout');
 
 });
 

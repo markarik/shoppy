@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 .login_card{
     width: 500px !important;
     height: 365px!important;
@@ -102,24 +103,51 @@
 .details_image_custom img{
     width: 100%;
     background-size: cover!important;
+    height: 22rem;
+    padding-top: 1rem;
+    margin-top: 30px;
 }
-.details_image_custom{
 
-}
 .details_row{
     margin-left: 14px !important;
 }
 .other_images_column{
     margin-top: 57px !important;
+
+}
+
+
+.imagescrollwrapper{
+
+    height: 400px;
+    overflow: auto;
+    border: none;
+}
+.imagescrollimg{
+    width:80px;
+    height: 80px;
+    overflow: hidden;
+    margin: 5px auto;
+    /*padding: 10px;*/
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0 auto;
+
+}
+.imagescrollimg img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .details_accordions{
     margin-top: 30px!important;
-    margin-left: 150px!important;
+    margin-left: 30px!important;
 }
 button.details_accordion{
-    width: 110%;
-   padding: 10px 0 15px 30px!important;
+    width: 79rem;
+   padding: 10px 0 15px 32px!important;
     background-color: var(--orangetheme);
     border-radius: 15px!important;
     outline: none!important;
@@ -137,10 +165,252 @@ button.details_accordion:hover{
 }
 .details_accordion_content{
     padding: 20px 20px!important;
-    padding-left: 20px!important;
-    /*margin-left: 80px;*/
-
-
+    width: 76rem;
 
 }
 
+.details_card_custom{
+    font-family: 'Anton', sans-serif;
+
+    margin:30px 10px;
+}
+.details_card_key{
+    font-family: 'Anton', sans-serif;
+}
+.details_card_delivery{
+    margin-left: 18rem;
+}
+.details_card_prices h4{
+    font-family: 'Anton', sans-serif;
+}
+
+.details_card_prices h6{
+    text-decoration: line-through !important;
+    color: red;
+}
+
+.details_card_button button{
+    background-color: var(--orangetheme);
+    outline: none !important;
+    border: none;
+}
+
+.table{
+    margin-top: 60px !important;
+}
+.table-bordered{
+
+
+    border-radius: 15px !important;
+    box-shadow: 10px 10px grey;
+}
+.table_custom td img{
+    width: 60px;
+    background-size: cover!important;
+}
+
+
+.imagescrollwrapper{
+
+    height: 400px;
+    overflow: auto;
+    border: none;
+}
+.imagescrollimg{
+    width:80px;
+    height: 80px;
+    overflow: hidden;
+    margin: 5px auto;
+    /*padding: 10px;*/
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0 auto;
+
+}
+.imagescrollimg img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.cart-header-text{
+    font-size: 40px;
+    font-weight: bolder;
+
+}
+.pt-3-half {
+    padding-top: 1.4rem;
+}
+.cart-container{
+    width: 70%;
+    border: none;
+    background-color: var(--bluishwhitetheme);
+}
+.cart-table-body{
+    border: none;
+    background-color: var(--bluishwhitetheme);
+}
+.cart-prod-table-header{
+    font-size: 27px;
+    font-weight: bold;
+    font-family: var(--superfont);
+}
+.cart-prod-name-text{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: var(--superfont);
+}
+.cart-prod-name-wrapper{
+    margin-left: 10px;
+}
+.sub-totals{
+    font-size: 23px;
+    font-family: var(--superfont);
+    color: var(--orangetheme);
+    font-weight: bold;
+}
+.sub-totals-custom{
+    border-bottom: 1px solid black;
+}
+.totals{
+    font-size: 23px;
+    font-family: var(--superfont);
+    color: var(--orangetheme);
+    font-weight: bold;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar:hover {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track:hover {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 20px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--orangetheme);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--darkorangetheme);
+}
+
+
+.star-ratings{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+.rating-count-lg{
+    position: relative;
+}
+.rating-count-lg i{
+    position: relative;
+    width: 70%;
+    height: 70%;
+    color: var(--orangetheme);
+    font-size: 200px;
+}
+.average-ratings{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--whitetexttheme);
+    font-size: 30px;
+    font-weight: bold;
+
+
+}
+.reviews{
+    border-top:1px solid var(--greytheme);
+}
+.ratings-header{
+    font-size: 30px;
+    font-family: var(--footerfontfamily);
+}
+.ratings-user-header{
+    font-size: 27px;
+    font-family: var(--footerfontfamily);
+}
+.ratings-user-date{
+    font-size: 18px;
+    font-family: var(--footerfontfamily);
+    text-align: right;
+}
+.buyer-rating-wrapper{
+    border-right: 1px solid var(--greytheme);
+}
+
+.rating-count-md i{
+    font-size: 27px;
+}
+.text-area-custom{
+    border: none;
+    outline: none;
+    background-color:#ffffff;
+    color: var(--blacktexttheme);
+    width: 100%;
+    border-bottom: 3px solid var(--orangetheme);
+    margin-bottom: 9px;
+    resize: none;
+    font-family: var(--footerfontfamily);
+    font-size: 24px;
+}
+.comment{
+    font-size: 23px;
+    font-family: var(--footerfontfamily);
+    padding-top: 9px;
+}
+
+.product-details-custom li{
+    font-weight: bold;
+    font-size: var(--textfontsize1);
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.product-pics{
+    width: auto;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--productborderradius);
+    margin: 20px 10px;
+}
+.product-pics img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.accordion-card-body{
+    height: 700px;
+    overflow: auto;
+}
+.product-features-text{
+    font-size: var(--textfontsize);
+    font-family: var(--footerfontfamily);
+}
+
+.checkout_accordion{
+    padding-bottom: 12rem !important;
+}
+
+.btn_login{
+    background-color: var(--orangetheme)!important;
+
+}

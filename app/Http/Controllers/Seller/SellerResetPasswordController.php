@@ -29,7 +29,7 @@ class SellerResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/seller';
+    protected $redirectTo = '/seller/login';
 
     /**
      * Create a new controller instance.

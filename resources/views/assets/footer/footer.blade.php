@@ -32,6 +32,7 @@
                 <div class="col-md-3">
                     <div class="card">
 
+
 {{--                        <div class="card-body">--}}
 {{--                            <div class="row">--}}
 {{--                                <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>--}}

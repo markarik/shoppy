@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class SellerLoggingController extends Controller
 {
-//    public function __construct()
-//    {
-//        $this->middleware('auth:seller');
-//    }
+    /*public function __construct()
+    {
+        $this->middleware('guest:seller');
+    }*/
 
     public  function loginform()
     {
@@ -43,8 +43,8 @@ class SellerLoggingController extends Controller
         return redirect()->back()->withInput($request->only('email','remember'));
     }
 
-    protected function guard()
+    /*protected function guard()
     {
         return Auth::guard('seller');
-    }
+    }*/
 }

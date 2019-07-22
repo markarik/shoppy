@@ -4,28 +4,38 @@
 
         <div class="container-fluid">
             <div class="row details_row">
-                <div class="col-md-1 other_images_column">
-                    <div>
-                        <div>
-                            <div class="details_other_images">
-                                <h1>images</h1>
+                <div class="col-md-1 other_images_column imagescrollwrapper">
+
+
+                            <div class="details_other_images imagescrollimg">
+                                <img src="{{asset('images/L1.jpg')}}">
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div class="details_other_images">
-                                <h1>images</h1>
+
+
+
+                            <div class="details_other_images imagescrollimg">
+                                <img src="{{asset('images/L1.jpg')}}">
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div class="details_other_images">
-                                <h1>images</h1>
+
+
+                            <div class="details_other_images imagescrollimg">
+                                <img src="{{asset('images/L1.jpg')}}">
                             </div>
-                        </div>
+
+                    <div class="details_other_images imagescrollimg">
+                        <img src="{{asset('images/L1.jpg')}}">
                     </div>
+                    <div class="details_other_images imagescrollimg">
+                        <img src="{{asset('images/L1.jpg')}}">
+                    </div>
+                    <div class="details_other_images imagescrollimg">
+                        <img src="{{asset('images/L1.jpg')}}">
+                    </div>
+                    <div class="details_other_images imagescrollimg">
+                        <img src="{{asset('images/L1.jpg')}}">
+                    </div>
+
+
 
                 </div>
                 <div class="col-md-3  details_custom">
@@ -37,22 +47,23 @@
                 </div>
                 <div class="col-md-4 details_custom">
 
-                   <div class="">
+                   <div class="details_card_custom">
 
                        <h3>Where does it come from?</h3>
                    </div>
-                   <div class>
+                   <div class="">
                        <nav class="nav">
                            <p>By</p>
 
                            <p><i>Mac</i></p>
 
-                           <i class="fa fa-heart"></i>
+
+                           <i class="fa fa-heart ml-4  details_card_heart"></i>
                        </nav>
                    </div>
                    <div class="bg">
                        <nav class="nav">
-                           <div>
+                           <div class="details_card_key">
                                <p>Key Features</p>
 
                            </div>
@@ -64,19 +75,19 @@
 
 
                    </div>
-                   <div class="">
-                       <div>
-                           <p  class="ml-auto">Delivery <a href="">Details</a></p>
-                       </div>
+                   <div class="details_card_delivery">
+
+                           <p  class="">Delivery <a href="">Details</a></p>
+
                    </div>
                    <div class="bg">
                        <nav class="nav">
-                           <div>
+                           <div class="details_card_prices">
                                 <h4>kShs 20000</h4>
-                               <h4><i>25000</i></h4>
+                               <h6><i>KSh 25000</i></h6>
                            </div>
-                           <div class="ml-auto">
-                               <form>
+                           <div class="ml-auto details_card_button">
+                               <form action="" >
                                    <button class="btn btn-success">Buy Now</button>
                                </form>
                            </div>
@@ -104,7 +115,9 @@
             <div class="row">
                @include('assets.details.details_accordion')
             </div>
+<div class="hr_custom">
 
+</div>
 
                 @include('assets.recently_viewed_navbar')
                 <div class="hr_custom"></div>

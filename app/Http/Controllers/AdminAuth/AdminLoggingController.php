@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminLoggingController extends Controller
 {
-//    public  function __construct()
-//    {
-//        $this->middleware('auth:admin');
-//    }
+    public  function __construct()
+    {
+        $this->middleware('guest:admin');
+    }
 
 
     public function loginform()
@@ -47,8 +47,8 @@ class AdminLoggingController extends Controller
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
-    protected function guard()
+    /*protected function guard()
     {
         return Auth::guard('admin');
-    }
+    }*/
 }

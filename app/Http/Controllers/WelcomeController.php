@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function landingpage (){
 
-        return view('index');
+
+        $products = Product::all();
+
+//        dd([$products]);
+        return view('index')->with('products',$products);
 
     }
 
@@ -17,5 +22,15 @@ class WelcomeController extends Controller
 
         return view('assets.details.details');
 
+    }
+
+
+
+
+    public function showCart(){
+        return view ('assets.cart.cart');
+    }
+    public function showCheckOut(){
+        return view ('assets.checkout.checkout');
     }
 }

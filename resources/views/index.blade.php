@@ -21,8 +21,9 @@
 
             @include('assets.Products_navbar')
 
-            <div class="container">
-                @include('assets/product_cards')
+            <div class="container d">
+
+             @include('assets/product_cards')
             </div>
 
             <div>
