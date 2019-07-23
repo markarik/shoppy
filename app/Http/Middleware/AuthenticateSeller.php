@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AuthAdmin
+class AuthenticateSeller
 {
     /**
      * Handle an incoming request.
@@ -17,13 +17,10 @@ class AuthAdmin
     public function handle($request, Closure $next)
     {
 
-        if(Auth::check())
-        {
-            return redirect('');
+        if (!Auth::guard('seller')->check()){
+            return redirect()->route('seller.login');
         }
 
         return $next($request);
     }
-
-
 }

@@ -68,7 +68,7 @@
 --}}
 
 <nav class="navbar  bg-light top-nav">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{route('user.dashboard')}}">
 
         <img src="{{asset('images/shoppy.png')}}"  class="d-inline-block align-top logo" alt="">
     </a>

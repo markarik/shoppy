@@ -81,7 +81,7 @@
 
 
 
-    <div class="col-md-3 card_align">
+  {{--  <div class="col-md-3 card_align">
         <div class="row">
 
             @foreach($products as $product)
@@ -147,15 +147,15 @@
                     </div>
                 </div>
 
-                {{--            <img src="{{URL::to('../products/images/featured/2738d531b875e87628a83913d59b92db69d51049.img167.jpg')}}" class="card-img-top" alt="IMAC">--}}
+                --}}{{--            <img src="{{URL::to('../products/images/featured/2738d531b875e87628a83913d59b92db69d51049.img167.jpg')}}" class="card-img-top" alt="IMAC">--}}{{--
         </div>
         @endforeach
 
         </div>
 
-{{--            @endforeach--}}
+--}}{{--            @endforeach--}}{{--
 
-</div>
+</div>--}}
 
 {{--@endforeach--}}
 {{--card2--}}

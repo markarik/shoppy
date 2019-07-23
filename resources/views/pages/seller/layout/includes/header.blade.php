@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark navbar_modify pl-5 sticky-top">
     <!-- Brand/logo -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="">
         <img src="{{asset('images/shoppy.png')}}" alt="logo" width="90" height="40">
     </a>
 

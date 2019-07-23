@@ -47,23 +47,32 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav-item ">
+                        <a class="nav-link " href="#">  <i class="fas fa-bars ml-5 mt-3" id="dropdown"></i></a>
+                    </div>
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto ">
 
-                        <li class="nav-item ">
-                            <a class="nav-link " href="{{route('seller.login')}}">New Store <span class="sr-only">(current)</span></a>
+
+                        <li class="nav-item mt-3">
+                            <form class="form-inline form_border search">
+
+                                <input class="form-control mr-sm-2 " type="search" placeholder="Search For Products" aria-label="Search">
+
+                                <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
+                            </form>
                         </li>
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link" href="{{route('admin.login')}}">Admin</a>
-                        </li>
+                        </li>--}}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacts</a>
+                            <a class="nav-link" href="#">New Store</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('seller.login')}}">Delivery Policy</a>
+                        <li class="nav-item mt-3 mr-5 pl-4">
+                            <i class="fas fa-heart fa-2x"></i>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('')}}">Payments</a>
+                        <li class="nav-item mt-3 ml-5">
+                            <a href="{{route('user.cart')}}"><i class="fas fa-cart-plus fa-2x"></i></a>
                         </li>
 
                     </ul>
@@ -73,7 +82,8 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a href="{{route('login')}}" ><i class="far fa-user fa-2x"></i></a>
+{{--                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -86,7 +96,7 @@
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{--{{ Auth::user()->name }}--}}mark <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -102,7 +112,7 @@
                                 </div>
 
 
-                                </div>
+
                             </li>
                         @endguest
                     </ul>

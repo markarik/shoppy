@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AuthenticateSeller;
+use App\Http\Middleware\RedirectIfSellerAuthenticated;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,6 +65,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin'=>\Illuminate\Http\Middleware\AuthAdmin::class,
         'seller'=>\Illuminate\Http\Middleware\AuthSeller::class,
+        'seller_auth'=>AuthenticateSeller::class,
+        'seller_guest'=>RedirectIfSellerAuthenticated::class
     ];
 
     /**

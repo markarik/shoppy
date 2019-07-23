@@ -295,7 +295,7 @@ button.accordion:hover{
 }
 
 .search{
-    margin-left: 14rem;
+    margin-left: 10rem;
     position: relative;
     color: #aaa;
     font-size: 16px;
@@ -415,10 +415,11 @@ button.accordion:hover{
    padding-right: 20px;
 
 }
-/*.img-container{*/
-/*    !*position: relative;*!*/
-/*    overflow: hidden;*/
-/*}*/
+.img-container{
+    /*position: relative;*/
+    overflow: hidden;
+    height: 150px;
+}
 .card-img-top{
     transition: all 1s linear;
 }
@@ -431,7 +432,7 @@ button.accordion:hover{
 }
 
 .img-container img{
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: relative;
     border-top-left-radius: 15px!important;
     border-top-right-radius: 15px!important;
@@ -443,6 +444,7 @@ button.accordion:hover{
 .card_buttons{
     display: none;
     bottom: 201px;
+    right: 1px;
     position: absolute;
     width: 248px;
     height: 30px;
@@ -457,11 +459,11 @@ button.accordion:hover{
     width: 40%;
 }
 
-.card_footer{
+/*.card_footer{
     overflow: hidden;
-}
+}*/
 .nav-item{
-    height: 30px!important;
+    height: 49px!important;
 
 
 
