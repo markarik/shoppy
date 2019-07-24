@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AuthenticateAdmin;
 use App\Http\Middleware\AuthenticateSeller;
+use App\Http\Middleware\RedirectIfAdminAuthenticated;
 use App\Http\Middleware\RedirectIfSellerAuthenticated;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -21,7 +23,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        \App\Http\Middleware\AuthAdmin::class,
+//        \App\Http\Middleware\AuthAdmin::class,
     ];
 
     /**
@@ -63,10 +65,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'admin'=>\Illuminate\Http\Middleware\AuthAdmin::class,
-        'seller'=>\Illuminate\Http\Middleware\AuthSeller::class,
-        'seller_auth'=>AuthenticateSeller::class,
-        'seller_guest'=>RedirectIfSellerAuthenticated::class
+        'seller_auth'=>\App\Http\Middleware\AuthenticateSeller::class,
+        'seller_guest'=>\App\Http\Middleware\RedirectIfSellerAuthenticated::class,
+        'admin_auth'=>\App\Http\Middleware\AuthenticateAdmin::class,
+        'admin_guest'=>\App\Http\Middleware\RedirectIfAdminAuthenticated::class
     ];
 
     /**

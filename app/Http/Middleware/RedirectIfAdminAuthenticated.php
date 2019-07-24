@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AuthenticateSeller
+class RedirectIfAdminAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,13 @@ class AuthenticateSeller
      */
     public function handle($request, Closure $next)
     {
-
-        if (!Auth::guard('seller')->check()){
-            return redirect('new/seller/login');
+        if(Auth::guard()->check()){
+            return redirect('/home');
         }
 
+        if(Auth::guard('admin')->check()){
+            return redirect('/admin/login');
+        }
         return $next($request);
     }
 }

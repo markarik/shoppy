@@ -13,7 +13,7 @@ class SellerLoggingController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo='/seller';
+    protected $redirectTo='seller/home';
 
     public function showLoginForm()
     {

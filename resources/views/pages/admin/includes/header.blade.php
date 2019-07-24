@@ -19,14 +19,15 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 {{--                <a class="dropdown-item" href="#">Action</a>--}}
-                <a class="dropdown-item" href="{{ url('new/seller/logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
 
-                <form id="logout-form" action="{{ url('new/seller/logout') }}" method="POST" style="display: none;">
+
+                <form id="logout-form" action="{{ url('admin/logout') }}" method="POST" style="display: none;">
                     @csrf
+                    <a class="dropdown-item" href="{{ url('new/seller/logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('ogout') }}
+                    </a>
                 </form>
                 <a class="dropdown-item" href="#">Another action</a>
 

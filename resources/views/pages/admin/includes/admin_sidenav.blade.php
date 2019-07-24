@@ -1,7 +1,7 @@
 
 
 <div class="sidenav">
-    <a href="{{route('admin.dashboard')}}"><h3>DASHBOARD</h3></a>
+    <a href="{{route('admin.dashboard')}}"><h3>A.DASHBOARD</h3></a>
 
 <HR>
 
@@ -51,11 +51,12 @@
         <div class="panel">
             <ul>
                 <li>
-                    <a class="nav-link" href="#">Add Category</a>
+                    <a class="nav-link" href="{{route('view.category')}}">View Category</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">View Category</a>
+                    <a class="nav-link" href="{{route('add.category')}}">Add Category</a>
                 </li>
+
             </ul>
         </div>
     </div>
