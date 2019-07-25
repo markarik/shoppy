@@ -15,7 +15,7 @@ class CreateModifyReviewsTables extends Migration
     {
         Schema::table('reviews', function (Blueprint $table) {
 
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

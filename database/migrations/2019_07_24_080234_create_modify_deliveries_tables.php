@@ -14,7 +14,7 @@ class CreateModifyDeliveriesTables extends Migration
     public function up()
     {
         Schema::table('order_deliveries', function (Blueprint $table) {
-            $table->foreign('payments_id')->references('id')->on('payments');
+            $table->foreign('payment_id')->references('id')->on('payments');
         });
     }
 

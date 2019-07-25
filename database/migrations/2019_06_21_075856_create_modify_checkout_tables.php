@@ -15,9 +15,9 @@ class CreateModifyCheckoutTables extends Migration
     {
         Schema::table('checkouts', function (Blueprint $table) {
 
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
 
-            $table->foreign('regions_id')->references('id')->on('regions');
+            $table->foreign('region_id')->references('id')->on('regions');
         });
     }
 

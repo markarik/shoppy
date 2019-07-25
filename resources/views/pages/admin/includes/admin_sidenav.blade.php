@@ -1,7 +1,7 @@
 
 
 <div class="sidenav">
-    <a href="{{route('admin.dashboard')}}"><h3>A.DASHBOARD</h3></a>
+    <a href="{{route('admin.dashboard')}}"><h3>DASHBOARD</h3></a>
 
 <HR>
 

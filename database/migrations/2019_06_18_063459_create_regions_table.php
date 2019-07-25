@@ -16,6 +16,8 @@ class CreateRegionsTable extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('region_name');
+            $table->Integer('seller_id')->unsigned();
+            $table->foreign('seller_id')->references('id')->on('sellers');
             $table->integer('region_cost');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateOrderDeliveriesTable extends Migration
     {
         Schema::create('order_deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->biginteger('payments_id')->unsigned();
+            $table->biginteger('payment_id')->unsigned();
             $table->string('delivery_status')->default('pending');
             $table->integer('status');
             $table->timestamps();

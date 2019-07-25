@@ -61,12 +61,11 @@ class BrandController extends Controller
            'name'=>'required'
         ]);
 
-//        dd($request->all());
+//  dd($request->all());
 
         $brand = new Brand();
         $brand ->name=$request->input('name');
-        $brand->category_id=$request->input('category');
-
+        $brand->category_id=$request->input('category_id');
         $brand->save();
 
 

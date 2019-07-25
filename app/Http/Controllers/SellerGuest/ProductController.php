@@ -94,6 +94,8 @@ class ProductController extends Controller
             $product ->featured_image_url = $final_name;
             $product ->status = 1;
             $product ->seller_id = 1;
+
+//            dd($product);
             $product->save();
 
 
@@ -142,7 +144,7 @@ class ProductController extends Controller
 
 
             $inventory = new Inventory();
-            $inventory->products_id = $product->id;
+            $inventory->product_id = $product->id;
             $inventory -> quantity = $request->input('quantity');
             $inventory->save();
 

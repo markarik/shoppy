@@ -14,7 +14,7 @@ class CreateModifyOffersTables extends Migration
     public function up()
     {
         Schema::table('offers', function (Blueprint $table) {
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

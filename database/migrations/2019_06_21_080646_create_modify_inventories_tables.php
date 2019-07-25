@@ -14,7 +14,7 @@ class CreateModifyInventoriesTables extends Migration
     public function up()
     {
         Schema::table('inventories', function (Blueprint $table) {
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

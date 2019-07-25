@@ -19,7 +19,7 @@ class CreateModifyWishTables extends Migration
             $table->foreign('product_id')->references('id')->on('products');
 
 
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

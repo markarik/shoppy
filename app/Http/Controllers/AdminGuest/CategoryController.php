@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\AdminGuest;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.categories.categories');
+        $categories = Category::all();
+        return view('pages.admin.categories.categoriesView')->with('categories',$categories);
     }
 
     /**
@@ -24,7 +27,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view ('pages.admin.categories.categoryform');
+
+        $categories = Category::all();
+
+        return view ('pages.admin.categories.categoryformadd')->with('categories',$categories);
 
     }
 
@@ -36,7 +42,24 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->all());
+
+        Validator::make($request->all(),[
+            'name'=>'required'
+        ])->validate();
+
+//        dd($request->all());
+
+        $category =new Category();
+        $category ->name=$request->input('name');
+        $category ->parent_id=$request->input('parent_id');
+
+
+        $category->save();
+//        dd($category->all());
+
+        return redirect()->route('add.category')->with('success','Category Created');
+
     }
 
     /**
