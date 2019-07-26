@@ -24,6 +24,16 @@ class Product extends Model
 //        'brand_id',
         'status'
     ];
+
+    const STATUS_FEATURED = 2;
+    const STATUS_NORMAL = 1;
+
+
+    const STATUSES = [
+        self::STATUS_FEATURED => "Featured",
+        self::STATUS_NORMAL => "Normal",
+    ];
+
     public  function categories(){
         return $this->belongsTo('App\Category');
     }
@@ -41,6 +51,9 @@ class Product extends Model
 
     }
 
+    public function getStatusTextAttribute() {
+        return self::STATUSES[$this->status];
+    }
 
     public function getUndeliveredOrdersAttribute()
     {

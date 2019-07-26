@@ -66,7 +66,7 @@
                             <a class="nav-link" href="{{route('admin.login')}}">Admin</a>
                         </li>--}}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">New Store</a>
+                            <a class="nav-link" href="{{route('seller.login')}}">New Store</a>
                         </li>
                         <li class="nav-item mt-3 mr-5 pl-4">
                             <i class="fas fa-heart fa-2x"></i>

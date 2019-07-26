@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers\AdminGuest;
 
-use App\Brand;
-use App\Product;
-use App\Seller;
+use App\FeaturedCouresel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class CoureselController extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,28 +20,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $stores = Seller::all();
-        return view('pages.admin.admin')->with('stores',$stores);
-    }
-
-    public function viewBrands()
-    {
-        $brands = Brand::all();
-
-        return view('pages.admin.admin_view_brands')->with('brands',$brands);
-    }
-
-    public function viewSeller()
-    {
-        $stores = Seller::all();
-        return view('pages.admin.activateSellers.view_sellers_request')->with('stores',$stores);
-    }
-
-    public function showFeaturedProducts()
-    {
-        $featured = Product::where('status',2)->get();
-
-        return view('pages.admin.products.admin_view_feature_product')->with('featured',$featured);
+        $couresels = FeaturedCouresel::all();
+        return view('pages.admin.couresel.view_couresels')->with('couresels',$couresels);
     }
 
     /**
@@ -55,9 +31,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-//dd($products);
-        return view('pages.admin.products.admin_view_product')->with('products',$products);
+        //
     }
 
     /**
@@ -68,7 +42,35 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'description'=>'required',
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:1000'
+        ]);
+//        dd($request);
+
+        $couresel_image_path = './products/images/couresels';
+
+        if($request ->hasFile('image')){
+            $couresel_image = $request->file('image');
+
+            $date = sha1(date('YmdHis').str_random(5));
+
+            $final_couresel = $date. '.' .$couresel_image->getClientOriginalName();
+
+            $couresel_image->move($couresel_image_path,$final_couresel);
+
+            $couresel = new FeaturedCouresel();
+
+            $couresel->description = $request->input('description');
+            $couresel->image = $final_couresel;
+
+            $couresel->save();
+//            dd($couresel);
+        }
+
+
+        return redirect()->route('view.couresels')->with('success','Product Created');
+
     }
 
     /**
@@ -113,26 +115,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-       //
+        //
     }
-
-    public function change_status( $product_id )
-    {
-        $product = Product::findOrFail($product_id);
-
-        if ($product->status == 1){
-            $product->status = 2;
-            $product->save();
-        }else{
-            $product->status = 1;
-            $product->save();
-        }
-        return redirect()->back()->with("success","Product status changed successfully");
-    }
-
-//    public function logout(){
-//        Auth::logout();
-//
-//        return redirect()->route('user.dashboard');
-//    }
 }

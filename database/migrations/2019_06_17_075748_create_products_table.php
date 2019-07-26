@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('short_description');
             $table->string('long_description')->nullable();
             $table->string('featured_image_url');
-            $table->boolean('status');
+            $table->string('status')->default("1")->comment("1: normal, 2: featured");
             $table->integer('seller_id')->unsigned();
 
             $table->timestamps();

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin_master')
 
 @section('css')
 
@@ -16,7 +16,7 @@
         <i class="fas fa-plus fa-1x"></i>
     </button>
 
-<h2 class="table_format">Brands</h2>
+<h2 class="table_format">Couresel Images</h2>
 <table id="users-table" class="table table-hover table-condensed" style="width:80%">  
         <thead>  
             <tr>  
@@ -25,21 +25,17 @@
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Action</th>
-                <th>Action</th>
               </tr>
         </thead>
         <tbody>
-             @foreach ($brands as $brand)
+             @foreach ($couresels as $couresel)
                  <tr>
-                  <td>{{$brand->id}}</td>
-                     <td>{{$brand->name}}</td>
-                     <td>{{$brand->created_at}}</td>
-                     <td>{{$brand->updated_at}}</td>
-                     <td>
-
-                         <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$brand->id}}" value="Edit"/>
-                     </td>
-                     <td><a href="/seller/brand/{{$brand->id}}">Delete</a></td>
+                  <td>{{$couresel->id}}</td>
+                     <td>{{$couresel->description}}</td>
+                     <td>{{$couresel->image}}</td>
+                     <td>{{$couresel->created_at}}</td>
+                     <td>{{$couresel->updated_at}}</td>
+                     <td><a href="/admin/couresel{{$couresel->id}}">Delete</a></td>
                  </tr>
              @endforeach
         </tbody>
@@ -61,29 +57,7 @@
 
 @endsection
 
-<!-- Edit Modal -->
-@foreach($brands as $brand)
-<div class="modal fade" id="exampleModal{{$brand->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    Edit Brand
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {{--Includes--}}
-                @include('pages.seller.brand.edit_brands')
 
-            </div>
-
-        </div>
-    </div>
-</div>
-@endforeach
 
 
 
@@ -101,7 +75,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                    @include('pages.seller.brand.create_brands')
+                    @include('pages.admin.couresel.create_couresels')
             </div>
         </div>
     </div>

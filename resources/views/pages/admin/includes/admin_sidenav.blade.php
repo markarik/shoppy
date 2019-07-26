@@ -42,7 +42,7 @@
        <div class="panel">
            <ul>
                <li>
-                   <a class="nav-link" href="#">View Brands</a>
+                   <a class="nav-link" href="{{route('admin.brand.view')}}">View Brands</a>
                </li>
 
            </ul>
@@ -131,7 +131,7 @@
        <div class="panel">
            <ul>
                <li>
-                   <a class="nav-link" href="#">Couresels</a>
+                   <a class="nav-link" href="{{url('admin/couresels')}}">Couresels</a>
                </li>
                <li>item 1</li>
                <li>item 1</li>

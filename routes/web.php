@@ -87,7 +87,7 @@ Route::group(['middleware'=>'admin_guest'],function (){
 Route::group(['middleware'=>'admin_auth'],function (){
 
     Route::prefix('admin')->group(function (){
-        Route::post('/logout', 'AdminGuest\AdminController@logout')->name('admin.logout');
+        Route::post('/logout', 'AdminAuth\AdminLoggingController@logout')->name('admin.logout');
         Route::get('/home', 'AdminGuest\AdminController@index')->name('admin.dashboard');
         Route::get('/availableStores', 'AdminGuest\AdminController@viewSeller')->name('admin.viewSeller');
         Route::get('/products', 'AdminGuest\AdminController@create')->name('admin.products');
@@ -97,85 +97,15 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::post('category','AdminGuest\CategoryController@store')->name('store.category');
         Route::get('category/{id}/edit','AdminGuest\CategoryController@edit')->name('category.edit');
         Route::post('category/{id}','AdminGuest\CategoryController@update')->name('category.update');
+        Route::get('change/status/{product_id}','AdminGuest\AdminController@change_status')->name('product.change.status');
+        Route::get('couresels','AdminGuest\CoureselController@index')->name('view.couresels');
+        Route::post('couresels/store','AdminGuest\CoureselController@store')->name('store.couresels');
+        Route::get('brands', 'AdminGuest\AdminController@viewBrands')->name('admin.brand.view');
+
 
     });
 
 });
-
-//Route::group(['middleware' => 'seller_guest'], function () {
-//    Route::prefix('seller')->group(function () {
-//        Route::get('/login', 'SellerAuth\SellerLoggingController@showLoginForm')->name('seller.login');
-//        Route::post('/login', 'SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
-////        Route::get('register', 'Seller\RegisterController@index')->name('seller.register');
-////        Route::post('register', 'Seller\RegisterController@store')->name('seller.store');
-//        //seller reset password
-//
-//    });
-//});
-
-
-//Route::prefix('seller')->group(function () {
-//    Route::get('/login', 'SellerAuth\SellerLoggingController@loginform')->name('seller.login');
-//    Route::post('/login', 'SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
-//    Route::get('/', 'Seller\Pages\SellerController@index')->name('seller.dashboard');
-//    Route::get('register', 'Seller\RegisterController@index')->name('seller.register');
-//    Route::post('register', 'Seller\RegisterController@store')->name('seller.store');
-//
-//    /*Dashboard*/
-//    Route::get('products', 'Seller\Pages\ProductController@index')->name('seller.product.view');
-//    Route::get('products/create', 'Seller\Pages\ProductController@create')->name('seller.product.create');
-//    Route::post('products', 'Seller\Pages\ProductController@store')->name('seller.product.store');
-//    Route::get('brands', 'Seller\Pages\BrandController@index')->name('seller.brand.view');
-//    Route::get('brand/{id}/edit', 'Seller\Pages\BrandController@edit')->name('seller.brand.edit');
-//    Route::post('brands/{id}', 'Seller\Pages\BrandController@update')->name('seller.brand.update');
-//    Route::post('brands', 'Seller\Pages\BrandController@store')->name('seller.brand.store');
-//    Route::get('orders', 'Seller\Pages\OrderProductController@index')->name('seller.order.view');
-//    Route::get('reports', 'Seller\Pages\ReportController@index')->name('seller.report.view');
-//    Route::post('product/delete/{id}', 'Seller\Pages\ProductController@destroy')->name('seller.delete.product');
-//    Route::get('brand/{id}', 'Seller\Pages\BrandController@destroy');
-//
-//
-//    //seller reset password
-//    Route::post('password/email', 'Seller\SellerForgotPasswordController@sendResetLinkEmail')->name('seller.password.email');
-//    Route::get('password/reset', 'Seller\SellerForgotPasswordController@showLinkRequestForm')->name('seller.password.request');
-//
-//
-//    Route::post('password/reset', 'Seller\SellerResetPasswordController@reset');
-//    Route::get('password/reset{token}', 'Seller\SellerResetPasswordController@showResetForm')->name('seller.password.reset');
-//
-//
-//});
-
-
-Route::prefix('admin')->group(function () {
-
-
-
-
-
-
-});
-
-/*Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
-
-.*/
-
-
-///////////////////////////////////////////////////////////////
-///
-///   TEst routes
-///
-///
-/// //////////////////////////////////////////////////////////
-
-//Route::get('/seller','SellerController@index');
-//
-//
-//Route::resource('/product','ProductController');
-//Route::resource('/category','CategoryController');
 
 
 Route::get('/restore', function () {
