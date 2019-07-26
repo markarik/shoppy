@@ -9,11 +9,16 @@ class WelcomeController extends Controller
 {
     public function landingpage (){
 
-
+        $featured = Product::where('status',2)->get();
         $products = Product::all();
 
-//        dd([$products]);
-        return view('index')->with('products',$products);
+        $data = [
+            'featured'=>$featured,
+            'products'=>$products
+        ];
+
+
+        return view('index',$data);
 
     }
 

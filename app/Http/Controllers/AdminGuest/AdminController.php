@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers\AdminGuest;
 
+use App\Product;
 use App\Seller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +33,13 @@ class AdminController extends Controller
         return view('pages.admin.activateSellers.view_sellers_request')->with('stores',$stores);
     }
 
+    public function showFeaturedProducts()
+    {
+        $featured = Product::where('status',2)->get();
+
+        return view('pages.admin.products.admin_view_feature_product')->with('featured',$featured);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +47,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+//dd($products);
+        return view('pages.admin.products.admin_view_product')->with('products',$products);
     }
 
     /**
@@ -88,6 +105,12 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+       //
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->route('user.dashboard');
     }
 }

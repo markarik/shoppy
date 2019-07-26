@@ -64,7 +64,7 @@ class RegisterController extends Controller
 
         $seller->save();
 
-       return redirect('seller/login');
+       return redirect('new/seller/login');
 
 
 

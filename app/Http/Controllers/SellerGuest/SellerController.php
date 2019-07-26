@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SellerGuest;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SellerController extends Controller
 {
@@ -12,7 +13,14 @@ class SellerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:seller');
+    }
+
     public function index()
     {
 

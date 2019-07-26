@@ -11,10 +11,17 @@ use App\Payment;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this ->middleware('auth:seller');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -93,7 +100,7 @@ class ProductController extends Controller
             $product ->brand_id=$request->input('brand_id');
             $product ->featured_image_url = $final_name;
             $product ->status = 1;
-            $product ->seller_id = 1;
+            $product ->seller_id =Auth::user()->id;
 
 //            dd($product);
             $product->save();

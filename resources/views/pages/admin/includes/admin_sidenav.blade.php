@@ -23,10 +23,13 @@
        <div class="panel">
            <ul>
                <li>
+                   <a class="nav-link" href="{{route('admin.products')}}">Products Available</a>
+               </li>
+               <li>
                    <a class="nav-link" href="#">Featured Request</a>
                </li>
                <li>
-                   <a class="nav-link" href="#">Featured Products </a>
+                   <a class="nav-link" href="{{route('admin.featured.products')}}">Featured Products</a>
                </li>
 
            </ul>

@@ -16,6 +16,7 @@
         <li class="nav-item dropdown ">
             <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 {{--                {{ Auth::seller()->name }}--}}
+                {{\Illuminate\Support\Facades\Auth::user()->f_name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 {{--                <a class="dropdown-item" href="#">Action</a>--}}
@@ -28,7 +29,7 @@
                 <form id="logout-form" action="{{ url('new/seller/logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="{{route('user.dashboard')}}">Front End</a>
 
             </div>
         </li>

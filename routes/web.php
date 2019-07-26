@@ -29,7 +29,7 @@ Route::prefix('user')->group(function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'seller_guest'], function () {
-    Route::get('new/seller/login', 'SellerAuth\LoginController@showLoginForm');
+    Route::get('new/seller/login', 'SellerAuth\LoginController@showLoginForm')->name('seller.login');
     Route::post('new/seller/login', 'SellerAuth\LoginController@login');
     Route::get('seller/register', 'SellerAuth\RegisterController@index')->name('seller.register');
     Route::post('seller/register', 'SellerAuth\RegisterController@store')->name('seller.store');
@@ -87,8 +87,11 @@ Route::group(['middleware'=>'admin_guest'],function (){
 Route::group(['middleware'=>'admin_auth'],function (){
 
     Route::prefix('admin')->group(function (){
+        Route::post('/logout', 'AdminGuest\AdminController@logout')->name('admin.logout');
         Route::get('/home', 'AdminGuest\AdminController@index')->name('admin.dashboard');
         Route::get('/availableStores', 'AdminGuest\AdminController@viewSeller')->name('admin.viewSeller');
+        Route::get('/products', 'AdminGuest\AdminController@create')->name('admin.products');
+        Route::get('/featured/products', 'AdminGuest\AdminController@showFeaturedProducts')->name('admin.featured.products');
         Route::get('category','AdminGuest\CategoryController@index')->name('view.category');
         Route::get('category/add','AdminGuest\CategoryController@create')->name('add.category');
         Route::post('category','AdminGuest\CategoryController@store')->name('store.category');
