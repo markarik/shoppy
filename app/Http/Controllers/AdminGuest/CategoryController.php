@@ -81,7 +81,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+//
+        $categories = Category::findorFail($id);
+
+        return view('pages.admin.categories.edit_categories')->with('categories',$categories);
     }
 
     /**
@@ -93,7 +96,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//         dd($request->all());
+
+        Validator::make($request->all(),[
+            'name'=>'required'
+        ])->validate();
+
+//        dd($request->all());
+
+        $category =Category::findorFail($id);
+        $category ->name=$request->input('name');
+        $category ->parent_id=$request->input('parent_id');
+
+
+        $category->save();
+//        dd($category->all());
+
+        return redirect()->route('add.category')->with('success','Category Created');
+
+
     }
 
     /**

@@ -8,7 +8,7 @@
             <th>Store Name</th>
             <th>Business Number</th>
 {{--            <th>Number of Items</th>--}}
-            <th>Status</th>
+{{--            <th>Status</th>--}}
 
 
         </thead>
@@ -23,7 +23,7 @@
                     <td>{{$store->store_name}}</td>
                     <td>{{$store->business_no}}</td>
                     <td>
-                        <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal" value="{{$store->status}}"/>
+{{--                        <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal" value="{{$store->status}}"/>--}}
                         </td>
 
                 </tr>

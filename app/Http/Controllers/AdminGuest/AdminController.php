@@ -19,6 +19,12 @@ class AdminController extends Controller
         return view('pages.admin.admin')->with('stores',$stores);
     }
 
+    public function viewSeller()
+    {
+        $stores = Seller::all();
+        return view('pages.admin.activateSellers.view_sellers_request')->with('stores',$stores);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

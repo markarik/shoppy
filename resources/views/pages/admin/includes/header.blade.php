@@ -7,15 +7,9 @@
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto pl-4">
-       {{-- <li class="nav-item">
-            <a class="nav-link" href="#">Link 1</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link 2</a>
-        </li>--}}
         <li class="nav-item dropdown ">
             <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-{{--                {{ Auth::seller()->name }}--}}
+{{--                {{ Auth::admin()->name }}--}}Mark
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 {{--                <a class="dropdown-item" href="#">Action</a>--}}

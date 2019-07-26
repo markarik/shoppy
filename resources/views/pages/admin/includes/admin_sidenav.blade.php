@@ -9,18 +9,17 @@
         <button class="accordion">Sellers</button>
         <div class="panel">
             <ul>
+
                 <li>
-                    <a class="nav-link" href="#">Available Stores</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">New Stores</a>
+                    <a class="nav-link" href="{{route('admin.viewSeller')}}">Available Stores</a>
                 </li>
             </ul>
         </div>
     </div>
    <div>
        <button class="accordion">
-             Products</button>
+             Products
+       </button>
        <div class="panel">
            <ul>
                <li>
@@ -35,7 +34,8 @@
    </div>
    <div>
        <button class="accordion">
-              Brands</button>
+              Brands
+       </button>
        <div class="panel">
            <ul>
                <li>

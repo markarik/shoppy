@@ -88,23 +88,26 @@ Route::group(['middleware'=>'admin_auth'],function (){
 
     Route::prefix('admin')->group(function (){
         Route::get('/home', 'AdminGuest\AdminController@index')->name('admin.dashboard');
+        Route::get('/availableStores', 'AdminGuest\AdminController@viewSeller')->name('admin.viewSeller');
         Route::get('category','AdminGuest\CategoryController@index')->name('view.category');
         Route::get('category/add','AdminGuest\CategoryController@create')->name('add.category');
         Route::post('category','AdminGuest\CategoryController@store')->name('store.category');
+        Route::get('category/{id}/edit','AdminGuest\CategoryController@edit')->name('category.edit');
+        Route::post('category/{id}','AdminGuest\CategoryController@update')->name('category.update');
 
     });
 
 });
 
 //Route::group(['middleware' => 'seller_guest'], function () {
-    Route::prefix('seller')->group(function () {
-        Route::get('/login', 'SellerAuth\SellerLoggingController@showLoginForm')->name('seller.login');
-        Route::post('/login', 'SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
-//        Route::get('register', 'Seller\RegisterController@index')->name('seller.register');
-//        Route::post('register', 'Seller\RegisterController@store')->name('seller.store');
-        //seller reset password
-
-    });
+//    Route::prefix('seller')->group(function () {
+//        Route::get('/login', 'SellerAuth\SellerLoggingController@showLoginForm')->name('seller.login');
+//        Route::post('/login', 'SellerAuth\SellerLoggingController@login')->name('seller.login.submit');
+////        Route::get('register', 'Seller\RegisterController@index')->name('seller.register');
+////        Route::post('register', 'Seller\RegisterController@store')->name('seller.store');
+//        //seller reset password
+//
+//    });
 //});
 
 

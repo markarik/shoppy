@@ -21,7 +21,7 @@
 
 </head>
 <body>
-@include('pages.seller.layout.includes.header')
+@include('pages.admin.includes.header')
 <div class="container-fluid">
     <div class="row">
         @if(Session::has('message'))
