@@ -24,7 +24,12 @@
 
                                 </div>
                                 <div class="nav-item ml-auto pr-5">
-                                    <form method="post" action="">
+                                    <form action="{{route('user.wishlist.store')}}" method="post" >
+                                        {{csrf_field()}}
+                                        <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden/>
+                                        @foreach($products as $product)
+                                        <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                        @endforeach
                                         <button class="btn"><i class="fa fa-heart"></i></button>
                                     </form>
                                 </div>

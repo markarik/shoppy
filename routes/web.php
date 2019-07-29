@@ -22,7 +22,9 @@ Route::prefix('user')->group(function () {
     Auth::routes();
     Route::get('details', 'WelcomeController@detailspage')->name('user.product.details');
     Route::get('cart', 'WelcomeController@showCart')->name('user.cart');
-    Route::post('wishlist','WishListController@store')->name('user.wishlist');
+    Route::get('wishlist','WishListController@index')->name('user.wishlist.view');
+    Route::post('wishlist','WishListController@store')->name('user.wishlist.store');
+    Route::post('cart','CartController@store')->name('user.add.cart');
     Route::get('checkout', 'WelcomeController@showCheckOut')->name('user.checkout');
 
 });

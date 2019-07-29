@@ -25,7 +25,9 @@ class WelcomeController extends Controller
 
     public function detailspage (){
 
-        return view('assets.details.details');
+$products =Product::all();
+
+        return view('assets.details.details')->with('products',$products);
 
     }
 

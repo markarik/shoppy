@@ -3,6 +3,7 @@
 @section('content')
 
         <div class="container-fluid">
+            @foreach($products as $product)
             <div class="row details_row">
                 <div class="col-md-1 other_images_column imagescrollwrapper">
 
@@ -38,6 +39,7 @@
 
 
                 </div>
+
                 <div class="col-md-3  details_custom">
                     
                     <div class="details_image_custom">
@@ -88,7 +90,13 @@
                            </div>
                            <div class="ml-auto details_card_button">
                                <form action="" >
-                                   <button class="btn btn-success">Buy Now</button>
+                                   <form action="{{route('user.add.cart')}}" method="POST" enctype="multipart/form-data" files="true">
+                                       {!! csrf_field() !!}
+                                       <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
+                                       <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                       <input name="quantity" type="text" hidden/>
+                                       <button class="btn">Add to Cart</button>
+                                   </form>
                                </form>
                            </div>
                        </nav>
@@ -113,6 +121,7 @@
                 </div>
             </div>
             <div class="row">
+            @endforeach
                @include('assets.details.details_accordion')
             </div>
 <div class="hr_custom">

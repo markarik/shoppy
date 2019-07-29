@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\WishList;
+use App\OrderProduct;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class WishListController extends Controller
+class CartController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,12 +14,7 @@ class WishListController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $wishlists = Wishlist::where("user_id", $user->id)->orderby('id', 'desc')->get();
-        $data =[
-            'wishlists'=>$wishlists
-        ];
-        return view('assets.wishlist.wish_cards',$data);
+        //
     }
 
     /**
@@ -46,23 +35,23 @@ class WishListController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request->all());
         $this->validate($request,[
+            'product_id'=>'required',
             'user_id'=>'required',
-            'product_id' =>'required',
+            'quantity'=>'required'
         ]);
 
-//        dd($request->all());
 
-        $wishlist = new WishList();
-        $wishlist->user_id = $request->user_id;
-        $wishlist->product_id = $request->product_id;
-        $wishlist->save();
+        $orderProducts = new OrderProduct();
+         $orderProducts ->product_id=$request->product_id;
+         $orderProducts->user_id=$request->user_id;
+         $orderProducts->checkOut_id=$request->checkout_id;
+         $orderProducts->quantity=1;
 
+         $orderProducts->save();
 
-
-        return redirect()->back()->with('flash_message','Item, '. $wishlist->product->name.' Added to your wishlist.');
-
+         return redirect()->back()->with('flash_message','Item, '. $orderProducts->product->name.' Added to your wishlist.');
     }
 
     /**

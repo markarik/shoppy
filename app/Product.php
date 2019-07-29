@@ -42,6 +42,11 @@ class Product extends Model
         return $this->belongsTo(App\Brand);
     }
 
+    public function wishlist()
+    {
+        return $this->hasMany(WishList::class);
+    }
+
     public function getBrandNameAttribute()
     {
 

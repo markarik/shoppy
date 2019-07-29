@@ -14,9 +14,7 @@
                     <a href="#"><img class="card-img-top" src="{{asset('/products/images/featured/'.$product->featured_image_url)}}" alt="Card image cap"></a>
                     <div class="card-body">
 
-                        {{--                    <h5 class="card-title">Card title</h5>--}}
-                        {{--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
-                        {{--                    <a href="#" class="btn btn-primary">Go somewhere</a>--}}
+
 
                         <div class="card_buttons">
                             <ul class="nav">
@@ -28,7 +26,10 @@
 
                                 </div>
                                 <div class="nav-item ml-auto pr-5">
-                                    <form>
+                                    <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data" files="true">
+                                        {!! csrf_field() !!}
+                                        <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
+                                        <input name="product_id" type="text" value="{{$product->id}}" hidden/>
                                         <button class="btn"><i class="fa fa-heart"></i></button>
                                     </form>
                                 </div>

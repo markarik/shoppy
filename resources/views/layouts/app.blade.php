@@ -67,13 +67,17 @@
                             <a class="nav-link" href="{{route('seller.login')}}">New Store</a>
                         </li>
                         <li class="nav-item mt-2 mr-5 pl-4">
-                            <a href="#"> <i class="fas fa-heart fa-2x"></i></a>
+                            <a href="{{route('user.wishlist.view')}}"> <i class="fas fa-heart fa-2x"></i></a>
                         </li>
-                        <div class="wishlist_sup_heart">1</div>
+                        <div class="wishlist_sup_heart">
+                            {{\App\WishList::count()}}
+                        </div>
                         <li class="nav-item mt-2 ml-5">
                             <a href="{{route('user.cart')}}"><i class="fas fa-cart-plus fa-2x"></i></a>
                         </li>
-                        <div class="wishlist_sup">1</div>
+                        <div class="wishlist_sup">
+                            {{\App\OrderProduct::count()}}
+                        </div>
 
                     </ul>
 
