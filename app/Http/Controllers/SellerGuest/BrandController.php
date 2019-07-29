@@ -10,6 +10,12 @@ use App\Http\Controllers\Controller;
 
 class BrandController extends Controller
 {
+
+    public  function __construct()
+    {
+        $this->middleware('auth:seller');
+    }
+
     /**
      * Display a listing of the resource.
      *

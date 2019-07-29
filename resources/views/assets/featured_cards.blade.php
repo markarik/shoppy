@@ -15,7 +15,8 @@
 
                         <div class="card_buttons">
                             <ul class="nav">
-                                <div class="nav-item pl-4"><form>
+                                <div class="nav-item pl-4">
+                                    <form>
                                         <button class="btn"><i class="fa fa-cart-plus"></i></button>
                                     </form>
                                 </div>
@@ -23,7 +24,7 @@
 
                                 </div>
                                 <div class="nav-item ml-auto pr-5">
-                                    <form>
+                                    <form method="post" action="">
                                         <button class="btn"><i class="fa fa-heart"></i></button>
                                     </form>
                                 </div>

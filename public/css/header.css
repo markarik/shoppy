@@ -65,7 +65,7 @@ header .nav{
 .wishlist_sup{
     position: absolute;
     top: 0px;
-    right: 63px;
+    right: -15px;
     color: white;
     font-size: 20px;
 }
@@ -73,7 +73,7 @@ header .nav{
 .wishlist_sup_heart{
     position: absolute;
     top: 0px;
-    right: 180px;
+    right: 140px;
     color: white;
     font-size: 20px;
 }

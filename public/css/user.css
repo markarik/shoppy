@@ -414,3 +414,8 @@ button.details_accordion:hover{
     background-color: var(--orangetheme)!important;
 
 }
+
+.admins_login{
+    margin-top: 80px;
+    height: auto;
+}

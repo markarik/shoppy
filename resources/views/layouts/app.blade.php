@@ -48,12 +48,10 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="nav-item ">
-                        <a class="nav-link " href="#">  <i class="fas fa-bars ml-5 mt-3" id="dropdown"></i></a>
+                        <a class="nav-link " href="#">  <i class="fas fa-bars ml-5 mt-1" id="dropdown"></i></a>
                     </div>
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto ">
-
-
                         <li class="nav-item mt-3">
                             <form class="form-inline form_border search">
 
@@ -68,12 +66,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('seller.login')}}">New Store</a>
                         </li>
-                        <li class="nav-item mt-3 mr-5 pl-4">
-                            <i class="fas fa-heart fa-2x"></i>
+                        <li class="nav-item mt-2 mr-5 pl-4">
+                            <a href="#"> <i class="fas fa-heart fa-2x"></i></a>
                         </li>
-                        <li class="nav-item mt-3 ml-5">
+                        <div class="wishlist_sup_heart">1</div>
+                        <li class="nav-item mt-2 ml-5">
                             <a href="{{route('user.cart')}}"><i class="fas fa-cart-plus fa-2x"></i></a>
                         </li>
+                        <div class="wishlist_sup">1</div>
 
                     </ul>
 
