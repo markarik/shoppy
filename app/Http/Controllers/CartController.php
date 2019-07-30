@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\OrderProduct;
+use App\WishList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,26 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $wishlists = Wishlist::where('user_id', $user->id)->orderby('id', 'desc')->get();
+        $wishlist_count= count($wishlists);
+        $carts = OrderProduct::where('user_id',$user->id)->where('checkout_id',null)->get();
+        $cart_count = count($carts);
+        $quantitysum=$carts->sum('quantity');
+        $amountsum=$carts->sum('amount');
+
+
+
+
+        $data =[
+            'carts'=>$carts,
+            'wishlist_count'=>$wishlist_count,
+            'cart_count'=>$cart_count,
+            'quantitysum'=>$quantitysum,
+            'amountsum'=>$amountsum
+        ];
+
+        return view('assets.cart.cart',$data);
     }
 
     /**
@@ -35,20 +61,13 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $this->validate($request,[
-            'product_id'=>'required',
-            'user_id'=>'required',
-            'quantity'=>'required'
-        ]);
-
 
         $orderProducts = new OrderProduct();
          $orderProducts ->product_id=$request->product_id;
          $orderProducts->user_id=$request->user_id;
-         $orderProducts->checkOut_id=$request->checkout_id;
+         $orderProducts->checkout_id=$request->checkout_id;
          $orderProducts->quantity=1;
-
+         $orderProducts->amount=$request->amount;
          $orderProducts->save();
 
          return redirect()->back()->with('flash_message','Item, '. $orderProducts->product->name.' Added to your wishlist.');
@@ -85,7 +104,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

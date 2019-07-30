@@ -19,8 +19,17 @@
                             <div class="card_buttons">
                                 <ul class="nav">
                                     <div class="nav-item pl-4">
-                                        <form>
-                                            <button class="btn">Add to Cart</button>
+                                        <form action="{{route('user.add.cart')}}" method="POST" enctype="multipart/form-data" files="true">
+                                            {!! csrf_field() !!}
+                                            @if(\Illuminate\Support\Facades\Auth::user() != null)
+
+                                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
+                                                <input name="product_id" type="text" value="{{$wishlist->product_id}}" hidden/>
+                                                <input name="quantity" type="text" hidden/>
+                                                <button class="btn">Add to Cart</button>
+{{--                                            @else--}}
+{{--                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
+                                            @endif
                                         </form>
                                     </div>
 
@@ -64,7 +73,7 @@
                     <div class="hr_custom"></div>
                     <div class="ml-auto btn_buy_now_div">
                         <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
-                        <a class="btn btn-danger btn_remove_wishlist" href="{{url('user/details')}}">Remove</a>
+                        <a class="btn btn-danger btn_remove_wishlist clearfix" href="{{url('user/details')}}">Remove</a>
                     </div>
                 </div>
 

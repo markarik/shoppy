@@ -18,20 +18,40 @@
 
                         <div class="card_buttons">
                             <ul class="nav">
-                                <div class="nav-item pl-4"><form>
-                                        <button class="btn"><i class="fa fa-cart-plus"></i></button>
+                                <div class="nav-item pl-4">
+                                    <form action="{{route('user.add.cart')}}" method="POST" enctype="multipart/form-data" files="true">
+                                        {!! csrf_field() !!}
+                                        @if(\Illuminate\Support\Facades\Auth::user() != null)
+
+                                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
+                                                <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                                <input name="amount" type="text" value="{{$product->unit_cost}}" hidden/>
+                                                <input name="quantity" type="text" hidden/>
+                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>
+                                        @else
+                                                    <button class="btn"><i class="fa fa-cart-plus"></i></button>
+                                        @endif
                                     </form>
                                 </div>
                                 <div class="hr_vertical">
 
                                 </div>
                                 <div class="nav-item ml-auto pr-5">
+                                    @if(\Illuminate\Support\Facades\Auth::user() !=null)
                                     <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data" files="true">
                                         {!! csrf_field() !!}
                                         <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
                                         <input name="product_id" type="text" value="{{$product->id}}" hidden/>
                                         <button class="btn"><i class="fa fa-heart"></i></button>
+
                                     </form>
+                                        @else
+                                    <button class="btn"><i class="fa fa-heart"></i></button>
+
+                                    @endif
+
+{{--                                    <button class="btn"><i class="fa fa-heart"></i></button>--}}
+
                                 </div>
                             </ul>
                         </div>

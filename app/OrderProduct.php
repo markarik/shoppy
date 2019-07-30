@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class OrderProduct extends Model
 {
     protected $fillable = [
-        'quantity'
+        'quantity',
+        'amount'
         ];
 
     public function getProductAttribute() {
         return Product::find($this->product_id);
     }
+
+
+
+
     public function getProductNameAttribute(){
 
         $product = Product::where('id',$this->product_id )->first();
@@ -29,4 +34,6 @@ class OrderProduct extends Model
 
         return $user->f_name;
     }
+
+
 }

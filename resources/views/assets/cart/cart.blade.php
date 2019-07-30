@@ -14,22 +14,24 @@
                         <tr>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>qty</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
                             <th>options</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-
+@foreach($carts as $cart)
                         <tr>
-                            <td>name</td>
-                            <td>price</td>
+                            <td>{{$cart->product->name}}</td>
+                            <td>{{$cart->product->unit_cost}}</td>
                             <td width="50px">
 
-                                <input name="qty" type="text" value="qty">
+                                <input name="qty" type="number" value="{{$cart->quantity}}">
 
 
                             </td>
+                            <td>{{$cart->amount}}</td>
                             <td>
                                 <select class="form-control">
                                     <option value="">large</option>
@@ -56,16 +58,15 @@
                             </td>
                         </tr>
 
-
+@endforeach
                         <tr>
                             <td></td>
                             <td>
                                 Tax: $100 <br>
-                                Sub Total: $ 13045<br>
+                                Sub Total: $ {{$amountsum}}<br>
                                 Grand Total: $ 13145
                             </td>
-                            <td>Items: 1
-
+                            <td>Items: {{$quantitysum}}
                             </td>
                             <td></td>
                             <td></td>

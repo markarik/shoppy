@@ -21,15 +21,17 @@ Route::prefix('user')->group(function () {
 
     Auth::routes();
     Route::get('details', 'WelcomeController@detailspage')->name('user.product.details');
-    Route::get('cart', 'WelcomeController@showCart')->name('user.cart');
+    Route::get('cart', 'CartController@index')->name('user.cart.view');
     Route::get('wishlist','WishListController@index')->name('user.wishlist.view');
     Route::post('wishlist','WishListController@store')->name('user.wishlist.store');
     Route::post('cart','CartController@store')->name('user.add.cart');
     Route::get('checkout', 'WelcomeController@showCheckOut')->name('user.checkout');
+    Route::get('change/quantity/{orderproducts_id}','CartController@update')->name('product.change.quantity');
+
 
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'seller_guest'], function () {
     Route::get('new/seller/login', 'SellerAuth\LoginController@showLoginForm')->name('seller.login');
@@ -48,7 +50,7 @@ Route::group(['middleware' => 'seller_guest'], function () {
 });
 
 Route::group(['middleware' => 'seller_auth'], function () {
-    Route::post('new/seller/logout', 'SellerAuth\LoginController@logout')->name('logout');
+    Route::post('new/seller/logout', 'SellerAuth\LoginController@logout')->name('seller.logout');
     Route::get('seller/home', 'SellerGuest\SellerController@index')->name('seller.dashboard');
     Route::prefix('seller')->group(function () {
 //        Route::get('/home', 'Seller\Pages\SellerController@index')->name('seller.dashboard');

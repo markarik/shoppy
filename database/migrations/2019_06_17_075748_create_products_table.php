@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->float('unit_cost');
             $table->bigInteger('brand_id')->unsigned();
             $table->string('short_description');
-            $table->string('long_description')->nullable();
+            $table->text('long_description')->nullable();
             $table->string('featured_image_url');
             $table->string('status')->default("1")->comment("1: normal, 2: featured");
             $table->integer('seller_id')->unsigned();

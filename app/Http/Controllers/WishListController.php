@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\OrderProduct;
+use App\Product;
 use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +23,16 @@ class WishListController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $wishlists = Wishlist::where("user_id", $user->id)->orderby('id', 'desc')->get();
+        $wishlists = Wishlist::where('user_id', $user->id)->orderby('id', 'desc')->get();
+        $wishlist_count= count($wishlists);
+
+        $cart  = OrderProduct::where('user_id',$user->id)->get();
+
+        $cart_count = count($cart);
         $data =[
-            'wishlists'=>$wishlists
+            'wishlists'=>$wishlists,
+            'wishlist_count'=>$wishlist_count,
+            'cart_count'=>$cart_count
         ];
         return view('assets.wishlist.wish_cards',$data);
     }

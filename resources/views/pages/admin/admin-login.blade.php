@@ -8,7 +8,7 @@
                 <div class="card-header card_header_custom">{{ __('ADMIN Login') }}</div>
 
                 <div class="card-body card_body_custom">
-                    <form method="POST" action=#">
+                    <form method="POST">
                         {!! csrf_field() !!}
 
                         <div class="form-group card_inputs_custom">

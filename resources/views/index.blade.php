@@ -54,7 +54,6 @@
 
         $('#dropdown').click(function (event) {
 
-
             event.preventDefault();
             alert(o);
 

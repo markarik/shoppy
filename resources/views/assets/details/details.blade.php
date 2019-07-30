@@ -89,7 +89,8 @@
                                <h6><i>KSh 25000</i></h6>
                            </div>
                            <div class="ml-auto details_card_button">
-                               <form action="" >
+                               @if(\Illuminate\Support\Facades\Auth::user() != null)
+
                                    <form action="{{route('user.add.cart')}}" method="POST" enctype="multipart/form-data" files="true">
                                        {!! csrf_field() !!}
                                        <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
@@ -97,7 +98,9 @@
                                        <input name="quantity" type="text" hidden/>
                                        <button class="btn">Add to Cart</button>
                                    </form>
-                               </form>
+                                 @else
+                                   <button class="btn">Add to Cart</button>
+                               @endif
                            </div>
                        </nav>
                    </div>

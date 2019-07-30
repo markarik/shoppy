@@ -20,7 +20,6 @@
 
     <!-- Styles -->
 
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mine.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
@@ -60,24 +59,37 @@
                                 <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                             </form>
                         </li>
-                        {{--<li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.login')}}">Admin</a>
-                        </li>--}}
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('seller.login')}}">New Store</a>
                         </li>
                         <li class="nav-item mt-2 mr-5 pl-4">
                             <a href="{{route('user.wishlist.view')}}"> <i class="fas fa-heart fa-2x"></i></a>
                         </li>
-                        <div class="wishlist_sup_heart">
-                            {{\App\WishList::count()}}
-                        </div>
+
+
+                        @if(\Illuminate\Support\Facades\Auth::user() == null)
+                            <div class="wishlist_sup_heart">
+                                {{--                            {{\App\WishList::count()}}--}}
+                            </div>
+                            @else
+                            <div class="wishlist_sup_heart">
+                                {{$wishlist_count}}
+                            </div>
+                            @endif
+
                         <li class="nav-item mt-2 ml-5">
-                            <a href="{{route('user.cart')}}"><i class="fas fa-cart-plus fa-2x"></i></a>
+                            <a href="{{route('user.cart.view')}}"><i class="fas fa-cart-plus fa-2x"></i></a>
                         </li>
+                        @if(\Illuminate\Support\Facades\Auth::user() ==null)
                         <div class="wishlist_sup">
-                            {{\App\OrderProduct::count()}}
+{{--                            {{\App\OrderProduct::count()}}--}}
                         </div>
+                         @else
+                            <div class="wishlist_sup">
+                              {{$cart_count}}
+                            </div>
+                        @endif
 
                     </ul>
 
@@ -99,11 +111,8 @@
 
                             <li class="nav-item dropdown">
 
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{--{{ Auth::user()->name }}--}}mark <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+{{--                                    --}}{{--{{ Auth::user()->name }}--}}{{--mark <span class="caret"></span>--}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -113,7 +122,19 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
+{{--                                </a>--}}
+
+{{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                                       onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();">--}}
+{{--                                        {{ __('Logout') }}--}}
+{{--                                    </a>--}}
+
+{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+{{--                                        @csrf--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
 
 
 

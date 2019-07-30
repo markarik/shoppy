@@ -9,20 +9,20 @@
 <div class="table_formats">
 
 <h2 class="table_format">Products</h2>
-<table id="users-table" class="table table-hover table-condensed" style="width:80%">  
-        <thead>  
-            <tr>  
+<table id="users-table" class="table table-hover table-condensed" style="width:80%">
+        <thead>
+            <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Price</th>
                 <th>Created</th>
                 <th>Updated</th>
-                <th>Action</th>  
-              </tr>  
+                <th>Action</th>
+              </tr>
         </thead>
         <tbody>
-        @if(count($products)>1)
+        @if(count($products)>=1)
 
             @foreach ($products as $product)
         <tr>
@@ -45,12 +45,12 @@
              <p>No Category Found</p>
            @endif
         </tbody>
-    
+
       </table>
-  
-      
-    
-        
+
+
+
+
 @endsection
 
 </div>
