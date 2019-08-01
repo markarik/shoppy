@@ -419,3 +419,17 @@ button.details_accordion:hover{
     margin-top: 80px;
     height: auto;
 }
+
+.table_custom{
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+    /*border-top: none !important;*/
+    border: none !important;
+}
+.table_custom_data td{
+    padding-left: 100rem!important;
+}
+
+.table th, .table td{
+    padding-left: 5rem!important;
+}

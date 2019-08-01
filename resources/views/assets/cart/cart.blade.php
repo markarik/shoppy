@@ -20,60 +20,38 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
-@foreach($carts as $cart)
-                        <tr>
-                            <td>{{$cart->product->name}}</td>
-                            <td>{{$cart->product->unit_cost}}</td>
-                            <td width="50px">
-
-                                <input name="qty" type="number" value="{{$cart->quantity}}">
-
-
-                            </td>
-                            <td>{{$cart->amount}}</td>
-                            <td>
-                                <select class="form-control">
-                                    <option value="">large</option>
-                                    <option value="">medium</option>
-                                    <option value="">small</option>
-                                    <option value="">other</option>
-                                </select>
-                                <select class="form-control">
-                                    <option value="" class="disabled">colour</option>
-                                    <option value="">red</option>
-                                    <option value="">blue</option>
-                                    <option value="">white</option>
-                                </select>
-                            </td>
-
-                            <td>
-
-                                <input style="float: left"  type="submit" class="button success small" value="Ok">
-                                <form action=""  method="POST">
-                                    {{csrf_field()}}
-                                    {{method_field('DELETE')}}
-                                    <input class="button small alert" type="submit" value="Delete">
-                                </form>
-                            </td>
-                        </tr>
-
-@endforeach
-                        <tr>
-                            <td></td>
-                            <td>
-                                Tax: $100 <br>
-                                Sub Total: $ {{$amountsum}}<br>
-                                Grand Total: $ 13145
-                            </td>
-                            <td>Items: {{$quantitysum}}
-                            </td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        </tbody>
                     </table>
+                    @foreach($carts as $cart)
+                        <form action="{{route('product.change.cart', [$cart->id]) }}" method="post">
+                            @csrf
+                            <table class="table table_custom">
+                                <tbody>
+
+                                <tr class="table_custom_data">
+                                    <td>{{$cart->product->name}}</td>
+                                    <td>{{$cart->product->unit_cost}}</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="{{$cart->quantity}}"/>
+                                    </td>
+                                    <td>
+                                        {{$cart->amount}}
+                                    </td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Red</option>
+                                            <option>Red</option>
+                                            <option>Red</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="submit">
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    @endforeach
 
                     <a href="{{route('user.checkout')}}" class="button ">Checkout</a>
                 </div>
