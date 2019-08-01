@@ -54,7 +54,7 @@ nav ul li a{
 /*SideNav start*/
 .sidenav {
     height: 100%;
-    width: 210px;
+    width: 241px;
     position: fixed;
     background-color: var(--orangetheme)!important;
     top: 0;

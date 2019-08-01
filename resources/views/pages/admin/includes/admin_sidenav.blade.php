@@ -133,7 +133,9 @@
                <li>
                    <a class="nav-link" href="{{url('admin/couresels')}}">Couresels</a>
                </li>
-               <li>item 1</li>
+               <li>
+                   <a class="nav-link" href="{{route('admin.variants.view')}}">Variants</a>
+               </li>
                <li>item 1</li>
            </ul>
        </div>

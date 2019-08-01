@@ -20,16 +20,8 @@
        </div>
    </div>
    <div>
-       <button class="accordion">
-              Brands</button>
-       <div class="panel">
-           <ul>
-               <li>
-                   <a class="nav-link" href="{{route('seller.brand.view')}}">View Brands</a>
-               </li>
+       <a href="{{route('seller.brand.view')}}"><button class="accordion"> Brands</button></a>
 
-           </ul>
-       </div>
    </div>
 
     <div>
@@ -101,7 +93,9 @@
                <li>
                    <a class="nav-link" href="#">Inventory</a>
                </li>
-               <li>item 1</li>
+               <li>
+                   <a class="nav-link" href="{{route('seller.variant_option.view')}}">Variants Options</a>
+               </li>
                <li>item 1</li>
            </ul>
        </div>

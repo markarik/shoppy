@@ -1,44 +1,34 @@
 <?php
 
 namespace App\Http\Controllers\SellerGuest;
-use App\Brand;
-use App\Category;
 
-
+use App\VariantOption;
+use App\Variants;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class BrandController extends Controller
+class VariantsOptionsController extends Controller
 {
-
-    public  function __construct()
+    public function __construct()
     {
         $this->middleware('auth:seller');
     }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()    {
-
-       $categories = Category::all();
-        $brands = Brand::all();
-
-        $data = [
-            'categories'=>$categories,
-            'brands'=>$brands
-        ];
-
-        return view('pages.seller.brand.view_brands',$data);
-    }
-//    public function ()
-/*
+    public function index()
     {
-        $brands = Brand::all();
-        return view('pages.seller.brand.view_brands')->with('brands',$brands);
-    }*/
+        $variants = Variants::all();
+        $variantsoptions = VariantOption::all();
+        $data =[
+            'variants'=>$variants,
+            'variantsoptions'=>$variantsoptions
+        ];
+        return view('pages.seller.variantsoptions.view_variants_options',$data);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +37,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-
-
-
+        //
     }
 
     /**
@@ -60,22 +48,19 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-
-//        dd($request->all());
+        //        dd($request->all());
 
         $this->validate($request,[
-           'name'=>'required'
+            'name'=>'required'
         ]);
 
 //  dd($request->all());
 
-        $brand = new Brand();
-        $brand ->name=$request->input('name');
-        $brand->category_id=$request->input('category_id');
-        $brand->save();
-
-
-        return redirect()->route('seller.brand.view')->with('success','Brand Created');
+        $variantoptions = new VariantOption();
+        $variantoptions ->name=$request->input('name');
+        $variantoptions->variant_id=$request->input('variant_id');
+        $variantoptions->save();
+        return redirect()->back()->with('flash_message','Item Added to your Variants options.');
     }
 
     /**
@@ -86,7 +71,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -97,9 +82,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-       /* $brand=Brand::findOrFail($id);
-
-        return view('pages.seller.brand.edit_brands')->with('brand',$brand);*/
+        //
     }
 
     /**
@@ -111,24 +94,13 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $this->validate($request,[
-            'name'=>'required'
-        ]);
-
 //        dd($request->all());
 
-        $brand = Brand::findOrFail($id);
-
-//        dd($brand);
-
-        $brand ->name=$request->input('name');
-        $brand->category_id=$request->input('category');
-//        dd($brand);
-        $brand->save();
-
-
-        return redirect()->route('seller.brand.view')->with('success','Brand Created');
+        $variantoptions = VariantOption::findOrFail($id);
+        $variantoptions ->name=$request->input('name');
+        $variantoptions->variant_id=$request->input('variant_id');
+        $variantoptions->save();
+        return redirect()->back()->with('flash_message','Item Added to your Variants options.');
     }
 
     /**
@@ -139,8 +111,6 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $brand = Brand::findorFail($id);
-        $brand->delete();
-        return redirect()->route('seller.brand.view')->with('success','Brand Edited');
+        //
     }
 }

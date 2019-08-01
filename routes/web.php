@@ -58,13 +58,17 @@ Route::group(['middleware' => 'seller_auth'], function () {
         Route::get('products/create', 'SellerGuest\ProductController@create')->name('seller.product.create');
         Route::post('products', 'SellerGuest\ProductController@store')->name('seller.product.store');
         Route::get('brands', 'SellerGuest\BrandController@index')->name('seller.brand.view');
-        Route::get('brand/{id}/edit', 'SellerGuest\BrandController@edit')->name('seller.brand.edit');
+//        Route::get('brand/{id}/edit', 'SellerGuest\BrandController@edit')->name('seller.brand.edit');
         Route::post('brands/{id}', 'SellerGuest\BrandController@update')->name('seller.brand.update');
         Route::post('brands', 'SellerGuest\BrandController@store')->name('seller.brand.store');
         Route::get('orders', 'SellerGuest\OrderProductController@index')->name('seller.order.view');
         Route::get('reports', 'SellerGuest\ReportController@index')->name('seller.report.view');
+        Route::get('variants_options', 'SellerGuest\VariantsOptionsController@index')->name('seller.variant_option.view');
+        Route::post('variants_options/store', 'SellerGuest\VariantsOptionsController@store')->name('seller.variant_option.store');
         Route::post('product/delete/{id}', 'SellerGuest\ProductController@destroy')->name('seller.delete.product');
         Route::get('brand/{id}', 'SellerGuest\BrandController@destroy');
+        Route::post('variantoption/{id}', 'SellerGuest\VariantsOptionsController@update')->name('seller.variants_option.update');
+
 
     });
 });
@@ -106,6 +110,11 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::get('couresels','AdminGuest\CoureselController@index')->name('view.couresels');
         Route::post('couresels/store','AdminGuest\CoureselController@store')->name('store.couresels');
         Route::get('brands', 'AdminGuest\AdminController@viewBrands')->name('admin.brand.view');
+        Route::get('variants', 'AdminGuest\VariantsController@index')->name('admin.variants.view');
+        Route::post('variants/store', 'AdminGuest\VariantsController@store')->name('admin.variants.store');
+//        Route::get('variants/{id}/edit', 'AdminGuest\VariantsController@edit')->name('admin.variants.edit');
+        Route::post('variants/{id}', 'AdminGuest\VariantsController@update')->name('admin.variants.update');
+
 
 
     });

@@ -35,22 +35,29 @@
                     </select>
 {{--                    <input type="text"  class="form-control" name="brand_id" placeholder="Select Brand">--}}
                 </div>
-                <div class="form-group">
-                    <label for="image">Featured Image</label>
-                    <input type="file" class="" name="featured_image">
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="image">Featured Image</label>
+                        <input type="file" class="" name="featured_image">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image 2</label>
+                        <input type="file" class="" name="image2">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image 3</label>
+                        <input type="file" class="" name="image3">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image 4</label>
+                        <input type="file" class="" name="image4">
+                    </div></div>
+                <div class="col-md-6">
+
                 </div>
-                <div class="form-group">
-                    <label for="image">Image 2</label>
-                    <input type="file" class="" name="image2">
                 </div>
-                <div class="form-group">
-                    <label for="image">Image 3</label>
-                    <input type="file" class="" name="image3">
-                </div>
-                <div class="form-group">
-                    <label for="image">Image 4</label>
-                    <input type="file" class="" name="image4">
-                </div>
+
 
                 <button class="btn btn-success">Save</button>
 {{--                <input type="submit" class="btn btn-success" value="Save">--}}
