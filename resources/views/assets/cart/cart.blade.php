@@ -23,7 +23,7 @@
                     </table>
                     @foreach($carts as $cart)
                         <form action="{{route('product.change.cart', [$cart->id]) }}" method="post">
-                            @csrf
+                            {!! csrf_field() !!}
                             <table class="table table_custom">
                                 <tbody>
 
@@ -31,7 +31,7 @@
                                     <td>{{$cart->product->name}}</td>
                                     <td>{{$cart->product->unit_cost}}</td>
                                     <td>
-                                        <input type="number" class="form-control" value="{{$cart->quantity}}"/>
+                                        <input type="number" class="form-control" value="{{$cart->quantity}}" name="quantity"/>
                                     </td>
                                     <td>
                                         {{$cart->amount}}

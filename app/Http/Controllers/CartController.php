@@ -61,7 +61,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-
+//        dd($request->all());
         $orderProducts = new OrderProduct();
          $orderProducts ->product_id=$request->product_id;
          $orderProducts->user_id=$request->user_id;
@@ -69,8 +69,8 @@ class CartController extends Controller
          $orderProducts->quantity=1;
          $orderProducts->amount=$request->amount;
          $orderProducts->save();
-
-         return redirect()->back()->with('flash_message','Item, '. $orderProducts->product->name.' Added to your wishlist.');
+//dd($orderProducts);
+         return redirect()->back()->with('success','Item, '. $orderProducts->product->name.' Added to your cart.');
     }
 
     /**
@@ -104,7 +104,18 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+
+
+//        dd($request->all());
+
+        $cart = OrderProduct::findOrFail($id);
+
+//        dd($cart);
+
+        $cart ->quantity=$request->input('quantity');
+//        $brand->category_id=$request->input('category');
+//        dd($cart);
+        $cart->save();
 
     }
 

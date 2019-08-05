@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 .login_card{
     width: 500px !important;
-    height: 365px!important;
+    height: auto!important;
     margin:30px 0 0 123px;
     padding: 10px;
 }
@@ -432,4 +432,10 @@ button.details_accordion:hover{
 
 .table th, .table td{
     padding-left: 5rem!important;
+}
+
+/*cart modal*/
+.modal_custom{
+    width: 46rem !important;
+    height: auto !important;
 }

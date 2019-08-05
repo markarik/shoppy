@@ -12,13 +12,20 @@
         <div class="col-md-12">
             @include('assets.carousel')
 
-            @include('assets.featured_navbar')
+{{--            @if(cou nt($feature)==0)--}}
+
+
+{{--             @else--}}
+                @include('assets.featured_navbar')
+{{--             @endif--}}
+
 
             <div class="hr_custom"></div>
 
             <div class="container">
             @include('assets.featured_cards')
             </div>
+            @include('flash-message')
 
             @include('assets.Products_navbar')
 

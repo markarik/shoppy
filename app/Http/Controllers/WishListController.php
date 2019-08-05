@@ -70,7 +70,7 @@ class WishListController extends Controller
 
 
 
-        return redirect()->back()->with('flash_message','Item, '. $wishlist->product->name.' Added to your wishlist.');
+        return redirect()->back()->with('success','Item, '. $wishlist->product->name.' Added to your wishlist.');
 
     }
 

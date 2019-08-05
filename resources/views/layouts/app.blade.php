@@ -25,6 +25,7 @@
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user.css') }}" rel="stylesheet">
 
+
     <link href="{{ asset('font/css/all.css') }}" rel="stylesheet">
 
 
@@ -32,7 +33,7 @@
 </head>
 <body>
     <div id="app">
-
+{{--        @include('flash-message')--}}
         @include('assets.header')
 {{--        @include('assets.header2')--}}
 
@@ -156,6 +157,9 @@
 
 
 
+
+<!-- Include Multislider -->
+<script src="{{asset('js/multislider.min.js')}}"></script>
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('font/js/all.js')}}"></script>
 

@@ -10,4 +10,13 @@ class Variants extends Model
     protected $fillable = [
             'type'
         ];
+
+    public function getVariantOptionAttribute()
+    {
+
+        $option = VariantOption::where('variant_id',$this->id)->get();
+
+        return $option;
+
+    }
 }

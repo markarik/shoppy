@@ -8,7 +8,7 @@
                 <div class="card-header card_header_custom">{{ __('SELLER Login') }}</div>
 
                 <div class="card-body card_body_custom">
-                    <form method="POST" action="#">
+                    <form method="POST">
                         @csrf
 
                         <div class="form-group card_inputs_custom">

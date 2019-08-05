@@ -15,7 +15,8 @@
                 </div>
                 <div class="form-group">
                     <label for="long_description">Long Description</label>
-                    <textarea name="long_description" id="editor1" cols="30" rows="10" placeholder="Long Description"></textarea>
+                    <textarea name="long_description" id="editor1" cols="30" rows="10"
+                              placeholder="Long Description"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="unit_cost">Price</label>
@@ -29,38 +30,58 @@
                     <label for="brand_id">Brand</label>
                     <select class="form-control" name="brand_id">
 
-                            @foreach($brands as $brand)
+                        @foreach($brands as $brand)
                             <option value="{{$brand->id}}">{{$brand->name}}</option>
                         @endforeach
                     </select>
-{{--                    <input type="text"  class="form-control" name="brand_id" placeholder="Select Brand">--}}
+                    {{--                    <input type="text"  class="form-control" name="brand_id" placeholder="Select Brand">--}}
                 </div>
                 <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="image">Featured Image</label>
-                        <input type="file" class="" name="featured_image">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="image">Featured Image</label>
+                            <input type="file" class="" name="featured_image">
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image 2</label>
+                            <input type="file" class="" name="image2">
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image 3</label>
+                            <input type="file" class="" name="image3">
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image 4</label>
+                            <input type="file" class="" name="image4">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="image">Image 2</label>
-                        <input type="file" class="" name="image2">
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Image 3</label>
-                        <input type="file" class="" name="image3">
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Image 4</label>
-                        <input type="file" class="" name="image4">
-                    </div></div>
-                <div class="col-md-6">
+                    <div class="col-md-6">
+                        @foreach($variants as $variant)
+                            <div class="form-group">
 
-                </div>
+                                <label for="{{$variant->type}}">{{$variant->type}}</label>
+
+                                @if(count($variant->variant_option) != 0)
+                                    <select class="form-control" name="option[{{$variant->type}}]">
+                                        <option value="--select option--" selected disabled>--select option--</option>
+                                        @foreach($variant->variant_option as $option)
+                                            <option value="{{$option->id}}">{{$option->name}}</option>
+                                        @endforeach
+                                    </select>
+                                @else
+                                    <select class="form-control" name="variantoptions_id">
+                                        <option value="no options" selected disabled>No Options Yet</option>
+                                    </select>
+                                @endif
+
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
 
 
                 <button class="btn btn-success">Save</button>
-{{--                <input type="submit" class="btn btn-success" value="Save">--}}
+                {{--                <input type="submit" class="btn btn-success" value="Save">--}}
             </form>
 
         </div>

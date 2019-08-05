@@ -1,6 +1,5 @@
 <div class="row">
     @foreach($featured as $feature)
-
         <div class="col-lg-3 card_align">
 
             <div class="card card_row">
@@ -11,9 +10,12 @@
                                      alt="Card image cap"></a>
                     <div class="card-body">
 
-                        {{--                    <h5 class="card-title">Card title</h5>--}}
-                        {{--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
-                        {{--                    <a href="#" class="btn btn-primary">Go somewhere</a>--}}
+                    <h5 class="card-title">Card title</h5>
+
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+
 
                         <div class="card_buttons">
                             <ul class="nav">
@@ -24,6 +26,7 @@
                                             <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
                                             @foreach($products as $product)
                                                 <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                                <input name="amount" type="text" value="{{$product->unit_cost}}" hidden/>
                                             @endforeach
                                             <input name="quantity" type="text" hidden/>
                                             <button class="btn"><i class="fa fa-cart-plus"></i></button>
@@ -98,3 +101,6 @@
 
     @endforeach
 </div>
+
+
+
