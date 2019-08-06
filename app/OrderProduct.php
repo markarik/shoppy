@@ -37,16 +37,6 @@ class OrderProduct extends Model
     }
 
 
-    public function setTotal() {
 
-        $product = Product::where('id',$this->product_id )->first();
-
-//        dd($product);
-
-       $this->total = $this->price * $this->quantity;
-
-
-
-    }
 
 }

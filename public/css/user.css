@@ -442,10 +442,14 @@ button.details_accordion:hover{
 
 .cart_customs{
     margin-left: 10px !important;
+    width: 95% !important;
+    border: none !important;
 }
 
 .cart_customs td{
-    padding-left: 0 !important;
+    padding-left: 12px !important;
+    width: auto!important;
+    vertical-align: 0px !important;
 }
 
 .cart_custom{
@@ -463,4 +467,7 @@ button.details_accordion:hover{
     margin-left: 30px;
 }
 
+.small_table td{
+    padding-left: 3px !important;
+}
 

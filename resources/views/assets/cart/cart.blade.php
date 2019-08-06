@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8">
 
-                <table class="table table_custom cart_customs ">
+                <table class="table  cart_customs ">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -54,9 +54,6 @@
                                 <input type="submit" class="btn btn-danger cart_button ml-4" value="Remove">
 
                                 </form>
-{{--                                <button class="btn btn-success cart_button">edit</button>--}}
-{{--                                <button class="btn btn-danger cart_button">Remove</button>--}}
-
 
                             </td>
                         </tr>
@@ -75,13 +72,23 @@
                 <table class="table table-bordered small_table">
                     <thead>
                     <tr>
+                        <td>items</td>
                         <td>Sub Total</td>
+                        <td>Tax</td>
                         <td>Total</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>10000</td>
+                        <td>
+                            <b>{{$quantitysum}}</b>
+
+                        </td>
+                        <td>
+                            <b>{{$amountsum}}</b>
+                        </td>
+
+                        <td>10.01</td>
                         <td>10000</td>
                     </tr>
                     </tbody>
@@ -90,8 +97,14 @@
             <div>
                 <a href="{{route('user.checkout')}}" class="btn btn-success">Checkout</a>
             </div>
+
+            <div>
+                <h5><a href="{{route('user.dashboard')}}">Continue Shopping</a></h5>
+            </div>
         </aside>
 
     </div>
+
+    @include('assets.footer.footer')
 @endsection
 
