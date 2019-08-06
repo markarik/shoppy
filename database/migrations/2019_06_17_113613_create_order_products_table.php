@@ -19,6 +19,7 @@ class CreateOrderProductsTable extends Migration
             $table->biginteger('user_id')->unsigned();//represents BUYERS
             $table->biginteger('checkout_id')->unsigned()->nullable();
             $table->integer('quantity');
+            $table->integer('amount');
             $table->timestamps();
         });
     }

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\OrderProduct;
+use App\OrderVariantOption;
+use App\Product;
+use App\ProductVariantOptions;
+use App\VariantOption;
 use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,15 +66,48 @@ class CartController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
+
+        $total_amount = $request->quantity * $request->amount;
+
         $orderProducts = new OrderProduct();
          $orderProducts ->product_id=$request->product_id;
          $orderProducts->user_id=$request->user_id;
          $orderProducts->checkout_id=$request->checkout_id;
-         $orderProducts->quantity=1;
-         $orderProducts->amount=$request->amount;
+         $orderProducts->quantity=$request->quantity;
+         $orderProducts->amount=$total_amount;
          $orderProducts->save();
-//dd($orderProducts);
-         return redirect()->back()->with('success','Item, '. $orderProducts->product->name.' Added to your cart.');
+
+        $options = $request->input('option');
+//        dd($options);
+
+
+
+        if ($options != null){
+            foreach (array_values($options) as $option){
+//dd($option);
+
+                $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
+                $variant_option = VariantOption::where('id', $option)->first();
+
+                $order_variant_option = new OrderVariantOption();
+                $order_variant_option->orderproduct_id = $latest_product->id;
+                $order_variant_option->variant_option_id = $variant_option->id;
+                $order_variant_option->save();
+
+                return redirect()->back()->with('success','Item, '. $orderProducts->product->name.' Added to your cart.');
+            }
+        }else{
+            $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
+
+            $order_variant_option = new OrderVariantOption();
+            $order_variant_option->orderproduct_id = $latest_product->id;
+            $order_variant_option->variant_option_id = null;
+            $order_variant_option->save();
+
+            return redirect()->back()->with('success','Item, '. $orderProducts->product->name.' Added to your cart.');
+        }
+//        dd($order_variant_option);
+
     }
 
     /**
@@ -127,6 +164,27 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = OrderProduct::findOrFail($id);
+
+        $item->delete();
+
+//        if(count($itemvariant = OrderVariantOption::where('orderproduct_id',$item->id)->get()) !=0 ){
+////            dd($itemvariant);
+//
+//
+//
+//
+//
+//
+//        }
+//        else{
+//            $item->delete();
+//        }
+
+
+
+//        $itemvariant->delete();
+
+        return redirect()->back()->with('success',' Item successfully dleted.');
     }
 }

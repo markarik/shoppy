@@ -27,6 +27,7 @@ Route::prefix('user')->group(function () {
     Route::post('cart','CartController@store')->name('user.add.cart');
     Route::get('checkout', 'WelcomeController@showCheckOut')->name('user.checkout');
     Route::post('cart/change/{id}','CartController@update')->name('product.change.cart');
+    Route::post('cart/item/delete/{id}','CartController@destroy')->name('product.delete.cart');
 
 
 });

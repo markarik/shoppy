@@ -19,4 +19,6 @@ class Variants extends Model
         return $option;
 
     }
+
+
 }

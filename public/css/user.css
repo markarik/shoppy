@@ -439,3 +439,28 @@ button.details_accordion:hover{
     width: 46rem !important;
     height: auto !important;
 }
+
+.cart_customs{
+    margin-left: 10px !important;
+}
+
+.cart_customs td{
+    padding-left: 0 !important;
+}
+
+.cart_custom{
+    margin-left: 10px !important;
+}
+.cart_button{
+    /*padding: 0;*/
+    margin-top: 10px;
+    border-bottom: none!important;
+}
+.table-bordered{
+    box-shadow:none !important;
+}
+.small_table{
+    margin-left: 30px;
+}
+
+

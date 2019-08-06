@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\OrderProduct;
 use App\Product;
+use App\Variants;
 use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,12 +16,15 @@ class WelcomeController extends Controller
 //        dd(Auth::user());
 
         $featured = Product::where('status',2)->get();
-        $products = Product::all();
+        $products = Product::orderByRaw('RAND()')->take(8)->get();
+        $variants = Variants::all();
 
-
+//dd($products);
         if (Auth::user() != null){
-            $cart  = OrderProduct::where('user_id',Auth::user()->id)->get();
-            $cart_count = count($cart);
+
+
+            $carts = OrderProduct::where('user_id',Auth::user()->id)->where('checkout_id',null)->get();
+            $cart_count = count($carts);
             $wishlist = WishList::where('user_id', Auth::user()->id)->get();
             $wishlist_count = count($wishlist);
 
@@ -28,7 +32,8 @@ class WelcomeController extends Controller
                 'featured'=>$featured,
                 'products'=>$products,
                 'wishlist_count'=>$wishlist_count,
-                'cart_count'=>$cart_count
+                'cart_count'=>$cart_count,
+                'variants'=>$variants
             ];
         }
 

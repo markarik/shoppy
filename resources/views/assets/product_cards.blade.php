@@ -23,10 +23,7 @@
                                         {!! csrf_field() !!}
                                         @if(\Illuminate\Support\Facades\Auth::user() != null)
 
-{{--                                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />--}}
-{{--                                                <input name="product_id" type="text" value="{{$product->id}}" hidden/>--}}
-{{--                                                <input name="amount" type="text" value="{{$product->unit_cost}}" hidden/>--}}
-{{--                                                <input name="quantity" type="text" hidden/>--}}
+
 {{--                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
 
                                             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal{{$product->id}}">
@@ -112,7 +109,8 @@
 
 
 <!-- Modal -->
-@foreach($products as $product)
+@if(\Illuminate\Support\Facades\Auth::user() != null)
+    @foreach($products as $product)
 <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal_custom">
@@ -148,9 +146,37 @@
 
                         </div>
 
+                        <form action="{{route('user.add.cart')}}" method="POST">
+                            {!! csrf_field() !!}
+                        <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
+                        <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                        <input name="amount" type="text" value="{{$product->unit_cost}}" hidden/>
+                        <input name="quantity" type="number"value="1"/>
 
+                        @foreach($product->variant as $variant)
+                            <div class="form-group">
 
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                <label for="{{$variant->type}}">{{$variant->type}}</label>
+
+                                @if(count($variant->variant_option) != 0)
+                                    <select class="form-control" name="option[{{$variant->type}}]">
+                                        <option value="--select option--" selected disabled>--select option--</option>
+                                        @foreach($variant->variant_option as $option)
+                                            <option value="{{$option->id}}">{{$option->name}}</option>
+                                        @endforeach
+                                    </select>
+                                @else
+                                    <select class="form-control" name="variantoptions_id">
+                                        <option value="no options" selected disabled>No Options Yet</option>
+                                    </select>
+                                @endif
+
+                            </div>
+                        @endforeach
+
+                            <button  class="btn btn-primary">Save changes</button>
+{{--                            <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
+                        </form>
 
                     </div>
                 </div>
@@ -159,9 +185,12 @@
             </div>
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-primary">Save changes</button>
+{{--                <button type="button" class="btn btn-primary">Save changes</button>--}}
             </div>
         </div>
     </div>
 </div>
 @endforeach
+@else
+    <button class="btn"><i class="fa fa-cart-plus"></i></button>
+@endif

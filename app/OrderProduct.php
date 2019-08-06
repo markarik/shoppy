@@ -13,6 +13,7 @@ class OrderProduct extends Model
 
     public function getProductAttribute() {
         return Product::find($this->product_id);
+
     }
 
 
@@ -35,5 +36,17 @@ class OrderProduct extends Model
         return $user->f_name;
     }
 
+
+    public function setTotal() {
+
+        $product = Product::where('id',$this->product_id )->first();
+
+//        dd($product);
+
+       $this->total = $this->price * $this->quantity;
+
+
+
+    }
 
 }

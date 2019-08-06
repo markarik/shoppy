@@ -1,11 +1,13 @@
 @extends('layouts.admin_master')
-@section('content')
+
 
 @section('css')
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 @endsection
+
+@section('content')
 <div class="table_formats">
 
     <h2 class="table_format">Products</h2>

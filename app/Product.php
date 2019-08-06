@@ -99,4 +99,27 @@ class Product extends Model
         return $undelivered_orders;
 
     }
+
+    public function getVariantAttribute()
+    {
+
+        $product_variant_options = ProductVariantOptions::where('product_id',$this->id)->get();
+
+        $variant_options =[];
+        $variants =[];
+
+        if ($product_variant_options != null){
+            foreach ($product_variant_options as $p_v_o){
+                array_push($variant_options,VariantOption::where('id',$p_v_o->variant_option_id)->first());
+            }
+
+            foreach ($variant_options as $v_o){
+                array_push($variants, Variants::where('id',$v_o->variant_id)->first());
+            }
+
+        }
+
+        return $variants;
+
+    }
 }

@@ -34,7 +34,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::
+        $products = Product::all();
         return view('pages.seller.product.view_product')->with('products',$products);
     }
 
@@ -45,16 +45,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //$brands = Brand::all();
+
        $brands = Brand::all();
-//        $variantoptions = VariantOption::all();
-
        $variants = Variants::all();
-//       dd($variants);
-//        $variantoptions = VariantOption::where('Variant_id',$variants->id)->get();
-
-//    dd($variantoptions);
-
         $data = [
             'brands'=>$brands,
             'variants'=>$variants
@@ -73,41 +66,7 @@ class ProductController extends Controller
     {
 
 
-//        $options = $request->input('option');
 
-
-//        dd(array_keys($options));
-
-//            array_push($our_keys,array_keys($options));
-//
-//            $each_key = [];
-//
-////            dd( $our_keys);
-//        foreach ($our_keys as $single_key){
-//            for ($i=0;$i<count($single_key);$i++){
-//
-//                array_push($each_key,$single_key[$i]);
-//
-//            }
-//        }
-//
-//        dd($each_key);
-
-
-//                $product_variantoption= new ProductVariantOptions();
-//                $product_variantoption->product_id = $product->id;
-//                $product_variantoption->variant_option_id = $option->id;
-
-
-
-//        dd($request->all());
-
-        /*Validator::make($request->all(),[
-            'name'=>'required',
-            'price'=>'required',
-            'short_description'=>'required',
-            'featured_image'=>'required',
-            ])->validate();*/
 
       $this->validate($request,[
           'unit_cost'=>'required',
@@ -208,35 +167,7 @@ class ProductController extends Controller
             $inventory->save();
 //            dd($inventory);
 
-//            $variant = [];
 
-
-//            foreach ($variant as $variant) {
-//                $option = $request->POST[$variant];
-//                $product_variant_option = ProductVariantOption::create([
-//                    'product_id' => $product->id,
-//                    'option_id' => $option,
-//                ]);
-            //}
-            /*$productvariant = new ProductVariantOption();
-            $productvariant->product_id = $product->id;
-            $productvariant->variant_options_id;
-            $productvariant->save();*/
-
-//            foreach ($request ->input('type') as $key =>$variant){
-//                dd($variant);
-//            }
-
-
-//            $variant = new ProductVariantOption();
-//
-////            $variant -> product_id = $product->id;
-//
-////            $variant ->variantoptions_id = 1;
-////        $variant->variant_options_id=$request->input();
-//
-//            $variant ->save();
-//            dd($productvariant);
 
         }
 
