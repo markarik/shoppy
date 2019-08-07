@@ -6,6 +6,7 @@ use App\OrderProduct;
 use App\OrderVariantOption;
 use App\Product;
 use App\ProductVariantOptions;
+use App\Setting;
 use App\VariantOption;
 use App\WishList;
 use Illuminate\Http\Request;
@@ -32,6 +33,15 @@ class CartController extends Controller
         $cart_count = count($carts);
         $quantitysum=$carts->sum('quantity');
         $amountsum=$carts->sum('amount');
+        $taxes = Setting::where('name','tax')->first();
+//dd($carts);
+        $taxvalue = $taxes->value;
+
+        $totalcartcost = $amountsum + $taxvalue;
+
+//        dd($carts[0]->option_name[0]->name);
+
+
 
 
 
@@ -41,7 +51,10 @@ class CartController extends Controller
             'wishlist_count'=>$wishlist_count,
             'cart_count'=>$cart_count,
             'quantitysum'=>$quantitysum,
-            'amountsum'=>$amountsum
+            'amountsum'=>$amountsum,
+            'taxes'=>$taxes,
+            'totalcartcost'=>$totalcartcost
+
         ];
 
         return view('assets.cart.cart',$data);
@@ -83,18 +96,19 @@ class CartController extends Controller
 
 
         if ($options != null){
-            foreach (array_values($options) as $option){
+            foreach (array_values($options) as $option) {
 //dd($option);
 
-                $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
-                $variant_option = VariantOption::where('id', $option)->first();
+                $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->get();
+                $variant_option = VariantOption::where('id', $option)->get();
 
                 $order_variant_option = new OrderVariantOption();
                 $order_variant_option->orderproduct_id = $latest_product->id;
                 $order_variant_option->variant_option_id = $variant_option->id;
                 $order_variant_option->save();
+                dd($order_variant_option);
 
-                return redirect()->back()->with('success','Item, '. $orderProducts->product->name.' Added to your cart.');
+                return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
             }
         }else{
             $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
@@ -168,23 +182,8 @@ class CartController extends Controller
 
         $item->delete();
 
-//        if(count($itemvariant = OrderVariantOption::where('orderproduct_id',$item->id)->get()) !=0 ){
-////            dd($itemvariant);
-//
-//
-//
-//
-//
-//
-//        }
-//        else{
-//            $item->delete();
-//        }
 
 
-
-//        $itemvariant->delete();
-
-        return redirect()->back()->with('success',' Item successfully dleted.');
+        return redirect()->back()->with('success',' Item successfully deleted.');
     }
 }

@@ -8,7 +8,7 @@
                 <table class="table  cart_customs ">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Image</th>
                         <th>Name</th>
 
                         <th>Quantity</th>
@@ -19,43 +19,58 @@
                     </thead>
                     <tbody class="table-bordered">
 
+{{--                    {{dd($carts[0]->option_name[0]->name)}}--}}
 
                     @foreach ($carts as $cart)
 
+                        {{dd($cart->option_name)}}
 
-                        <tr >
-                            <td>{{$cart->id}}</td>
+                        <tr>
+                            <td>
+                                <div class="details_other_images imagescrollimg">
+{{--                                    <img src="{{asset('/products/images/featured/'.$cart->product->featured_image_url)}}" class="card-img-top" alt="...">--}}
+                                </div>
+                            </td>
                             <td>{{$cart->product->name}}</td>
-{{--                            <td>{{$cart->product->unit_cost}}</td>--}}
                             <td>
                                 {{$cart->quantity}}
                             </td>
                             <td>
                                 {{$cart->amount}}
                             </td>
-                            <td>
-                                <div class="btn-group m-r-10">
-                                    <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Dropdown <span class="caret"></span></button>
-                                    <ul role="menu" class="dropdown-menu">
-                                        <li>1</li>
-                                        <li>2</li>
-                                        <li>3</li>
-                                        <li>4</li>
-                                    </ul>
-                                </div>
 
 
-                            </td>
-                            <td class="d-flex p-0">
+                                <td>
 
-                                <a href="" class="btn btn-success cart_button ml-2">edit</a>
-                                <form action="{{route('product.delete.cart',['id'=>$cart->id])}}" method="post">
-                                    {!! csrf_field() !!}
-                                <input type="submit" class="btn btn-danger cart_button ml-4" value="Remove">
+                                @if(count($cart->option_name) >= 1)
+                                        @foreach($cart->option_name as $option)
+{{--                                            {{dd($option->name)}}--}}
+                                            <div class="btn-group m-r-10">
+                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Dropdown <span class="caret"></span></button>
 
-                                </form>
+                                                <ul role="menu" class="dropdown-menu"><li>{{$option->name}}</li>
 
-                            </td>
+
+                                                </ul>
+                                            </div>
+                                        @endforeach
+                                @else
+
+                                    No Options
+
+                                @endif
+                                </td>
+
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="" class="btn btn-success cart_button ml-2">edit</a>
+                                        <form action="{{route('product.delete.cart',['id'=>$cart->id])}}" method="post">
+                                            {!! csrf_field() !!}
+                                            <input type="submit" class="btn btn-danger cart_button ml-4" value="Remove">
+
+                                        </form>
+                                    </div>
+                                </td>
                         </tr>
                     @endforeach
 
@@ -79,7 +94,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+
+
+                        <tr>
                         <td>
                             <b>{{$quantitysum}}</b>
 
@@ -88,18 +105,23 @@
                             <b>{{$amountsum}}</b>
                         </td>
 
-                        <td>10.01</td>
-                        <td>10000</td>
+                            <td>{{$taxes->value}}</td>
+
+
+                        <td><b>{{$totalcartcost}}</b></td>
                     </tr>
+
                     </tbody>
                 </table>
             </div>
-            <div>
-                <a href="{{route('user.checkout')}}" class="btn btn-success">Checkout</a>
-            </div>
+            <div class="d-flex">
+                <div>
+                    <a href="{{route('user.checkout')}}" class="btn btn-success">Checkout</a>
+                </div>
 
-            <div>
-                <h5><a href="{{route('user.dashboard')}}">Continue Shopping</a></h5>
+                <div class="ml-auto">
+                    <h5><a href="{{route('user.dashboard')}}">Continue Shopping</a></h5>
+                </div>
             </div>
         </aside>
 

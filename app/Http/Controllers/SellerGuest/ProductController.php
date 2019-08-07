@@ -66,7 +66,7 @@ class ProductController extends Controller
     {
 
 
-
+//dd($request->all());
 
       $this->validate($request,[
           'unit_cost'=>'required',

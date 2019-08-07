@@ -137,7 +137,7 @@
                    <a class="nav-link" href="{{route('admin.variants.view')}}">Variants</a>
                </li>
                <li>
-                   <a class="nav-link" href="#">General</a>
+                   <a class="nav-link" href="{{route('admin.add.constants')}}">Constants</a>
                </li>
            </ul>
        </div>

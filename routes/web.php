@@ -115,7 +115,10 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::post('variants/store', 'AdminGuest\VariantsController@store')->name('admin.variants.store');
 //        Route::get('variants/{id}/edit', 'AdminGuest\VariantsController@edit')->name('admin.variants.edit');
         Route::post('variants/{id}', 'AdminGuest\VariantsController@update')->name('admin.variants.update');
-
+        Route::get('constants','AdminGuest\SettingsController@index')->name('admin.add.constants');
+        Route::post('constants/store','AdminGuest\SettingsController@store')->name('admin.store.constants');
+        Route::post('constants/delete/{id}','AdminGuest\SettingsController@destroy')->name('admin.delete.constants');
+        Route::post('constants/{id}/edit','AdminGuest\SettingsController@update')->name('admin.edit.constants');
 
 
     });

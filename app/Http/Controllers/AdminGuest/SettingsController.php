@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\AdminGuest;
 
+use App\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,12 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        //
+        $constants = Setting::all();
+
+        $data = [
+            'constants'=>$constants
+        ];
+        return view('pages.admin.constants.view_constants',$data);
     }
 
     /**
@@ -35,7 +46,21 @@ class SettingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $this->validate($request,[
+            'name'=>'required',
+            'value'=>'required'
+        ]);
+
+        $constants = new Setting();
+
+        $constants->name=$request->input('name');
+        $constants->value=$request->input('value');
+        $constants->save();
+
+        return redirect()->back()->with('success','Constant added Successfully.');
+
     }
 
     /**
@@ -69,7 +94,12 @@ class SettingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $constants = Setting::findorFail($id);
+        $constants->name=$request->input('name');
+        $constants->value=$request->input('value');
+        $constants->save();
+        return redirect()->back()->with('success','Constant has been edited Successfully.');
+
     }
 
     /**
@@ -80,6 +110,10 @@ class SettingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $constant = Setting::findorFail($id);
+
+        $constant ->delete();
+
+        return redirect()->back()->with('success','Constant successfully deleted');
     }
 }
