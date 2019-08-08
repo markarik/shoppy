@@ -10,38 +10,32 @@
 
             <div id="collapseOne" class="collapse details_accordion_content" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="form_checkout_custom">
-                    {{--<form action="">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>First</label>
-                            </div>
-                            <div class="col-md-4">Side B</div>
-                        </div>
-                    </form>--}}
-                    <form>
+
+                    <form action="{{route('user.checkout.address.store')}}">
+                        {!! csrf_field() !!}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4">First Name</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                <label for="fname">First Name</label>
+                                <input type="text" class="form-control" name="fname" id="inputEmail4" placeholder="First Name">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPassword4">Last Name</label>
-                                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                <label for="lname">Last Name</label>
+                                <input type="text" class="form-control" name="lname" id="inputPassword4" placeholder="Last Name">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputCity">City</label>
-                                <input type="text" class="form-control" id="inputCity">
+                                <input type="text" class="form-control" name="city" id="inputCity">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="inputState">Phone Number</label>
-                                <input type="number" class="form-control" name="phonenumber" id="inputPhoneNumber">
+                                <input type="text" class="form-control" name="phonenumber" id="inputPhoneNumber">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputZip">Region</label>
-                                <input type="text" class="form-control" id="inputZip">
+                                <input type="text" class="form-control" name="region" id="inputZip">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">save and Continue to Delivery</button>

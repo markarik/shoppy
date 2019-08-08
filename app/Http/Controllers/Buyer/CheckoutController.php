@@ -1,36 +1,57 @@
 <?php
 
-namespace App\Http\Controllers\SellerGuest;
+namespace App\Http\Controllers\Buyer;
 
-use App\Product;
+use App\OrderProduct;
+use App\WishList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class SellerController extends Controller
+class CheckoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     *
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth:seller');
-    }
-
-    public function index()
+    public function index(Request $request)
     {
 
-        $products = Product::where('seller_id',Auth::user()->id)->get();
 
-//        dd($products);
-        return view('pages.seller.seller')->with('products',$products);
+        $user = Auth::user();
+        $cart  = OrderProduct::where('user_id',$user->id)->get();
+        $cart_count = count($cart);
+        $wishlist = WishList::where('user_id',$user->id)->get();
+        $wishlist_count = count($wishlist);
+         $checkouts = $request->session()->get('checkout');
+
+        $data = [
+
+            'wishlist_count'=>$wishlist_count,
+            'cart_count'=>$cart_count,
+            'checkouts'=>$checkouts
+        ];
+
+
+
+        return view ('assets.checkout.checkout',$data);
     }
 
-
+    /**
+     * Show the form for creating a details adress
+     *
+     * @return \Illuminate\Http\Response
+     */
+    /*public function createStep1(Request $request)
+    {
+        $checkouts = $request->session()->get('checkout');
+        return view('products.create-step1',compact('product', $checkouts));
+    }*/
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +59,7 @@ class SellerController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -49,7 +70,14 @@ class SellerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->all());
+    }
+
+
+    public function storeaddres(Request $request)
+    {
+        dd($request->all());
+        print_r($request->input());
     }
 
     /**

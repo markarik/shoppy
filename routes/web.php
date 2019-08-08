@@ -25,7 +25,8 @@ Route::prefix('user')->group(function () {
     Route::get('wishlist','WishListController@index')->name('user.wishlist.view');
     Route::post('wishlist','WishListController@store')->name('user.wishlist.store');
     Route::post('cart','CartController@store')->name('user.add.cart');
-    Route::get('checkout', 'WelcomeController@showCheckOut')->name('user.checkout');
+    Route::get('checkout', 'Buyer\CheckoutController@index')->name('user.checkout');
+    Route::get('checkout/store', 'Buyer\CheckoutController@storeaddres')->name('user.checkout.address.store');
     Route::post('cart/change/{id}','CartController@update')->name('product.change.cart');
     Route::post('cart/item/delete/{id}','CartController@destroy')->name('product.delete.cart');
 
@@ -69,6 +70,10 @@ Route::group(['middleware' => 'seller_auth'], function () {
         Route::post('product/delete/{id}', 'SellerGuest\ProductController@destroy')->name('seller.delete.product');
         Route::get('brand/{id}', 'SellerGuest\BrandController@destroy');
         Route::post('variantoption/{id}', 'SellerGuest\VariantsOptionsController@update')->name('seller.variants_option.update');
+        Route::get('region', 'SellerGuest\RegionController@index')->name('seller.region.view');
+        Route::post('region', 'SellerGuest\RegionController@store')->name('seller.region.store');
+//        Route::get('region/{id}/edit', 'SellerGuest\RegionController@edit')->name('seller.region.edit');
+        Route::post('region/{id}', 'SellerGuest\RegionController@update')->name('seller.region.update');
 
 
     });

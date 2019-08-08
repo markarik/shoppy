@@ -23,12 +23,12 @@
 
                     @foreach ($carts as $cart)
 
-                        {{dd($cart->option_name)}}
+{{--                        {{dd($cart->option_name)}}--}}
 
                         <tr>
                             <td>
                                 <div class="details_other_images imagescrollimg">
-{{--                                    <img src="{{asset('/products/images/featured/'.$cart->product->featured_image_url)}}" class="card-img-top" alt="...">--}}
+                                    <img src="{{asset('/products/images/featured/'.$cart->product->featured_image_url)}}" class="card-img-top" alt="...">
                                 </div>
                             </td>
                             <td>{{$cart->product->name}}</td>
@@ -48,7 +48,7 @@
                                             <div class="btn-group m-r-10">
                                                 <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Dropdown <span class="caret"></span></button>
 
-                                                <ul role="menu" class="dropdown-menu"><li>{{$option->name}}</li>
+                                                <ul role="menu" class="dropdown-menu"><li>1</li>
 
 
                                                 </ul>

@@ -62,26 +62,7 @@ $products =Product::all();
 
 
 
-    public function showCart(){
-        return view ('assets.cart.cart');
-    }
-    public function showCheckOut(){
-
-
-        $user = Auth::user();
-            $cart  = OrderProduct::where('user_id',$user->id)->get();
-            $cart_count = count($cart);
-            $wishlist = WishList::where('user_id',$user->id)->get();
-            $wishlist_count = count($wishlist);
-
-            $data = [
-
-                'wishlist_count'=>$wishlist_count,
-                'cart_count'=>$cart_count
-            ];
 
 
 
-        return view ('assets.checkout.checkout',$data);
-    }
 }

@@ -12,7 +12,7 @@
 
         </thead>
         <tbody>
-        @if(count($products)>1)
+{{--        @if(count($products)>0)--}}
 
             @foreach ($products as $product)
                 <tr>
@@ -26,9 +26,9 @@
 
                 </tr>
             @endforeach
-            @else
-            <p>No Category Found</p>
-        @endif
+{{--            @else--}}
+{{--            <p>No Category Found</p>--}}
+{{--        @endif--}}
         </tbody>
 
     </table>

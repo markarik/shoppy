@@ -34,7 +34,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('seller_id',Auth::user()->id)->get();
         return view('pages.seller.product.view_product')->with('products',$products);
     }
 

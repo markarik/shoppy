@@ -23,6 +23,10 @@
        <a href="{{route('seller.brand.view')}}"><button class="accordion"> Brands</button></a>
 
    </div>
+    <div>
+        <a href="{{route('seller.region.view')}}"><button class="accordion">Regions</button></a>
+
+    </div>
 
     <div>
        <button class="accordion">Sales</button>
