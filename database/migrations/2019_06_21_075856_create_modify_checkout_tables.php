@@ -17,7 +17,7 @@ class CreateModifyCheckoutTables extends Migration
 
 //            $table->foreign('user_id')->references('id')->on('users');
 
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

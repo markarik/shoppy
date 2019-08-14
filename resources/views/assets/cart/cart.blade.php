@@ -92,8 +92,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
-
                         <tr>
                         <td>
                             <b>{{$quantitysum}}</b>
@@ -111,16 +109,20 @@
 
                     </tbody>
                 </table>
+                <small>If it is to be delivered,<b>EXTRA CHARGES WILL BE ADDED</b>!!</small>
             </div>
-            <div class="d-flex">
+            <form action="">
+
+                <div class="d-flex">
                 <div>
-                    <a href="{{route('user.checkout')}}" class="btn btn-success">Checkout</a>
+                    <a href="{{route('user.checkout')}}" class="btn btn-success" type="submit">Checkout</a>
                 </div>
 
                 <div class="ml-auto">
                     <h5><a href="{{route('user.dashboard')}}">Continue Shopping</a></h5>
                 </div>
             </div>
+            </form>
         </aside>
 
     </div>

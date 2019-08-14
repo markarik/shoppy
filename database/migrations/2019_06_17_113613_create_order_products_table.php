@@ -21,6 +21,7 @@ class CreateOrderProductsTable extends Migration
             $table->integer('quantity');
             $table->integer('amount');
             $table->softDeletes('deleted_at');
+            $table->string('delivery_status')->default("1")->comment("1: No delivery, 2: Delivered");
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ Route::get('/', 'WelcomeController@landingpage')->name('user.dashboard');
 Route::prefix('user')->group(function () {
 
     Auth::routes();
-    Route::get('details', 'WelcomeController@detailspage')->name('user.product.details');
+    Route::get('details/{id}', 'WelcomeController@detailspage')->name('user.product.details');
     Route::get('cart', 'CartController@index')->name('user.cart.view');
     Route::get('wishlist','WishListController@index')->name('user.wishlist.view');
     Route::post('wishlist','WishListController@store')->name('user.wishlist.store');
@@ -28,6 +28,7 @@ Route::prefix('user')->group(function () {
     Route::get('checkout', 'Buyer\CheckoutController@index')->name('user.checkout');
     Route::post('checkout/store', 'Buyer\CheckoutController@store')->name('user.checkout.store');
     Route::post('cart/change/{id}','CartController@update')->name('product.change.cart');
+    Route::post('cart/region/{id}','CartController@update')->name('product.change.cart');
     Route::post('cart/item/delete/{id}','CartController@destroy')->name('product.delete.cart');
 
 

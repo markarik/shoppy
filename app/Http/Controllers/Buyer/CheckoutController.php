@@ -83,19 +83,8 @@ class CheckoutController extends Controller
             'region'=>'required',
             'city'=>'required'
         ]);
-//        dd($request->all());
-
-        $test = sprintf('%06d', rand(1, 10000000))->unique();
-//        $checkout = Checkout::all();
-//        if($checkout->reference_code ==$test){
-//
-//            $test = sprintf('%06d', rand(1, 10000000));
-//        }else{
-//
-//        }
-
+        $test = sprintf('%06d', rand(1, 10000000));
         $checkout = new Checkout();
-
         $checkout ->user_id=Auth::user()->id;
         $checkout->phone_number=$request->input('phonenumber');
         $checkout->reference_code=$test;
@@ -104,6 +93,10 @@ class CheckoutController extends Controller
         $checkout->status=1;
 //        dd($checkout);
         $checkout->save();
+
+
+        $latest_checkout = Checkout::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
+        dd(l);
 
 return redirect()->back()->with('success','checkout complete,,Go to payments');
     }

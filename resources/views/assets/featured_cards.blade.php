@@ -92,8 +92,29 @@
                     </h5>
                 </div>
                 <div class="hr_custom"></div>
-                <div class="ml-auto btn_buy_now_div">
-                    <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
+                <div class="d-flex">
+                    <div class="ml-auto btn_buy_now_div">
+                        <a class="btn btn-success btn_buy_now" href="{{url('user/details',['id'=>$product->id])}}">Buy Now</a>
+                    </div>
+                    <div class="nav-item ml-auto pr-5">
+                        @if(\Illuminate\Support\Facades\Auth::user() !=null)
+                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data" files="true">
+                                {!! csrf_field() !!}
+                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
+                                <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                <button class="btn"><i class="fa fa-heart"></i></button>
+
+
+
+                            </form>
+                        @else
+                            <button class="btn"><i class="fa fa-heart"></i></button>
+
+                        @endif
+
+                        {{--                                    <button class="btn"><i class="fa fa-heart"></i></button>--}}
+
+                    </div>
                 </div>
             </div>
 

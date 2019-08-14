@@ -34,18 +34,8 @@ class CartController extends Controller
         $quantitysum=$carts->sum('quantity');
         $amountsum=$carts->sum('amount');
         $taxes = Setting::where('name','tax')->first();
-//dd($carts[0]->option_name);
         $taxvalue = $taxes->value;
-
         $totalcartcost = $amountsum + $taxvalue;
-
-//        dd($carts[0]->option_name[0]->name);
-
-
-
-
-
-
         $data =[
             'carts'=>$carts,
             'wishlist_count'=>$wishlist_count,
@@ -88,6 +78,7 @@ class CartController extends Controller
          $orderProducts->checkout_id=$request->checkout_id;
          $orderProducts->quantity=$request->quantity;
          $orderProducts->amount=$total_amount;
+         $orderProducts ->delivery_status=$request->input('customRadioInline1');
          $orderProducts->save();
 
         $options = $request->input('option');
@@ -108,7 +99,7 @@ class CartController extends Controller
                 $order_variant_option->orderproduct_id = $latest_product->id;
                 $order_variant_option->variant_option_id = $variant_option->id;
                 $order_variant_option->save();
-//                dd($order_variant_option);
+//
             }
                 return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
 
@@ -158,19 +149,20 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
 
-
-//        dd($request->all());
-
         $cart = OrderProduct::findOrFail($id);
-
-//        dd($cart);
-
         $cart ->quantity=$request->input('quantity');
-//        $brand->category_id=$request->input('category');
-//        dd($cart);
         $cart->save();
 
     }
+
+//    public function updateDelivery(Request $request, $id)
+//    {
+//
+//        $cart = OrderProduct::findOrFail($id);
+//        $cart ->quantity=$request->input('quantity');
+//        $cart->save();
+//
+//    }
 
     /**
      * Remove the specified resource from storage.

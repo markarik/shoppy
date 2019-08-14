@@ -7,48 +7,14 @@
 
             <div id="collapseOne" class="collapse details_accordion_content" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="product-features-container p-4">
-                    <div class="col-sm-12 row">
-                        <p class="product-features-text">Infinix Hot S4 features a massive 6.26-inch 720p IPS LCD display with a 19:9 aspect
-                            ratio giving the phone a slim and narrow shape. Infinix S4 is powered by Mediatek’s
-                            Helio P22 SoC, coupled with Cortex-A53 processors with maximum clock speed of 2.2GHz CPU.
-                            It run on the Google’s latest Android 9.0 Pie operating system and supported by Infinix’s
-                            native XOS (v4.0 HoneyBee). Infinix S4 comes with a premium glass finish, three cameras at
-                            the back (13MP+8MP+2MP) and a 32MP selfie shooter. Infinix S4 is powered by a non- removable
-                            4000 Li-ion Battery coupled with a fast charging support. Order for this Infinix Hot S4 online
-                            from Jumia Kenya and have it delivered to you.</p>
-                    </div>
-                    <div class="col-sm-12 row py-4">
-                        <div class="col-md-6 row">
-                            <ul class="product-details product-details-custom">
-                                <li>Display: 6.26-inch LCD capacitive</li>
-                                <li>OS: Android 9.0 Pie</li>
-                                <li>CPU: Quad-core 1.4 GHz, MediaTek Helio P22</li>
-                                <li>Memory: 3GB RAM and 32GB built-in storage</li>
-                                <li>13MP + 8MP + 2MP rear camera</li>
-                                <li>32MP selfie camera.</li>
-                                <li>Display: 6.26-inch LCD capacitive</li>
-                                <li>OS: Android 9.0 Pie</li>
-                                <li>CPU: Quad-core 1.4 GHz, MediaTek Helio P22</li>
-                                <li>Memory: 3GB RAM and 32GB built-in storage</li>
-                                <li>13MP + 8MP + 2MP rear camera</li>
-                                <li>32MP selfie camera.</li>
-                                <li>Display: 6.26-inch LCD capacitive</li>
-                                <li>OS: Android 9.0 Pie</li>
-                                <li>CPU: Quad-core 1.4 GHz, MediaTek Helio P22</li>
-                                <li>Memory: 3GB RAM and 32GB built-in storage</li>
-                                <li>13MP + 8MP + 2MP rear camera</li>
-                                <li>32MP selfie camera.</li>
-                                <li>Display: 6.26-inch LCD capacitive</li>
-                                <li>OS: Android 9.0 Pie</li>
-                                <li>CPU: Quad-core 1.4 GHz, MediaTek Helio P22</li>
-                                <li>Memory: 3GB RAM and 32GB built-in storage</li>
-                                <li>13MP + 8MP + 2MP rear camera</li>
-                                <li>32MP selfie camera.</li>
-                            </ul>
+                    <div class="row">
+                        <div class="col-md-9 row">
+                            {!! $products->long_description !!}
+
                         </div>
-                        <div class="col-md-6 row d-flex flex-column justify-content-center">
+                        <div class="col-md-3 row d-flex flex-column justify-content-center">
                             <div class="product-pics">
-                                <img src="{{asset('images/L1.jpg')}}" alt="">
+                                <img src="{{asset('/products/images/featured/'.$products->featured_image_url)}}" class="card-img-top" alt="...">
                             </div>
 
 

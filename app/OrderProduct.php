@@ -9,7 +9,8 @@ class OrderProduct extends Model
 {
     protected $fillable = [
         'quantity',
-        'amount'
+        'amount',
+        'customRadioInline1'
     ];
 
     public function getProductAttribute()

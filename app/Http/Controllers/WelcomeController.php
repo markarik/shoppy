@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\OrderProduct;
 use App\Product;
 use App\Variants;
@@ -51,11 +52,49 @@ class WelcomeController extends Controller
     }
 
 
-    public function detailspage (){
+    public function detailspage ($id){
 
-$products =Product::all();
+        if(Auth::user() !=null){
 
-        return view('assets.details.details')->with('products',$products);
+            $products =Product::findOrFail($id);
+//            dd($products->brand_name);
+            $extraimages = Image::where('product_id',$products->id)->get();
+//            dd($extraimages);
+            $carts = OrderProduct::where('user_id',Auth::user()->id)->where('checkout_id',null)->get();
+
+            $cart_count = count($carts);
+            $wishlist = WishList::where('user_id', Auth::user()->id)->get();
+            $wishlist_count = count($wishlist);
+
+
+            $data = [
+
+                'products'=>$products,
+                'wishlist_count'=>$wishlist_count,
+                'cart_count'=>$cart_count,
+                'extraimages'=>$extraimages
+
+            ];
+
+            return view('assets.details.details',$data);
+
+        }else{
+
+
+            $products =Product::findOrFail($id);
+
+
+            $data = [
+
+                'products'=>$products,
+
+
+            ];
+            return view('assets.details.details',$data);
+
+        }
+
+
 
     }
 

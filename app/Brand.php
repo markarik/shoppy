@@ -22,4 +22,13 @@ class Brand extends Model
         return $categories->name;
 
         }
+
+
+    public function getBrandNameAttribute()
+    {
+
+        $brandname = Brand::where('id',$this->brand_id)->first();
+        return $brandname;
+
+    }
 }
