@@ -20,6 +20,7 @@ class CreateOrderProductsTable extends Migration
             $table->biginteger('checkout_id')->unsigned()->nullable();
             $table->integer('quantity');
             $table->integer('amount');
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }

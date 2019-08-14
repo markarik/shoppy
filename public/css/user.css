@@ -470,4 +470,8 @@ button.details_accordion:hover{
 .small_table td{
     padding-left: 3px !important;
 }
+.checkout_form{
+    height: 30rem;
+    margin-top: 30px;
+}
 

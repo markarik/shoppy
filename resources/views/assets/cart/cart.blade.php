@@ -42,21 +42,19 @@
 
                                 <td>
 
-                                @if(count($cart->option_name) >= 1)
-                                        @foreach($cart->option_name as $option)
-{{--                                            {{dd($option->name)}}--}}
-                                            <div class="btn-group m-r-10">
-                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Dropdown <span class="caret"></span></button>
+                                @if($cart->option_name[0] == null)
 
-                                                <ul role="menu" class="dropdown-menu"><li>1</li>
+                                        No Options
 
-
-                                                </ul>
-                                            </div>
-                                        @endforeach
                                 @else
 
-                                    No Options
+                                    <select class="form-control">
+                                        <option selected  disabled value="options">options</option>
+                                        @foreach($cart->option_name as $option)
+                                            <option disabled value="options">{{$option->name}}</option>
+                                        @endforeach
+
+                                    </select>
 
                                 @endif
                                 </td>

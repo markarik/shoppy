@@ -105,7 +105,7 @@ class ProductController extends Controller
             $options = $request->input('option');
 
             foreach (array_values($options) as $option){
-                
+//                dd($option);
                 $latest_product = Product::where('seller_id',Auth::user()->id)->orderby('created_at','desc')->first();
                 $variant_option = VariantOption::where('id',$option)->first();
 

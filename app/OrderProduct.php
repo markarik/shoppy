@@ -44,6 +44,21 @@ class OrderProduct extends Model
 
     }
 
+    public function getOptionNameCounterAttribute()
+    {
+        $order_variant_options = $this->getOptionsAttribute();
+
+        $option_names = [];
+
+        if ($order_variant_options != null) {
+            foreach ($order_variant_options as $option) {
+                array_push($option_names, VariantOption::where('id', $option->variant_option_id)->first());
+            }
+        }
+
+        return count($option_names);
+    }
+
 
     public function getProductNameAttribute()
     {

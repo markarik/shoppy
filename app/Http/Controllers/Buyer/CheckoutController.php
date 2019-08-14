@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Buyer;
 
+use App\Checkout;
 use App\OrderProduct;
+use App\Region;
+use App\Seller;
+use App\User;
 use App\WishList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,17 +28,21 @@ class CheckoutController extends Controller
 
 
         $user = Auth::user();
-        $cart  = OrderProduct::where('user_id',$user->id)->get();
+        $regions = Region::all();
+        $userinfos= User::where('id',$user->id)->get();
+        $cart = OrderProduct::where('user_id',Auth::user()->id)->where('checkout_id',null)->get();
         $cart_count = count($cart);
         $wishlist = WishList::where('user_id',$user->id)->get();
         $wishlist_count = count($wishlist);
          $checkouts = $request->session()->get('checkout');
-
+//dd($userinfos);
         $data = [
 
             'wishlist_count'=>$wishlist_count,
             'cart_count'=>$cart_count,
-            'checkouts'=>$checkouts
+            'checkouts'=>$checkouts,
+            'regions'=>$regions,
+            'userinfos'=>$userinfos
         ];
 
 
@@ -70,15 +78,37 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'phonenumber'=>'required',
+            'region'=>'required',
+            'city'=>'required'
+        ]);
 //        dd($request->all());
+
+        $test = sprintf('%06d', rand(1, 10000000))->unique();
+//        $checkout = Checkout::all();
+//        if($checkout->reference_code ==$test){
+//
+//            $test = sprintf('%06d', rand(1, 10000000));
+//        }else{
+//
+//        }
+
+        $checkout = new Checkout();
+
+        $checkout ->user_id=Auth::user()->id;
+        $checkout->phone_number=$request->input('phonenumber');
+        $checkout->reference_code=$test;
+        $checkout->region_id=$request->input('region');
+        $checkout->city=$request->input('city');
+        $checkout->status=1;
+//        dd($checkout);
+        $checkout->save();
+
+return redirect()->back()->with('success','checkout complete,,Go to payments');
     }
 
 
-    public function storeaddres(Request $request)
-    {
-        dd($request->all());
-        print_r($request->input());
-    }
 
     /**
      * Display the specified resource.

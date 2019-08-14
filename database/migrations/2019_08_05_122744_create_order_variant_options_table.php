@@ -17,7 +17,7 @@ class CreateOrderVariantOptionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('orderproduct_id')->unsigned();
             $table->foreign('orderproduct_id')->references('id')->on('order_products')->onDelete('cascade');
-
+//            $table->foreign('orderproduct_id')->references('id')->on('order_products');
             $table->integer('variant_option_id')->unsigned()->nullable();
             $table->foreign('variant_option_id')->references('id')->on('variant_options');
             $table->timestamps();

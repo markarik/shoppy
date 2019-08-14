@@ -34,7 +34,7 @@ class CartController extends Controller
         $quantitysum=$carts->sum('quantity');
         $amountsum=$carts->sum('amount');
         $taxes = Setting::where('name','tax')->first();
-//dd($carts);
+//dd($carts[0]->option_name);
         $taxvalue = $taxes->value;
 
         $totalcartcost = $amountsum + $taxvalue;
@@ -91,25 +91,27 @@ class CartController extends Controller
          $orderProducts->save();
 
         $options = $request->input('option');
-//        dd($options);
 
+//dd($options);
 
 
         if ($options != null){
             foreach (array_values($options) as $option) {
-//dd($option);
 
-                $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->get();
-                $variant_option = VariantOption::where('id', $option)->get();
+//                dd($option);
 
+
+                $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
+                $variant_option = VariantOption::where('id', $option)->first();
+//                dd($latest_product->id);
                 $order_variant_option = new OrderVariantOption();
                 $order_variant_option->orderproduct_id = $latest_product->id;
                 $order_variant_option->variant_option_id = $variant_option->id;
                 $order_variant_option->save();
-                dd($order_variant_option);
-
-                return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
+//                dd($order_variant_option);
             }
+                return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
+
         }else{
             $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
 

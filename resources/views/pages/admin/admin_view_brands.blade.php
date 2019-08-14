@@ -12,9 +12,9 @@
 @section('content')
 <div class="table_formats">
 
-    <button type="button" class="btn btn-success button_add" data-toggle="modal" data-target="#exampleADDModal">
-        <i class="fas fa-plus fa-1x"></i>
-    </button>
+{{--    <button type="button" class="btn btn-success button_add" data-toggle="modal" data-target="#exampleADDModal">--}}
+{{--        <i class="fas fa-plus fa-1x"></i>--}}
+{{--    </button>--}}
 
 <h2 class="table_format">Brands</h2>
 <table id="users-table" class="table table-hover table-condensed" style="width:80%">  
