@@ -3,13 +3,14 @@
 @section('content')
     <div class="row">
         @foreach($wishlists as $wishlist)
+{{--            {{dd($wishlist->product->featured_image_url)}}--}}
 
             <div class="col-lg-3 card_align">
 
                 <div class="card card_row">
                     <div class="img-container">
 
-                        <a href="#"><img class="card-img-top" src="{{asset('/products/images/featured/'.$wishlist->product->featured_image_url)}}" alt="Card image cap"></a>
+                        <a href="#"><img class="card-img-top" src="{{asset('/products/images/featured/'.$wishlist->url)}}" alt="Card image cap"></a>
                         <div class="card-body">
 
                             {{--                    <h5 class="card-title">Card title</h5>--}}
@@ -60,7 +61,7 @@
                     <div class="price_custom">
                         <h5 class="text-blue font-italic">
                             <span class="mr-1">KShs</span>
-                            {{$wishlist->product->unit_cost}}
+                            {{$wishlist->cost}}
                         </h5>
                     </div>
 
@@ -71,9 +72,16 @@
                         </h5>
                     </div>
                     <div class="hr_custom"></div>
-                    <div class="ml-auto btn_buy_now_div">
-                        <a class="btn btn-success btn_buy_now" href="{{url('user/details')}}">Buy Now</a>
-                        <a class="btn btn-danger btn_remove_wishlist clearfix" href="{{url('user/details')}}">Remove</a>
+                    <div class="ml-auto btn_buy_now_div d-flex">
+                        <a class="btn btn-success btn_buy_now" href="{url('user/details',['id'=>$product->id])}}">Buy Now</a>
+
+                        <form action="{{route('product.delete.wishlist',['id'=>$wishlist->id])}}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" class="btn btn-danger btn_remove_wishlist clearfix" value="Remove">
+
+
+
+                        </form>
                     </div>
                 </div>
 

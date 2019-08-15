@@ -7,11 +7,11 @@
             <div class="row details_row">
                 <div class="col-md-1 other_images_column imagescrollwrapper">
 
-                    @foreach($extraimages as $extraimage)
+                    @foreach($extra_images as $extraimage)
 
-                            <div class="details_other_images imagescrollimg">
+                            <div class="details_other_images imagescrollimg" >
 {{--                                <img src="{{asset('images/L1.jpg')}}">--}}
-                                <img src="{{asset('/products/images/others/'.$extraimage->image_url)}}" class="card-img-top" alt="...">
+                                <img src="{{asset('/products/images/others/'.$extraimage->image_url)}}" class="card-img-top"  onclick="imageSwap(this)" alt="...">
 
                             </div>
 
@@ -23,9 +23,9 @@
                 </div>
 
                 <div class="col-md-3  details_custom">
-                    
+
                     <div class="details_image_custom">
-                        <img src="{{asset('/products/images/featured/'.$products->featured_image_url)}}" class="card-img-top" alt="...">
+                        <img src="{{asset('/products/images/featured/'.$products->featured_image_url)}}" class="card-img-top" id="expandedImg" alt="...">
                     </div>
 
                 </div>
@@ -33,7 +33,7 @@
 
                    <div class="details_card_custom">
 
-                       <h3>Where does it come from?</h3>
+                       <h3> {{$products->name}}</h3>
                    </div>
                    <div class="">
                        <nav class="nav">
@@ -172,6 +172,18 @@
 
 @endsection
 
+<script>
+    // imageswap for product details images
+    function imageSwap(imgs) {
+        // Get the expanded image
+        var expandImg = document.getElementById("expandedImg");
+        // Use the same src in the expanded image as the image being clicked on from the grid
+        expandImg.src = imgs.src;
+        // Show the container element (hidden with CSS)
+        expandImg.parentElement.style.display = "block";
+    }
+</script>
+
 
 <!-- Modal -->
 @if(\Illuminate\Support\Facades\Auth::user() != null)
@@ -219,7 +231,7 @@
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" value="1">
-                                        <label class="custom-control-label" for="customRadioInline2"><b>No Deliverly</b></label>
+                                        <label class="custom-control-label" for="customRadioInline2"><b>No Delivery</b></label>
                                     </div>
                                     <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
                                     <input name="product_id" type="text" value="{{$products->id}}" hidden/>
@@ -250,7 +262,7 @@
                                     @endforeach
 
                                     <button  class="btn btn-primary" id="{{$products->id}}">Save changes</button>
-                                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>
+{{--                                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
                                 </form>
 
                             </div>

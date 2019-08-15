@@ -233,6 +233,9 @@ button.details_accordion:hover{
     background-size: cover;
     background-position: center;
 }
+.imagescrollimg img:hover{
+    cursor: pointer;
+}
 .cart-header-text{
     font-size: 40px;
     font-weight: bolder;

@@ -23,7 +23,10 @@ class WishListController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $wishlists = Wishlist::where('user_id', $user->id)->orderby('id', 'desc')->get();
+        $wishlists = Wishlist::join('products','products.id','wish_lists.product_id')
+            ->select('wish_lists.*','products.featured_image_url as url','products.unit_cost as cost')
+        ->where('wish_lists.user_id','=', $user->id)->orderby('id', 'desc')->get();
+//        dd($wishlists);
         $wishlist_count= count($wishlists);
 
         $cart  = OrderProduct::where('user_id',$user->id)->get();
@@ -116,6 +119,12 @@ class WishListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = WishList::findOrFail($id);
+
+        $item->delete();
+
+
+
+        return redirect()->back()->with('success',' Item successfully deleted.');
     }
 }

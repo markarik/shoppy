@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Image;
 use App\OrderProduct;
 use App\Product;
+use App\Reviews;
 use App\Variants;
 use App\WishList;
 use Illuminate\Http\Request;
@@ -57,14 +58,17 @@ class WelcomeController extends Controller
         if(Auth::user() !=null){
 
             $products =Product::findOrFail($id);
-//            dd($products->brand_name);
-            $extraimages = Image::where('product_id',$products->id)->get();
-//            dd($extraimages);
+            $extra_images = Image::where('product_id',$products->id)->get();
             $carts = OrderProduct::where('user_id',Auth::user()->id)->where('checkout_id',null)->get();
-
             $cart_count = count($carts);
             $wishlist = WishList::where('user_id', Auth::user()->id)->get();
             $wishlist_count = count($wishlist);
+            $boughtproducts = OrderProduct::where('user_id',Auth::user()->id)->where('checkout_id',1)->get();
+            $reviews = Reviews::where('product_id',$products->id)->get();
+//            dd($reviews);
+            $otherproducts = Product::where('brand_id',$products->brand_id)->get();
+//            dd($otherproducts[0]->seller);
+
 
 
             $data = [
@@ -72,7 +76,10 @@ class WelcomeController extends Controller
                 'products'=>$products,
                 'wishlist_count'=>$wishlist_count,
                 'cart_count'=>$cart_count,
-                'extraimages'=>$extraimages
+                'extra_images'=>$extra_images,
+                'boughtproducts'=>$boughtproducts,
+                'reviews'=>$reviews,
+                'otherproducts'=>$otherproducts
 
             ];
 
@@ -82,22 +89,22 @@ class WelcomeController extends Controller
 
 
             $products =Product::findOrFail($id);
+            $extra_images = Image::where('product_id',$products->id)->get();
+            $otherproducts = Product::where('brand_id',$products->brand_id)->get();
 
 
             $data = [
 
                 'products'=>$products,
-
+                'extra_images'=>$extra_images,
+                'otherproducts'=>$otherproducts
 
             ];
             return view('assets.details.details',$data);
 
         }
 
-
-
     }
-
 
 
 

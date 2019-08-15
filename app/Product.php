@@ -56,6 +56,18 @@ class Product extends Model
 
     }
 
+    public function getProductAttribute()
+    {
+        $product = Product::where('id',$this->product_id)->get();
+        return $product;
+    }
+
+    public function getSellerAttribute()
+    {
+        $sellers = Seller::where('id',$this->seller_id)->first();
+        return $sellers;
+    }
+
     public function getStatusTextAttribute() {
         return self::STATUSES[$this->status];
     }
@@ -122,4 +134,7 @@ class Product extends Model
         return $variants;
 
     }
+
+
+
 }

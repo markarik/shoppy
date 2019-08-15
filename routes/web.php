@@ -21,9 +21,11 @@ Route::prefix('user')->group(function () {
 
     Auth::routes();
     Route::get('details/{id}', 'WelcomeController@detailspage')->name('user.product.details');
+    Route::post('reviews', 'Buyer\ReviewsController@store')->name('user.product.reviews');
     Route::get('cart', 'CartController@index')->name('user.cart.view');
     Route::get('wishlist','WishListController@index')->name('user.wishlist.view');
     Route::post('wishlist','WishListController@store')->name('user.wishlist.store');
+    Route::post('wishlist/delete/{id}','WishListController@destroy')->name('product.delete.wishlist');
     Route::post('cart','CartController@store')->name('user.add.cart');
     Route::get('checkout', 'Buyer\CheckoutController@index')->name('user.checkout');
     Route::post('checkout/store', 'Buyer\CheckoutController@store')->name('user.checkout.store');

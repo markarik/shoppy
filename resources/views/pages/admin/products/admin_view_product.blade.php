@@ -55,11 +55,11 @@
         </tbody>
 
     </table>
-
+</div>
 
     @endsection
 
-</div>
+
 
 @section('js')
 

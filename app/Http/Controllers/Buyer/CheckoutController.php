@@ -96,7 +96,7 @@ class CheckoutController extends Controller
 
 
         $latest_checkout = Checkout::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
-        dd(l);
+//        dd(l);
 
 return redirect()->back()->with('success','checkout complete,,Go to payments');
     }

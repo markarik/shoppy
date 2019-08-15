@@ -45,4 +45,7 @@ class Seller extends Authenticatable
     {
         $this->notify(new SellerResetPasswordNotification($token));
     }
+
+
+
 }

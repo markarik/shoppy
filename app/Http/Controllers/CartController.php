@@ -30,6 +30,7 @@ class CartController extends Controller
         $wishlists = Wishlist::where('user_id', $user->id)->orderby('id', 'desc')->get();
         $wishlist_count= count($wishlists);
         $carts = OrderProduct::where('user_id',$user->id)->where('checkout_id',null)->get();
+        $boughtproducts = OrderProduct::where('user_id',$user->id)->where('checkout_id',1)->get();
         $cart_count = count($carts);
         $quantitysum=$carts->sum('quantity');
         $amountsum=$carts->sum('amount');
@@ -43,7 +44,8 @@ class CartController extends Controller
             'quantitysum'=>$quantitysum,
             'amountsum'=>$amountsum,
             'taxes'=>$taxes,
-            'totalcartcost'=>$totalcartcost
+            'totalcartcost'=>$totalcartcost,
+            'boughtproducts'=>$boughtproducts
 
         ];
 

@@ -19,4 +19,9 @@ class WishList extends Model
     {
         return $this ->belongsTo(Product::class);
     }
+
+    public function getProductAttribute(){
+        $product = Product::where('id',$this->product_id)->first();
+        return $product;
+    }
 }
