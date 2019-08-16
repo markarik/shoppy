@@ -73,7 +73,7 @@
                     </div>
                     <div class="hr_custom"></div>
                     <div class="ml-auto btn_buy_now_div d-flex">
-                        <a class="btn btn-success btn_buy_now" href="{url('user/details',['id'=>$product->id])}}">Buy Now</a>
+                        <a class="btn btn-success btn_buy_now" href="{{url('user/details',['id'=>$wishlist->id])}}">Buy Now</a>
 
                         <form action="{{route('product.delete.wishlist',['id'=>$wishlist->id])}}" method="post">
                             {!! csrf_field() !!}

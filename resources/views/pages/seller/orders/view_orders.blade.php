@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section('content')
+
 
 @section('css')
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 @endsection
-
+@section('content')
     <div class="table_formats">
         <h2 class="table_format">ORDERS</h2>
         <table id="users-table" class="table table-hover table-condensed" style="width:80%">
@@ -16,21 +16,23 @@
                 <th>Id</th>
                 <th>Product</th>
                 <th>Buyer</th>
-                <th>CheckOut</th>
                 <th>Quantity</th>
+                <th>Price</th>
+                <th>Total Price</th>
                 <th>Created</th>
-                <th>Updated</th>
+
             </thead>
             <tbody>
                 @foreach ($orders as $order)
                     <tr>
                         <td>{{$order->id}}</td>
-                        <td>{{$order->product_name}}</td>
-                        <td>{{$order->user_name}}</td>
-                        <td>{{$order->checkout_id}}</td>
+                        <td>{{$order->product->name}}</td>
+                        <td>{{$order->user->f_name}}</td>
                         <td>{{$order->quantity}}</td>
+                        <td>{{$order->product->unit_cost}}</td>
+                        <td>{{$order->amount}}</td>
                         <td>{{$order->created_at}}</td>
-                        <td>{{$order->updated_at}}</td>
+
                     </tr>
                 @endforeach
             </tbody>

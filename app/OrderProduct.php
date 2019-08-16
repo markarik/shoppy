@@ -13,6 +13,11 @@ class OrderProduct extends Model
         'customRadioInline1'
     ];
 
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
+    }
+
     public function getProductAttribute()
     {
         return Product::find($this->product_id);
@@ -66,18 +71,22 @@ class OrderProduct extends Model
 
         $product = Product::where('id', $this->product_id)->first();
 
-        //$product = Product::where('id',$this->product_id )->where('deleted_at', null)->first();
-
-        return $product->name;
-//        if($product = Product::where('id',$this->product_id )->first() && $product = Product::where('deleted_at','==',))
+        return $product;
     }
 
     public function getUserNameAttribute()
     {
 
-        $user = User::where('id', $this->users_id)->first();
+        $user = User::where('id', $this->user_id)->first();
 
         return $user->f_name;
+    }
+
+    public function getUserAttribute()
+    {
+        $users = User::where('id',$this->user_id)->first();
+
+        return $users;
     }
 
 

@@ -34,12 +34,17 @@ class Product extends Model
         self::STATUS_NORMAL => "Normal",
     ];
 
+    public function orders()
+    {
+        return $this->belongsToMany('App\OrderProduct');
+    }
+
     public  function categories(){
         return $this->belongsTo('App\Category');
     }
 
     public function brands(){
-        return $this->belongsTo(App\Brand);
+        return $this->belongsTo('App\Brand');
     }
 
     public function wishlist()

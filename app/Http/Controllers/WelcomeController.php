@@ -91,13 +91,16 @@ class WelcomeController extends Controller
             $products =Product::findOrFail($id);
             $extra_images = Image::where('product_id',$products->id)->get();
             $otherproducts = Product::where('brand_id',$products->brand_id)->get();
+            $reviews = Reviews::where('product_id',$products->id)->get();
 
 
             $data = [
 
                 'products'=>$products,
                 'extra_images'=>$extra_images,
-                'otherproducts'=>$otherproducts
+                'otherproducts'=>$otherproducts,
+                'reviews'=>$reviews
+
 
             ];
             return view('assets.details.details',$data);

@@ -108,6 +108,7 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::post('/logout', 'AdminAuth\AdminLoggingController@logout')->name('admin.logout');
         Route::get('/home', 'AdminGuest\AdminController@index')->name('admin.dashboard');
         Route::get('/availableStores', 'AdminGuest\AdminController@viewSeller')->name('admin.viewSeller');
+        Route::get('/availableStores/seller/{seller_id}', 'AdminGuest\AdminController@SellerChangeStatus')->name('admin.Seller.status');
         Route::get('/products', 'AdminGuest\AdminController@create')->name('admin.products');
         Route::get('/featured/products', 'AdminGuest\AdminController@showFeaturedProducts')->name('admin.featured.products');
         Route::get('category','AdminGuest\CategoryController@index')->name('view.category');

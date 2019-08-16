@@ -8,6 +8,8 @@
 
 @section('content')
 
+    @include('flash-message');
+
     <div class="table_formats">
         <h2 class="table_format">Available stores</h2>
         <table id="users-table" class="table table-hover table-condensed" style="width:80%">
@@ -18,10 +20,10 @@
                 <th>Store Name</th>
                 <th>Business Number</th>
                 {{--            <th>Number of Items</th>--}}
-                <th>Status</th>
-                <th>Status</th>
+
                 <th>Status</th>
 
+            </tr>
 
             </thead>
             <tbody>
@@ -34,17 +36,19 @@
                     <td>{{$store->f_name}} {{$store->l_name}}</td>
                     <td>{{$store->store_name}}</td>
                     <td>{{$store->business_no}}</td>
-                    <td>
-                        <input type=button class="btn btn-success" data-toggle="modal" data-target="#exampleModal" value="Activate"/>
-                    </td>
-                    <td>
-                        <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal" value="{{$store->status}}"/>
-                    </td>
 
                     <td>
-                        <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="Deactivate"/>
-                    </td>
+                        <a href="{{route('admin.Seller.status',['seller_id'=>$store->id])}}" type="submit"
 
+
+                           @if($store->status == "active")
+                           class="btn btn-success"
+                           @else
+                           class="btn btn-danger"
+                                @endif
+                        >{{$store->status}}</a>
+
+                    </td>
                 </tr>
             @endforeach
 

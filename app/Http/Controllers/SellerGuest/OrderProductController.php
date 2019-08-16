@@ -6,9 +6,14 @@ use App\OrderProduct;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OrderProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:seller');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,17 +21,23 @@ class OrderProductController extends Controller
      */
     public function index()
     {
-        $count = 0;
-        $orders = OrderProduct::get()->filter(function ($order) use (&$count) {
-           if ($order->product == null) {
-               return false;
-           }
-           $count +=1;
-           return true;
-        });
+//        $count = 0;
+//        $orders = OrderProduct::get()->filter(function ($order) use (&$count) {
+//           if ($order->product == null) {
+//               return false;
+//           }
+//           $count +=1;
+//           return true;
+//        });
+
+//        dd($orders[0]->user);
 
 
-//        $orders = OrderProduct::all();
+        $orders = OrderProduct::join('products','products.id','order_products.product_id')
+        ->join('sellers','sellers.id','products.seller_id')
+        ->where('products.seller_id','=',Auth::user()->id)
+        ->where('checkout_id','!=',null)->get();
+//        dd($orders);
         return view('pages.seller.orders.view_orders')->with('orders',$orders);
     }
 

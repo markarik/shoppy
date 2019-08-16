@@ -279,5 +279,5 @@
         </div>
     @endforeach
 @else
-    <button class="btn"><i class="fa fa-cart-plus"></i></button>
+{{--    <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
 @endif

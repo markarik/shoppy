@@ -41,6 +41,12 @@ class Seller extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    const STATUS_ACTIVE = "active";
+    const STATUS_PENDING = "inactive";
+
+
+
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new SellerResetPasswordNotification($token));

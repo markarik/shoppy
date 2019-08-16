@@ -38,6 +38,7 @@ class AdminController extends Controller
     public function viewSeller()
     {
         $stores = Seller::all();
+//        dd($stores);
         return view('pages.admin.activateSellers.view_sellers_request')->with('stores',$stores);
     }
 
@@ -120,15 +121,32 @@ class AdminController extends Controller
     {
         $product = Product::findOrFail($product_id);
 
-        if ($product->status == 1){
-            $product->status = 2;
+        if ($product->status == Product::STATUS_NORMAL){
+            $product->status = Product::STATUS_FEATURED;
             $product->save();
         }else{
-            $product->status = 1;
+            $product->status = Product::STATUS_NORMAL;
             $product->save();
         }
         return redirect()->back()->with("success","Product status changed successfully");
     }
+
+
+    public function SellerChangeStatus($seller_id)
+    {
+        $seller = Seller::findorFail($seller_id);
+
+        if($seller->status == Seller::STATUS_PENDING){
+            $seller->status = Seller::STATUS_ACTIVE;
+            $seller->save();
+        }else {
+
+            $seller->status = Seller::STATUS_PENDING;
+            $seller->save();
+        }
+        return redirect()->back()->with("success","Seller status changed successfully");
+
+   }
 
 //    public function logout(){
 //        Auth::logout();
