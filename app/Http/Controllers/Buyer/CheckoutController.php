@@ -88,7 +88,7 @@ class CheckoutController extends Controller
         $checkout ->user_id=Auth::user()->id;
         $checkout->phone_number=$request->input('phonenumber');
         $checkout->reference_code=$test;
-        $checkout->region_id=$request->input('region');
+//        $checkout->region_id=$request->input('region');
         $checkout->city=$request->input('city');
         $checkout->status=1;
 //        dd($checkout);

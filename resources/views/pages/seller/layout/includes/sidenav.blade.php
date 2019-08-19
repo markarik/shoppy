@@ -46,8 +46,12 @@
                 <li>
                     <a class="nav-link" href="{{route('seller.order.view')}}">View Orders</a>
                 </li>
-                <li>item 1</li>
-                <li>item 1</li>
+                <li>
+                    <a class="nav-link" href="{{route('seller.undelivered_orders.view')}}">Undelivered Orders</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Delivered Orders</a>
+                </li>
             </ul>
         </div>
     </div>

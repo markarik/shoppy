@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin_master')
 
 
 
@@ -10,31 +10,33 @@
 @section('content')
     <div class="table_formats">
         <h2 class="table_format">ORDERS</h2>
+
+        <button class="btn btn-success">DownLoad PDF</button>
         <table id="users-table" class="table table-hover table-condensed" style="width:80%">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Product</th>
                 <th>Buyer</th>
+                <th>Seller</th>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Total Price</th>
-                <th>Created</th>
+                <th>Ordered On</th>
 
             </thead>
             <tbody>
                 @foreach ($orders as $order)
+                    {{dd($order)}}
                     <tr>
                         <td>{{$order->id}}</td>
-                        <td>{{$order->name}}</td>
+                        <td>{{$order->product->name}}</td>
                         <td>{{$order->user->f_name}}</td>
+                        <td>{{$order->store_name}}</td>
                         <td>{{$order->quantity}}</td>
                         <td>{{$order->product->unit_cost}}</td>
                         <td>{{$order->amount}}</td>
-                        <td>{{\Carbon\Carbon::parse($order->created_at)->format('d/m/y')}}</td>
-
-
-
+                        <td>{{$order->created_at}}</td>
                     </tr>
                 @endforeach
             </tbody>

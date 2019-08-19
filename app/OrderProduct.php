@@ -84,10 +84,44 @@ class OrderProduct extends Model
 
     public function getUserAttribute()
     {
-        $users = User::where('id',$this->user_id)->first();
+        $users = User::where('id', $this->user_id)->first();
 
         return $users;
     }
 
+
+    public function getUndeliveredOrdersAttribute()
+    {
+
+        $checkouts = Checkout::where('id', $this->checkout_id)->get();
+        $payments = [];
+        if (count($checkouts) != 0) {
+            foreach ($checkouts as $checkout) {
+                array_push($payments, Payment::where('checkout_id', $checkout->id)->get());
+            }
+        }
+        $undelivered0rders = [];
+
+        if (count($payments) != 0) {
+            foreach ($payments as $payment) {
+                for ($i = 0; $i < count($payment); $i++) {
+                    array_push($undelivered0rders, OrderDelivery::where('payment_id', $payment[$i]->id)->get());
+                }
+            }
+        }
+
+        $order_deliveries =[];
+
+        foreach ($undelivered0rders as $undelivered0rder){
+            if ($undelivered0rder !=null){
+                foreach ($undelivered0rder as $delivery){
+                    if($delivery ->seller_delivery_status == "pending"){
+                        array_push($order_deliveries,$delivery);
+                    }
+                }
+            }
+        }
+        return $order_deliveries;
+    }
 
 }

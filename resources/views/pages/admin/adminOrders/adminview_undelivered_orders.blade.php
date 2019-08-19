@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="table_formats">
-        <h2 class="table_format">ORDERS</h2>
+        <h2 class="table_format">Undelivered Orders</h2>
         <table id="users-table" class="table table-hover table-condensed" style="width:80%">
             <thead>
             <tr>
@@ -18,7 +18,7 @@
                 <th>Buyer</th>
                 <th>Quantity</th>
                 <th>Price</th>
-                <th>Total Price</th>
+                <th>Action</th>
                 <th>Created</th>
 
             </thead>
@@ -26,14 +26,13 @@
                 @foreach ($orders as $order)
                     <tr>
                         <td>{{$order->id}}</td>
-                        <td>{{$order->name}}</td>
-                        <td>{{$order->user->f_name}}</td>
-                        <td>{{$order->quantity}}</td>
-                        <td>{{$order->product->unit_cost}}</td>
-                        <td>{{$order->amount}}</td>
-                        <td>{{\Carbon\Carbon::parse($order->created_at)->format('d/m/y')}}</td>
+                        <td>{{$order->id}}</td>
+                        <td>{{$order->id}}</td>
+                        <td>{{$order->id}}</td>
+                        <td>{{$order->id}}</td>
+                        <td>{{$order->id}}</td>
 
-
+                        <td>{{$order->created_at}}</td>
 
                     </tr>
                 @endforeach
@@ -57,3 +56,5 @@
     </script>
 
 @endsection
+
+

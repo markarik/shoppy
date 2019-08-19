@@ -80,10 +80,10 @@
         <div class="panel">
             <ul>
                 <li>
-                    <a class="nav-link" href="#">View Orders</a>
+                    <a class="nav-link" href="{{route('admin.view.orders')}}">View Orders</a>
                 </li>
-                <li>item 1</li>
-                <li>item 1</li>
+{{--                <li>item 1</li>--}}
+{{--                <li>item 1</li>--}}
             </ul>
         </div>
     </div>

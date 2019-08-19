@@ -67,6 +67,7 @@ Route::group(['middleware' => 'seller_auth'], function () {
         Route::post('brands/{id}', 'SellerGuest\BrandController@update')->name('seller.brand.update');
         Route::post('brands', 'SellerGuest\BrandController@store')->name('seller.brand.store');
         Route::get('orders', 'SellerGuest\OrderProductController@index')->name('seller.order.view');
+        Route::get('undeliveredorders', 'SellerGuest\OrderProductController@undelivered_order')->name('seller.undelivered_orders.view');
         Route::get('reports', 'SellerGuest\ReportController@index')->name('seller.report.view');
         Route::get('variants_options', 'SellerGuest\VariantsOptionsController@index')->name('seller.variant_option.view');
         Route::post('variants_options/store', 'SellerGuest\VariantsOptionsController@store')->name('seller.variant_option.store');
@@ -128,6 +129,8 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::post('constants/store','AdminGuest\SettingsController@store')->name('admin.store.constants');
         Route::post('constants/delete/{id}','AdminGuest\SettingsController@destroy')->name('admin.delete.constants');
         Route::post('constants/{id}/edit','AdminGuest\SettingsController@update')->name('admin.edit.constants');
+        Route::get('orders','AdminGuest\OrderController@index')->name('admin.view.orders');
+        Route::get('orders/pdf/{id}','AdminGuest\OrderController@pdfexport')->name('admin.orderpdf');
 
 
     });

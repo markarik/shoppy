@@ -7,6 +7,7 @@
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/mine.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 {{--ckeditor--}}
     <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
@@ -67,8 +68,9 @@
     </div>
 </div>--}}
 </body>
+<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 
-{{--<script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>--}}
+<script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>
 <script src="{{asset('js/mine.js')}}"></script>
 
 {{--<script src="{{asset('js/jquery.js')}}"></script>--}}

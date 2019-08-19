@@ -12,7 +12,7 @@
 
 {{--    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">--}}
 
-<link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}"/>
 {{--    <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.css')}}"/>--}}
 
 
@@ -69,6 +69,7 @@
 
 {{--<script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>--}}
 <script src="{{asset('js/mine.js')}}"></script>
+<script src="{{asset('bootstrap/css/bootstrap.min.css')}}"></script>
 
 {{--<script src="{{asset('js/jquery.js')}}"></script>--}}
 

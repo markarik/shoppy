@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\SellerGuest;
+namespace App\Http\Controllers\AdminGuest;
 
-use App\OrderDelivery;
 use App\OrderProduct;
-use App\Product;
+use PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class OrderProductController extends Controller
+class OrderController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:seller');
+        $this->middleware('auth:admin');
     }
     /**
      * Display a listing of the resource.
@@ -22,12 +21,10 @@ class OrderProductController extends Controller
      */
     public function index()
     {
-
-
         $orders = OrderProduct::join('products','products.id','order_products.product_id')
-        ->join('sellers','sellers.id','products.seller_id')
-        ->where('products.seller_id','=',Auth::user()->id)
-        ->where('checkout_id','!=',null)->get();
+            ->join('sellers','sellers.id','products.seller_id')
+            ->where('products.seller_id','=',Auth::user()->id)
+            ->where('checkout_id','!=',null)->get();
 
 //dd($orders);
         $data=[
@@ -35,8 +32,9 @@ class OrderProductController extends Controller
             'orders'=>$orders
 
         ];
-        return view('pages.seller.orders.view_orders',$data);
+        return view('pages.admin.adminOrders.view_orders',$data);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,34 +44,6 @@ class OrderProductController extends Controller
     public function create()
     {
         //
-    }
-
-
-    public function undelivered_order()
-    {
-
-//        $orders = OrderProduct::all();
-        $orders = OrderProduct::join('products','products.id','order_products.product_id')
-            ->join('sellers','sellers.id','products.seller_id')
-            ->where('products.seller_id','=',Auth::user()->id)
-            ->where('checkout_id','!=',null)->get();
-//        dd($orders[0]->seller_delivery_status);
-//        dd($orders);
-
-//        foreach ($orders as $order){
-////            dd($order->undelivered_orders);
-//        }
-
-//        dd($orders[0]->seller_delivery_status);
-//        dd($orders[0]->undelivered_orders);
-//        dd($orders[0]->buyer_status);
-        $data=[
-
-            'orders'=>$orders
-
-        ];
-
-        return view('pages.seller.orders.view_undelivered_orders',$data);
     }
 
     /**
@@ -130,5 +100,18 @@ class OrderProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pdfexport($id)
+    {
+        $orders = OrderProduct::findorFail($id);
+//        dd($orders);
+        $pdf = PDF::loadView('pages.admin.adminOrders.pdf',['orders'=>$orders])->setPaper('A4','portrait');
+
+        $filename = $orders->user;
+
+        return $pdf->stream($filename .'.pdf');
+
+
     }
 }
