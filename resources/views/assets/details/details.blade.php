@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('flash-message')
         <div class="container-fluid">
 {{--            @foreach($products as $product)--}}
             <div class="row details_row">
@@ -52,17 +52,11 @@
                                        <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
                                        <input name="product_id" type="text" value="{{$products->id}}" hidden/>
                                        <button class="btn"><i class="fa fa-heart"></i></button>
-
-
-
                                    </form>
                                @else
                                    <button class="btn"><i class="fa fa-heart"></i></button>
 
                                @endif
-
-                               {{--                                    <button class="btn"><i class="fa fa-heart"></i></button>--}}
-
                            </div>
                        </nav>
                    </div>
@@ -94,43 +88,19 @@
                                <h6><i>KSh 25000</i></h6>
                            </div>
                            <div class="ml-auto details_card_button">
-{{--                               @if(\Illuminate\Support\Facades\Auth::user() != null)--}}
 
-{{--                                   <form action="{{route('user.add.cart')}}" method="POST" enctype="multipart/form-data" files="true">--}}
-{{--                                       {!! csrf_field() !!}--}}
-{{--                                       <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />--}}
-{{--                                       <input name="product_id" type="text" value="{{$products->id}}" hidden/>--}}
-{{--                                       <input name="quantity" type="text" hidden/>--}}
-{{--                                       <button class="btn">Add to Cart</button>--}}
-{{--                                   </form>--}}
-{{--                                 @else--}}
-{{--                                   <button class="btn">Add to Cart</button>--}}
-{{--                               @endif--}}
-
-{{--                                   <form action="{{route('user.add.cart')}}" method="POST" enctype="multipart/form-data" files="true">--}}
-{{--                                       {!! csrf_field() !!}--}}
                                        @if(\Illuminate\Support\Facades\Auth::user() != null)
-
-
-
-
-                                           {{--                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$products->id}}">
                                        Add to Cart
                                    </button>
-{{--                                           <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal{{$products->id}}">--}}
-{{--                                               <button class="btn">Add to Cart</button>--}}
-{{--                                           </button>--}}
+
                                        @else
                                            <a href="{{url('user/cart')}}"  class="btn btn-primary">Add to Cart</a>
                                        @endif
-{{--                                   </form>--}}
+
                            </div>
                        </nav>
                    </div>
-
-
-
                 </div>
                 <div class="col-md-2 details_custom">
                     <div><h5>Sold By?</h5></div>
@@ -154,17 +124,11 @@
 <div class="hr_custom">
 
 </div>
-
                 @include('assets.recently_viewed_navbar')
                 <div class="hr_custom"></div>
                 <div class="container">
                     @include('assets.recently_cards')
                 </div>
-
-
-
-
-
         </div>
 
         @include('assets.footer.footer')

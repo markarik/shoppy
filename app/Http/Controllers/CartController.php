@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Inventory;
 use App\OrderProduct;
 use App\OrderVariantOption;
 use App\Product;
@@ -19,6 +20,7 @@ class CartController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,28 +30,28 @@ class CartController extends Controller
     {
         $user = Auth::user();
         $wishlists = Wishlist::where('user_id', $user->id)->orderby('id', 'desc')->get();
-        $wishlist_count= count($wishlists);
-        $carts = OrderProduct::where('user_id',$user->id)->where('checkout_id',null)->get();
-        $boughtproducts = OrderProduct::where('user_id',$user->id)->where('checkout_id',1)->get();
+        $wishlist_count = count($wishlists);
+        $carts = OrderProduct::where('user_id', $user->id)->where('checkout_id', null)->get();
+        $boughtproducts = OrderProduct::where('user_id', $user->id)->where('checkout_id', 1)->get();
         $cart_count = count($carts);
-        $quantitysum=$carts->sum('quantity');
-        $amountsum=$carts->sum('amount');
-        $taxes = Setting::where('name','tax')->first();
+        $quantitysum = $carts->sum('quantity');
+        $amountsum = $carts->sum('amount');
+        $taxes = Setting::where('name', 'tax')->first();
         $taxvalue = $taxes->value;
         $totalcartcost = $amountsum + $taxvalue;
-        $data =[
-            'carts'=>$carts,
-            'wishlist_count'=>$wishlist_count,
-            'cart_count'=>$cart_count,
-            'quantitysum'=>$quantitysum,
-            'amountsum'=>$amountsum,
-            'taxes'=>$taxes,
-            'totalcartcost'=>$totalcartcost,
-            'boughtproducts'=>$boughtproducts
+        $data = [
+            'carts' => $carts,
+            'wishlist_count' => $wishlist_count,
+            'cart_count' => $cart_count,
+            'quantitysum' => $quantitysum,
+            'amountsum' => $amountsum,
+            'taxes' => $taxes,
+            'totalcartcost' => $totalcartcost,
+            'boughtproducts' => $boughtproducts
 
         ];
 
-        return view('assets.cart.cart',$data);
+        return view('assets.cart.cart', $data);
     }
 
     /**
@@ -65,30 +67,45 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
 //        dd($request->all());
 
-        $total_amount = $request->quantity * $request->amount;
 
-        $orderProducts = new OrderProduct();
-         $orderProducts ->product_id=$request->product_id;
-         $orderProducts->user_id=$request->user_id;
-         $orderProducts->checkout_id=$request->checkout_id;
-         $orderProducts->quantity=$request->quantity;
-         $orderProducts->amount=$total_amount;
-         $orderProducts ->delivery_status=$request->input('customRadioInline1');
-         $orderProducts->save();
+
+
+        $inventory = Inventory:: where('product_id',$request->product_id)->first();
+        if ($inventory->quantity >= $request->quantity){
+
+            $total_amount = $request->quantity * $request->amount;
+
+            $orderProducts = new OrderProduct();
+            $orderProducts->product_id = $request->product_id;
+            $orderProducts->user_id = $request->user_id;
+            $orderProducts->checkout_id = $request->checkout_id;
+            $orderProducts->quantity = $request->quantity;
+            $orderProducts->amount = $total_amount;
+            $orderProducts->delivery_status = $request->input('customRadioInline1');
+            $orderProducts->save();
+
+            $inventory->quantity -= $request->quantity;
+            $inventory->save();
+
+        }else{
+
+            return redirect()->back()->with('error', 'Only ' .$inventory->quantity . 'Items Available');
+
+        }
 
         $options = $request->input('option');
 
 //dd($options);
 
 
-        if ($options != null){
+        if ($options != null) {
             foreach (array_values($options) as $option) {
 
 //                dd($option);
@@ -103,9 +120,9 @@ class CartController extends Controller
                 $order_variant_option->save();
 //
             }
-                return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
+            return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
 
-        }else{
+        } else {
             $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
 
             $order_variant_option = new OrderVariantOption();
@@ -113,7 +130,7 @@ class CartController extends Controller
             $order_variant_option->variant_option_id = null;
             $order_variant_option->save();
 
-            return redirect()->back()->with('success','Item, '. $orderProducts->product->name.' Added to your cart.');
+            return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
         }
 //        dd($order_variant_option);
 
@@ -122,7 +139,7 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -133,7 +150,7 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -144,15 +161,15 @@ class CartController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
 
         $cart = OrderProduct::findOrFail($id);
-        $cart ->quantity=$request->input('quantity');
+        $cart->quantity = $request->input('quantity');
         $cart->save();
 
     }
@@ -169,7 +186,7 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -179,7 +196,6 @@ class CartController extends Controller
         $item->delete();
 
 
-
-        return redirect()->back()->with('success',' Item successfully deleted.');
+        return redirect()->back()->with('success', ' Item successfully deleted.');
     }
 }

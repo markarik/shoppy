@@ -76,6 +76,22 @@ class OrderProductController extends Controller
         return view('pages.seller.orders.view_undelivered_orders',$data);
     }
 
+    public function orderchangestatus($order_id)
+    {
+        $ordersdelivery = OrderDelivery::findorFail($order_id);
+        
+        if($ordersdelivery->seller_delivery_status == OrderDelivery::STATUS_PENDING){
+            $ordersdelivery->seller_delivery_status = OrderDelivery::STATUS_DELIVERED;
+            $ordersdelivery->save();
+        }else{
+            $ordersdelivery->seller_delivery_status = OrderDelivery::STATUS_PENDING;
+            $ordersdelivery->save();
+        }
+
+        return redirect()->back()->with('success','Order Status Updated');
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *

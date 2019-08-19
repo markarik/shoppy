@@ -67,6 +67,7 @@ Route::group(['middleware' => 'seller_auth'], function () {
         Route::post('brands/{id}', 'SellerGuest\BrandController@update')->name('seller.brand.update');
         Route::post('brands', 'SellerGuest\BrandController@store')->name('seller.brand.store');
         Route::get('orders', 'SellerGuest\OrderProductController@index')->name('seller.order.view');
+        Route::get('/undeliveredorders/order/{order_id}', 'SellerGuest\OrderProductController@orderchangestatus')->name('seller.order.status');
         Route::get('undeliveredorders', 'SellerGuest\OrderProductController@undelivered_order')->name('seller.undelivered_orders.view');
         Route::get('reports', 'SellerGuest\ReportController@index')->name('seller.report.view');
         Route::get('variants_options', 'SellerGuest\VariantsOptionsController@index')->name('seller.variant_option.view');
