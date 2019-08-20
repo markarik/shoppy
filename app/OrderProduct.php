@@ -124,4 +124,16 @@ class OrderProduct extends Model
         return $order_deliveries;
     }
 
+    public function getStoreAttribute()
+    {
+
+        $seller = Seller::join('products','sellers.id','products.seller_id')
+            ->select('sellers.*')
+            ->where('products.id','=',$this->product_id)
+            ->first();
+
+        return $seller->store_name;
+
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminGuest;
 
 use App\OrderProduct;
+use App\Seller;
 use PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,7 +27,26 @@ class OrderController extends Controller
             ->where('products.seller_id','=',Auth::user()->id)
             ->where('checkout_id','!=',null)->get();
 
-//dd($orders);
+dd($orders);
+        $data=[
+
+            'orders'=>$orders
+
+        ];
+        return view('pages.admin.adminOrders.view_orders',$data);
+    }
+
+
+
+
+    public function adminindex()
+    {
+        $orders = OrderProduct::join('products','products.id','order_products.product_id')
+            ->join('sellers','sellers.id','products.seller_id')
+//            ->where('products.seller_id','=',Auth::user()->id)
+            ->where('checkout_id','!=',null)->get();
+
+//        dd($orders);
         $data=[
 
             'orders'=>$orders
@@ -97,20 +117,21 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
     }
 
     public function pdfexport($id)
     {
-        $orders = OrderProduct::findorFail($id);
+        $orders = OrderProduct::find($id)->get();
+
+        $data = [
+          'orders'=>$orders,
+        ];
 //        dd($orders);
-        $pdf = PDF::loadView('pages.admin.adminOrders.pdf',['orders'=>$orders])->setPaper('A4','portrait');
-
-        $filename = $orders->user;
-
-        return $pdf->stream($filename .'.pdf');
+        $pdf    = PDF::loadview('pages.admin.adminOrders.pdf',$data);
+        return $pdf ->download('table.pdf');
 
 
     }

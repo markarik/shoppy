@@ -1,43 +1,40 @@
-
-
 <div class="sidenav">
     <a href="{{route('seller.dashboard')}}"><h3>S.DASHBOARD</h3></a>
 
-<HR>
-   <div>
-       <button class="accordion">
-             Products</button>
-       <div class="panel">
-           <ul>
-               <li>
-                   <a class="nav-link" href="{{route('seller.product.create')}}">Add Products </a>
-               </li>
-               <li>
-                   <a class="nav-link" href="{{route('seller.product.view')}}">View Products </a>
-               </li>
-
-           </ul>
-       </div>
-   </div>
-   <div>
-       <a href="{{route('seller.brand.view')}}"><button class="accordion"> Brands</button></a>
-
-   </div>
+    <HR>
     <div>
-        <a href="{{route('seller.region.view')}}"><button class="accordion">Regions</button></a>
+        <button class="accordion">
+            Products
+        </button>
+        <div class="panel">
+            <ul>
+                <li>
+                    <a class="nav-link" href="{{route('seller.product.create')}}">Add Products </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{route('seller.product.view')}}">View Products </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a href="{{route('seller.brand.view')}}">
+            <button class="accordion"> Brands</button>
+        </a>
+
+    </div>
+    <div>
+        <a href="{{route('seller.region.view')}}">
+            <button class="accordion">Regions</button>
+        </a>
 
     </div>
 
     <div>
-       <button class="accordion">Sales</button>
-       <div class="panel">
-           <ul>
-               <li>item 1</li>
-               <li>item 1</li>
-               <li>item 1</li>
-           </ul>
-       </div>
-   </div>
+
+        <a href="#" class="nav-link">Sales</a>
+    </div>
 
     <div>
         <button class="accordion">Orders</button>
@@ -49,22 +46,13 @@
                 <li>
                     <a class="nav-link" href="{{route('seller.undelivered_orders.view')}}">Undelivered Orders</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="#">Delivered Orders</a>
-                </li>
+
             </ul>
         </div>
     </div>
 
     <div>
-        <button class="accordion">Messages</button>
-        <div class="panel">
-            <ul>
-                <li>item 1</li>
-                <li>item 1</li>
-                <li>item 1</li>
-            </ul>
-        </div>
+        <a href="#" class="nav-link">Messages</a>
     </div>
 
     <div>
@@ -84,30 +72,23 @@
     </div>
 
     <div>
-        <button class="accordion">Payments</button>
+        <a href="#" class="nav-link">Payments</a>
+    </div>
+
+    <div>
+        <button class="accordion">Settings</button>
         <div class="panel">
             <ul>
-                <li>item 1</li>
-                <li>item 1</li>
+                <li>
+                    <a class="nav-link" href="#">Inventory</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{route('seller.variant_option.view')}}">Variants Options</a>
+                </li>
                 <li>item 1</li>
             </ul>
         </div>
     </div>
-
-    <div>
-       <button class="accordion">Settings</button>
-       <div class="panel">
-           <ul>
-               <li>
-                   <a class="nav-link" href="#">Inventory</a>
-               </li>
-               <li>
-                   <a class="nav-link" href="{{route('seller.variant_option.view')}}">Variants Options</a>
-               </li>
-               <li>item 1</li>
-           </ul>
-       </div>
-   </div>
 </div>
 
 

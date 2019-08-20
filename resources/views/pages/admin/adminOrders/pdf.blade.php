@@ -1,18 +1,9 @@
-@extends('layouts.admin_master')
 
+    <div>
+{{--        <h2>{{$seller->store_name}}</h2>--}}
 
-
-@section('css')
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
-@endsection
-@section('content')
-    <div class="table_formats">
-        <h2 class="table_format">ORDERS</h2>
-
-        <button class="btn btn-success">DownLoad PDF</button>
-        <table id="users-table" class="table table-hover table-condensed" style="width:80%">
+{{--        <button class="btn btn-success">DownLoad PDF</button>--}}
+        <table style="width:80%">
             <thead>
             <tr>
                 <th>Id</th>
@@ -26,36 +17,24 @@
 
             </thead>
             <tbody>
-                @foreach ($orders as $order)
-                    {{dd($order)}}
+@foreach($orders as $order)
                     <tr>
                         <td>{{$order->id}}</td>
                         <td>{{$order->product->name}}</td>
                         <td>{{$order->user->f_name}}</td>
-                        <td>{{$order->store_name}}</td>
+                        <td>{{$order->store}}</td>
                         <td>{{$order->quantity}}</td>
                         <td>{{$order->product->unit_cost}}</td>
                         <td>{{$order->amount}}</td>
-                        <td>{{$order->created_at}}</td>
+                        <td>
+                            {{\Carbon\Carbon::parse($order->updated_at)->format('d/m/y')}}
+                        </td>
                     </tr>
-                @endforeach
+    @endforeach
+
             </tbody>
 
         </table>
 
     </div>
 
-@endsection
-
-
-@section('js')
-
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('#users-table').DataTable();
-        });
-    </script>
-
-@endsection

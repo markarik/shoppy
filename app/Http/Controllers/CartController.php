@@ -72,13 +72,10 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
 
 
-
-
-        $inventory = Inventory:: where('product_id',$request->product_id)->first();
-        if ($inventory->quantity >= $request->quantity){
+        $inventory = Inventory:: where('product_id', $request->product_id)->first();
+        if ($inventory->quantity >= $request->quantity) {
 
             $total_amount = $request->quantity * $request->amount;
 
@@ -94,31 +91,26 @@ class CartController extends Controller
             $inventory->quantity -= $request->quantity;
             $inventory->save();
 
-        }else{
+        } else {
 
-            return redirect()->back()->with('error', 'Only ' .$inventory->quantity . 'Items Available');
+            return redirect()->back()->with('error', 'Only ' . $inventory->quantity . 'Items Available');
 
         }
 
         $options = $request->input('option');
 
-//dd($options);
-
 
         if ($options != null) {
             foreach (array_values($options) as $option) {
 
-//                dd($option);
-
 
                 $latest_product = OrderProduct::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
                 $variant_option = VariantOption::where('id', $option)->first();
-//                dd($latest_product->id);
                 $order_variant_option = new OrderVariantOption();
                 $order_variant_option->orderproduct_id = $latest_product->id;
                 $order_variant_option->variant_option_id = $variant_option->id;
                 $order_variant_option->save();
-//
+
             }
             return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
 
@@ -174,14 +166,6 @@ class CartController extends Controller
 
     }
 
-//    public function updateDelivery(Request $request, $id)
-//    {
-//
-//        $cart = OrderProduct::findOrFail($id);
-//        $cart ->quantity=$request->input('quantity');
-//        $cart->save();
-//
-//    }
 
     /**
      * Remove the specified resource from storage.
@@ -192,10 +176,10 @@ class CartController extends Controller
     public function destroy($id)
     {
         $item = OrderProduct::findOrFail($id);
-
         $item->delete();
-
-
+        $inventory = Inventory:: where('product_id', $item->product_id)->first();
+        $inventory->quantity += $item->quantity;
+        $inventory->save();
         return redirect()->back()->with('success', ' Item successfully deleted.');
     }
 }

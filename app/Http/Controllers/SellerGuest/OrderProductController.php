@@ -15,6 +15,7 @@ class OrderProductController extends Controller
     {
         $this->middleware('auth:seller');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,18 +25,18 @@ class OrderProductController extends Controller
     {
 
 
-        $orders = OrderProduct::join('products','products.id','order_products.product_id')
-        ->join('sellers','sellers.id','products.seller_id')
-        ->where('products.seller_id','=',Auth::user()->id)
-        ->where('checkout_id','!=',null)->get();
+        $orders = OrderProduct::join('products', 'products.id', 'order_products.product_id')
+            ->join('sellers', 'sellers.id', 'products.seller_id')
+            ->where('products.seller_id', '=', Auth::user()->id)
+            ->where('checkout_id', '!=', null)->get();
 
 //dd($orders);
-        $data=[
+        $data = [
 
-            'orders'=>$orders
+            'orders' => $orders
 
         ];
-        return view('pages.seller.orders.view_orders',$data);
+        return view('pages.seller.orders.view_orders', $data);
     }
 
     /**
@@ -52,50 +53,40 @@ class OrderProductController extends Controller
     public function undelivered_order()
     {
 
-//        $orders = OrderProduct::all();
-        $orders = OrderProduct::join('products','products.id','order_products.product_id')
-            ->join('sellers','sellers.id','products.seller_id')
-            ->where('products.seller_id','=',Auth::user()->id)
-            ->where('checkout_id','!=',null)->get();
-//        dd($orders[0]->seller_delivery_status);
-//        dd($orders);
+        $orders = OrderProduct::join('products', 'products.id', 'order_products.product_id')
+            ->join('sellers', 'sellers.id', 'products.seller_id')
+            ->where('products.seller_id', '=', Auth::user()->id)
+            ->where('checkout_id', '!=', null)->get();
 
-//        foreach ($orders as $order){
-////            dd($order->undelivered_orders);
-//        }
+        $data = [
 
-//        dd($orders[0]->seller_delivery_status);
-//        dd($orders[0]->undelivered_orders);
-//        dd($orders[0]->buyer_status);
-        $data=[
-
-            'orders'=>$orders
+            'orders' => $orders
 
         ];
 
-        return view('pages.seller.orders.view_undelivered_orders',$data);
+        return view('pages.seller.orders.view_undelivered_orders', $data);
     }
 
     public function orderchangestatus($order_id)
     {
         $ordersdelivery = OrderDelivery::findorFail($order_id);
-        
-        if($ordersdelivery->seller_delivery_status == OrderDelivery::STATUS_PENDING){
+
+        if ($ordersdelivery->seller_delivery_status == OrderDelivery::STATUS_PENDING) {
             $ordersdelivery->seller_delivery_status = OrderDelivery::STATUS_DELIVERED;
             $ordersdelivery->save();
-        }else{
+        } else {
             $ordersdelivery->seller_delivery_status = OrderDelivery::STATUS_PENDING;
             $ordersdelivery->save();
         }
 
-        return redirect()->back()->with('success','Order Status Updated');
-        
+        return redirect()->back()->with('success', 'Order Status Updated');
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -106,7 +97,7 @@ class OrderProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -117,7 +108,7 @@ class OrderProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -128,8 +119,8 @@ class OrderProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -140,7 +131,7 @@ class OrderProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

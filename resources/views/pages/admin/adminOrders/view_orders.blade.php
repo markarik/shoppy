@@ -36,7 +36,7 @@
                         <td>{{$order->quantity}}</td>
                         <td>{{$order->product->unit_cost}}</td>
                         <td>{{$order->amount}}</td>
-                        <td>{{$order->created_at}}</td>
+                        <td>{{Carbon\Carbon::parse($order->created_at)->format('d/m/y')}}</td>
                         <td><a href="/admin/orders/pdf/{{$order->id}}">PDF</a></td>
 
                     </tr>
