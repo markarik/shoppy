@@ -29,9 +29,11 @@
                     <div class="col">
                         <label for="inputEmail4">Search store name</label>
                         <select class="form-control" name="storename">
-                            <option value="one">one</option>
-                            <option value="one">one</option>
-                            <option value="one">one</option>
+                            <option  selected disabled>Store Name</option>
+                            @foreach($storenames as $storename)
+                            <option value="{{$storename->store_name}}">{{$storename->store_name}}</option>
+                            @endforeach
+
                         </select>
                     </div>
                     <div>
@@ -56,7 +58,7 @@
                 <th>Price</th>
                 <th>Total Price</th>
                 <th>Ordered On</th>
-                <th>Action</th>
+{{--                <th>Action</th>--}}
 
             </thead>
             <tbody>
@@ -70,7 +72,7 @@
                         <td>{{$order->product->unit_cost}}</td>
                         <td>{{$order->amount}}</td>
                         <td>{{Carbon\Carbon::parse($order->created_at)->format('d/m/y H:i:s')}}</td>
-                        <td><a href="/admin/orders/pdf/{{$order->product->seller->id}}">PDF</a></td>
+{{--                        <td><a href="/admin/orders/pdf/{{$order->product->seller->id}}">PDF</a></td>--}}
 
                     </tr>
                 @endforeach

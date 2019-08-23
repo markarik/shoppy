@@ -46,7 +46,10 @@
 
             </thead>
             <tbody>
+
 @foreach($orders as $order)
+{{--    {{dd($order->product->name)}}--}}
+
                     <tr>
 {{--                        <td>{{$order->id}}</td>--}}
                         <td>{{$order->product->name}}</td>

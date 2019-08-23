@@ -14,6 +14,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth:admin');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +23,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('pages.admin.categories.categoriesView')->with('categories',$categories);
+        return view('pages.admin.categories.categoriesView')->with('categories', $categories);
     }
 
     /**
@@ -35,42 +36,32 @@ class CategoryController extends Controller
 
         $categories = Category::all();
 
-        return view ('pages.admin.categories.categoryformadd')->with('categories',$categories);
+        return view('pages.admin.categories.categoryformadd')->with('categories', $categories);
 
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
-        Validator::make($request->all(),[
-            'name'=>'required'
+        Validator::make($request->all(), [
+            'name' => 'required'
         ])->validate();
-
-//        dd($request->all());
-
-        $category =new Category();
-        $category ->name=$request->input('name');
-        $category ->parent_id=$request->input('parent_id');
-
-
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->parent_id = $request->input('parent_id');
         $category->save();
-//        dd($category->all());
-
-        return redirect()->route('add.category')->with('success','Category Created');
-
+        return redirect()->route('add.category')->with('success', 'Category Created');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -81,7 +72,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,43 +80,33 @@ class CategoryController extends Controller
 //
         $categories = Category::findorFail($id);
 
-        return view('pages.admin.categories.edit_categories')->with('categories',$categories);
+        return view('pages.admin.categories.edit_categories')->with('categories', $categories);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-//         dd($request->all());
 
-        Validator::make($request->all(),[
-            'name'=>'required'
+        Validator::make($request->all(), [
+            'name' => 'required'
         ])->validate();
-
-//        dd($request->all());
-
-        $category =Category::findorFail($id);
-        $category ->name=$request->input('name');
-        $category ->parent_id=$request->input('parent_id');
-
-
+        $category = Category::findorFail($id);
+        $category->name = $request->input('name');
+        $category->parent_id = $request->input('parent_id');
         $category->save();
-//        dd($category->all());
-
-        return redirect()->route('add.category')->with('success','Category Created');
-
-
+        return redirect()->route('add.category')->with('success', 'Category Created');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
