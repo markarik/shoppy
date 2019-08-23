@@ -131,8 +131,9 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::post('constants/delete/{id}','AdminGuest\SettingsController@destroy')->name('admin.delete.constants');
         Route::post('constants/{id}/edit','AdminGuest\SettingsController@update')->name('admin.edit.constants');
         Route::get('orders','AdminGuest\OrderController@adminindex')->name('admin.view.orders');
-//        Route::get('orders/pdf/{id}','AdminGuest\OrderController@pdfexport')->name('admin.orderpdf');-----to download a sindle record
-        Route::get('orders/pdf/{id}','AdminGuest\OrderController@pdfexport')->name('admin.orderpdf');
+        Route::get('orders/pdf/{seller_id}','AdminGuest\OrderController@pdfexport')->name('admin.orderpdf');
+//        Route::get('orders/pdf/{id}','AdminGuest\OrderController@pdfexport')->name('admin.orderpdf');
+        Route::get('orders/pdf','AdminGuest\OrderController@tablepdfexport')->name('admin.orderpdf.table');
 
 
     });
