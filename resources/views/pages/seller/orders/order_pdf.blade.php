@@ -30,20 +30,40 @@
         text-decoration-color: #FD9046;
         color: #FD9046;
     }
-    .order_format h1{
-        display: block;
-    }
-    .order_format h1{
-        color: #0c0c0c;
-        font-size: 30px;
-        text-align: left;
-        text-decoration: none;
+    .order_format{
         display: inline-block;
+        position: relative;
+    }
+    .order_format {
+        color: #0c0c0c;
+        font-size: 10px !important;
+        text-align: left;
+        text-decoration:none;
+        display: inline-block;
+        /*position: absolute;*/
+        top: 30px;
     }
 
     .order_format span{
         color: #0c0c0c;
         font-size: 40px;
+    }
+    .span_sub{
+        font-size:15px !important;
+    }
+
+    .span_sup{
+        font-size:15px !important;
+        color: #FD9046 !important;
+    }
+
+    .span_elements{
+        position: absolute;
+        left: 500px;
+    }
+    .span_name{
+        text-transform: uppercase;
+        font-size: 25px !important;
     }
 
 
@@ -51,15 +71,24 @@
 
 
     <div>
-{{--        <img src="public/images/shoppy.png" alt="">--}}
+{{--        <img src="public_path() .'/images/shoppy.png" alt="">--}}
+{{--        <img src="{{public_path(['images/shoppy.png'])}}" alt="">--}}
         <h1>Customer Orders</h1>
 
             <div class="col-md-6 order_format ">
-                <h1>
-                    <span>Name :</span>{{$user->f_name}} {{$user->l_name}}
-                </h1>
+                <div class="span_elements">
+                <span class="span_sup">Order Number :</span>
+                <span class="span_sub">{{$checkouts->reference_code}}</span>
+                </div>
+                <div>
+                    <span>Name :</span>
+                    <span class="span_name">{{$user->f_name}} {{$user->l_name}}</span>
+                </div>
+                <div>
+                    <span>Phone Number :</span>
+                    <span>{{$checkouts->phone_number}}</span>
+                </div>downloading orders
 
-                <span class="span-sub">{{$checkouts->reference_code}}</span>
             </div>
 
 

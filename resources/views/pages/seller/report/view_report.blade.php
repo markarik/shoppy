@@ -5,12 +5,14 @@
     <div class="container ">
         <div class="row ">
             <div class="col-md-6 graphs">
-                <p>B ACKGROUND
-                    The education and training of a health workforce contributes to the quality of services that
-                    health workers provide to their communities. However, many countries lack information about
-                    health worker training, both preservice and in-service, making it difficult to track, plan, and
-                    manage training and deployment for the health workforce. This lack of coordination leads to
-                    health system inefficiencies and reduces health worker effectiveness.</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="stocks-chart" style="height: 400px">
+
+                        </div>
+                    </div>
+                </div>
+                <?= $lava->render('LineChart', 'MyStocks', 'stocks-chart')?>
             </div>
             <div class="col-md-6 graphs">
                 <p><b>I HRIS T RAIN

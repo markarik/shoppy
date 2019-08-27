@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\AdminGuest;
 
 use App\FeaturedCouresel;
+use FontLib\EOT\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CoureselController extends Controller
 {
@@ -42,11 +44,12 @@ class CoureselController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
+
         $this->validate($request,[
             'description'=>'required',
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:1000'
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2200'
         ]);
-//        dd($request);
 
         $couresel_image_path = './products/images/couresels';
 
@@ -69,7 +72,7 @@ class CoureselController extends Controller
         }
 
 
-        return redirect()->route('view.couresels')->with('success','Product Created');
+        return redirect()->route('view.couresels')->with('success','Image Created Successfully');
 
     }
 
@@ -115,6 +118,12 @@ class CoureselController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $couresels = FeaturedCouresel::findorFail($id);
+        $couresel_image_path = ("/products/images/couresels/{$couresels->image}");
+        unlink(public_path($couresel_image_path));
+       Storage::delete($couresel_image_path);
+        $couresels ->delete();
+        return redirect()->back()->with('success','Couresel deleted Successfully');
     }
 }

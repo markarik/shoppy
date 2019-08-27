@@ -12,12 +12,9 @@
         <div class="col-md-12">
             @include('assets.carousel')
 
-{{--            @if(cou nt($feature)==0)--}}
 
-
-{{--             @else--}}
                 @include('assets.featured_navbar')
-{{--             @endif--}}
+
 
 
             <div class="hr_custom"></div>

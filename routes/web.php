@@ -121,6 +121,8 @@ Route::group(['middleware'=>'admin_auth'],function (){
         Route::post('category/{id}','AdminGuest\CategoryController@update')->name('category.update');
         Route::get('change/status/{product_id}','AdminGuest\AdminController@change_status')->name('product.change.status');
         Route::get('couresels','AdminGuest\CoureselController@index')->name('view.couresels');
+        Route::get('delete/couresel/{id}', 'AdminGuest\CoureselController@destroy');
+
         Route::post('couresels/store','AdminGuest\CoureselController@store')->name('store.couresels');
         Route::get('brands', 'AdminGuest\AdminController@viewBrands')->name('admin.brand.view');
         Route::get('variants', 'AdminGuest\VariantsController@index')->name('admin.variants.view');

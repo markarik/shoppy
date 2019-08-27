@@ -97,23 +97,21 @@
                         <a class="btn btn-success btn_buy_now" href="{{url('user/details',['id'=>$feature->id])}}">Buy Now</a>
                     </div>
                     <div class="nav-item ml-auto pr-5">
-                        @if(\Illuminate\Support\Facades\Auth::user() !=null)
-                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data" files="true">
-                                {!! csrf_field() !!}
-                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden />
-                                <input name="product_id" type="text" value="{{$feature->id}}" hidden/>
+                        <form action="{{route('user.wishlist.store')}}" method="post">
+                            {{csrf_field()}}
+                            @if(\Illuminate\Support\Facades\Auth::user() != null)
+
+
+                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden/>
+                                @foreach($products as $product)
+                                    <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                @endforeach
                                 <button class="btn"><i class="fa fa-heart"></i></button>
 
-
-
-                            </form>
-                        @else
-                            <button class="btn"><i class="fa fa-heart"></i></button>
-
-                        @endif
-
-                        {{--                                    <button class="btn"><i class="fa fa-heart"></i></button>--}}
-
+                            @else
+                                <button class="btn"><i class="fa fa-heart"></i></button>
+                            @endif
+                        </form>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@
 @endsection
 
 @section('content')
+    @include('flash-message')
 <div class="table_formats">
 
     <button type="button" class="btn btn-success button_add" data-toggle="modal" data-target="#exampleADDModal">
@@ -19,23 +20,27 @@
 <h2 class="table_format">Couresel Images</h2>
 <table id="users-table" class="table table-hover table-condensed" style="width:80%">  
         <thead>  
-            <tr>  
-               <th>Id</th>
-                <th>Name</th>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Description</th>
                 <th>Created</th>
-                <th>Updated</th>
                 <th>Action</th>
               </tr>
         </thead>
         <tbody>
              @foreach ($couresels as $couresel)
                  <tr>
-                  <td>{{$couresel->id}}</td>
+                     <td>{{$couresel->id}}</td>
+                  <td>
+                      <div class="details_other_images imagescrollimg">
+                          <img src="{{asset('/products/images/couresels/'.$couresel->image)}}"
+                               class="card-img-top" alt="...">
+                      </div>
+                  </td>
                      <td>{{$couresel->description}}</td>
-                     <td>{{$couresel->image}}</td>
-                     <td>{{$couresel->created_at}}</td>
-                     <td>{{$couresel->updated_at}}</td>
-                     <td><a href="/admin/couresel{{$couresel->id}}">Delete</a></td>
+                     <td>{{\Carbon\Carbon::parse($couresel->created_at)->format('d/m/y')}}</td>
+                     <td><a href="delete/couresel/{{$couresel->id}}">Delete</a></td>
                  </tr>
              @endforeach
         </tbody>
