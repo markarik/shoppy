@@ -1,4 +1,8 @@
 <style>
+    *{
+        box-sizing: border-box;
+
+    }
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -6,14 +10,14 @@
 
     }
     th{
-        height: 50px;
+        height: 10px;
     }
 
     td, th {
         /*border: 1px solid #dddddd;*/
         border: 1px solid #FD9046;
         text-align: left;
-        padding: 8px;
+        /*padding: 8px;*/
     }
 
     tr:nth-child(even) {
@@ -26,12 +30,39 @@
         text-decoration-color: #FD9046;
         color: #FD9046;
     }
+    .order_format h1{
+        display: block;
+    }
+    .order_format h1{
+        color: #0c0c0c;
+        font-size: 30px;
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .order_format span{
+        color: #0c0c0c;
+        font-size: 40px;
+    }
+
 
 </style>
 
 
     <div>
-        <h1>Shoppy Orders</h1>
+{{--        <img src="public/images/shoppy.png" alt="">--}}
+        <h1>Customer Orders</h1>
+
+            <div class="col-md-6 order_format ">
+                <h1>
+                    <span>Name :</span>{{$user->f_name}} {{$user->l_name}}
+                </h1>
+
+                <span class="span-sub">{{$checkouts->reference_code}}</span>
+            </div>
+
+
         <table align="center">
             <thead>
             <tr>
@@ -47,8 +78,8 @@
             </thead>
             <tbody>
 
-@foreach($orders as $order)
-{{--    {{dd($order->product->name)}}--}}
+@foreach($pending_orders as $order)
+{{--    ($order->product->name)--}}
 
                     <tr>
 {{--                        <td>{{$order->id}}</td>--}}

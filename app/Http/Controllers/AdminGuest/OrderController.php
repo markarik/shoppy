@@ -56,7 +56,37 @@ class OrderController extends Controller
 
     public function tablepdfexport(Request $request)
     {
-        if ($request['from'] != null && $request['to'] != null) {
+    if ($request['from'] != null && $request['to'] != null && $request['storename'] != null) {
+
+    $from = Carbon::parse($request->from);
+        $to = Carbon::parse($request->to);
+        $seller = Seller::where('store_name', $request['storename'])->first();
+        $products = Product::where('seller_id', $seller->id)->get();
+
+        $my_orders = [];
+        foreach ($products as $product) {
+            array_push($my_orders, OrderProduct::select("order_products.*")
+                ->where('checkout_id', '!=', null)
+                ->where('product_id', $product->id)
+                ->whereBetween('created_at', [$from, $to])
+                ->get());
+        }
+        $orders = [];
+        foreach ($my_orders as $order) {
+            for ($i = 0; $i < count($order); $i++) {
+                array_push($orders, $order[$i]);
+            }
+        }
+
+        $data = [
+            'orders' => $orders,
+        ];
+        $pdf = PDF::loadview('pages.admin.adminOrders.pdf', $data);
+        return $pdf->download('orders.pdf');
+
+    }
+
+        elseif ($request['from'] != null && $request['to'] != null) {
             $from = Carbon::parse($request->from);
             $to = Carbon::parse($request->to);
             $orders = OrderProduct::select("order_products.*")
@@ -96,36 +126,6 @@ class OrderController extends Controller
             return $pdf->download('orders.pdf');
 
 
-
-        } else if ($request['from'] != null && $request['to'] != null && $request['storename'] != null) {
-
-            $from = Carbon::parse($request->from);
-            $to = Carbon::parse($request->to);
-
-            $seller = Seller::where('store_name', $request['storename'])->first();
-            $products = Product::where('seller_id', $seller->id)->get();
-
-            $my_orders = [];
-            foreach ($products as $product) {
-                array_push($my_orders, OrderProduct::select("order_products.*")
-                    ->where('checkout_id', '!=', null)
-                    ->where('product_id', $product->id)
-                    ->whereBetween('created_at', [$from, $to])
-                    ->get());
-            }
-            $orders = [];
-            foreach ($my_orders as $order) {
-                for ($i = 0; $i < count($order); $i++) {
-                    array_push($orders, $order[$i]);
-                }
-            }
-
-
-            $data = [
-                'orders' => $orders,
-            ];
-            $pdf = PDF::loadview('pages.admin.adminOrders.pdf', $data);
-            return $pdf->download('orders.pdf');
 
         }
 

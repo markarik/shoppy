@@ -69,6 +69,7 @@ Route::group(['middleware' => 'seller_auth'], function () {
         Route::get('orders', 'SellerGuest\OrderProductController@index')->name('seller.order.view');
         Route::get('/undeliveredorders/order/{order_id}', 'SellerGuest\OrderProductController@orderchangestatus')->name('seller.order.status');
         Route::get('undeliveredorders', 'SellerGuest\OrderProductController@undelivered_order')->name('seller.undelivered_orders.view');
+        Route::get('orders/pdf','SellerGuest\OrderProductController@tablepdfexport')->name('seller.orderpdf.table');
         Route::get('reports', 'SellerGuest\ReportController@index')->name('seller.report.view');
         Route::get('variants_options', 'SellerGuest\VariantsOptionsController@index')->name('seller.variant_option.view');
         Route::post('variants_options/store', 'SellerGuest\VariantsOptionsController@store')->name('seller.variant_option.store');

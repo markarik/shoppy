@@ -136,4 +136,16 @@ class OrderProduct extends Model
 
     }
 
+
+    public function getOrderDeliveryStatusAttribute()
+    {
+
+        $payment = Payment::where('checkout_id',$this->checkout_id)->first();
+
+        $order_delivery = OrderDelivery::where('payment_id',$payment->id)->where('seller_delivery_status','pending')->first();
+
+        return $order_delivery->seller_delivery_status;
+
+    }
+
 }
