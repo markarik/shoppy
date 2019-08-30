@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FeaturedCouresel;
 use App\Image;
 use App\OrderProduct;
 use App\Product;
@@ -20,6 +21,10 @@ class WelcomeController extends Controller
         $featured = Product::where('status',2)->get();
         $products = Product::orderByRaw('RAND()')->take(8)->get();
         $variants = Variants::all();
+        $couresels = FeaturedCouresel::all();
+
+//        dd($couresels);
+
 
 //dd($products);
         if (Auth::user() != null){
@@ -35,12 +40,14 @@ class WelcomeController extends Controller
                 'products'=>$products,
                 'wishlist_count'=>$wishlist_count,
                 'cart_count'=>$cart_count,
-                'variants'=>$variants
+                'variants'=>$variants,
+                'couresels'=>$couresels,
             ];
         }
 
         else{
             $data = [
+                'couresels'=>$couresels,
                 'featured'=>$featured,
                 'products'=>$products,
             ];
