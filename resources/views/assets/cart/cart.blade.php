@@ -24,6 +24,8 @@
 
                 @foreach ($carts as $cart)
 
+{{--                    {{dd($cart)}}--}}
+
 
                     <tr>
                         <td>
@@ -43,11 +45,8 @@
 
                         <td>
 
-                            @if($cart->option_name == null)
-
-                                No Options
-
-                            @else
+{{--                            @if($cart->option_name != null)--}}
+                            @if($cart  != null)
 
                                 <select class="form-control">
                                     <option selected disabled value="options">options</option>
@@ -56,6 +55,10 @@
                                     @endforeach
 
                                 </select>
+
+                            @else
+                                No Options
+
 
                             @endif
                         </td>

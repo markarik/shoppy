@@ -3,13 +3,12 @@
 
 
         <div class="navbar-nav featured_custom_nav">
-            <div class="nav-item active">
+            <div class="nav-item">
                 <a class="featured_heading" href="#">Feature Products <span class="sr-only">(current)</span></a>
             </div>
         </div>
         <div class="ml-auto">
             <a class="nav-link nav_links" href="#">See All  <i class="fas fa-arrow-right"></i></a>
-{{--            <button class="" type="submit"><p><i>See All</i></p><i class="fas fa-search"></i></button>--}}
         </div>
 
 </nav>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Inventory;
 use App\OrderProduct;
 use App\OrderVariantOption;
@@ -12,6 +13,7 @@ use App\VariantOption;
 use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -39,6 +41,8 @@ class CartController extends Controller
         $taxes = Setting::where('name', 'tax')->first();
         $taxvalue = $taxes->value;
         $totalcartcost = $amountsum + $taxvalue;
+        $categories = Category::where('parent_id',null)->get();
+
         $data = [
             'carts' => $carts,
             'wishlist_count' => $wishlist_count,
@@ -47,7 +51,9 @@ class CartController extends Controller
             'amountsum' => $amountsum,
             'taxes' => $taxes,
             'totalcartcost' => $totalcartcost,
-            'boughtproducts' => $boughtproducts
+            'boughtproducts' => $boughtproducts,
+            'categories' => $categories,
+
 
         ];
 
@@ -74,8 +80,19 @@ class CartController extends Controller
     {
 
 
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'integer|min:1'
+        ]);
+
+
+
         $inventory = Inventory:: where('product_id', $request->product_id)->first();
-        if ($inventory->quantity >= $request->quantity) {
+
+        if($validator ->fails()){
+
+                return redirect()->back()->with('error', 'Quantity cannot be a number Less Than ONE');
+
+        }elseif ($inventory->quantity >= $request->quantity) {
 
             $total_amount = $request->quantity * $request->amount;
 
@@ -124,7 +141,6 @@ class CartController extends Controller
 
             return redirect()->back()->with('success', 'Item, ' . $orderProducts->product->name . ' Added to your cart.');
         }
-//        dd($order_variant_option);
 
     }
 

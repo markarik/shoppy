@@ -1,11 +1,9 @@
-@extends('layouts.admin_master')
 
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 col-sm-5 offset-md-2 mt-5">
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-9 col-sm-5 offset-md-2 mt-5">--}}
 
-                <form action="{{url('admin/category')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('admin/category')}}" method="POST" enctype="multipart/form-data" files="true">
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="exampleInputCategoryName">Category Name</label>
@@ -24,12 +22,12 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success btn_buy_now">Submit</button>
                 </form>
-            </div>
-        </div>
-    </div>
-@endsection
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
 
 
 

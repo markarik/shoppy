@@ -34,7 +34,7 @@
 
                 <div class="details_card_custom">
 
-                    <h3> {{$products->name}}</h3>
+                    <h3 class="store_name_detail"> {{$products->name}}</h3>
                 </div>
                 <div class="">
                     <nav class="nav">
@@ -42,7 +42,7 @@
 
                         <p>
                             <i>
-                                <h3> {{$products->brand_name}}</h3>
+                                <h3 class="store_name_detail"> {{$products->brand_name}}</h3>
                             </i>
                         </p>
                         {{--                           <i class="fa fa-heart ml-4  details_card_heart"></i>--}}
@@ -68,8 +68,10 @@
                             <p>Key Features</p>
 
                         </div>
-                        <div class="ml-auto">
-                            <a href="#">See all details</a>
+                        <div class="ml-auto accordion" id="accordionExample">
+                            <a href="#" class="collapsed details_accordion" type="button" data-toggle="collapse"
+                               data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">See all
+                                details</a>
                         </div>
                     </nav>
                     <p>
@@ -78,27 +80,58 @@
 
 
                 </div>
-                <div class="details_card_delivery">
+                {{--                <div class="details_card_delivery">--}}
 
-                    <p class="">Delivery <a href="#">Details</a></p>
+                {{--                    <p class="">Delivery <a href="#">Details</a></p>--}}
 
-                </div>
+                {{--                </div>--}}
                 <div class="bg">
                     <nav class="nav">
-                        <div class="details_card_prices">
-                            <h4>kShs {{$products->unit_cost}}</h4>
-                            <h6><i>KSh 25000</i></h6>
-                        </div>
+
+
+                        @if($offers != null)
+
+                            <div class="details_card_prices">
+                                <h6>kShs {{$products->unit_cost}}</h6>
+                            </div>
+
+                            <h5 class="text-blue font-italic ml-auto mr-2 ">
+
+                                kShs {{($products->unit_cost)-($offers->discount *$products->unit_cost )/100}}
+
+
+                            </h5>
+                        @else
+
+                            <div class="details_card_prices">
+                                <h4>kShs {{$products->unit_cost}}</h4>
+                                {{--                                <h6><i>KSh 25000</i></h6>--}}
+                            </div>
+
+                        @endif
+
                         <div class="ml-auto details_card_button">
 
                             @if(\Illuminate\Support\Facades\Auth::user() != null)
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal{{$products->id}}">
-                                    Add to Cart
+                                        data-target="#exampleModal{{$products->id}}"
+                                        @if($orderproductsdisabled != null)
+                                        disabled
+                                @else
+
+                                        @endif
+                                >
+                                    @if($orderproductsdisabled != null)
+                                        Item in Cart
+
+                                    @else
+                                        Add to Cart
+
+                                    @endif
                                 </button>
 
                             @else
-                                <a href="{{url('user/cart')}}" class="btn btn-primary">Add to Cart</a>
+                                <a href="{{url('user/cart')}}" class="btn btn-primary btn_buy_now">Add to Cart</a>
                             @endif
 
                         </div>
@@ -108,7 +141,7 @@
             <div class="col-md-2 details_custom">
                 <div><h5>Sold By?</h5></div>
                 <div>
-                    <h6>Muva Computer Shop</h6>
+                    <h6 class="store_name_detail">{{$products->seller->store_name}}</h6>
                 </div>
                 <div class="hr_custom"></div>
                 <div>
@@ -161,7 +194,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content modal_custom">
                     <div class="modal-header">
-                        <h1 class="modal-title" id="exampleModalLabel">
+                        <h1 class="modal-title cart_name_product" id="exampleModalLabel">
                             {{$products->name}}
                         </h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -174,44 +207,68 @@
                             <div class="col-md-6">
                                 <div class="" style="width: 18rem;">
                                     <img src="{{asset('/products/images/featured/'.$products->featured_image_url)}}"
-                                         class="card-img-top" alt="...">
+                                         class="card-img-top img_add_cart" alt="...">
                                     <div class="card-body">
                                         <div class="price_custom">
                                             <h5 class="text-blue font-italic">
                                                 <span class="mr-1">KShs</span>
-                                                {{$products->unit_cost}}
+                                                @if($offers != null)
+
+                                                    {{($products->unit_cost)-($offers->discount *$products->unit_cost )/100}}
+
+                                                @else
+                                                    {{$products->unit_cost}}
+                                                @endif
                                             </h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 cart_options_row">
                                 <div class="modal-header">
                                     <h5 class="modal-title">
                                         Select options here <i class="far fa-hand-point-down"></i>
                                     </h5>
-
                                 </div>
-                                <form action="{{route('user.add.cart')}}" method="POST">
+                                <form action="{{route('user.add.cart')}}" method="POST" onsubmit="return checkRadio()">
                                     {!! csrf_field() !!}
-                                    <small>If it is to be delivered,<b>EXTRA CHARGES WILL BE ADDED</b>!!</small>
-                                    <div class="custom-control custom-radio custom-control-inline">
+                                    <small class="mb-5">To be delivered,<b class="small_strong">CHARGES WILL BE
+                                            ADDED</b>!!
+                                    </small>
+                                    <div class="custom-control custom-radio custom-control-inline my-2">
                                         <input type="radio" id="customRadioInline1" name="customRadioInline1"
                                                class="custom-control-input" value="2">
-                                        <label class="custom-control-label" for="customRadioInline1"><b>Be delivered</b></label>
+                                        <label class="custom-control-label" for="customRadioInline1"><b>Be
+                                                delivered</b></label>
                                     </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
+                                    <div class="custom-control custom-radio custom-control-inline my-2">
                                         <input type="radio" id="customRadioInline2" name="customRadioInline1"
                                                class="custom-control-input" value="1">
-                                        <label class="custom-control-label" for="customRadioInline2"><b>No Delivery</b></label>
+                                        <label class="custom-control-label" for="customRadioInline2"><b>No
+                                                Delivery</b></label>
                                     </div>
                                     <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden/>
                                     <input name="product_id" type="text" value="{{$products->id}}" hidden/>
-                                    <input name="amount" type="text" value="{{$products->unit_cost}}" hidden/>
-                                    <div>
-                                        <label>Quantity</label>
-                                        <input name="quantity" type="number" value="1"/>
+                                    @if($offers != null)
+                                        <input name="amount" type="text"
+                                               value="{{($products->unit_cost)-($offers->discount *$products->unit_cost )/100}}"
+                                               hidden/>
+
+                                    @else
+                                        <input name="amount" type="text" value="{{$products->unit_cost}}" hidden/>
+                                    @endif
+
+
+                                    <div class="form-group">
+                                        <label for="examplequantity">Quantity</label>
+                                        <small class="form-text text-muted">Select the number<strong
+                                                    class="small_strong">(Quantity to be greater or equal to
+                                                ONE)</strong> of items required
+                                        </small>
+                                        <input type="number" class="form-control" name="quantity" id="examplequantity">
                                     </div>
+
+
                                     @foreach($products->variant as $variant)
                                         <div class="form-group">
 
@@ -235,8 +292,8 @@
                                         </div>
                                     @endforeach
 
-                                    <button class="btn btn-primary" id="{{$products->id}}">Save changes</button>
-                                    {{--                                                                <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
+                                    <input type="submit" class="btn btn-primary btn_buy_now submitButton"
+                                           id="{{$products->id}}" value="Save changes">
                                 </form>
 
                             </div>
@@ -250,5 +307,4 @@
         </div>
     @endforeach
 @else
-    {{--    <button class="btn"><i class="fa fa-cart-plus"></i></button>--}}
 @endif

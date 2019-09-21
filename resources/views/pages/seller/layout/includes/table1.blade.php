@@ -21,8 +21,8 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->brand_name}}</td>
                     <td>{{$product->unit_cost}}</td>
-                    <td>{{$product->created_at}}</td>
-                    <td>{{$product->updated_at}}</td>
+                    <td>{{\Carbon\Carbon::parse($product->created_at)->format('d/M/Y')}}</td>
+                    <td>{{\Carbon\Carbon::parse($product->updated_at)->format('d/M/Y')}}</td>
 
                 </tr>
             @endforeach

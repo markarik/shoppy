@@ -27,12 +27,13 @@ class OrderProductController extends Controller
      */
     public function index()
     {
-
+//$orders = OrderProduct::all();
 
         $orders = OrderProduct::join('products', 'products.id', 'order_products.product_id')
             ->join('sellers', 'sellers.id', 'products.seller_id')
             ->where('products.seller_id', '=', Auth::user()->id)
             ->where('checkout_id', '!=', null)->get();
+//        dd($orders);
 
         $data = [
 
@@ -60,6 +61,7 @@ class OrderProductController extends Controller
             ->join('sellers', 'sellers.id', 'products.seller_id')
             ->where('products.seller_id', '=', Auth::user()->id)
             ->where('checkout_id', '!=', null)->get();
+//        dd($orders);
 
         $data = [
 
@@ -90,41 +92,39 @@ class OrderProductController extends Controller
     public function tablepdfexport(Request $request)
     {
 
-           if($request['buyer_name']){
-               $user = User::where('f_name',$request['buyer_name'])->first();
-               $orders = OrderProduct::join('products', 'products.id', 'order_products.product_id')
-                   ->join('sellers', 'sellers.id', 'products.seller_id')
-                   ->where('products.seller_id', '=', Auth::user()->id)
-                   ->where('user_id',$user->id)
-                   ->where('checkout_id', '!=', null)->get();
+        if ($request['buyer_name']) {
+            $user = User::where('f_name', $request['buyer_name'])->first();
+            $orders = OrderProduct::join('products', 'products.id', 'order_products.product_id')
+                ->join('sellers', 'sellers.id', 'products.seller_id')
+                ->where('products.seller_id', '=', Auth::user()->id)
+                ->where('user_id', $user->id)
+                ->where('checkout_id', '!=', null)->get();
 
 //               dd($orders[0]->checkout_id);
 
-               $checkouts = Checkout::where('id',$orders[0]->checkout_id)->first();
+            $checkouts = Checkout::where('id', $orders[0]->checkout_id)->first();
 
 //               dd($checkouts);
 
-               $pending_orders =[];
+            $pending_orders = [];
 
-               foreach ($orders as $order){
-                   if ($order->order_delivery_status == "pending"){
-                       array_push($pending_orders, $order);
-                   }
-               }
-               $data =[
+            foreach ($orders as $order) {
+                if ($order->order_delivery_status == "pending") {
+                    array_push($pending_orders, $order);
+                }
+            }
+            $data = [
 
-                   'pending_orders'=>$pending_orders,
-                   'user'=>$user,
-                   'checkouts'=>$checkouts
+                'pending_orders' => $pending_orders,
+                'user' => $user,
+                'checkouts' => $checkouts
 
-               ];
-               $pdf = PDF::loadview('pages.seller.orders.order_pdf', $data);
-               return $pdf->download('UndeliveredOrders.pdf');
-           }
-
-           else{
-               return redirect()->back()->with('error','Please select Buyers Name');
-           }
+            ];
+            $pdf = PDF::loadview('pages.seller.orders.order_pdf', $data);
+            return $pdf->download('UndeliveredOrders.pdf');
+        } else {
+            return redirect()->back()->with('error', 'Please select Buyers Name');
+        }
 
 
     }

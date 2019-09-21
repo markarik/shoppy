@@ -34,6 +34,12 @@ class Product extends Model
         self::STATUS_NORMAL => "Normal",
     ];
 
+
+    public function offers()
+    {
+        return $this ->hasOne('App\Offer');
+    }
+
     public function orders()
     {
         return $this->belongsToMany('App\OrderProduct');
@@ -65,11 +71,16 @@ class Product extends Model
     {
         $product = Product::where('id',$this->product_id)->get();
         return $product;
+
     }
+
+
 
     public function getSellerAttribute()
     {
         $sellers = Seller::where('id',$this->seller_id)->first();
+
+//        dd($sellers);
         return $sellers;
     }
 
@@ -95,7 +106,7 @@ class Product extends Model
 
         if (count($payments) != 0){
             foreach ($payments as $payment){
-                array_push($order_deliveries, OrderDelivery::where('payments_id',$payment->get('id'))->first());
+                array_push($order_deliveries, OrderDelivery::where('payment_id',$payment->get('id'))->first());
             }
 
         }

@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card ">
                 <div class="card-header">
                     <h1>Seller Reset Password</h1>
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('seller.password.request') }}">
+                    <form method="POST" action="{{ route('seller.passwod.request') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">

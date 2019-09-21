@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Buyer;
 
+use App\Category;
 use App\Checkout;
 use App\OrderProduct;
 use App\Region;
@@ -35,6 +36,9 @@ class CheckoutController extends Controller
         $wishlist = WishList::where('user_id',$user->id)->get();
         $wishlist_count = count($wishlist);
          $checkouts = $request->session()->get('checkout');
+        $categories = Category::where('parent_id',null)->get();
+
+
 //dd($userinfos);
         $data = [
 
@@ -42,7 +46,9 @@ class CheckoutController extends Controller
             'cart_count'=>$cart_count,
             'checkouts'=>$checkouts,
             'regions'=>$regions,
-            'userinfos'=>$userinfos
+            'userinfos'=>$userinfos,
+            'categories' => $categories,
+
         ];
 
 

@@ -5,6 +5,13 @@
     margin:30px 0 0 123px;
     padding: 10px;
 }
+.password_reset{
+    height: auto!important;
+    margin: 70px 0 0 -18px;
+    padding: 31px;
+    width: 55rem !important;
+
+}
 
 .form-group label{
     text-align: left !important;
@@ -130,7 +137,6 @@
     margin: 5px auto;
     /*padding: 10px;*/
     border-radius: 5px;
-    overflow: hidden;
     padding: 0 auto;
 
 }
@@ -162,6 +168,28 @@ button.details_accordion:hover{
 
     background-color: orangered;
 
+}
+
+
+@media screen and (max-width: 768px){
+    button.details_accordion{
+        width: 20rem;
+        padding: 10px 0 15px 32px!important;
+        background-color: red;
+        border-radius: 15px!important;
+        outline: none!important;
+        text-align: left!important;
+        font-size: 20px!important;
+        color: var(--whitetexttheme)!important;
+        cursor: pointer!important;
+        transition: background-color 0.3s linear!important;
+    }
+
+    button.details_accordion:hover{
+
+        background-color: orangered;
+
+    }
 }
 .details_accordion_content{
     padding: 20px 20px!important;
@@ -223,7 +251,6 @@ button.details_accordion:hover{
     margin: 5px auto;
     /*padding: 10px;*/
     border-radius: 5px;
-    overflow: hidden;
     padding: 0 auto;
 
 }
@@ -531,6 +558,14 @@ button.details_accordion:hover{
     .right {
         display: none;
     }
+}
+
+
+.alert-block{
+    width: 50rem !important;
+    margin: 30px !important;
+    padding: 3px 3px 3px 50px !important;
+    /*padding-left: 50px !important;*/
 }
 
 

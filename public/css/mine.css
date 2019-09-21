@@ -165,10 +165,10 @@ button.accordion:hover{
 }
 
 .table_formats{
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(248,175,104,.1);
     border-radius: 5px;
-    padding: 2px;
-    margin-top: 20px;
+    padding: 51px;
+    margin: 20px -90px 0 20px !important;
 
 }
 
@@ -252,13 +252,14 @@ button.accordion:hover{
 }
 
 .top-nav{
-    background-color:var(--bluishwhitetheme);
+    background-color:var(--bluishwhitetheme) !important;
+    height: 66px !important;
 
 }
 
 .logo{
-    width: 170px;
-    height: 60px;
+    width: 119px;
+    height: 40px;
 
 }
 
@@ -268,7 +269,7 @@ button.accordion:hover{
 }
 .social-icons{
     width: 40px;
-    height: 40px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -332,11 +333,17 @@ button.accordion:hover{
 .navbar-light{
     background-color: var(--orangetheme) !important;
     box-shadow:0px 2px 8px 1px rgba(0,0,0,.1)!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
 }
 
 .carousel-container{
     width: 100%;
     height: 600px;
+    /*width: 84%;*/
+    /*height: 516px;*/
     overflow: hidden;
 }
 .carousel-custom{
@@ -386,15 +393,49 @@ button.accordion:hover{
     background-color: #FE524B !important;
 }
 
+@media screen and (max-width: 768px){
+    .featured_custom{
+        margin: 5px;
+        border-radius: 10px;
+        /*height: 40px;*/
+        background-color: var(--orangetheme) !important;
+    }
+
+    .featured_heading{
+        color: var(--bluishwhitetheme) !important;
+        font-size: 15px !important;
+        align-items: center !important;
+        text-decoration: none !important;
+    }
+
+    .nav_links{
+        text-decoration: none !important;
+        color: red !important;
+        display: none !important;
+    }
+
+}
+
 .nav_links{
+    text-decoration: none !important;
+    color: var(--whitetexttheme);
+}
+
+.nav_links:hover{
     text-decoration: none !important;
     color: var(--whitetexttheme);
 }
 .featured_heading{
     color: var(--whitetexttheme);
-    font-size: 20px;
+    font-size: 28px;
     margin-left: 30px;
     text-decoration: none;
+}
+.featured_heading:hover{
+
+    text-decoration: none !important;
+    color: white;
+
 }
 
 .hr_custom{
@@ -412,7 +453,7 @@ button.accordion:hover{
 }
 
 .card_align{
-   padding-right: 20px;
+    /*margin-right: 2px !important;*/
 
 }
 .img-container{
@@ -460,11 +501,9 @@ button.accordion:hover{
     width: 40%;
 }
 
-/*.card_footer{
-    overflow: hidden;
-}*/
+
 .nav-item{
-    height: 49px!important;
+    /*height: 49px!important;*/
 
 
 
@@ -491,8 +530,29 @@ button.accordion:hover{
     margin:0  5px 3px 0!important;
 
 }
+
 .price_custom{
-    text-align: center;
+    text-align: left;
+}
+
+.price_customs{
+    text-align: right;
+}
+.price_customs_discount{
+    border: 2px wave #FF6347;
+    border-radius: 15px;
+    padding: 3px;
+    margin-right: 50px;
+    background-color: #FF6347;
+    color: var(--bluishwhitetheme);
+    font-size: 30px;
+
+}
+.discount_underline{
+    text-decoration: line-through  ;
+    text-decoration-color: red;
+    text-decoration-width: 300px;
+    /*text-decoration-style: wavy;*/
 }
 .hr_vertical{
     margin-left: 50px;
@@ -508,6 +568,7 @@ button.accordion:hover{
     border-radius: 30px;
     height: 40px;
     background-color: #FD9148 !important;
+    text-decoration: none;
 }
 .page-footer{
     background-color: var(--blackbackgroundtheme) !important;
@@ -565,6 +626,19 @@ margin: 20px !important;
 .scrollable-element {
     scrollbar-color: red yellow !important;
 }
+
+.inventory_cards{
+    padding: 7px;
+    color: red;
+}
+
+.store_name_detail{
+    text-transform: uppercase !important;
+    text-decoration: underline;
+    text-decoration-color: var(--orangetheme);
+}
+
+
 
 
 

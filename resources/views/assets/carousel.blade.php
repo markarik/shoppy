@@ -1,27 +1,22 @@
 <div class="carousel-container">
     <div id="carouselExampleFade" class="carousel carousel-custom slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleFade" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleFade" data-slide-to="1"></li>
-            <li data-target="#carouselExampleFade" data-slide-to="2"></li>
-            <li data-target="#carouselExampleFade" data-slide-to="3"></li>
+            @foreach($couresels as $slider)
+
+                <li data-target="#carouselExampleFade" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+
+                @endforeach
         </ol>
-
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{asset('images/L1.jpg')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('images/P1.jpg')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('images/S1.jpg')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('images/w1.jpg')}}" class="d-block w-100" alt="...">
-            </div>
+        @foreach($couresels as $slider)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <img src="{{asset('/products/images/couresels/'.$slider->image)}}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="couresel_style">{{$slider->description}}</h5>
+                    </div>
+                </div>
+        @endforeach
         </div>
-
         <a href="#carouselExampleFade" class="carousel-control-prev-container">
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

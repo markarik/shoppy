@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\OrderProduct;
 use App\Product;
 use App\WishList;
@@ -32,10 +33,14 @@ class WishListController extends Controller
         $cart  = OrderProduct::where('user_id',$user->id)->get();
 
         $cart_count = count($cart);
+        $categories = Category::where('parent_id',null)->get();
+
         $data =[
             'wishlists'=>$wishlists,
             'wishlist_count'=>$wishlist_count,
-            'cart_count'=>$cart_count
+            'cart_count'=>$cart_count,
+            'categories' => $categories,
+
         ];
         return view('assets.wishlist.wish_cards',$data);
     }

@@ -48,6 +48,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         Validator::make($request->all(), [
             'name' => 'required'
         ])->validate();
@@ -55,7 +56,7 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->parent_id = $request->input('parent_id');
         $category->save();
-        return redirect()->route('add.category')->with('success', 'Category Created');
+        return redirect()->back()->with('success', 'Category Created');
     }
 
     /**
@@ -100,7 +101,7 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->parent_id = $request->input('parent_id');
         $category->save();
-        return redirect()->route('add.category')->with('success', 'Category Created');
+        return redirect()->back()->with('success', 'Category Edited Successfully');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -35,6 +36,17 @@ class RegisterController extends Controller
      *
      * @return void
      */
+    public function showRegistrationForm()
+    {
+        $categories = Category::where('parent_id', null)->get();
+
+        $data = [
+
+        'categories' => $categories,
+];
+        return view('auth.register',$data);
+    }
+
     public function __construct()
     {
         $this->middleware('guest');

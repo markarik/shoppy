@@ -30,10 +30,17 @@
         </a>
 
     </div>
+    <div>
+        <a href="{{route('seller.view.offer')}}">
+            <button class="accordion">Offers</button>
+        </a>
+
+    </div>
 
     <div>
-
-        <a href="#" class="nav-link">Sales</a>
+        <a href="#" >
+            <button class="accordion">Sales</button>
+        </a>
     </div>
 
     <div>
@@ -52,7 +59,9 @@
     </div>
 
     <div>
-        <a href="#" class="nav-link">Messages</a>
+        <a href="#">
+            <button class="accordion">Messages</button>
+        </a>
     </div>
 
     <div>
@@ -72,7 +81,9 @@
     </div>
 
     <div>
-        <a href="#" class="nav-link">Payments</a>
+        <a href="#" >
+            <button class="accordion">Payments</button>
+        </a>
     </div>
 
     <div>

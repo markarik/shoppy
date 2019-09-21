@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card password_reset">
                 <div class="card-header">
                     <h1>Seller Reset Password</h1>
                 </div>
@@ -35,7 +35,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn_buy_now">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>

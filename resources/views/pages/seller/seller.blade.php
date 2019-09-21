@@ -8,7 +8,7 @@
 
 @endsection
 @section('content')
-    <div class="row mt-3">
+    <div class="row mt-3 ml-5">
         @include('pages.seller.layout.includes.card')
     </div>
     <div class="row">

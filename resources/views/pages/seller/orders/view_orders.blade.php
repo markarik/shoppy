@@ -32,7 +32,7 @@
                         <td>{{$order->name}}</td>
                         <td>{{$order->user->f_name}}</td>
                         <td>{{$order->quantity}}</td>
-                        <td>{{$order->product->unit_cost}}</td>
+                        <td>{{$order->unit_cost}}</td>
                         <td>{{$order->amount}}</td>
                         <td>{{\Carbon\Carbon::parse($order->created_at)->format('d/m/y')}}</td>
 

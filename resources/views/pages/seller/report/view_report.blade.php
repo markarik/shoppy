@@ -4,7 +4,7 @@
 
     <div class="container ">
         <div class="row ">
-            <div class="col-md-6 graphs">
+            <div class="col-md-12 graphs">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="stocks-chart" style="height: 400px">
@@ -12,36 +12,68 @@
                         </div>
                     </div>
                 </div>
-                <?= $lava->render('LineChart', 'MyStocks', 'stocks-chart')?>
+<?= $lava->render('LineChart', 'MyStocks', 'stocks-chart')?>
             </div>
-            <div class="col-md-6 graphs">
-                <p><b>I HRIS T RAIN
-                    iHRIS Train, the newest open source application integrated into the CapacityPlus platform of
-                    health workforce information technologies, facilitates the management of health worker training
-                    programs. It enables decision-makers to collect, manage, and analyze training information for all
-                    health worker cadres. iHRIS Train supports a comprehensive view of health worker training, from
-                    preservice education at health training institutions through regular in-service trainings.</b></p>
-            </div>
+
         </div>
 
-        <div class="row graphs">
-            <div class="col-md-6">
-                <p>B ACKGROUND
-                    The education and training of a health workforce contributes to the quality of services that
-                    health workers provide to their communities. However, many countries lack information about
-                    health worker training, both preservice and in-service, making it difficult to track, plan, and
-                    manage training and deployment for the health workforce. This lack of coordination leads to
-                    health system inefficiencies and reduces health worker effectiveness.</p>
+        <div class="row">
+            <div class="col-md-12 graphs">
+                <div id="charts" style="height: 400px">
+
+                </div>
+
             </div>
-            <div class="col-md-6 graphs">
-                <p><i>I HRIS T RAIN
-                    iHRIS Train, the newest open source application integrated into the CapacityPlus platform of
-                    health workforce information technologies, facilitates the management of health worker training
-                    programs. It enables decision-makers to collect, manage, and analyze training information for all
-                    health worker cadres. iHRIS Train supports a comprehensive view of health worker training, from
-                    preservice education at health training institutions through regular in-service trainings.</i></p>
+<?= $lava->render('PieChart', 'IMDB', 'charts')?>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 graphs">
+                <div class="cards">
+                        <canvas id="myChart" ></canvas>
+                </div>
+
             </div>
+
         </div>
     </div>
+
+@endsection
+
+
+@section('js')
+    <script src="{{asset('js/chart/Chart.js')}}"></script>
+
+
+
+    <script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels:  [@foreach(array_keys($order_chart_data) as $key) '{{$key}}' ,@endforeach],
+                labes : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Nov","Dec"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [@foreach(array_values($order_chart_data) as $key) {{$key}} ,@endforeach],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+
+                    ],
+
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 
 @endsection

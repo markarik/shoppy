@@ -1,4 +1,77 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+.carding {
+  perspective: 250em;
+  -moz-perspective: 250em;
+  position: relative;
+  height: 25em;
+  margin-bottom: 30px;
+}
+.carding__side {
+  height: 25em;
+  transition: all 2s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 5px;
+  box-shadow: 6px 6px 12px black;
+}
+.carding__side--front {
+  background-color: #FFFAFA;
+}
+.carding__side--back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to right bottom, orange, #f48f45);
+}
+.carding:hover .carding__side--front {
+  transform: rotateY(-180deg);
+}
+.carding:hover .carding__side--back {
+  transform: rotateY(0);
+}
+.carding__picture img {
+  background-size: cover;
+  width: 100%;
+  height: 290px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.carding__heading {
+  font-size: 25px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: black;
+  position: absolute;
+  top: 20rem;
+  right: 8rem;
+}
+.carding__rates {
+  position: absolute;
+  color: #f48f44;
+  top: 19rem;
+  right: 1rem;
+}
+.carding__discount {
+  position: absolute;
+  top: 17rem;
+  right: 0rem;
+}
+.carding__discount--percentage {
+  color: red;
+}
+.carding__details--spanamount {
+  color: red;
+  font-size: 20px;
+  font-weight: 200;
+}
+.carding__details--spanunit {
+  color: blue;
+  font-size: 10px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

@@ -26,9 +26,14 @@ class OrderProduct extends Model
 
     public function getOptionsAttribute()
     {
+
         $order_variant_option = OrderVariantOption::where('orderproduct_id', $this->id)->get();
+//        $order_variant_option = OrderVariantOption::all();
+
+//        dd($order_variant_option);
 
         return $order_variant_option;
+
     }
 
     public function getOptionNameAttribute()
@@ -86,6 +91,8 @@ class OrderProduct extends Model
     {
         $users = User::where('id', $this->user_id)->first();
 
+//        dd($users);
+
         return $users;
     }
 
@@ -110,13 +117,13 @@ class OrderProduct extends Model
             }
         }
 
-        $order_deliveries =[];
+        $order_deliveries = [];
 
-        foreach ($undelivered0rders as $undelivered0rder){
-            if ($undelivered0rder !=null){
-                foreach ($undelivered0rder as $delivery){
-                    if($delivery ->seller_delivery_status == "pending"){
-                        array_push($order_deliveries,$delivery);
+        foreach ($undelivered0rders as $undelivered0rder) {
+            if ($undelivered0rder != null) {
+                foreach ($undelivered0rder as $delivery) {
+                    if ($delivery->seller_delivery_status == "pending") {
+                        array_push($order_deliveries, $delivery);
                     }
                 }
             }
@@ -127,9 +134,9 @@ class OrderProduct extends Model
     public function getStoreAttribute()
     {
 
-        $seller = Seller::join('products','sellers.id','products.seller_id')
+        $seller = Seller::join('products', 'sellers.id', 'products.seller_id')
             ->select('sellers.*')
-            ->where('products.id','=',$this->product_id)
+            ->where('products.id', '=', $this->product_id)
             ->first();
 
         return $seller->store_name;
@@ -140,9 +147,9 @@ class OrderProduct extends Model
     public function getOrderDeliveryStatusAttribute()
     {
 
-        $payment = Payment::where('checkout_id',$this->checkout_id)->first();
+        $payment = Payment::where('checkout_id', $this->checkout_id)->first();
 
-        $order_delivery = OrderDelivery::where('payment_id',$payment->id)->where('seller_delivery_status','pending')->first();
+        $order_delivery = OrderDelivery::where('payment_id', $payment->id)->where('seller_delivery_status', 'pending')->first();
 
         return $order_delivery->seller_delivery_status;
 

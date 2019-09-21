@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="stylesheet" href="{{asset('font.css.all.css')}}">
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+
 
 @endsection
 
@@ -33,8 +35,8 @@
                  <tr>
                   <td>{{$brand->id}}</td>
                      <td>{{$brand->name}}</td>
-                     <td>{{$brand->created_at}}</td>
-                     <td>{{$brand->updated_at}}</td>
+                     <td>{{\Carbon\Carbon::parse($brand->created_at)->format('d/m/y')}}</td>
+                     <td>{{\Carbon\Carbon::parse($brand->updated_at)->format('d/m/y')}}</td>
                      <td>
 
                          <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$brand->id}}" value="Edit"/>
@@ -52,6 +54,8 @@
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="{{asset('font/js/all.js')}}"></script>
+    <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+
 
     <script>
         $(document).ready(function () {

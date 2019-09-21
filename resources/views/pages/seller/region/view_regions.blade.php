@@ -36,8 +36,8 @@
 {{--                  <td>{{$region->id}}</td>--}}
                      <td>{{$region->region_name}}</td>
                      <td>{{$region->region_cost}}</td>
-                     <td>{{$region->created_at}}</td>
-                     <td>{{$region->updated_at}}</td>
+                     <td>{{Carbon\Carbon::parse($region->created_at)->format('d/M/Y')}}</td>
+                     <td>{{\Carbon\Carbon::parse($region->updated_at)->format('d/M/Y')}}</td>
                      <td>
 
                          <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$region->id}}" value="Edit"/>

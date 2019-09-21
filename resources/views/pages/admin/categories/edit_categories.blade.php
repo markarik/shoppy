@@ -14,7 +14,7 @@
                @endforeach
            </select>
         </div>
-        <input type="submit" value="Edit" class="btn btn-success">
+        <input type="submit" value="Edit" class="btn btn-success btn_buy_now" id="editButton">
 
     </div>
 </form>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminGuest;
 
 use App\FeaturedCouresel;
-use FontLib\EOT\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -122,7 +121,7 @@ class CoureselController extends Controller
         $couresels = FeaturedCouresel::findorFail($id);
         $couresel_image_path = ("/products/images/couresels/{$couresels->image}");
         unlink(public_path($couresel_image_path));
-       Storage::delete($couresel_image_path);
+        Storage::delete($couresel_image_path);
         $couresels ->delete();
         return redirect()->back()->with('success','Couresel deleted Successfully');
     }

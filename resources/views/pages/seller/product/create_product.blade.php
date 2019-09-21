@@ -74,6 +74,25 @@
                                     </select>
                                 @endif
 
+{{--                                @if(count($variant->variant_option) != 0)--}}
+
+
+
+
+
+
+{{--                                    <select class="form-control" name="option[{{$variant->type}}]">--}}
+{{--                                        <option value="--select option--" selected disabled>--select option--</option>--}}
+{{--                                        @foreach($variant->variant_option as $option)--}}
+{{--                                            <option value="{{$option->id}}">{{$option->name}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                @else--}}
+{{--                                    <select class="form-control" name="variantoptions_id">--}}
+{{--                                        <option value="no options" selected disabled>No Options Yet</option>--}}
+{{--                                    </select>--}}
+{{--                                @endif--}}
+
                             </div>
                         @endforeach
                     </div>
@@ -94,6 +113,13 @@
 @endsection
 
 @section('js')
+
+    <script>
+        // Material Select Initialization
+        $(document).ready(function() {
+            $('.mdb-select').materialSelect();
+        });
+    </script>
 
 @endsection
 

@@ -27,6 +27,7 @@ Route::prefix('user')->group(function () {
     Route::post('wishlist','WishListController@store')->name('user.wishlist.store');
     Route::post('wishlist/delete/{id}','WishListController@destroy')->name('product.delete.wishlist');
     Route::post('cart','CartController@store')->name('user.add.cart');
+    Route::get('products','WelcomeController@viewallproducts')->name('user.view.products');
     Route::get('checkout', 'Buyer\CheckoutController@index')->name('user.checkout');
     Route::post('checkout/store', 'Buyer\CheckoutController@store')->name('user.checkout.store');
     Route::post('cart/change/{id}','CartController@update')->name('product.change.cart');
@@ -46,7 +47,6 @@ Route::group(['middleware' => 'seller_guest'], function () {
 
     Route::post('password/email', 'SellerAuth\SellerForgotPasswordController@sendResetLinkEmail')->name('seller.password.email');
     Route::get('password/reset', 'SellerAuth\SellerForgotPasswordController@showLinkRequestForm')->name('seller.password.request');
-
 
     Route::post('password/reset', 'SellerAuth\SellerResetPasswordController@reset');
     Route::get('password/reset{token}', 'SellerAuth\SellerResetPasswordController@showResetForm')->name('seller.password.reset');
@@ -80,6 +80,14 @@ Route::group(['middleware' => 'seller_auth'], function () {
         Route::post('region', 'SellerGuest\RegionController@store')->name('seller.region.store');
 //        Route::get('region/{id}/edit', 'SellerGuest\RegionController@edit')->name('seller.region.edit');
         Route::post('region/{id}', 'SellerGuest\RegionController@update')->name('seller.region.update');
+        Route::post('offers','SellerGuest\OffersController@store')->name('seller.store.offer');
+        Route::get('offers','SellerGuest\OffersController@index')->name('seller.view.offer');
+        Route::post('offers/{id}', 'SellerGuest\OffersController@update')->name('seller.offers.update');
+        Route::get('offers/{id}', 'SellerGuest\OffersController@destroy');
+        Route::get('profile','SellerGuest\ProfileController@index')->name('seller.profile.get');
+        Route::post('profile/{id}','SellerGuest\ProfileController@update')->name('seller.profile.update');
+        Route::post('profile/password/{id}','SellerGuest\ProfileController@store')->name('seller.profile.update.password');
+
 
 
     });

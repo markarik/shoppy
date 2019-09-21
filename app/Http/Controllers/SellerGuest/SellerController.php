@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SellerGuest;
 
 use App\Product;
+use App\Seller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -26,8 +27,11 @@ class SellerController extends Controller
 
         $products = Product::where('seller_id',Auth::user()->id)->get();
 
-//        dd($products);
-        return view('pages.seller.seller')->with('products',$products);
+
+        $context = [
+            'products'=>$products,
+        ];
+        return view('pages.seller.seller',$context);
     }
 
 

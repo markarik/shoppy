@@ -7,6 +7,7 @@
 
 @endsection
 @section('content')
+    @include('flash-message')
 <div class="table_formats">
 
 <h2 class="table_format">Products</h2>
@@ -17,8 +18,8 @@
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Price</th>
+                <th>Place Offer</th>
                 <th>Created</th>
-                <th>Updated</th>
                 <th>Action</th>
               </tr>
         </thead>
@@ -32,8 +33,10 @@
             <td>{{$product->name}}</td>
             <td>{{$product->brand_name}}</td>
             <td>{{$product->unit_cost}}</td>
-            <td>{{$product->created_at}}</td>
-            <td>{{$product->updated_at}}</td>
+            <td>
+                <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$product->id}}" value="Offer"/>
+            </td>
+            <td>{{Carbon\Carbon::parse($product->created_at)->format('d/m/y')}}</td>
             <td>
             <form action="{{route('seller.delete.product',['id'=>$product->id])}}" method="POST">
                 @csrf
@@ -65,3 +68,30 @@
     </script>
 
 @endsection
+
+
+
+{{--modal--}}
+
+@foreach($products as $product)
+    <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <small>Place offer to ..</small> {{$product->name}}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{--Includes--}}
+                    @include('pages.seller.offers.create_offer')
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+@endforeach

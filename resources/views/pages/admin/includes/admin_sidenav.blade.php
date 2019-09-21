@@ -6,16 +6,23 @@
 <HR>
 
     <div>
-        <button class="accordion">Sellers</button>
-        <div class="panel">
-            <ul>
+        <a href="{{route('admin.viewSeller')}}">
+            <button class="accordion"> Sellers</button>
+        </a>
 
-                <li>
-                    <a class="nav-link" href="{{route('admin.viewSeller')}}">Available Stores</a>
-                </li>
-            </ul>
-        </div>
     </div>
+
+{{--    <div>--}}
+{{--        <button class="accordion">Sellers</button>--}}
+{{--        <div class="panel">--}}
+{{--            <ul>--}}
+
+{{--                <li>--}}
+{{--                    <a class="nav-link" href="{{route('admin.viewSeller')}}">Available Stores</a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
    <div>
        <button class="accordion">
              Products
@@ -35,69 +42,108 @@
            </ul>
        </div>
    </div>
-   <div>
-       <button class="accordion">
-              Brands
-       </button>
-       <div class="panel">
-           <ul>
-               <li>
-                   <a class="nav-link" href="{{route('admin.brand.view')}}">View Brands</a>
-               </li>
-
-           </ul>
-       </div>
-   </div>
 
     <div>
-        <button class="accordion">Categories</button>
-        <div class="panel">
-            <ul>
-                <li>
-                    <a class="nav-link" href="{{route('view.category')}}">View Category</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{route('add.category')}}">Add Category</a>
-                </li>
+        <a href="{{route('admin.brand.view')}}">
+            <button class="accordion"> Brands</button>
+        </a>
 
-            </ul>
-        </div>
+    </div>
+{{--   <div>--}}
+{{--       <button class="accordion">--}}
+{{--              Brands--}}
+{{--       </button>--}}
+{{--       <div class="panel">--}}
+{{--           <ul>--}}
+{{--               <li>--}}
+{{--                   <a class="nav-link" href="{{route('admin.brand.view')}}">View Brands</a>--}}
+{{--               </li>--}}
+
+{{--           </ul>--}}
+{{--       </div>--}}
+{{--   </div>--}}
+
+{{--    <div>--}}
+{{--        <button class="accordion">Categories</button>--}}
+{{--        <div class="panel">--}}
+{{--            <ul>--}}
+{{--                <li>--}}
+{{--                    <a class="nav-link" href="{{route('view.category')}}">View Category</a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a class="nav-link" href="{{route('add.category')}}">Add Category</a>--}}
+{{--                </li>--}}
+
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+    <div>
+        <a href="{{route('view.category')}}">
+            <button class="accordion"> Categories</button>
+        </a>
+
     </div>
 
     <div>
-       <button class="accordion">Sales</button>
-       <div class="panel">
-           <ul>
-               <li>item 1</li>
-               <li>item 1</li>
-               <li>item 1</li>
-           </ul>
-       </div>
-   </div>
+        <a href="#">
+            <button class="accordion"> Sales</button>
+        </a>
+
+    </div>
+
+{{--    <div>--}}
+{{--       <button class="accordion">Sales</button>--}}
+{{--       <div class="panel">--}}
+{{--           <ul>--}}
+{{--               <li>item 1</li>--}}
+{{--               <li>item 1</li>--}}
+{{--               <li>item 1</li>--}}
+{{--           </ul>--}}
+{{--       </div>--}}
+{{--   </div>--}}
+
+
+
 
     <div>
-        <button class="accordion">Orders</button>
-        <div class="panel">
-            <ul>
-                <li>
-                    <a class="nav-link" href="{{route('admin.view.orders')}}">View Orders</a>
-                </li>
+        <a href="{{route('admin.view.orders')}}">
+            <button class="accordion"> Orders</button>
+        </a>
+
+    </div>
+
+{{--    <div>--}}
+{{--        <button class="accordion">Orders</button>--}}
+{{--        <div class="panel">--}}
+{{--            <ul>--}}
+{{--                <li>--}}
+{{--                    <a class="nav-link" href="{{route('admin.view.orders')}}">View Orders</a>--}}
+{{--                </li>--}}
 {{--                <li>item 1</li>--}}
 {{--                <li>item 1</li>--}}
-            </ul>
-        </div>
-    </div>
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
 
     <div>
-        <button class="accordion">Messages</button>
-        <div class="panel">
-            <ul>
-                <li>item 1</li>
-                <li>item 1</li>
-                <li>item 1</li>
-            </ul>
-        </div>
+        <a href="#">
+            <button class="accordion"> Messages</button>
+        </a>
+
     </div>
+
+{{--    <div>--}}
+{{--        <button class="accordion">Messages</button>--}}
+{{--        <div class="panel">--}}
+{{--            <ul>--}}
+{{--                <li>item 1</li>--}}
+{{--                <li>item 1</li>--}}
+{{--                <li>item 1</li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div>
         <button class="accordion">Reports</button>
@@ -116,15 +162,22 @@
     </div>
 
     <div>
-        <button class="accordion">Payments</button>
-        <div class="panel">
-            <ul>
-                <li>item 1</li>
-                <li>item 1</li>
-                <li>item 1</li>
-            </ul>
-        </div>
+        <a href="#">
+            <button class="accordion"> Payments</button>
+        </a>
+
     </div>
+
+{{--    <div>--}}
+{{--        <button class="accordion">Payments</button>--}}
+{{--        <div class="panel">--}}
+{{--            <ul>--}}
+{{--                <li>item 1</li>--}}
+{{--                <li>item 1</li>--}}
+{{--                <li>item 1</li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div>
        <button class="accordion">Settings</button>

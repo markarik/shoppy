@@ -5,7 +5,12 @@
 
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.min.css')}}">
     <link rel="stylesheet" href="{{asset('font.css.all.css')}}">
+    <link rel="stylesheet" href="{{asset('css/header.css')}}">
+
+
 
 @endsection
 
@@ -52,6 +57,8 @@
 @section('js')
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" charset="utf8" src="{{asset('DataTables/datatables.js')}}"></script>
     <script type="text/javascript" src="{{asset('font/js/all.js')}}"></script>
 
     <script>

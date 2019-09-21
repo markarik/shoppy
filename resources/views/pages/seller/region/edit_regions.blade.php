@@ -10,7 +10,7 @@
             <input type="text" name="region_cost" class="form-control" value="{{$region->region_cost}}">
         </div>
 
-        <input type="submit" value="Edit" class="btn btn-success">
+        <input type="submit" value="Edit" class="btn btn-success btn_buy_now">
 
     </div>
 </form>
