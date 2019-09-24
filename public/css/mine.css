@@ -206,12 +206,30 @@ button.accordion:hover{
 }
 
 .create_product{
-    margin:20px 0 0 150px !important;
-    border:2px solid  rgba(0,0,0,0.1) !important;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 1px 1px var(--box-shadow);
+    margin:20px 0 0 50px !important;
 
+    /*border:2px solid  rgba(0,0,0,0.1) !important;*/
+    /*padding: 20px;*/
+    /*border-radius: 20px;*/
+    /*box-shadow: 1px 1px var(--box-shadow);*/
+
+}
+.input_number{
+    color: red;
+    text-decoration: underline;
+}
+.class_images{
+    font-size: 10px !important;
+}
+.class_images input{
+    width: 9rem !important;
+}
+.class_products_options{
+    display: flex;
+
+    flex-direction: row;
+
+    margin-left: 20rem;
 }
 
 
@@ -446,7 +464,7 @@ button.accordion:hover{
 .card_row{
     margin:10px 20px;
     position: relative;
-    height: 350px;
+    height: 435px;
     width: 250px !important;
 
     padding-right: 0 !important;
@@ -459,7 +477,7 @@ button.accordion:hover{
 .img-container{
     /*position: relative;*/
     overflow: hidden;
-    height: 150px;
+    height: 435px;
 }
 .card-img-top{
     transition: all 1s linear;
@@ -637,6 +655,15 @@ margin: 20px !important;
     text-decoration: underline;
     text-decoration-color: var(--orangetheme);
 }
+
+.product_options{
+    display: flex ;
+    flex-direction: column !important;
+
+}
+
+
+
 
 
 

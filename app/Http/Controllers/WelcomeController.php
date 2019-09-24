@@ -18,17 +18,20 @@ class WelcomeController extends Controller
 {
     public function landingpage()
     {
-        $featured = Product::where('status', 2)->get();
+//        $featured = Product::where('status', 2)->get();
+        $featured = Product::join('inventories', 'inventories.product_id', 'products.id')
+            ->where('status', 2)->get();
+
+//        dd($featured);
+
         $products = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->orderByRaw('RAND()')->take(8)->get();
-
+//        dd($products);
 
 
         $offers = Offer::all();
-//        $categories = Category::where('parent_id', null)->get();
-//        $categories = Category::with('children')->get();
-        $categories = Category::where('parent_id',NULL)->get();
-        //        $categories = Category::with('childrenRecursive')->whereNull('parent_id')->get();
+
+        $categories = Category::where('parent_id', NULL)->get();
 
         $variants = Variants::all();
         $couresels = FeaturedCouresel::all();
@@ -41,6 +44,7 @@ class WelcomeController extends Controller
             $data = [
                 'featured' => $featured,
                 'products' => $products,
+//                'productss' => $productss,
                 'wishlist_count' => $wishlist_count,
                 'cart_count' => $cart_count,
                 'variants' => $variants,
@@ -56,6 +60,8 @@ class WelcomeController extends Controller
 //                'discounts' => $discounts,
                 'offers' => $offers,
                 'categories' => $categories,
+//                'productss' => $productss,
+
 
 
             ];
@@ -69,10 +75,9 @@ class WelcomeController extends Controller
     public function viewallproducts()
     {
         $all_products = Product::all();
-//        $categories = Category::where('parent_id', null)->get();
 
 
-        $categories = Category::where('parent_id',NULL)->get();
+        $categories = Category::where('parent_id', NULL)->get();
         $data = [
             'all_products' => $all_products,
             'categories' => $categories,
@@ -137,7 +142,7 @@ class WelcomeController extends Controller
             $otherproducts = Product::where('brand_id', $products->brand_id)->get();
             $reviews = Reviews::where('product_id', $products->id)->get();
             $offers = Offer::where('product_id', $products->id)->first();
-            $categories = Category::where('parent_id',NULL)->get();
+            $categories = Category::where('parent_id', NULL)->get();
 
 
 //dd($offers);

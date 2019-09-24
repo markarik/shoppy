@@ -16,7 +16,6 @@
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border-radius: 5px;
-  box-shadow: 6px 6px 12px black;
 }
 .carding__side--front {
   background-color: #FFFAFA;
@@ -31,17 +30,15 @@
 .carding:hover .carding__side--back {
   transform: rotateY(0);
 }
-.carding__picture img {
-  background-size: cover;
+.carding__picture {
   width: 100%;
-  height: 290px;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  max-height: 90%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }
 .carding__heading {
   font-size: 25px;
   font-weight: 300;
-  text-transform: uppercase;
   text-align: right;
   color: black;
   position: absolute;
@@ -50,9 +47,33 @@
 }
 .carding__rates {
   position: absolute;
-  color: #f48f44;
+  color: black;
   top: 19rem;
   right: 1rem;
+}
+.carding__button {
+  position: absolute;
+  top: 83%;
+  left: 5%;
+}
+.carding__button--buyNow {
+  background-color: red !important;
+}
+.carding__inventory {
+  position: absolute;
+  top: 17rem;
+  left: 1rem;
+  font-size: 20px;
+}
+.carding__inventory--quantity {
+  color: red;
+  border: 2px rgba(244, 143, 68, 0.1) solid;
+  border-radius: 50%;
+  padding: 2px;
+}
+.carding__image {
+  max-width: 100%;
+  max-height: 100%;
 }
 .carding__discount {
   position: absolute;
@@ -60,7 +81,14 @@
   right: 0rem;
 }
 .carding__discount--percentage {
+  padding: 5px;
+  border: 2px solid #f48f44;
+  border-radius: 15px;
   color: red;
+}
+.carding__discount--noDiscount {
+  -webkit-text-decoration: line-through red;
+          text-decoration: line-through red;
 }
 .carding__details--spanamount {
   color: red;
@@ -70,6 +98,30 @@
 .carding__details--spanunit {
   color: blue;
   font-size: 10px;
+}
+.carding__details--amount {
+  top: 20rem;
+  position: absolute;
+  right: 2rem;
+}
+.carding__shortDescription {
+  color: white;
+  padding: 11px;
+  font-size: 17px;
+  font-weight: 200;
+}
+.carding__headingBack {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: black;
+  text-decoration: underline;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
+}
+.carding__wishlist {
+  position: absolute;
+  top: 0rem;
+  right: 2rem;
 }
 
 /*!

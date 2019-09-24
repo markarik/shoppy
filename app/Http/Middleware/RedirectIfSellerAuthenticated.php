@@ -17,9 +17,9 @@ class RedirectIfSellerAuthenticated
     public function handle($request, Closure $next)
     {
 
-        if (Auth::guard()->check()) {
-            return redirect('/home');
-        }
+        // if (Auth::guard()->check()) {
+        //     return redirect('/home');
+        // }
 
         if (Auth::guard('seller')->check()){
             return redirect('seller/home');

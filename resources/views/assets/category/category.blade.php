@@ -23,9 +23,9 @@
 
 </div>
 
-<script>
-    function showId() {
-        alert('hell000');
+{{--<script>--}}
+{{--    function showId() {--}}
+{{--        alert('hell000');--}}
 
-    }
-</script>
+{{--    }--}}
+{{--</script>--}}

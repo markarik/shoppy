@@ -69,8 +69,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-
-//dd($request->all());
+//        dd($request->all());
 
         $this->validate($request, [
             'unit_cost' => 'required',
@@ -81,6 +80,7 @@ class ProductController extends Controller
 
         ]);
 
+//
 
         $featured_images_path = './products/images/featured';
         $other_images_path = './products/images/others';
@@ -92,6 +92,7 @@ class ProductController extends Controller
             $final_name = $date . '.' . $featured_image->getClientOriginalName();
 
             $featured_image->move($featured_images_path, $final_name);
+
 
             $product = new Product();
             $product->name = $request->input('name');
@@ -107,17 +108,23 @@ class ProductController extends Controller
 
             $options = $request->input('option');
 
-            foreach (array_values($options) as $option) {
-//                dd($option);
-                $latest_product = Product::where('seller_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
-                $variant_option = VariantOption::where('id', $option)->first();
 
-                $product_variant_option = new ProductVariantOptions();
-                $product_variant_option->product_id = $latest_product->id;
-                $product_variant_option->variant_option_id = $variant_option->id;
+            foreach ($options as $items){
 
-                $product_variant_option->save();
 
+                foreach (array_values($items) as $option) {
+
+                    $latest_product = Product::where('seller_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
+                    $variant_option = VariantOption::where('id', $option)->first();
+
+
+                    $product_variant_option = new ProductVariantOptions();
+                    $product_variant_option->product_id = $latest_product->id;
+                    $product_variant_option->variant_option_id = $variant_option->id;
+
+                    $product_variant_option->save();
+
+                }
             }
 
             if ($request->hasFile('image2')) {
@@ -126,6 +133,7 @@ class ProductController extends Controller
 
                 $final_name2 = $date . '.' . $other_image2->getClientOriginalName();
                 $other_image2->move($other_images_path, $final_name2);
+
 
                 $image2 = new Image();
                 $image2->image_url = $final_name2;
@@ -142,6 +150,7 @@ class ProductController extends Controller
                 $final_name3 = $date . '.' . $other_image3->getClientOriginalName();
                 $other_image3->move($other_images_path, $final_name3);
 
+
                 $image3 = new Image();
                 $image3->image_url = $final_name3;
                 $image3->product_id = $product->id;
@@ -156,6 +165,7 @@ class ProductController extends Controller
                 $final_name4 = $date . '.' . $other_image4->getClientOriginalName();
                 $other_image4->move($other_images_path, $final_name4);
 
+
                 $image4 = new Image();
                 $image4->image_url = $final_name4;
                 $image4->product_id = $product->id;
@@ -168,7 +178,6 @@ class ProductController extends Controller
             $inventory->product_id = $product->id;
             $inventory->quantity = $request->input('quantity');
             $inventory->save();
-//            dd($inventory);
 
 
         }
@@ -224,10 +233,11 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
-        $offers = Offer::where('product_id',$product->id)->first();
-        $offers->delete();
+        $offers = Offer::where('product_id', $product->id)->first();
+        if ($offers != null) {
+            $offers->delete();
 
-
+        }
 
 
         if (count($product->undelivered_orders) != 0) {

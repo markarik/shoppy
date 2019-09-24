@@ -75,7 +75,7 @@
                         </div>
                     </nav>
                     <p>
-                        {{$products->short_description}}
+                        {!! $products->short_description !!}
                     </p>
 
 
@@ -105,7 +105,6 @@
 
                             <div class="details_card_prices">
                                 <h4>kShs {{$products->unit_cost}}</h4>
-                                {{--                                <h6><i>KSh 25000</i></h6>--}}
                             </div>
 
                         @endif
@@ -268,29 +267,33 @@
                                         <input type="number" class="form-control" name="quantity" id="examplequantity">
                                     </div>
 
+                                    <div class="row">
 
-                                    @foreach($products->variant as $variant)
-                                        <div class="form-group">
+                                        @foreach($products->variant as $variant)
+                                            <div class="form-group">
 
-                                            <label for="{{$variant->type}}">{{$variant->type}}</label>
+                                                <label for="{{$variant->type}}">{{$variant->type}}</label>
 
-                                            @if(count($variant->variant_option) != 0)
-                                                <select class="form-control" name="option[{{$variant->type}}]">
-                                                    <option value="--select option--" selected disabled>--select
-                                                        option--
-                                                    </option>
-                                                    @foreach($variant->variant_option as $option)
-                                                        <option value="{{$option->id}}">{{$option->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            @else
-                                                <select class="form-control" name="variantoptions_id">
-                                                    <option value="no options" selected disabled>No Options Yet</option>
-                                                </select>
-                                            @endif
+                                                @if(count($variant->variant_option) != 0)
+                                                    <select class="form-control" name="option[{{$variant->type}}]">
+                                                        <option value="--select option--" selected disabled>--select
+                                                            option--
+                                                        </option>
+                                                        @foreach($variant->variant_option as $option)
+                                                            <option value="{{$option->id}}">{{$option->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                @else
+                                                    <select class="form-control" name="variantoptions_id">
+                                                        <option value="no options" selected disabled>No Options Yet</option>
+                                                    </select>
+                                                @endif
 
-                                        </div>
-                                    @endforeach
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+
 
                                     <input type="submit" class="btn btn-primary btn_buy_now submitButton"
                                            id="{{$products->id}}" value="Save changes">

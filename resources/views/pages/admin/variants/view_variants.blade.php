@@ -37,8 +37,8 @@
                 <tr>
                     <td>{{$variant->id}}</td>
                     <td>{{$variant->type}}</td>
-                    <td>{{$variant->created_at}}</td>
-                    <td>{{$variant->updated_at}}</td>
+                    <td>{{Carbon\Carbon::parse($variant->created_at)->format('d/m/y,H:i:s')}}</td>
+                    <td>{{Carbon\Carbon::parse($variant->updated_at)->format('d/m/y,H:i:s')}}</td>
                     <td>
 
                         <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$variant->id}}" value="Edit"/>

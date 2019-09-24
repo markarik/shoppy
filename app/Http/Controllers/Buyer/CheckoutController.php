@@ -19,6 +19,7 @@ class CheckoutController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,30 +31,29 @@ class CheckoutController extends Controller
 
         $user = Auth::user();
         $regions = Region::all();
-        $userinfos= User::where('id',$user->id)->get();
-        $cart = OrderProduct::where('user_id',Auth::user()->id)->where('checkout_id',null)->get();
+        $userinfos = User::where('id', $user->id)->get();
+        $cart = OrderProduct::where('user_id', Auth::user()->id)->where('checkout_id', null)->get();
         $cart_count = count($cart);
-        $wishlist = WishList::where('user_id',$user->id)->get();
+        $wishlist = WishList::where('user_id', $user->id)->get();
         $wishlist_count = count($wishlist);
-         $checkouts = $request->session()->get('checkout');
-        $categories = Category::where('parent_id',null)->get();
+        $checkouts = $request->session()->get('checkout');
+        $categories = Category::where('parent_id', null)->get();
 
 
 //dd($userinfos);
         $data = [
 
-            'wishlist_count'=>$wishlist_count,
-            'cart_count'=>$cart_count,
-            'checkouts'=>$checkouts,
-            'regions'=>$regions,
-            'userinfos'=>$userinfos,
+            'wishlist_count' => $wishlist_count,
+            'cart_count' => $cart_count,
+            'checkouts' => $checkouts,
+            'regions' => $regions,
+            'userinfos' => $userinfos,
             'categories' => $categories,
 
         ];
 
 
-
-        return view ('assets.checkout.checkout',$data);
+        return view('assets.checkout.checkout', $data);
     }
 
     /**
@@ -79,24 +79,24 @@ class CheckoutController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'phonenumber'=>'required',
-            'region'=>'required',
-            'city'=>'required'
+        $this->validate($request, [
+            'phonenumber' => 'required',
+            'region' => 'required',
+            'city' => 'required'
         ]);
         $test = sprintf('%06d', rand(1, 10000000));
         $checkout = new Checkout();
-        $checkout ->user_id=Auth::user()->id;
-        $checkout->phone_number=$request->input('phonenumber');
-        $checkout->reference_code=$test;
+        $checkout->user_id = Auth::user()->id;
+        $checkout->phone_number = $request->input('phonenumber');
+        $checkout->reference_code = $test;
 //        $checkout->region_id=$request->input('region');
-        $checkout->city=$request->input('city');
-        $checkout->status=1;
+        $checkout->city = $request->input('city');
+        $checkout->status = 1;
 //        dd($checkout);
         $checkout->save();
 
@@ -104,15 +104,14 @@ class CheckoutController extends Controller
         $latest_checkout = Checkout::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->first();
 //        dd(l);
 
-return redirect()->back()->with('success','checkout complete,,Go to payments');
+        return redirect()->back()->with('success', 'checkout complete,,Go to payments');
     }
-
 
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -123,7 +122,7 @@ return redirect()->back()->with('success','checkout complete,,Go to payments');
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -134,8 +133,8 @@ return redirect()->back()->with('success','checkout complete,,Go to payments');
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -146,7 +145,7 @@ return redirect()->back()->with('success','checkout complete,,Go to payments');
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

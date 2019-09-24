@@ -130,22 +130,31 @@
             <div class="carding">
                 <div class="carding__side carding__side--front">
                     <div class="carding__picture">
-                        <img class="card-img-top"
+                        <img class=" carding__image"
                              src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"
                              alt="Card image cap">
                     </div>
-                    <h4 class="carding__heading">
-                        {{$product->name}}
-                    </h4>
-                    <div class="carding__rates">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                    <div>
+                        <h4 class="carding__heading">
+                            {{ strlen($product->name) > 6 ? substr($product->name,0,6).'...' : $product->name }}
+
+
+                        </h4>
                     </div>
+
+
+                    <div class="carding__inventory">
+                        <small>
+
+                            Only <span class="carding__inventory--quantity"><b>{{$product->quantity}}</b></span>
+                            Available
+
+
+                        </small>
+                    </div>
+
                     <div class="carding__details">
-                        <h5>
+                        <h5 class="carding__details--amount">
                             <span class="mr-1 carding__details--spanunit ">KShs</span>
                             <span class="carding__details--spanamount">{{$product->unit_cost}}</span>
                         </h5>
@@ -156,8 +165,8 @@
 
                                 <h5 class="text-blue font-italic ml-auto mr-2 carding__discount--percentage">
 
-                                    {{$offer->discount}}
-                                    <span class="mr-1 ">% Discount</span>
+                                    -{{$offer->discount}}
+                                    %
 
                                 </h5>
                             @else
@@ -167,8 +176,75 @@
                 </div>
 
                 <div class="carding__side carding__side--back">
+
+                    <div class="carding__headingBack">
+                        {{$product->name}}
+
+                    </div>
+
+                    <div class="carding__wishlist">
+                        @if(\Illuminate\Support\Facades\Auth::user() !=null)
+                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data"
+                                  files="true">
+                                {!! csrf_field() !!}
+                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden/>
+                                <input name="product_id" type="text" value="{{$product->id}}" hidden/>
+                                <button class="btn"><i class="fa fa-heart" title="Add To WishList"></i></button>
+
+
+                            </form>
+                        @else
+
+                            {{--                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data"--}}
+                            {{--                                  files="true">--}}
+                            {{--                                {!! csrf_field() !!}--}}
+                            {{--                               --}}
+                            {{--                                <button class="btn"><i class="fa fa-heart"></i></button>--}}
+
+
+                            {{--                            </form>--}}
+
+
+                        @endif
+
+
+                    </div>
+
+
+                    <div class="carding__shortDescription">
+
+                        {!!  strlen($product->short_description) > 200 ? substr($product->short_description,0,200).'...' : $product->short_description !!}
+
+                    </div>
+                    <div class="d-flex">
+
+                        @foreach($offers as $offer)
+                            @if($offer->product_id == $product->id)
+
+                                <h5 class="text-blue font-italic ml-auto mr-2 carding__discount--percentage">
+
+                                    Kshs {{($product->unit_cost)-($offer->discount *$product->unit_cost )/100}}
+
+                                </h5>
+                            @else
+                            @endif
+                        @endforeach
+                        <div>
+                            Kshs {{$product->unit_cost}}
+
+                        </div>
+
+                    </div>
+                    <div class="carding__rates">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
                     <div class="carding__button">
-                        <a class="btn btn-success " href="{{url('user/details',['id'=>$product->id])}}">Buy
+                        <a class="btn btn-success carding__button--buyNow"
+                           href="{{url('user/details',['id'=>$product->id])}}">Buy
                             Now</a>
                     </div>
                 </div>

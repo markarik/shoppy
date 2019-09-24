@@ -28,34 +28,10 @@
                     <div class="footer-social-icon gp"><a href=""><i class="fab fa-google-plus-g"></i></a></div>
                 </div>
             </div>
-{{--            <div class="col-md-3 mb-md-0 mb-3">--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="card">--}}
 
-
-{{--                        <div class="card-body">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="card ">--}}
-
-{{--                        <div class="card-body">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-sm-2"><i class="fas fa-industry fa-2x"> </i></div>--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/">All rights reserved</a>
+    <div class="footer-copyright text-center py-3">© {{ date('Y') }} Copyright:
+        <a href="#">All rights reserved</a>
     </div>
 </footer>

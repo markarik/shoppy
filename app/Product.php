@@ -134,18 +134,26 @@ class Product extends Model
         $product_variant_options = ProductVariantOptions::where('product_id',$this->id)->get();
 
         $variant_options =[];
-        $variants =[];
+        $variants_arr =[];
 
         if ($product_variant_options != null){
             foreach ($product_variant_options as $p_v_o){
                 array_push($variant_options,VariantOption::where('id',$p_v_o->variant_option_id)->first());
             }
 
+
+
             foreach ($variant_options as $v_o){
-                array_push($variants, Variants::where('id',$v_o->variant_id)->first());
+                array_push($variants_arr, Variants::where('id',$v_o->variant_id)->first());
             }
 
         }
+
+        $collection = collect($variants_arr);
+
+        $variants = $collection->unique();
+
+        $variants->values()->all();
 
         return $variants;
 

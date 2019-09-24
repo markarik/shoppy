@@ -23,7 +23,7 @@ class OffersController extends Controller
     public function index()
     {
         $offers = Offer::all();
-//        dd($offers[0]->product->name);
+//        dd($offers);
 
         $data = [
 

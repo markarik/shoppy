@@ -13,6 +13,7 @@
         "barryvdh/laravel-dompdf": "^0.8.4",
         "facade/ignition": "^1.6",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.5",
         "khill/lavacharts": "3.1.*",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
