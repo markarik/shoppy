@@ -203,16 +203,26 @@ header .nav{
     display: block;
 }
 
+.class_category{
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.class_subcategory{
+    display: none;
+}
+
 /*.dropdown-content a:hover {background-color: #ddd;}*/
 
 /*.dropdown:hover >.dropdown-content a {display: block;}*/
 
  /*.dropbtn:hover {background-color: #3e8e41;}*/
 
-.categories{
-    z-index: 2;
-    background-color: rgba(0,0,0,.1) !important;
-}
+/*.categories{*/
+/*    z-index: 2;*/
+/*    background-color: rgba(0,0,0,.1) !important;*/
+/*}*/
 
 .profiles{
     color: var(--orangetheme);
@@ -239,13 +249,13 @@ header .nav{
 
 }
 
-@media screen and (max-width: 768px){
-    .categories{
-        /*background-color: red !important;*/
-        display: none !important;
-    }
+/*@media screen and (max-width: 768px){*/
+/*    .categories{*/
+/*        !*background-color: red !important;*!*/
+/*        display: none !important;*/
+/*    }*/
 
-}
+/*}*/
 
 .product_discount{
     color: var(--feauredproductpillcolor);

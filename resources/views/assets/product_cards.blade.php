@@ -1,217 +1,70 @@
-{{--<div class="row">--}}
-{{--    @foreach($products as $product)--}}
-
-{{--        <div class="col-lg-3 card_align">--}}
-
-{{--            <div class="card card_row">--}}
-{{--                <div class="img-container">--}}
-
-{{--                    <a href="{{route('user.product.details',['id'=>$product->id])}}"><img class="card-img-top"--}}
-{{--                                                                                          src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"--}}
-{{--                                                                                          alt="Card image cap"></a>--}}
-
-{{--                </div>--}}
-
-{{--                <div class="d-flex justify-content-between card_footer">--}}
-{{--                    <p class="align-self-center ml-5 store_name_detail">{{$product->name}}</p>--}}
-{{--                    <h5 class="text-blue font-italic mb-0">--}}
-{{--                        <span class="m-5 inventory_cards">--}}
-{{--                            {{$product->quantity}}--}}
-{{--                        </span>--}}
-
-{{--                    </h5>--}}
-{{--                </div>--}}
-{{--                <div class="star_custom ml-auto">--}}
-{{--                    <i class="fas fa-star"></i>--}}
-{{--                    <i class="fas fa-star"></i>--}}
-{{--                    <i class="fas fa-star"></i>--}}
-{{--                    <i class="fas fa-star"></i>--}}
-{{--                    <i class="far fa-star"></i>--}}
-{{--                </div>--}}
-
-
-{{--                <div class="price_custom d-flex ">--}}
-{{--                    <h5 class="text-blue font-italic ml-2">--}}
-{{--                        <span class="mr-1">KShs</span>--}}
-{{--                        {{$product->unit_cost}}--}}
-{{--                    </h5>--}}
-{{--                    @foreach($offers as $offer)--}}
-{{--                        @if($offer->product_id == $product->id)--}}
-
-{{--                            <h5 class="text-blue font-italic ml-auto mr-2 product_discount">--}}
-
-{{--                                {{$offer->discount}}--}}
-{{--                                <span class="mr-1">%</span>--}}
-{{--                                <span class="mr-1">OFF</span>--}}
-
-{{--                            </h5>--}}
-{{--                        @else--}}
-{{--                        @endif--}}
-{{--                    @endforeach--}}
-
-{{--                </div>--}}
-
-
-{{--                <div class="hr_custom"></div>--}}
-{{--                <div class="d-flex">--}}
-{{--                    <div class="ml-auto btn_buy_now_div">--}}
-{{--                        <a class="btn btn-success btn_buy_now" href="{{url('user/details',['id'=>$product->id])}}">Buy--}}
-{{--                            Now</a>--}}
-{{--                    </div>--}}
-{{--                    <div class="nav-item ml-auto pr-5">--}}
-{{--                        @if(\Illuminate\Support\Facades\Auth::user() !=null)--}}
-{{--                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data"--}}
-{{--                                  files="true">--}}
-{{--                                {!! csrf_field() !!}--}}
-{{--                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden/>--}}
-{{--                                <input name="product_id" type="text" value="{{$product->id}}" hidden/>--}}
-{{--                                <button class="btn"><i class="fa fa-heart"></i></button>--}}
-
-
-{{--                            </form>--}}
-{{--                        @else--}}
-{{--                            <button class="btn"><i class="fa fa-heart fa-hearts"></i></button>--}}
-
-{{--                        @endif--}}
-
-
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--        </div>--}}
-
-{{--    @endforeach--}}
-{{--</div>--}}
-
-
 <div class="row">
     @foreach($products as $product)
 
-        <div class="col-lg-3">
+        <div class="col-lg-2 col-sm-2">
             <div class="carding">
                 <div class="carding__side carding__side--front">
                     <div class="carding__picture">
-                        <img class=" carding__image"
-                             src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"
-                             alt="Card image cap">
+                        <a href="{{url('user/details',['id'=>$product->id])}}">
+                            <img class=" carding__image"
+                                 src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"
+                                 alt="Card image cap">
+                        </a>
                     </div>
                     <div>
-                        <h4 class="carding__heading">
-                            {{ strlen($product->name) > 6 ? substr($product->name,0,6).'...' : $product->name }}
-
-
-                        </h4>
-                    </div>
-
-
-                    <div class="carding__inventory">
-                        <small>
-
-                            Only <span class="carding__inventory--quantity"><b>{{$product->quantity}}</b></span>
-                            Available
-
-
-                        </small>
-                    </div>
-
-                    <div class="carding__details">
-                        <h5 class="carding__details--amount">
-                            <span class="mr-1 carding__details--spanunit ">KShs</span>
-                            <span class="carding__details--spanamount">{{$product->unit_cost}}</span>
-                        </h5>
-                    </div>
-                    <div class="carding__discount">
-                        @foreach($offers as $offer)
-                            @if($offer->product_id == $product->id)
-
-                                <h5 class="text-blue font-italic ml-auto mr-2 carding__discount--percentage">
-
-                                    -{{$offer->discount}}
-                                    %
-
-                                </h5>
-                            @else
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
-
-                <div class="carding__side carding__side--back">
-
-                    <div class="carding__headingBack">
-                        {{$product->name}}
+                        <p class="product_name">{{ strlen($product->name) > 30 ? substr($product->name,0,30).'...' : $product->name }}</p>
 
                     </div>
-
-                    <div class="carding__wishlist">
-                        @if(\Illuminate\Support\Facades\Auth::user() !=null)
-                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data"
-                                  files="true">
-                                {!! csrf_field() !!}
-                                <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden/>
-                                <input name="product_id" type="text" value="{{$product->id}}" hidden/>
-                                <button class="btn"><i class="fa fa-heart" title="Add To WishList"></i></button>
-
-
-                            </form>
-                        @else
-
-                            {{--                            <form action="{{route('user.wishlist.store')}}" method="POST" enctype="multipart/form-data"--}}
-                            {{--                                  files="true">--}}
-                            {{--                                {!! csrf_field() !!}--}}
-                            {{--                               --}}
-                            {{--                                <button class="btn"><i class="fa fa-heart"></i></button>--}}
-
-
-                            {{--                            </form>--}}
-
-
-                        @endif
-
-
-                    </div>
-
-
-                    <div class="carding__shortDescription">
-
-                        {!!  strlen($product->short_description) > 200 ? substr($product->short_description,0,200).'...' : $product->short_description !!}
-
-                    </div>
-                    <div class="d-flex">
-
-                        @foreach($offers as $offer)
-                            @if($offer->product_id == $product->id)
-
-                                <h5 class="text-blue font-italic ml-auto mr-2 carding__discount--percentage">
-
-                                    Kshs {{($product->unit_cost)-($offer->discount *$product->unit_cost )/100}}
-
-                                </h5>
-                            @else
-                            @endif
-                        @endforeach
-                        <div>
-                            Kshs {{$product->unit_cost}}
-
-                        </div>
-
-                    </div>
-                    <div class="carding__rates">
+                    <div class="star_custom ml-auto">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                     </div>
-                    <div class="carding__button">
-                        <a class="btn btn-success carding__button--buyNow"
-                           href="{{url('user/details',['id'=>$product->id])}}">Buy
-                            Now</a>
+                    <div class="carding__details ">
+                        <div class="d-flex mb-2">
+                            @if(count($offers) !=0)
+
+                                @foreach($offers as $offer)
+                                    @if($offer->product_id == $product->id)
+
+
+
+
+                                        <div class="d-flex">
+                                            <h6 class="mr-2">
+                                                KShs</h6> {{($product->unit_cost)-($offer->discount *$product->unit_cost )/100}}
+
+                                        </div>
+
+                                        <div class="details_card_prices ">
+                                            kShs {{$product->unit_cost}}
+                                        </div>
+
+                                    @else
+
+
+                                        <div class="d-flex mb-3">
+                                            <h6 class="mr-2">KShs</h6>{{$product->unit_cost}}
+                                        </div>
+
+                                    @endif
+                                @endforeach
+                            @else
+                                <span class="mr-1 carding__details--spanunit ">KShs</span>
+
+                                <span class="carding__details--spanamount">{{$product->unit_cost}}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="carding__discount">
+
                     </div>
                 </div>
+
+
             </div>
-            {{--            {{$product->name}}--}}
 
         </div>
 

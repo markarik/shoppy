@@ -11,48 +11,71 @@
 
     <div class="row">
 
-        <div class="col-md-2 categories">
-
+        <div class="col-sm-2 categories">
+            @include('assets.category.category')
         </div>
 
-        <div class="col-md-10 ">
-            @include('assets.carousel')
+        <div class="col-sm-7 class_couresels">
+
+            <div>
+                @include('assets.carousel')
+
+            </div>
+
+            <div>
+                @include('assets/product_slider_cards')
+
+            </div>
         </div>
+
+        <div class="col-sm-2">
+            <div class="small_images">
+                <img src="{{asset('images/L2.jpg')}}" alt="image" class="small_image">
+            </div>
+        </div>
+
+{{--        <div class="col-md-2 categories">--}}
+
+
+{{--        </div>--}}
+
+{{--        <div class="col-md-8 class_couresels">--}}
+
+{{--            <div>--}}
+
+{{--            </div>--}}
+{{--            <div>--}}
+
+
+{{--            </div>--}}
+
+{{--        </div>--}}
+
+{{--        <div class="col-md-2">--}}
+{{--            @include('assets.carousel')--}}
+{{--            jhgfckhg--}}
+
+{{--        </div>--}}
     </div>
     <div class="col-md-12">
-
-        <div class="col-md-12 col-lg-12 col-sm-4">
-            @if(count($featured) != 0)
-                @include('assets.featured_navbar')
-
-
-                <div class="hr_custom"></div>
-
-            @else
-            @endif
-
-
-        </div>
-
-
         <div class="container">
             @include('assets.featured_cards')
         </div>
         @include('flash-message')
 
-        @include('assets.Products_navbar')
+{{--        @include('assets.Products_navbar')--}}
 
-        <div class="container d">
+        <div class="container-fluid">
 
             @include('assets/product_cards')
         </div>
 
         <div>
-            @include('assets.recently_viewed_navbar')
+{{--            @include('assets.recently_viewed_navbar')--}}
         </div>
 
         <div class="container">
-            @include('assets.recently_cards')
+{{--            @include('assets.recently_cards')--}}
         </div>
         <div>
             @include('assets.footer.footer')

@@ -212,7 +212,7 @@
         {{--START OF OTHER SELLERS WITH SIMILAR PRODUCTS--}}
 
 
-
+@if(count($otherproducts) != 0)
 
 
         <div id="headingThree">
@@ -224,6 +224,7 @@
         </div>
         <div id="collapseThree" class="collapse details_accordion_content" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="table_custom">
+
                 <table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -276,6 +277,8 @@
         </div>
 
     </div>
+    @else
+    @endif
 
 
     @else

@@ -3,12 +3,11 @@
   perspective: 250em;
   -moz-perspective: 250em;
   position: relative;
-  height: 25em;
+  height: 15.5rem;
   margin-bottom: 30px;
 }
 .carding__side {
-  height: 25em;
-  transition: all 2s ease;
+  height: 15.5em;
   position: absolute;
   top: 0;
   left: 0;
@@ -20,21 +19,12 @@
 .carding__side--front {
   background-color: #FFFAFA;
 }
-.carding__side--back {
-  transform: rotateY(180deg);
-  background: linear-gradient(to right bottom, orange, #f48f45);
-}
 .carding:hover .carding__side--front {
-  transform: rotateY(-180deg);
-}
-.carding:hover .carding__side--back {
-  transform: rotateY(0);
+  size: 51px;
 }
 .carding__picture {
   width: 100%;
   max-height: 90%;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }
 .carding__heading {
   font-size: 25px;
@@ -47,7 +37,7 @@
 }
 .carding__rates {
   position: absolute;
-  color: black;
+  color: var(--orangetheme);
   top: 19rem;
   right: 1rem;
 }
@@ -77,32 +67,35 @@
 }
 .carding__discount {
   position: absolute;
-  top: 17rem;
+  top: 12rem;
   right: 0rem;
 }
 .carding__discount--percentage {
-  padding: 5px;
-  border: 2px solid #f48f44;
-  border-radius: 15px;
-  color: red;
+  padding: 3px;
+  border: 1px solid #f48f44;
+  border-radius: 50%;
+  color: var(--orangetheme);
 }
 .carding__discount--noDiscount {
   -webkit-text-decoration: line-through red;
           text-decoration: line-through red;
 }
 .carding__details--spanamount {
-  color: red;
+  color: black;
   font-size: 20px;
   font-weight: 200;
 }
 .carding__details--spanunit {
   color: blue;
   font-size: 10px;
+  top: 9px;
+  position: absolute;
+  right: 41px;
 }
 .carding__details--amount {
-  top: 20rem;
+  top: 14rem;
   position: absolute;
-  right: 2rem;
+  right: 1rem;
 }
 .carding__shortDescription {
   color: white;
@@ -119,6 +112,124 @@
           text-decoration-color: white;
 }
 .carding__wishlist {
+  position: absolute;
+  top: 0rem;
+  right: 2rem;
+}
+
+.cardings {
+  perspective: 250em;
+  -moz-perspective: 250em;
+  position: relative;
+  height: 9.5rem;
+  margin-bottom: 30px;
+}
+.cardings__side {
+  height: 9.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 5px;
+}
+.cardings__side--front {
+  background-color: #FFFAFA;
+}
+.cardings:hover .cardings__side--front {
+  size: 51px;
+}
+.cardings__picture {
+  width: 100%;
+  max-height: 90%;
+}
+.cardings__heading {
+  font-size: 25px;
+  font-weight: 300;
+  text-align: right;
+  color: black;
+  position: absolute;
+  top: 20rem;
+  right: 8rem;
+}
+.cardings__rates {
+  position: absolute;
+  color: var(--orangetheme);
+  top: 19rem;
+  right: 1rem;
+}
+.cardings__button {
+  position: absolute;
+  top: 83%;
+  left: 5%;
+}
+.cardings__button--buyNow {
+  background-color: red !important;
+}
+.cardings__inventory {
+  position: absolute;
+  top: 17rem;
+  left: 1rem;
+  font-size: 20px;
+}
+.cardings__inventory--quantity {
+  color: red;
+  border: 2px rgba(244, 143, 68, 0.1) solid;
+  border-radius: 50%;
+  padding: 2px;
+}
+.cardings__image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.cardings__discount {
+  position: absolute;
+  top: 12rem;
+  right: 0rem;
+}
+.cardings__discount--percentage {
+  padding: 3px;
+  border: 1px solid #f48f44;
+  border-radius: 50%;
+  color: var(--orangetheme);
+}
+.cardings__discount--noDiscount {
+  -webkit-text-decoration: line-through red;
+          text-decoration: line-through red;
+}
+.cardings__details--spanamount {
+  color: black;
+  font-size: 20px;
+  font-weight: 200;
+}
+.cardings__details--spanunit {
+  color: blue;
+  font-size: 10px;
+  top: 9px;
+  position: absolute;
+  right: 41px;
+}
+.cardings__details--amount {
+  top: 14rem;
+  position: absolute;
+  right: 1rem;
+}
+.cardings__shortDescription {
+  color: white;
+  padding: 11px;
+  font-size: 17px;
+  font-weight: 200;
+}
+.cardings__headingBack {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: black;
+  text-decoration: underline;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
+}
+.cardings__wishlist {
   position: absolute;
   top: 0rem;
   right: 2rem;

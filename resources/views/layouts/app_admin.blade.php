@@ -28,7 +28,7 @@
 <body>
     <div id="app">
         @include('assets.header')
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top nav_bar_seller">
             <div class="container-fluid">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -2,6 +2,7 @@
 
 
 @section('content')
+    @include('flash-message')
     <div class="create_product">
         <h1>Add Product</h1>
         <form action="{{url('seller/products')}}" method="post" enctype="multipart/form-data">
@@ -16,7 +17,7 @@
                 <div class="form-group col-md-6">
                     <label for="quantity">Number of Items</label>
                     <small class="input_number" > Input a Number Greater Than Zero(0)</small>
-                    <input type="number" class="form-control" name="quantity" id="number_items" min="0">
+                    <input type="number" class="form-control" name="quantity" id="number_items" min="1">
                 </div>
 
             </div>
@@ -40,8 +41,8 @@
 
             <div class="form-group ">
                 <label for="short_description">Short Description</label>
-                <textarea name="long_description" id="editor1" cols="30" rows="10"
-                          placeholder="Long Description"></textarea>
+                <textarea name="short_description" id="editor1" cols="15" rows="5"
+                          placeholder="short Description"></textarea>
             </div>
 
             <div class="form-group">

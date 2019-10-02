@@ -21,7 +21,7 @@
                 </thead>
                 <tbody class="table-bordered">
 
-
+{{--{{dd($carts)}}--}}
                 @foreach ($carts as $cart)
 
 {{--                    {{dd($cart)}}--}}

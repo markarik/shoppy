@@ -29,7 +29,7 @@
 <body>
     <div id="app">
         @include('assets.header')
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top nav_bar_seller">
             <div class="container-fluid">
                 {{--<a class="navbar-brand" href="{{ url('/') }}">
                     <a href="#"> <img src="{{asset('shoppy.png')}}" width="80" height="50" alt=""></a>

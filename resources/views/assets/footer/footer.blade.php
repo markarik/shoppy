@@ -31,7 +31,7 @@
 
         </div>
     </div>
-    <div class="footer-copyright text-center py-3">© {{ date('Y') }} Copyright:
+    <div class="footer-copyright text-center py-3">© {{date('Y')-1}}-{{ date('Y') }} Copyright:
         <a href="#">All rights reserved</a>
     </div>
 </footer>

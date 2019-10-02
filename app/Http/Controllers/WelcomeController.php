@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\FeaturedCouresel;
 use App\Image;
+use App\Inventory;
 use App\Offer;
 use App\OrderProduct;
 use App\Product;
@@ -18,15 +19,15 @@ class WelcomeController extends Controller
 {
     public function landingpage()
     {
-//        $featured = Product::where('status', 2)->get();
         $featured = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->where('status', 2)->get();
 
-//        dd($featured);
 
         $products = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->orderByRaw('RAND()')->take(8)->get();
-//        dd($products);
+
+        $productings = Product::join('inventories', 'inventories.product_id', 'products.id')
+            ->orderByRaw('RAND()')->take(5)->get();
 
 
         $offers = Offer::all();
@@ -44,6 +45,7 @@ class WelcomeController extends Controller
             $data = [
                 'featured' => $featured,
                 'products' => $products,
+                'productings' => $productings,
 //                'productss' => $productss,
                 'wishlist_count' => $wishlist_count,
                 'cart_count' => $cart_count,
@@ -57,10 +59,9 @@ class WelcomeController extends Controller
                 'couresels' => $couresels,
                 'featured' => $featured,
                 'products' => $products,
-//                'discounts' => $discounts,
+                'productings' => $productings,
                 'offers' => $offers,
                 'categories' => $categories,
-//                'productss' => $productss,
 
 
 
@@ -71,6 +72,9 @@ class WelcomeController extends Controller
         return view('index', $data);
 
     }
+
+
+
 
     public function viewallproducts()
     {
@@ -98,6 +102,7 @@ class WelcomeController extends Controller
         if (Auth::user() != null) {
 
             $products = Product::findOrFail($id);
+//            dd($products);
             $extra_images = Image::where('product_id', $products->id)->get();
             $carts = OrderProduct::where('user_id', Auth::user()->id)->where('checkout_id', null)->get();
             $cart_count = count($carts);
@@ -113,7 +118,13 @@ class WelcomeController extends Controller
                 ->where('user_id', $user->id)
                 ->where('checkout_id', null)->first();
 
-            $otherproducts = Product::where('brand_id', $products->brand_id)->get();
+            $otherproducts = Product::where('brand_id', $products->brand_id)
+                            ->where('seller_id' ,'!= ',$products->seller_id)->get();
+
+            $inventory = Inventory::where('product_id',$products->id)->first();
+
+//            dd($otherproducts);
+
 
 
             $data = [
@@ -128,6 +139,7 @@ class WelcomeController extends Controller
                 'offers' => $offers,
                 'categories' => $categories,
                 'orderproductsdisabled' => $orderproductsdisabled,
+                'inventory'=>$inventory,
 
 
             ];
@@ -138,11 +150,16 @@ class WelcomeController extends Controller
 
 
             $products = Product::findOrFail($id);
+
+            $inventory = Inventory::where('product_id',$products->id)->first();
             $extra_images = Image::where('product_id', $products->id)->get();
-            $otherproducts = Product::where('brand_id', $products->brand_id)->get();
+//            $otherproducts = Product::where('brand_id', $products->brand_id)->get();
+            $otherproducts = Product::where('brand_id', $products->brand_id)
+                ->where('seller_id' ,'!= ',$products->seller_id)->get();
             $reviews = Reviews::where('product_id', $products->id)->get();
             $offers = Offer::where('product_id', $products->id)->first();
             $categories = Category::where('parent_id', NULL)->get();
+
 
 
 //dd($offers);
@@ -154,6 +171,8 @@ class WelcomeController extends Controller
                 'reviews' => $reviews,
                 'offers' => $offers,
                 'categories' => $categories,
+                'inventory'=>$inventory,
+
 
 
             ];

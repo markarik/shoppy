@@ -1,6 +1,6 @@
 <div class="carousel-container">
     <div id="carouselExampleFade" class="carousel carousel-custom slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators carousel_indicators">
             @foreach($couresels as $slider)
 
                 <li data-target="#carouselExampleFade" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>

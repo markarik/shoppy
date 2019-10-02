@@ -80,7 +80,7 @@ class ProductController extends Controller
 
         ]);
 
-//
+//dd($request->all());
 
         $featured_images_path = './products/images/featured';
         $other_images_path = './products/images/others';

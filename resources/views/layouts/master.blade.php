@@ -15,10 +15,8 @@
 
 
 
-{{--    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">--}}
 
 <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}"/>
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.css')}}"/>--}}
 
 
     @yield('css')

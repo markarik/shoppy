@@ -10,8 +10,12 @@
 /* The container <div> - needed to position the dropdown content */
 .dropdowns {
     position: relative;
-    display: inline-block;
+    /*display: inline-block;*/
+    margin-bottom: 2px !important;
+
 }
+
+
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -105,4 +109,15 @@
     margin-left: 30px !important;
     text-decoration: none !important;
     color: rgb(244,143,68) !important;
+}
+.categories{
+    margin: 10px 0 0 1%;
+
+}
+
+.category_heading{
+    margin-left: 33px;
+    text-decoration: underline;
+    color: rgb(244,143,68) !important;
+
 }
