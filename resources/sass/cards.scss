@@ -105,7 +105,7 @@
     &--quantity {
       color: red;
 
-      border: 2px rgba(244, 143, 68,.1) solid;
+      border: 2px rgba(244, 143, 68, .1) solid;
       border-radius: 50%;
       padding: 2px;
     }
@@ -128,14 +128,15 @@
       border-radius: 50%;
       color: var(--orangetheme);
     }
-    &--noDiscount{
+
+    &--noDiscount {
       text-decoration: line-through red;
     }
   }
 
   &__details {
     &--spanamount {
-      color: rgba(0,0,0);
+      color: rgba(0, 0, 0);
       font-size: 20px;
       font-weight: 200;
     }
@@ -170,20 +171,17 @@
     text-decoration: underline;
     text-decoration-color: white;
   }
-  &__wishlist{
+
+  &__wishlist {
 
     position: absolute;
     top: 0rem;
     right: 2rem;
 
 
-
   }
 
 }
-
-
-
 
 
 //bellow couresell cards
@@ -294,7 +292,7 @@
     &--quantity {
       color: red;
 
-      border: 2px rgba(244, 143, 68,.1) solid;
+      border: 2px rgba(244, 143, 68, .1) solid;
       border-radius: 50%;
       padding: 2px;
     }
@@ -304,6 +302,20 @@
   &__image {
     max-width: 100%;
     max-height: 100%;
+  }
+
+  &__newproduct {
+
+
+    &--new {
+      color: red;
+      border: 0.5px solid red;
+      border-radius: 30px;
+      margin-right: 52px;
+      padding-left: 11px;
+    }
+
+
   }
 
   &__discount {
@@ -317,14 +329,15 @@
       border-radius: 50%;
       color: var(--orangetheme);
     }
-    &--noDiscount{
+
+    &--noDiscount {
       text-decoration: line-through red;
     }
   }
 
   &__details {
     &--spanamount {
-      color: rgba(0,0,0);
+      color: rgba(0, 0, 0);
       font-size: 20px;
       font-weight: 200;
     }
@@ -359,12 +372,12 @@
     text-decoration: underline;
     text-decoration-color: white;
   }
-  &__wishlist{
+
+  &__wishlist {
 
     position: absolute;
     top: 0rem;
     right: 2rem;
-
 
 
   }

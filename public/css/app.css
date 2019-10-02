@@ -183,6 +183,13 @@
   max-width: 100%;
   max-height: 100%;
 }
+.cardings__newproduct--new {
+  color: red;
+  border: 0.5px solid red;
+  border-radius: 30px;
+  margin-right: 52px;
+  padding-left: 11px;
+}
 .cardings__discount {
   position: absolute;
   top: 12rem;

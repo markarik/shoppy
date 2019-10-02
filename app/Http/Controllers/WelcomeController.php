@@ -12,6 +12,7 @@ use App\Product;
 use App\Reviews;
 use App\Variants;
 use App\WishList;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +27,12 @@ class WelcomeController extends Controller
         $products = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->orderByRaw('RAND()')->take(8)->get();
 
-        $productings = Product::join('inventories', 'inventories.product_id', 'products.id')
-            ->orderByRaw('RAND()')->take(5)->get();
+
+        $date = Carbon::today()->subDays(20);
+
+
+        $productings = Product::where('created_at', '>=', $date)
+            ->orderByRaw('RAND()')->take(6)->get();
 
 
         $offers = Offer::all();
@@ -64,7 +69,6 @@ class WelcomeController extends Controller
                 'categories' => $categories,
 
 
-
             ];
         }
 
@@ -72,8 +76,6 @@ class WelcomeController extends Controller
         return view('index', $data);
 
     }
-
-
 
 
     public function viewallproducts()
@@ -119,12 +121,11 @@ class WelcomeController extends Controller
                 ->where('checkout_id', null)->first();
 
             $otherproducts = Product::where('brand_id', $products->brand_id)
-                            ->where('seller_id' ,'!= ',$products->seller_id)->get();
+                ->where('seller_id', '!= ', $products->seller_id)->get();
 
-            $inventory = Inventory::where('product_id',$products->id)->first();
+            $inventory = Inventory::where('product_id', $products->id)->first();
 
 //            dd($otherproducts);
-
 
 
             $data = [
@@ -139,7 +140,7 @@ class WelcomeController extends Controller
                 'offers' => $offers,
                 'categories' => $categories,
                 'orderproductsdisabled' => $orderproductsdisabled,
-                'inventory'=>$inventory,
+                'inventory' => $inventory,
 
 
             ];
@@ -151,15 +152,14 @@ class WelcomeController extends Controller
 
             $products = Product::findOrFail($id);
 
-            $inventory = Inventory::where('product_id',$products->id)->first();
+            $inventory = Inventory::where('product_id', $products->id)->first();
             $extra_images = Image::where('product_id', $products->id)->get();
 //            $otherproducts = Product::where('brand_id', $products->brand_id)->get();
             $otherproducts = Product::where('brand_id', $products->brand_id)
-                ->where('seller_id' ,'!= ',$products->seller_id)->get();
+                ->where('seller_id', '!= ', $products->seller_id)->get();
             $reviews = Reviews::where('product_id', $products->id)->get();
             $offers = Offer::where('product_id', $products->id)->first();
             $categories = Category::where('parent_id', NULL)->get();
-
 
 
 //dd($offers);
@@ -171,8 +171,7 @@ class WelcomeController extends Controller
                 'reviews' => $reviews,
                 'offers' => $offers,
                 'categories' => $categories,
-                'inventory'=>$inventory,
-
+                'inventory' => $inventory,
 
 
             ];

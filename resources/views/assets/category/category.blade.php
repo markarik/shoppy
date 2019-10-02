@@ -54,48 +54,48 @@
 
 
         @endforeach
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
-            <a href="">
-                <button class="button_accordion" value="">Clothes</button>
-            </a>
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
+{{--            <a href="">--}}
+{{--                <button class="button_accordion" value="">Clothes</button>--}}
+{{--            </a>--}}
 
 
 
