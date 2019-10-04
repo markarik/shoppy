@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@landingpage')->name('user.dashboard');
+Route::get('category/{name}', 'Buyer\UserCategoryController@index')->name('user.category.find');
+Route::get('category', 'Buyer\UserCategoryController@create')->name('user.category.search');
 
 
 Route::prefix('user')->group(function () {

@@ -347,7 +347,52 @@
 @yield('js')
 <script src="{{asset('js/mine.js')}}"></script>
 <script src="{{asset('font/js/all.js')}}"></script>
+<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
 
 
 <script src="https://kit.fontawesome.com/40f4086384.js"></script>
+
+<script>
+    // $(document).ready(function () {
+    //
+    //
+    //     $(document).scroll(function () {
+    //         var scroll = $(this).scrollTop();
+    //         var topDist = $("#container").position();
+    //         // if (scroll > topDist.top) {
+    //             alert('helloooo')
+    //
+    //             // $('nav').css({"position": "fixed", "top": "0"});
+    //         // } else {
+    //         //     alert('hellollooo')
+    //         //
+    //         //     // $('nav').css({"position": "static", "top": "auto"});
+    //         // }
+    //
+    //     });
+    // });
+
+
+    // window.onscroll = function() {myFunction()};
+    //
+    // var header = document.getElementById('navbar');
+    //
+    // var header2 = document.getElementById('stick-navbar');
+    // var sticky = header.offsetTop;
+    //
+    // function myFunction() {
+    //     if (window.pageYOffset > sticky) {
+    //         // header.classList.remove("sticky-top");
+    //         alert('helloo');
+    //     } else {
+    //         // header.classList.add("sticky-top");
+    //
+    //         alert('hellolloooo');
+    //
+    //     }
+    //
+    // }
+
+
+</script>
 </html>

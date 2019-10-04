@@ -38,7 +38,6 @@
 
         @foreach($categories as $category)
 
-
 {{--            <ul>--}}
 {{--                <li class="class_category">{{$category->name}}</li>--}}
 {{--                @if(count($category->subcategory))--}}
@@ -48,7 +47,7 @@
 {{--            </ul>--}}
 
 
-                <a href="">
+                <a href="{{route('user.category.find',[$category->name])}}">
                     <button class="button_accordion" value=""> {{$category->name}}</button>
                 </a>
 

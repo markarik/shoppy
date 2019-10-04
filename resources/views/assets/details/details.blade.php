@@ -370,7 +370,18 @@
                 </div>
 
             </div>
-            <div class="col-sm-2">.col-sm-4</div>
+            <div class="col-sm-2">
+
+                <h5 class="mt-5">Similar Products</h5>
+
+
+
+
+
+
+
+
+            </div>
         </div>
 
     </div>
@@ -379,14 +390,51 @@
 
         <div class="col-sm-12">
 
-            <nav class="nav detail_nav_items " id="stick-navbar">
-                <div class="nav-tabs d-flex ml-4">
-                    <a class="nav-link active" href="#product_details">Product-Description</a>
+            {{--            <nav class="detail_nav_items stick_nav" id="stick-navbar">--}}
+            {{--                <div class="nav-tabs d-flex ml-4">--}}
+            {{--                    <a class="nav-link active" href="#product_details">Product-Description</a>--}}
+            {{--                    <a class="nav-link" href="#product_review">Reviews</a>--}}
+            {{--                    <a class="nav-link" href="#product_policy">Return Policy</a>--}}
+            {{--                    <a class="nav-link" href="#">Shipping Details</a>--}}
+            {{--                </div>--}}
+            {{--            </nav>--}}
+
+            <ul class="nav flex-column detail_nav_items stick_nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#product_details">Description</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#product_review">Reviews</a>
-                    <a class="nav-link" href="#product_policy">Return Policy</a>
-                    <a class="nav-link" href="#">Shipping Details</a>
-                </div>
-            </nav>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#product_policy">Return</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shipping</a>
+                </li>
+            </ul>
+
+
+            {{--            <nav class="navbar  bg-light top-nav sticky-top">--}}
+            {{--                <a class="navbar-brand" href="{{route('user.dashboard')}}">--}}
+
+            {{--                    <img src="{{asset('images/shoppy.png')}}"  class="d-inline-block align-top logo" alt="">--}}
+            {{--                </a>--}}
+            {{--                <div class=" social d-flex">--}}
+            {{--                    <div class="social-icons">--}}
+            {{--                        <a href="#"><i class="fab fa-facebook-f"></i></a>--}}
+            {{--                    </div>--}}
+            {{--                    <div class="social-icons">--}}
+            {{--                        <a href="#"><i class="fab fa-instagram"></i></a>--}}
+            {{--                    </div>--}}
+            {{--                    <div class="social-icons">--}}
+            {{--                        <a href="#"><i class="fab fa-twitter"></i></a>--}}
+            {{--                    </div>--}}
+            {{--                    <div class="social-icons">--}}
+            {{--                        <a href="#"><i class="far fa-envelope"></i></a>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </nav>--}}
 
         </div>
 
@@ -579,6 +627,36 @@
 
 
 @endsection
+
+<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+
+
+{{--<script>--}}
+{{--    window.onscroll = function() {myFunction()};--}}
+
+{{--    var header = document.getElementById('navbar');--}}
+
+{{--    var header2 = document.getElementById('stick-navbar');--}}
+{{--    var sticky = header2.offsetTop;--}}
+
+
+{{--    function myFunction() {--}}
+{{--        if (window.pageYOffset > sticky) {--}}
+{{--            // header2.classList.remove("sticky-top");--}}
+{{--            // alert('helloo');--}}
+{{--            console.log(sticky);--}}
+
+{{--        } else {--}}
+{{--            // header2.classList.add("sticky-top");--}}
+
+{{--            // alert('hellolloooo');--}}
+
+{{--        }--}}
+
+{{--    }--}}
+{{--</script>--}}
+
+
 <script>
     // imageswap for product details images
     function imageSwap(imgs) {

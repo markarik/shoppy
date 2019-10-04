@@ -22,7 +22,8 @@
 
             </div>
 
-            <div>
+            <div class="row">
+
                 @include('assets/product_slider_cards')
 
             </div>

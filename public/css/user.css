@@ -594,8 +594,9 @@ button.details_accordion:hover{
 }
 
 .detail_nav_items a{
-    color: var(--blackbackgroundtheme) !important;
+    /*color: var(--blackbackgroundtheme) !important;*/
     font-size: 15px;
+    color: red;
 }
 .details-class{
     background-color: rgba(253,144,70,0.1);
@@ -607,6 +608,10 @@ button.details_accordion:hover{
 }
 .detail_nav_items{
     background-color: rgba(0,0,0,.1);
+    width: 7rem;
+    /*left: 30px !important;*/
+
+    /*margin-bottom: 30rem !important;*/
 }
 .product_out_stock{
     text-decoration: underline;
@@ -623,7 +628,17 @@ button.details_accordion:hover{
 .small_images{
     margin-top: 20px;
     margin-right: -42%;
+}
+.category_check_by_price{
+    width: 73px;
+    height: 20px;
+}
+.stick_nav{
+    position: fixed;
+    top: 26.5rem;
+    right: 0 !important;
 
+    /* position: absolute; */
 
 }
 
