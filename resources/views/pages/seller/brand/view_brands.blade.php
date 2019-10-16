@@ -24,6 +24,7 @@
             <tr>  
                <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Action</th>
@@ -35,8 +36,9 @@
                  <tr>
                   <td>{{$brand->id}}</td>
                      <td>{{$brand->name}}</td>
-                     <td>{{\Carbon\Carbon::parse($brand->created_at)->format('d/m/y')}}</td>
-                     <td>{{\Carbon\Carbon::parse($brand->updated_at)->format('d/m/y')}}</td>
+                     <td>{{$brand->category_name}}</td>
+                     <td>{{\Carbon\Carbon::parse($brand->created_at)->format('d/m/y , h:m:s')}}</td>
+                     <td>{{\Carbon\Carbon::parse($brand->updated_at)->format('d/m/y , h:m:s')}}</td>
                      <td>
 
                          <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$brand->id}}" value="Edit"/>

@@ -46,7 +46,7 @@ class Product extends Model
     }
 
     public  function categories(){
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
 
     public function brands(){
@@ -73,6 +73,8 @@ class Product extends Model
         return $product;
 
     }
+
+
 
 
 

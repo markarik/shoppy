@@ -116,8 +116,11 @@
 }
 
 .category_heading{
-    margin-left: 33px;
+    margin-left: 20px;
     text-decoration: underline;
     color: rgb(244,143,68) !important;
+    font-family: fantasy;
+    font-size: 22px;
+    text-transform: uppercase;
 
 }

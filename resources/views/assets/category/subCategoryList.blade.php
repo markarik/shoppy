@@ -10,9 +10,3 @@
 @endforeach
 
 
-{{--<script>--}}
-{{--    function showId() {--}}
-{{--        alert('hell000');--}}
-
-{{--    }--}}
-{{--</script>--}}

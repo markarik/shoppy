@@ -372,7 +372,9 @@
             </div>
             <div class="col-sm-2">
 
-                <h5 class="mt-5">Similar Products</h5>
+                <h5 class="mt-5" style="text-align: center">Seller</h5>
+
+           <h4 class="seller_information"> {{$seller -> store_name}}</h4>
 
 
 
@@ -443,7 +445,12 @@
     <div class="row details-class">
         <div class="col-sm-8 offset-2 ">
             {{--            <h2 id="product_details"> Details</h2>--}}
-            <div id="product_details">
+
+
+            <h3 id="product_details">Description</h3>
+
+            <div>
+
                 {!! $products->long_description !!}
 
             </div>

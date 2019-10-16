@@ -26,6 +26,8 @@ class BrandController extends Controller
        $categories = Category::all();
         $brands = Brand::all();
 
+//        dd($brands[0]->category_name);
+
         $data = [
             'categories'=>$categories,
             'brands'=>$brands

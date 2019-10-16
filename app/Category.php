@@ -7,20 +7,46 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 
-    protected $fillable =['name'];
+    protected $fillable = ['name'];
 
-    public  function brands(){
-        return $this->hasMany(App\Brand);
+    public function brands()
+    {
+        return $this->hasMany(Brand::class);
     }
 
-    public function getParentAttribute(){
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 
 
-            $parent = Category::where('id',$this->parent_id)->first();
+    public function getParentAttribute()
+    {
+
+
+        $parent = Category::where('id', $this->parent_id)->first();
+
+//            dd($parent->id);
 
         return $parent->name;
 
     }
+
+    public function ProductDetailAttribute()
+    {
+
+        $categories = [];
+        array_push($categories, Category::where('parent_id', $this->id)->get());
+
+        dd($categories);
+
+
+return $categories;
+    }
+
+
+
 
 //    public function parent()
 //    {
@@ -59,8 +85,18 @@ class Category extends Model
 //    }
 
 
-    public function subcategory(){
+    public function subcategory()
+    {
         return $this->hasMany('App\Category', 'parent_id');
     }
+
+
+//    public function getBrandAttribute(){
+//
+//
+//$brand = Brand::where('category_id',)
+//        return $parent->name;
+//
+//    }
 
 }

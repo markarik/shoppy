@@ -101,6 +101,7 @@ class OrderProduct extends Model
     {
 
         $checkouts = Checkout::where('id', $this->checkout_id)->get();
+//        dd($checkouts);
         $payments = [];
         if (count($checkouts) != 0) {
             foreach ($checkouts as $checkout) {

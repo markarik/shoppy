@@ -1,21 +1,12 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@landingpage')->name('user.dashboard');
 Route::get('category/{name}', 'Buyer\UserCategoryController@index')->name('user.category.find');
+Route::get('categories/{name}', 'Buyer\UserCategoryController@viewCategory')->name('user.category.view');
 Route::get('category', 'Buyer\UserCategoryController@create')->name('user.category.search');
 
 

@@ -22,6 +22,7 @@
             <tr>  
                <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Created</th>
                 <th>Updated</th>
 
@@ -33,8 +34,9 @@
                  <tr>
                   <td>{{$brand->id}}</td>
                      <td>{{$brand->name}}</td>
-                     <td>{{$brand->created_at}}</td>
-                     <td>{{$brand->updated_at}}</td>
+                     <td>{{$brand->getCategoryNameAttribute()}}</td>
+                     <td>{{\Carbon\Carbon::parse($brand->created_at)->format('d/m/y ,h:m:s')}}</td>
+                     <td>{{\Carbon\Carbon::parse($brand->updated_at)->format('d/m/y ,h:m:s')}}</td>
 
 
                  </tr>

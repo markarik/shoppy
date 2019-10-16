@@ -32,6 +32,8 @@ class AdminController extends Controller
     {
         $brands = Brand::all();
 
+//        dd($brands[0]->getCategoryNameAttribute());
+
         return view('pages.admin.admin_view_brands')->with('brands',$brands);
     }
 

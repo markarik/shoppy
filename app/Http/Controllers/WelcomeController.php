@@ -10,6 +10,7 @@ use App\Offer;
 use App\OrderProduct;
 use App\Product;
 use App\Reviews;
+use App\Seller;
 use App\Variants;
 use App\WishList;
 use Carbon\Carbon;
@@ -104,7 +105,7 @@ class WelcomeController extends Controller
         if (Auth::user() != null) {
 
             $products = Product::findOrFail($id);
-//            dd($products);
+            $seller = Seller::where('id',$products->seller_id)->first();
             $extra_images = Image::where('product_id', $products->id)->get();
             $carts = OrderProduct::where('user_id', Auth::user()->id)->where('checkout_id', null)->get();
             $cart_count = count($carts);
@@ -125,7 +126,6 @@ class WelcomeController extends Controller
 
             $inventory = Inventory::where('product_id', $products->id)->first();
 
-//            dd($otherproducts);
 
 
             $data = [
@@ -141,6 +141,7 @@ class WelcomeController extends Controller
                 'categories' => $categories,
                 'orderproductsdisabled' => $orderproductsdisabled,
                 'inventory' => $inventory,
+                'seller'=>$seller,
 
 
             ];
@@ -151,7 +152,9 @@ class WelcomeController extends Controller
 
 
             $products = Product::findOrFail($id);
-
+//            dd($products);
+            $seller = Seller::where('id',$products->seller_id)->first();
+//dd($seller);
             $inventory = Inventory::where('product_id', $products->id)->first();
             $extra_images = Image::where('product_id', $products->id)->get();
 //            $otherproducts = Product::where('brand_id', $products->brand_id)->get();
@@ -172,6 +175,8 @@ class WelcomeController extends Controller
                 'offers' => $offers,
                 'categories' => $categories,
                 'inventory' => $inventory,
+                'seller'=>$seller,
+
 
 
             ];
