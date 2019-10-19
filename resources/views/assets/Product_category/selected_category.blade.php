@@ -38,7 +38,7 @@
                                     <ol class="breadcrumb breadcrumb_list">
                                         <li class="breadcrumb-item"><a href="#">{{$category_name->name}}</a></li>
                                         <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                        <li class="breadcrumb-item active" aria-current="page"><a href="#">Data</a></li>
                                     </ol>
                                 </div>
                             </div>

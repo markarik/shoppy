@@ -115,12 +115,43 @@ class UserCategoryController extends Controller
         } else {
 
 
+
+
+
+
+
+
+
             $category_name = Category::where('name', $name)->first();
+
+
+//            dd($category_name);
+
+
+//            $product = Category::join('brands','brands.category_id','categories.id')
+//                ->join('products','brands.id','products.brand_id')
+////                ->where('parent_id', $category_name->id)->get();
+//
+//            $productcategories = Product::join('brands','brands.id','products.brand_id')
+//                                ->join('categories','categories.id','brands.category_id')
+//                                ->where('parent_id',$category_name->id)->get();
+//
+//
+////            dd($productcategories[0]);
+
+
+
+
+
+
+
             $categories = [];
             array_push($categories, Category::where('parent_id', $category_name->id)->get());
 
 
             $brands_arr = [];
+
+//            dd($brands_arr);
 
             for ($i = 0; $i < count($categories); $i++) {
                 foreach ($categories[$i] as $category) {
@@ -192,7 +223,7 @@ class UserCategoryController extends Controller
                 'categories' => $categories,
                 'category_name' => $category_name,
                 'offers' => $offers,
-
+//                'productcategories'=>$productcategories,
                 'brands' => $brands,
             ];
             return view('assets.Product_category.product_category', $data);

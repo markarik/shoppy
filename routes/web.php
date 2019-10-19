@@ -21,6 +21,7 @@ Route::prefix('user')->group(function () {
     Route::post('wishlist/delete/{id}','WishListController@destroy')->name('product.delete.wishlist');
     Route::post('cart','CartController@store')->name('user.add.cart');
     Route::get('products','WelcomeController@viewallproducts')->name('user.view.products');
+    Route::get('featured/products','WelcomeController@viewfeaturedproducts')->name('user.view.featured.products');
     Route::get('checkout', 'Buyer\CheckoutController@index')->name('user.checkout');
     Route::post('checkout/store', 'Buyer\CheckoutController@store')->name('user.checkout.store');
     Route::post('cart/change/{id}','CartController@update')->name('product.change.cart');

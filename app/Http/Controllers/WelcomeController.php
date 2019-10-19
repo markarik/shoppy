@@ -24,15 +24,18 @@ class WelcomeController extends Controller
         $featured = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->where('status', 2)->get();
 
+        $featuredImage = Product::where('status',2)->orderByRaw('RAND()')->take(1)->first();
+
+
 
         $products = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->orderByRaw('RAND()')->take(8)->get();
 
 
-        $date = Carbon::today()->subDays(20);
+        $date = Carbon::today()->subDays(50);
 
 
-        $productings = Product::where('created_at', '>=', $date)
+        $productings = Product::where('updated_at', '>=', $date)
             ->orderByRaw('RAND()')->take(6)->get();
 
 
@@ -52,13 +55,14 @@ class WelcomeController extends Controller
                 'featured' => $featured,
                 'products' => $products,
                 'productings' => $productings,
-//                'productss' => $productss,
                 'wishlist_count' => $wishlist_count,
                 'cart_count' => $cart_count,
                 'variants' => $variants,
                 'couresels' => $couresels,
                 'offers' => $offers,
                 'categories' => $categories,
+                'featuredImage'=>$featuredImage,
+
             ];
         } else {
             $data = [
@@ -68,6 +72,8 @@ class WelcomeController extends Controller
                 'productings' => $productings,
                 'offers' => $offers,
                 'categories' => $categories,
+                'featuredImage'=>$featuredImage,
+
 
 
             ];
@@ -90,11 +96,59 @@ class WelcomeController extends Controller
             'categories' => $categories,
 
 
+
         ];
 
 
         return view('assets.products.all_product_cards', $data);
 
+
+    }
+
+
+    public function viewfeaturedproducts()
+    {
+        $featuredImage = Product::where('status',2)->get();
+        $featured = Product::join('inventories', 'inventories.product_id', 'products.id')
+            ->where('status', 2)->get();
+        $offers = Offer::all();
+
+
+
+        $categories = Category::where('parent_id', NULL)->get();
+        if(Auth::user() == null){
+
+            $data = [
+                'featuredImage' => $featuredImage,
+                'categories' => $categories,
+                'featured' => $featured,
+                'offers' => $offers,
+            ];
+
+        return view('assets.featured_cards', $data);
+
+
+
+
+        }else {
+            $carts = OrderProduct::where('user_id', Auth::user()->id)->where('checkout_id', null)->get();
+            $cart_count = count($carts);
+            $wishlist = WishList::where('user_id', Auth::user()->id)->get();
+            $wishlist_count = count($wishlist);
+
+
+            $data = [
+                'featuredImage' => $featuredImage,
+                'categories' => $categories,
+                'featured' => $featured,
+                'offers' => $offers,
+                'wishlist_count' => $wishlist_count,
+                'cart_count' => $cart_count,
+            ];
+
+
+            return view('assets.featured_cards', $data);
+        }
 
     }
 

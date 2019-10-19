@@ -18,7 +18,7 @@
                 <th>Price</th>
                 <th>Created</th>
                 <th>Updated</th>
-                <th>Action</th>  
+{{--                <th>Action</th>  --}}
               </tr>  
         </thead>
         <tbody>
@@ -32,14 +32,14 @@
             <td>{{$feature->name}}</td>
             <td>{{$feature->brand_name}}</td>
             <td>{{$feature->unit_cost}}</td>
-            <td>{{$feature->created_at}}</td>
-            <td>{{$feature->updated_at}}</td>
-            <td>
-            <form action="#" method="POST">
-                @csrf
-                <input type="submit" class="btn btn-danger" value="Remove">
-            </form>
-            </td>
+            <td>{{\Carbon\Carbon::parse($feature->created_at)->format('d/M/Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($feature->updated_at)->format('d/M/Y')}}</td>
+{{--            <td>--}}
+{{--            <form action="#" method="POST">--}}
+{{--                @csrf--}}
+{{--                <input type="submit" class="btn btn-danger" value="Remove">--}}
+{{--            </form>--}}
+{{--            </td>--}}
         </tr>
                     @endforeach
 

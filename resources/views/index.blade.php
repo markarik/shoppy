@@ -30,41 +30,46 @@
         </div>
 
         <div class="col-sm-2">
+            <h5 class="card-title featured_products_heading">FeaturedProducts</h5>
+
             <div class="small_images">
-                <img src="{{asset('images/L2.jpg')}}" alt="image" class="small_image">
+                <a href="{{route('user.view.featured.products')}}"><img src="{{asset('products/images/featured/'.$featuredImage->featured_image_url)}}"
+                                 alt="image" class="small_image"></a>
+
+{{--                                <img src="{{asset('images/L2.jpg')}}" alt="image" class="small_image">--}}
             </div>
         </div>
 
-{{--        <div class="col-md-2 categories">--}}
+        {{--        <div class="col-md-2 categories">--}}
 
 
-{{--        </div>--}}
+        {{--        </div>--}}
 
-{{--        <div class="col-md-8 class_couresels">--}}
+        {{--        <div class="col-md-8 class_couresels">--}}
 
-{{--            <div>--}}
+        {{--            <div>--}}
 
-{{--            </div>--}}
-{{--            <div>--}}
+        {{--            </div>--}}
+        {{--            <div>--}}
 
 
-{{--            </div>--}}
+        {{--            </div>--}}
 
-{{--        </div>--}}
+        {{--        </div>--}}
 
-{{--        <div class="col-md-2">--}}
-{{--            @include('assets.carousel')--}}
-{{--            jhgfckhg--}}
+        {{--        <div class="col-md-2">--}}
+        {{--            @include('assets.carousel')--}}
+        {{--            jhgfckhg--}}
 
-{{--        </div>--}}
+        {{--        </div>--}}
     </div>
     <div class="col-md-12">
-        <div class="container">
-            @include('assets.featured_cards')
-        </div>
+        {{--        <div class="container">--}}
+        {{--            @include('assets.featured_cards')--}}
+        {{--        </div>--}}
         @include('flash-message')
 
-{{--        @include('assets.Products_navbar')--}}
+        {{--        @include('assets.Products_navbar')--}}
 
         <div class="container-fluid">
 
@@ -72,11 +77,11 @@
         </div>
 
         <div>
-{{--            @include('assets.recently_viewed_navbar')--}}
+            {{--            @include('assets.recently_viewed_navbar')--}}
         </div>
 
         <div class="container">
-{{--            @include('assets.recently_cards')--}}
+            {{--            @include('assets.recently_cards')--}}
         </div>
         <div>
             @include('assets.footer.footer')
