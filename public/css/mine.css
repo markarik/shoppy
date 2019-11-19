@@ -693,6 +693,7 @@ button.accordion:hover{
     text-decoration: none;
 }
 .page-footer{
+    margin-top: 42px !important;
     background-color: var(--blackbackgroundtheme) !important;
 }
 .page-footer h5{

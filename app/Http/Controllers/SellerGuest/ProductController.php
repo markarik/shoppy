@@ -69,7 +69,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-//        dd($request->all());
+    //    dd($request->all());
 
         $this->validate($request, [
             'unit_cost' => 'required',
@@ -207,7 +207,23 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::where('id',$id)->first();
+        $brands = Brand::all();
+//        $variants = ProductVariantOptions::where('product_id',$product->id)->get();
+        $variants = Variants::all();
+        $inventory = Inventory::where('product_id',$product->id)->first();
+
+        $data = [
+            'product'=>$product,
+            'brands' => $brands,
+            'variants' => $variants,
+            'inventory'=>$inventory
+        ];
+//        dd($variants);
+//        dd($product);
+
+        return view ('pages.seller.product.edit_product',$data);
+
     }
 
     /**
@@ -219,7 +235,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**

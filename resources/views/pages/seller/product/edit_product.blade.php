@@ -4,33 +4,35 @@
 @section('content')
     @include('flash-message')
     <div class="create_product">
-        <h1>Add Product</h1>
-        <form action="{{url('seller/products')}}" method="post" enctype="multipart/form-data">
+        <h1>Edit Product</h1>
+{{--        <form action="{{url('seller/products/edit')}}" method="post" enctype="multipart/form-data">--}}
+        <form action="{{url(route('seller.product.update',$product->id))}}" method="post" enctype="multipart/form-data">
             {!! csrf_field() !!}
 
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" value="{{$product->name}}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="quantity">Number of Items</label>
-                    <small class="input_number" > Input a Number Greater Than Zero(0)</small>
-                    <input type="number" class="form-control" name="quantity" id="number_items" min="1">
+                    <small class="input_number"> Input a Number Greater Than Zero(0)</small>
+                    <input type="number" class="form-control" name="quantity" id="number_items" min="1" value="{{$inventory->quantity}}">
                 </div>
 
             </div>
 
             <div class="form-group">
                 <label for="unit_cost">Price</label>
-                <input type="text" class="form-control" name="unit_cost">
+                <input type="text" class="form-control" name="unit_cost" value="{{$product->unit_cost}}">
             </div>
 
             <div class="form-group">
                 <label for="brand_id">Brand</label>
                 <select class="form-control" name="brand_id">
-                    <option disabled="true" selected="true" value="0">Brand</option>
+                    <option disabled="true" selected="true"
+                            value="{{$product->brand_id}}">{{$product->brand_name}}</option>
 
                     @foreach($brands as $brand)
 
@@ -42,13 +44,13 @@
             <div class="form-group ">
                 <label for="short_description">Short Description</label>
                 <textarea name="short_description" id="editor1" cols="15" rows="5"
-                          placeholder="short Description"></textarea>
+                          >{{ $product->short_description }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="long_description">Long Description</label>
                 <textarea name="long_description" id="editor2" cols="30" rows="10"
-                          placeholder="Long Description"></textarea>
+                          placeholder="Long Description">{{$product->long_description}}</textarea>
             </div>
             <div class="col-md-10 d-flex class_images">
                 <div class="form-group">
@@ -77,25 +79,6 @@
 
                 </div>
             </div>
-
-            {{--            <div class="col-md-10 d-flex class_images">--}}
-{{--                <div class="form-group">--}}
-{{--                    <label for="image">Featured Image</label>--}}
-{{--                    <input type="file" class="" name="featured_image">--}}
-{{--                </div>--}}
-{{--                <div class="form-group">--}}
-{{--                    <label for="image">Image 2</label>--}}
-{{--                    <input type="file" class="" name="image2">--}}
-{{--                </div>--}}
-{{--                <div class="form-group">--}}
-{{--                    <label for="image">Image 3</label>--}}
-{{--                    <input type="file" class="" name="image3">--}}
-{{--                </div>--}}
-{{--                <div class="form-group">--}}
-{{--                    <label for="image">Image 4</label>--}}
-{{--                    <input type="file" class="" name="image4">--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <div class="row">
                 @foreach($variants as $variant)
                     <div class="col-md-3">
@@ -133,6 +116,8 @@
 @endsection
 
 @section('js')
+
+
 
     <script type='text/javascript'>
         function preview_image(event)
@@ -187,11 +172,11 @@
         const numberInput = document.getElementById('number_items');
         const submitButton = document.getElementById('submit_button');
 
-        numberInput.addEventListener('input',($event)=>{
+        numberInput.addEventListener('input', ($event) => {
 
-            if($event.target.value <= 0){
+            if ($event.target.value <= 0) {
                 submitButton.setAttribute('disabled');
-            }else{
+            } else {
                 submitButton.removeAttribute('disabled');
             }
 

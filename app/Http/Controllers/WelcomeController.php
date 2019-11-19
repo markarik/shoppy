@@ -24,7 +24,7 @@ class WelcomeController extends Controller
         $featured = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->where('status', 2)->get();
 
-        $featuredImage = Product::where('status',2)->orderByRaw('RAND()')->take(1)->first();
+        $product = Product::where('status',2)->orderByRaw('RAND()')->take(1)->first();
 
 
 
@@ -61,7 +61,7 @@ class WelcomeController extends Controller
                 'couresels' => $couresels,
                 'offers' => $offers,
                 'categories' => $categories,
-                'featuredImage'=>$featuredImage,
+                'product' => $product,
 
             ];
         } else {
@@ -72,7 +72,7 @@ class WelcomeController extends Controller
                 'productings' => $productings,
                 'offers' => $offers,
                 'categories' => $categories,
-                'featuredImage'=>$featuredImage,
+                'product' => $product,
 
 
 
@@ -108,7 +108,7 @@ class WelcomeController extends Controller
 
     public function viewfeaturedproducts()
     {
-        $featuredImage = Product::where('status',2)->get();
+        $product = Product::where('status',2)->get();
         $featured = Product::join('inventories', 'inventories.product_id', 'products.id')
             ->where('status', 2)->get();
         $offers = Offer::all();
@@ -119,7 +119,7 @@ class WelcomeController extends Controller
         if(Auth::user() == null){
 
             $data = [
-                'featuredImage' => $featuredImage,
+                'product' => $product,
                 'categories' => $categories,
                 'featured' => $featured,
                 'offers' => $offers,

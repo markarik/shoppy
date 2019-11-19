@@ -84,6 +84,8 @@ class UserCategoryController extends Controller
             $products = [];
             $offers = [];
 
+//            dd($offers);
+
             for ($i = 0; $i < count($brands); $i++) {
 
                 array_push($products, Product::findOrFail($brands[0]->product_detail));

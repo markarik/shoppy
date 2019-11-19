@@ -19,7 +19,9 @@
                 <th>Brand</th>
                 <th>Price</th>
                 <th>Place Offer</th>
+{{--                <th>Edit</th>--}}
                 <th>Created</th>
+                <th>Action</th>
                 <th>Action</th>
               </tr>
         </thead>
@@ -38,6 +40,13 @@
             </td>
             <td>{{Carbon\Carbon::parse($product->created_at)->format('d/m/y')}}</td>
             <td>
+{{--                <input type="button" class="button_edit" data-toggle="modal" data-target="#exampleModal{{$product->id}}" value="Edit"/>--}}
+                <a href="{{route('seller.product.edit',['id'=>$product->id])}}" type="button" class=" button_edit">Edit</a>
+
+            </td>
+            <td>
+
+
             <form action="{{route('seller.delete.product',['id'=>$product->id])}}" method="POST">
                 @csrf
                 <input type="submit" value="Delete">

@@ -69,20 +69,7 @@
                     @foreach($brands as $product)
 
 
-                        {{--                        {{dd($brand)}}--}}
-                        {{--                    <div class="col-lg-2 col-sm-2">--}}
-                        {{--                        <div class="cardings">--}}
-                        {{--                            <div class="cardings__side cardings__side--front">--}}
-                        {{--                                <div class="">--}}
-                        {{--                                    <a href="#">--}}
-                        {{--                                        <img src="{{asset('images/L1.jpg')}}" alt="" class="product_category_class">--}}
-                        {{--                                    </a>--}}
 
-                        {{--                                    {{$brand->product_detail[0]->name}}--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                    </div>--}}
                         <div class="col-lg-2 col-sm-2">
                             <div class="carding">
                                 <div class="carding__side carding__side--front">
@@ -106,14 +93,17 @@
                                     </div>
                                     <div class="carding__details ">
                                         <div class="d-flex mb-2">
-                                            @if(count($offers) !=0)
-
+                                            @if(count($offers) != 0)
 
 
                                                 @foreach($offers as $offer)
 
+{{--                                                    {{dd($offer)}}--}}
 
-                                                    @if($offer->product_id == $product->product_detail->id) <div class="d-flex">
+                                                @if($offer !=null)
+
+                                                    @if($offer->product_id == $product->product_detail->id)
+                                                        <div class="d-flex">
                                                             <h6 class="mr-2">
                                                                 KShs</h6> {{($product->product_detail->unit_cost)-($offer->discount *$product->product_detail->unit_cost )/100}}
 
@@ -131,6 +121,9 @@
                                                                 KShs</h6>{{$product->product_detail->unit_cost}}
                                                         </div>
 
+                                                    @endif
+
+                                                    @else
                                                     @endif
                                                 @endforeach
                                             @else

@@ -3,150 +3,162 @@
 
     {{--    @include('assets.featured_navbar')--}}
 
-    <div class="row">
-        <div class="container-fluid">
+   <div class="row">
+       <div class="col-sm-2 mt-3 ml-3 mb-5">
 
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="breadcrumb category_breadcrumbs">
-                        <div class="page-header float-left">
-                            <div class="page-title">
-                                <ol class="breadcrumb breadcrumb_list">
-                                    <li class="breadcrumb-item active"><a href="#">Featured Products</a></li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+           @include('assets.category.category')
 
+       </div>
+       <div class="col-sm-9">
+           <div class="row">
+               <div class="container-fluid">
 
-                <div class="col-sm-8">
-                    <form action="">
-                        <nav class="nav featured_nav_class">
-                            {{--                        <a class="nav-link active" href="#">Active</a>--}}
-                            {{--                        <a class="nav-link" href="#">Link</a>--}}
-                            {{--                        <a class="nav-link" href="#">Link</a>--}}
-
-                                <div>
-                                    <label for="">From</label>
-                                    <input type="range" name="rangeInput" min="0" max="1000000" class="slider"
-                                           onchange="updateTextInput1(this.value);">
-
-                                    <input type="text" id="textInput1" value="" placeholder="From">
+                   <div class="row">
+                       <div class="col-sm-4">
+                           <div class="breadcrumb category_breadcrumbs">
+                               <div class="page-header float-left">
+                                   <div class="page-title">
+                                       <ol class="breadcrumb breadcrumb_list">
+                                           <li class="breadcrumb-item active"><a href="#">Featured Products</a></li>
+                                       </ol>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
 
 
-                                </div>
+                       <div class="col-sm-8">
+                           <form action="{{route('user.view.featured')}}">
+                               {{--                        {{@csrf_field()}}--}}
+                               <nav class="nav featured_nav_class">
+                                   {{--                        <a class="nav-link active" href="#">Active</a>--}}
+                                   {{--                        <a class="nav-link" href="#">Link</a>--}}
+                                   {{--                        <a class="nav-link" href="#">Link</a>--}}
+
+                                   <div>
+                                       <label for="">From</label>
+                                       {{--                                    <input type="range" name="from" min="0" max="500000" class="slider"--}}
+                                       {{--                                           onchange="updateTextInput1(this.value);">--}}
+
+                                       <input type="text" name="from" value="" placeholder="From">
 
 
-
-
-                                <div>
-                                    <label for="">To </label>
-                                    <input type="range" name="rangeInput" min="0" max="1000000" class="slider"
-                                           onchange="updateTextInput2(this.value);">
-
-                                    <input type="text" id="textInput2" value="" placeholder="To">
-
-
-                                </div>
-
-                            <div>
-
-                                <input type="submit" value="OK" class="btn">
-
-
-                            </div>
-
-
-
-                        </nav>
-                    </form>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-    </div>
-
-    <div class="container-fluid">
-
-
-        <div class="row">
-            @foreach($featured as $product)
-
-                <div class="col-lg-2 col-sm-2">
-                    <div class="carding">
-                        <div class="carding__side carding__side--front">
-                            <div class="carding__picture">
-                                <a href="{{url('user/details',['id'=>$product->id])}}">
-                                    <img class=" carding__image"
-                                         src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"
-                                         alt="Card image cap">
-                                </a>
-                            </div>
-                            <div>
-                                <p class="product_name">{{ strlen($product->name) > 30 ? substr($product->name,0,30).'...' : $product->name }}</p>
-
-                            </div>
-                            <div class="star_custom ml-auto">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div class="carding__details ">
-                                <div class="d-flex mb-2">
-                                    @if(count($offers) !=0)
-
-                                        @foreach($offers as $offer)
-                                            @if($offer->product_id == $product->id)
+                                   </div>
 
 
 
 
-                                                <div class="d-flex">
-                                                    <h6 class="mr-2">
-                                                        KShs</h6> {{($product->unit_cost)-($offer->discount *$product->unit_cost )/100}}
+                                   <div>
+                                       <label for="">To </label>
+                                       {{--                                    <input type="range" name="to" min="0" max="500000" class="slider"--}}
+                                       {{--                                           onchange="updateTextInput2(this.value);">--}}
 
-                                                </div>
-
-                                                <div class="details_card_prices ">
-                                                    kShs {{$product->unit_cost}}
-                                                </div>
-
-                                            @else
+                                       <input type="text" name="to" value="" placeholder="To">
 
 
-                                                <div class="d-flex mb-3">
-                                                    <h6 class="mr-2">KShs</h6>{{$product->unit_cost}}
-                                                </div>
+                                   </div>
 
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <span class="mr-1 carding__details--spanunit ">KShs</span>
+                                   <div>
 
-                                        <span class="carding__details--spanamount">{{$product->unit_cost}}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="carding__discount">
-
-                            </div>
-                        </div>
+                                       <input type="submit" value="OK" class="btn">
 
 
-                    </div>
+                                   </div>
 
-                </div>
 
-            @endforeach
-        </div>
-    </div>
+
+                               </nav>
+                           </form>
+                           @include('flash-message')
+
+
+                       </div>
+
+
+                   </div>
+
+
+               </div>
+           </div>
+
+           <div class="container-fluid">
+
+
+               <div class="row">
+                   @foreach($featured as $product)
+
+                       <div class="col-lg-2 col-sm-2">
+                           <div class="carding">
+                               <div class="carding__side carding__side--front">
+                                   <div class="carding__picture">
+                                       <a href="{{url('user/details',['id'=>$product->id])}}">
+                                           <img class=" carding__image"
+                                                src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"
+                                                alt="Card image cap">
+                                       </a>
+                                   </div>
+                                   <div>
+                                       <p class="product_name">{{ strlen($product->name) > 30 ? substr($product->name,0,30).'...' : $product->name }}</p>
+
+                                   </div>
+                                   <div class="star_custom ml-auto">
+                                       <i class="fas fa-star"></i>
+                                       <i class="fas fa-star"></i>
+                                       <i class="fas fa-star"></i>
+                                       <i class="fas fa-star"></i>
+                                       <i class="far fa-star"></i>
+                                   </div>
+                                   <div class="carding__details ">
+                                       <div class="d-flex mb-2">
+                                           @if(count($offers) !=0)
+
+                                               @foreach($offers as $offer)
+                                                   @if($offer->product_id == $product->id)
+
+
+
+
+                                                       <div class="d-flex">
+                                                           <h6 class="mr-2">
+                                                               KShs</h6> {{($product->unit_cost)-($offer->discount *$product->unit_cost )/100}}
+
+                                                       </div>
+
+                                                       <div class="details_card_prices ">
+                                                           kShs {{$product->unit_cost}}
+                                                       </div>
+
+                                                   @else
+
+
+                                                       <div class="d-flex mb-3">
+                                                           <h6 class="mr-2">KShs</h6>{{$product->unit_cost}}
+                                                       </div>
+
+                                                   @endif
+                                               @endforeach
+                                           @else
+                                               <span class="mr-1 carding__details--spanunit ">KShs</span>
+
+                                               <span class="carding__details--spanamount">{{$product->unit_cost}}</span>
+                                           @endif
+                                       </div>
+                                   </div>
+                                   <div class="carding__discount">
+
+                                   </div>
+                               </div>
+
+
+                           </div>
+
+                       </div>
+
+                   @endforeach
+               </div>
+           </div>
+       </div>
+   </div>
 
 
     @include('assets.footer.footer')

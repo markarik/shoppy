@@ -30,14 +30,26 @@
         </div>
 
         <div class="col-sm-2">
-            <h5 class="card-title featured_products_heading">FeaturedProducts</h5>
 
-            <div class="small_images">
-                <a href="{{route('user.view.featured.products')}}"><img src="{{asset('products/images/featured/'.$featuredImage->featured_image_url)}}"
-                                 alt="image" class="small_image"></a>
+            @if($product != null)
 
-{{--                                <img src="{{asset('images/L2.jpg')}}" alt="image" class="small_image">--}}
-            </div>
+                <h5 class="card-title featured_products_heading">FeaturedProducts</h5>
+
+                <div class="small_images">
+                    <a href="{{route('user.view.featured.products')}}"><img
+                                src="{{asset('/products/images/featured/'.$product->featured_image_url)}}"
+                                alt="image" class="small_image"></a>
+
+                    {{--                                <img src="{{asset('images/L2.jpg')}}" alt="image" class="small_image">--}}
+                </div>
+            @else
+
+                <div class="small_images">
+                    <img src="{{asset('images/L2.jpg')}}" alt="image" class="small_image">
+                </div>
+
+            @endif
+
         </div>
 
         {{--        <div class="col-md-2 categories">--}}

@@ -23,8 +23,10 @@ class BrandController extends Controller
      */
     public function index()    {
 
-       $categories = Category::all();
+       $categories = Category::where('parent_id','!=' ,null)->get();
         $brands = Brand::all();
+
+//        dd($categories);
 
 //        dd($brands[0]->category_name);
 
