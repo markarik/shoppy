@@ -80,7 +80,6 @@ class ProductController extends Controller
 
         ]);
 
-//dd($request->all());
 
         $featured_images_path = './products/images/featured';
         $other_images_path = './products/images/others';
@@ -209,6 +208,7 @@ class ProductController extends Controller
     {
         $product = Product::where('id',$id)->first();
         $brands = Brand::all();
+        $images = Image::where('product_id',$product->id)->get();
 //        $variants = ProductVariantOptions::where('product_id',$product->id)->get();
         $variants = Variants::all();
         $inventory = Inventory::where('product_id',$product->id)->first();
@@ -217,10 +217,13 @@ class ProductController extends Controller
             'product'=>$product,
             'brands' => $brands,
             'variants' => $variants,
-            'inventory'=>$inventory
+            'inventory'=>$inventory,
+            'images'=>$images,
         ];
+//        dd($images);
 //        dd($variants);
 //        dd($product);
+//        dd($brands[0]->id);
 
         return view ('pages.seller.product.edit_product',$data);
 
@@ -235,7 +238,27 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+//        dd($request->all());
+
+
+
+        $product = Product::findOrFail($id);
+        $product->name = $request->input('name');
+        $product->short_description = $request->input('short_description');
+        $product->long_description = $request->input('long_description');
+        $product->unit_cost = $request->input('unit_cost');
+        $product->brand_id = $request->input('brand_id');
+
+        $product->save();
+
+
+        $inventory = Inventory::findOrFail($id);
+        $inventory->quantity = $request->input('quantity');
+        $inventory->save();
+
+        return redirect()->back()->with('success', 'Product Updated');
+
+
     }
 
     /**
