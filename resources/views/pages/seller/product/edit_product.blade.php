@@ -27,7 +27,8 @@
             <div class="create_product">
                 <h1>Edit Product</h1>
                 {{--        <form action="{{url('seller/products/edit')}}" method="post" enctype="multipart/form-data">--}}
-                <form action="{{url(route('seller.product.update',$product->id))}}" method="post" enctype="multipart/form-data">
+                <form action="{{(route('seller.product.update',$product->id))}}" method="post"
+                      enctype="multipart/form-data">
                     {!! csrf_field() !!}
 
 
@@ -76,63 +77,79 @@
                     </div>
 
 
-
-
-
-
-
-
                     <button type="submit" class="btn btn-success mb-3" id="submit_button">Save</button>
                 </form>
 
             </div>
 
 
-
         </div>
         <div class="tab-pane fade pl-5" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
 
-            <div class="row">
-                @foreach($variants as $variant)
+            <form action="{{route('seller.product.update.variantoption',$product->id)}}" method="post">
+                {{@csrf_field()}}
+                <div class="row">
+                    @foreach($product->variant as $var)
 
-                    <div class="col-md-3">
+{{--                        {{dd($var->type)}}--}}
 
-                        <div class="form-group">
-
-                            <label for="{{$variant->type}}">{{$variant->type}}</label>
-
-                            @if(count($variant->variant_option) != 0)
-                                <select multiple class="form-control" id="exampleFormControlSelect2"
-                                        name="option[{{$variant->type}}][]">
-                                    @foreach($variant->variant_option as $option)
-{{--                                        <div class="custom-control custom-checkbox">--}}
-{{--                                            <input type="checkbox" class="custom-control-input" id="customCheck1">--}}
-{{--                                            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>--}}
-{{--                                        </div>--}}
-                                        <option value="{{$option->id}}">{{$option->name}}</option>
-                                    @endforeach
-                                </select>
-                            @else
-                                <select class="form-control" name="variantoptions_id">
-                                    <option value="no options" selected disabled>No Options Yet</option>
-                                </select>
-                            @endif
+{{--                        @for ($i = 0 ; $i<count($variant); $i++)--}}
 
 
+                        {{--                        {{dd($variant)}}--}}
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+
+                                <label for="{{$var->type}}">{{$var->type}}</label>
+
+                                @if(count($var->variant_option) != 0)
+{{--                                    <select class="form-control" name="option[{{$var->type}}]">--}}
+{{--                                        <option value="--select option--" selected disabled>--select--}}
+{{--                                            option----}}
+{{--                                        </option>--}}
+                                        @foreach($var->variant_option as $option)
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="option[{{$option->name}}]" value="{{$option->id}}">
+                                            <label>{{$option->name}}</label>
+                                        </div>
+
+{{--                                            <option value="{{$option->id}}">{{$option->name}}</option>--}}
+                                        @endforeach
+{{--                                    </select>--}}
+                                @else
+{{--                                    <select class="form-control" name="variantoptions_id">--}}
+{{--                                        <option value="no options" selected disabled>No Options Yet--}}
+{{--                                        </option>--}}
+{{--                                    </select>--}}
+                                @endif
+{{--                                @foreach($variants as $option)--}}
+
+{{--                                    <div class="custom-control custom-checkbox">--}}
+{{--                                        <input type="checkbox" name="role[]" checked>--}}
+{{--                                        <label>{{$variant[$i]->name}}</label>--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
+
+
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+{{--                    @endfor--}}
+                    @endforeach
 
 
-            </div>
+                </div>
+                <button type="submit" class="btn btn-success mb-3" id="submit_button">Save</button>
 
+            </form>
 
 
         </div>
         <div class="tab-pane fade p-5" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 
-{{--featured image start--}}
+            {{--featured image start--}}
             <div class="row">
                 <div class="col-md-11 d-flex class_images">
                     <div class="form-group col-md-5">
@@ -151,8 +168,8 @@
             </div>
 
 
-{{--            feature image end--}}
-{{--            other images start--}}
+            {{--            feature image end--}}
+            {{--            other images start--}}
             <div class="row">
                 <div class="col-md-11 d-flex class_images">
 
@@ -163,7 +180,6 @@
                         <img id="output_image2" style="width: 50px;"/>
 
                     </div>
-
 
 
                 </div>
@@ -180,7 +196,7 @@
                     </div>
                 </div>
             </div>
-{{--            other images end--}}
+            {{--            other images end--}}
 
         </div>
     </div>

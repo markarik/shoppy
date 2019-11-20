@@ -14,4 +14,18 @@ class VariantOption extends Model
 
         return $variant;
     }
+
+
+
+//    public function getVariantOptionAttribute()
+//    {
+//        $variant_option = VariantOption::where('id',$this->variant_option_id)->get();
+//
+//
+//        dd($variant_option);
+//
+//        return $variant_option;
+//    }
+
+
 }

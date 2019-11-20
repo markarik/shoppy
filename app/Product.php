@@ -156,6 +156,7 @@ class Product extends Model
         $variants = $collection->unique();
 
         $variants->values()->all();
+//        dd($variants);
 
         return $variants;
 

@@ -138,7 +138,7 @@ class WelcomeController extends Controller
 
 
             $data = [
-                'featuredImage' => $featuredImage,
+//                'featuredImage' => $featuredImage,
                 'categories' => $categories,
                 'featured' => $featured,
                 'offers' => $offers,

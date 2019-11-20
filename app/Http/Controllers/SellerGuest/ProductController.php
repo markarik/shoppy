@@ -69,7 +69,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-    //    dd($request->all());
+        //    dd($request->all());
 
         $this->validate($request, [
             'unit_cost' => 'required',
@@ -108,7 +108,7 @@ class ProductController extends Controller
             $options = $request->input('option');
 
 
-            foreach ($options as $items){
+            foreach ($options as $items) {
 
 
                 foreach (array_values($items) as $option) {
@@ -206,26 +206,35 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::where('id',$id)->first();
+        $product = Product::where('id', $id)->first();
         $brands = Brand::all();
-        $images = Image::where('product_id',$product->id)->get();
-//        $variants = ProductVariantOptions::where('product_id',$product->id)->get();
-        $variants = Variants::all();
-        $inventory = Inventory::where('product_id',$product->id)->first();
+        $images = Image::where('product_id', $id)->get();
+
+
+//        $variants_options = [];
+//
+//        array_push($variants_options,ProductVariantOptions::where('product_id',$product->id)->get());
+
+
+//        $variants_options = ProductVariantOptions::where('product_id',$id)->get();
+//        $variants = Variants::all();
+        $inventory = Inventory::where('product_id', $id)->first();
 
         $data = [
-            'product'=>$product,
+            'product' => $product,
             'brands' => $brands,
-            'variants' => $variants,
-            'inventory'=>$inventory,
-            'images'=>$images,
+//            'variants_options' => $variants_options,
+            'inventory' => $inventory,
+            'images' => $images,
         ];
 //        dd($images);
-//        dd($variants);
-//        dd($product);
+//        dd($variants_options);
+//        dd($variants_options[0]->Variant_option_name->name);
+//        dd($variants_options[0]->variant);
+//        dd($product->variant[0]->type);
 //        dd($brands[0]->id);
 
-        return view ('pages.seller.product.edit_product',$data);
+        return view('pages.seller.product.edit_product', $data);
 
     }
 
@@ -241,8 +250,8 @@ class ProductController extends Controller
 //        dd($request->all());
 
 
-
         $product = Product::findOrFail($id);
+
         $product->name = $request->input('name');
         $product->short_description = $request->input('short_description');
         $product->long_description = $request->input('long_description');
@@ -256,10 +265,51 @@ class ProductController extends Controller
         $inventory->quantity = $request->input('quantity');
         $inventory->save();
 
+
+        $options = $request->input('option');
+
+
+        foreach ($options as $items) {
+            $variant_option = VariantOption::where('variant_option_id', $items);
+
+//            dd($variant_option);
+
+        }
+
+
         return redirect()->back()->with('success', 'Product Updated');
 
 
     }
+
+
+    public function updatevariantsoption(Request $request, $id)
+    {
+//        dd($request->all());
+
+        $options = $request->input('option');
+        $product = Product::findOrFail($id);
+//        dd($product->id);
+        $options_val = array_values($options);
+//        dd($options_val);
+
+        foreach ($options_val as $item) {
+
+//            dd($item);
+
+            $variant_option = ProductVariantOptions::where('product_id', $product->id)
+                ->where('variant_option_id', $item)->first();
+//            dd($variant_option);
+
+            $variant_option->delete();
+
+        }
+
+        return redirect()->back()->with('success', 'Product Variant Option Deleted Successfully');
+
+
+    }
+
 
     /**
      * Remove the specified resource from storage.
