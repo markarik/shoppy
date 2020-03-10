@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in to dshboard
+                    You are logged in!
 !
                 </div>
             </div>
